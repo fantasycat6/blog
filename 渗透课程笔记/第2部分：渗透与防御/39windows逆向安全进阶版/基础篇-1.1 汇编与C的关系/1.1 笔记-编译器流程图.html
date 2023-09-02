@@ -1,0 +1,113 @@
+<p>C/C++编译器：</p>
+
+<p><img alt="" src="https://img.jbzj.com/file_images/article/201706/2017061610180313.png" style="height:187px; width:958px" /></p>
+
+<p>&nbsp;</p>
+
+<h1>1 几个基本概念</h1>
+
+<p><span style="font-size:14px"><strong>编译：</strong>编译器对源文件的编译过程，就是将源文件中的文本形式代码翻译为机器语言形式的目标文件的过程，此过程中会有一系列语法检查、指令优化等，生成目标（OBJ）文件。</span></p>
+
+<p><span style="font-size:14px"><strong>编译单元：</strong>每一个CPP文件就是一个编译单元，每个单元之间是互相独立且不可知的。</span></p>
+
+<p><span style="font-size:14px"><strong>目标文件：</strong>编译步骤产生的文件，包含了编译单元内所有代码和数据，以二进制形式存在。请注意三个关键表：<strong>未解决符号表、导出符号表、地址重定向表</strong>。</span></p>
+
+<p><span style="font-size:14px"><strong>链接：</strong>当编译器将工程中所有CPP文件以分离形式编译成各个对应目标（OBJ）文件之后，再由链接器进行链接生成一个EXE或者DLL文件。</span></p>
+
+<p>&nbsp;</p>
+
+<h1><strong>2 一个例子</strong></h1>
+
+<p><span style="font-size:14px">用一个例子来理解下编译器与链接器的工作：</span></p>
+
+<p><span style="font-size:14px"><strong>file1.cpp</strong></span></p>
+
+<pre>
+<span style="font-size:14px">int gVal = 123;
+
+void func1()
+{
+    ++gVal;
+}</span></pre>
+
+<p><span style="font-size:14px">这个文件编译出来的目标文件file1.obj 就会有一个段来包含上面的数据和函数，内容大致如下（只是示意，并非完全一样）：</span></p>
+
+<p><span style="font-size:14px"><strong>偏移量&nbsp; &nbsp; 内容&nbsp; &nbsp; 长度</strong></span></p>
+
+<p><span style="font-size:14px">0x0000&nbsp; &nbsp;gVal&nbsp; &nbsp; 4</span></p>
+
+<p><span style="font-size:14px">0x0004&nbsp; &nbsp;func1&nbsp; ??</span></p>
+
+<p><span style="font-size:14px">这里的??表示长度未知，实际目标文件的各个数据可能不是连续的，也不一定从0x0000开始。比如这里的func1可能是这样：</span></p>
+
+<p><span style="font-size:14px">0x0004 inc DWORD PTR[0x0000]</span></p>
+
+<p><span style="font-size:14px">0x00?? ret</span></p>
+
+<p><span style="font-size:14px">这里把++gVal翻译为inc语句，也就是把本单元的0x0000地址的一个DWORD（4字节）进行加一。</span></p>
+
+<p><span style="font-size:14px"><strong>file2.cpp</strong></span></p>
+
+<pre>
+<span style="font-size:14px">extern int gVal;
+
+void func2()
+{
+    ++gVal;
+}</span></pre>
+
+<p><span style="font-size:14px">对应的file2.obj文件内容应该是：</span></p>
+
+<p><span style="font-size:14px"><strong>偏移量&nbsp; &nbsp; 内容&nbsp; &nbsp; 长度</strong></span></p>
+
+<p><span style="font-size:14px">0x0000&nbsp; &nbsp;func2&nbsp; ??</span></p>
+
+<p><span style="font-size:14px">可以看到这里并没有gVal，原因是extern关键字声明这是个外部引用符号，已经在别的单元里面定义了。由于单元之间是隔离的，所以这里的func2代码就没有办法填写地址，大致是这样：</span></p>
+
+<p><span style="font-size:14px">0x0004 inc DWORD PTR[????]</span></p>
+
+<p><span style="font-size:14px">0x00?? ret</span></p>
+
+<p><span style="font-size:14px">这个????就表示当前无法拿到有效地址，需要链接器来完成，如何告诉链接器？需要一个<strong>未解决符号表</strong>（unresolved symbol table），同样提供gVal符号的目标文件也要提供一个<strong>导出符号表</strong>（export symbol table）来告知链接器可以提供的符号内容。</span></p>
+
+<p><span style="font-size:14px">这两个表之间依靠符号来进行关联，在C/C++中每一个变量和函数都有自己的<strong>符号</strong>名，函数名略复杂（依据编译器不同而有差异），假设这里函数func1的符号为_func1，那么file1.obj文件的导出符号为：</span></p>
+
+<p><span style="font-size:14px"><strong>导出符号&nbsp; &nbsp; &nbsp; 地址</strong></span></p>
+
+<p><span style="font-size:14px">gVal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0x0000</span></p>
+
+<p><span style="font-size:14px">_func1&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0x0004</span></p>
+
+<p><span style="font-size:14px">而对应的未解决符号表则为空，因为没有依赖其他单元的内容。另一个file2.cpp文件的导出符号表为：</span></p>
+
+<p><span style="font-size:14px"><strong>导出符号&nbsp; &nbsp; &nbsp; 地址</strong></span></p>
+
+<p><span style="font-size:14px">_func2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0x0000</span></p>
+
+<p><span style="font-size:14px">而对应的未解决符号表为（下表的含义是说0x0001位置有一个地址不明，符号叫gVal）：</span></p>
+
+<p><span style="font-size:14px"><strong>未决符号&nbsp; &nbsp; &nbsp; 地址</strong></span></p>
+
+<p><span style="font-size:14px">gVal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0x0001</span></p>
+
+<p><span style="font-size:14px">链接器会针对未解决符号表中的在所有导出符号表中进行匹配，如果找到则匹配填写进来，如果找不到就会报链接错误。但这里可以发现一个问题，就是gVal的符号地址是0x0000，如果直接将解析的地址替换未解决符表中的????就会生成一个冲突的地址0x0000，与本单元的地址重复了。为了解决这个问题，还需要针对每一个编译单元引入的一个地址偏移。例如file1.obj的地址从0x00001000开始，file2.obj的地址从0x00002000开始，这样符号地址叠加后就不会重复了。记录这样的地址偏移量的表称之为<strong>地址重定向表</strong>（address redirect table）。</span></p>
+
+<p>&nbsp;</p>
+
+<h1><strong>3 链接器工作顺序</strong></h1>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size:16px"> 当链接器进行链接的时候，首先决定各个目标文件在最终可执行文件里的位置。然后访问所有目标文件的地址重定义表，对其中记录的地址进行重定向（加上一个偏移量，即该编译单元在可执行文件上的起始地址）。然后遍历所有目标文件的未解决符号表，并且在所有的导出符号表里查找匹配的符号，并在未解决符号表中所记录的位置上填写实现地址。最后把所有的目标文件的内容写在各自的位置上，再作一些另的工作，就生成一个可执行文件。</span></p>
+
+<p><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp;说明：实现链接的时候会更加复杂，一般实现的目标文件都会把数据，代码分成好向个区，重定向按区进行，但原理都是一样的。</span></p>
+
+<p><span style="font-size:16px"><strong>extern：</strong>这就是告诉编译器，这个变量或函数在别的编译单元里定义了，也就是要把这个符号放到未解决符号表里面去（外部链接）。</span></p>
+
+<p><span style="font-size:16px"><strong>static：</strong>如果该关键字位于全局函数或者变量的声明前面，表明该编译单元不导出这个函数或变量，因些这个符号不能在别的编译单元中使用（内部链接）。如果是static局部变量，则该变量的存储方式和全局变量一样，但是仍然不导出符号。</span></p>
+
+<p><span style="font-size:16px"><strong>默认链接属性：</strong>对于函数和变量，默认链接是外部链接，对于const变量，默认内部链接。</span></p>
+
+<p><span style="font-size:16px"><strong>外部链接：</strong>外部链接的符号在整个程序范围内都是可以使用的，这就要求其他编译单元不能导出相同的符号（不然就会报duplicated external symbols）。</span></p>
+
+<p><span style="font-size:16px"><strong>内部链接：</strong>内部链接的符号不能在别的编译单元中使用。但不同的编译单元可以拥有同样的名称的符号。</span></p>
+
+<p>&nbsp;</p>

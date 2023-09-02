@@ -1,0 +1,598 @@
+<ul>
+	<li><span style="font-size:22px">1.5 从企业应用角度看待IDA &nbsp;Pro</span></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<ol>
+	<li><span style="font-size:16px"><strong>&nbsp;竞品分析</strong></span></li>
+	<li><span style="font-size:16px">考虑到当今恶意代码的速度和复杂性，需要一种功能强大的分析解决方案。IDA Pro已成为恶意软件分析领域的标准，以至于有关新病毒的信息通常以&ldquo; IDA数据库&rdquo;的形式交换。防病毒，恶意软件和间谍软件分析师每天都会使用IDA Pro来调查新的病毒样本威胁并提供及时的解决方案。</span></li>
+	<li><strong><span style="font-size:16px">漏洞验证（挖掘）</span></strong></li>
+	<li><span style="font-size:16px">漏洞披露的话题仍然颇具争议，但事实上，软件通常很容易受到外部攻击。IDA Pro是研究此类漏洞的理想工具。如果它们不固定，则可能出于不诚实或犯罪意图而被第三方利用。例如，国外某安全分析器是一个非常有趣的项目，指在研究软件漏洞，其中IDA Pro扮演着重要角色。</span></li>
+	<li><strong><span style="font-size:16px">商业产品授权验证</span></strong></li>
+	<li><span style="font-size:16px">许多软件是在使用它们的国家以外开发的。由于这些程序难以验证，而且由于完整的源代码审核和重建并不总是可行或可行的，因此IDA之类的工具提供了一种方便的方法来检查程序是否确实按照其要求执行，没有有害漏洞并且不泄漏任何敏感信息。</span></li>
+	<li><span style="font-size:16px"><strong>隐私保护</strong></span></li>
+	<li><span style="font-size:16px">软件正在各个层面入侵我们的生活。在可能被收集，出售或利用的有关个人用户的数据量激增到前所未有的水平时，尊重基本隐私权是许多人的关注点。IDA Pro帮助调查可能引起关注的软件，从而保护您的基本权利。</span></li>
+	<li><span style="font-size:16px"><strong>其他用途</strong></span></li>
+	<li><span style="font-size:16px">IDA Pro在学术界引起了很多兴趣。在此可以看到IDA Pro发挥作用的部分论文清单。</span></li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">1.5 IDA Pro 基础命令 </span></li>
+	<li><strong><span style="font-size:16px">IDA目录结构</span></strong></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">在IDA的安装根目录下有许多文件夹，各个文件夹存储不同的内容</span></p>
+
+	<p><span style="font-size:16px">cfg：包含各种配置文件，基本IDA配置文件ida.cfg,GUI配置文件idagui.cfg，文本模式用户界面配置文件idatui.cfg,</span></p>
+
+	<p><span style="font-size:16px">idc：包含IDA内置脚本语言IDC所需要的核心文件</span></p>
+
+	<p><span style="font-size:16px">ids：包含一些符号文件</span></p>
+
+	<p><span style="font-size:16px">loaders：包含用于识别和解析PE或者ELF</span></p>
+
+	<p><span style="font-size:16px">plugins：附加的插件模块</span></p>
+
+	<p><span style="font-size:16px">procs：包含处理器模块</span></p>
+
+	<p><span style="font-size:16px">常用快捷键</span></p>
+
+	<p><span style="font-size:16px">IDA中的快捷键都是和菜单栏的各个功能选项一一对应的，基本上你只要能在菜单栏上找到某个功能，也就能看到相应的快捷键，这里记录几个常用的：</span></p>
+
+	<p><span style="font-size:16px">a：将数据转换为字符串</span></p>
+
+	<p><span style="font-size:16px">f5：一键反汇编</span></p>
+
+	<p><span style="font-size:16px">esc：回退键，能够倒回上一部操作的视图（只有在反汇编窗口才是这个作用，如果是在其他窗口按下esc，会关闭该窗口）</span></p>
+
+	<p><span style="font-size:16px">shift+f12：可以打开string窗口，一键找出所有的字符串，右击setup，还能对窗口的属性进行设置</span></p>
+
+	<p><span style="font-size:16px">ctrl+w：保存ida数据库</span></p>
+
+	<p><span style="font-size:16px">ctrl+s：选择某个数据段，直接进行跳转</span></p>
+
+	<p><span style="font-size:16px">ctrl+鼠标滚轮：能够调节流程视图的大小</span></p>
+
+	<p><span style="font-size:16px">x：对着某个函数、变量按该快捷键，可以查看它的交叉引用</span></p>
+
+	<p><span style="font-size:16px">g：直接跳转到某个地址</span></p>
+
+	<p><span style="font-size:16px">n：更改变量的名称</span></p>
+
+	<p><span style="font-size:16px">y：更改变量的类型</span></p>
+
+	<p><span style="font-size:16px">/ ：在反编译后伪代码的界面中写下注释</span></p>
+
+	<p><span style="font-size:16px">\：在反编译后伪代码的界面中隐藏/显示变量和函数的类型描述，有时候变量特别多的时候隐藏掉类型描述看起来会轻松很多</span></p>
+
+	<p><span style="font-size:16px">；：在反汇编后的界面中写下注释</span></p>
+
+	<p><span style="font-size:16px">ctrl+shift+w：拍摄IDA快照</span></p>
+
+	<p><span style="font-size:16px">u：undefine，取消定义函数、代码、数据的定义</span></p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">1.5 IDA Pro 动态调试原理 </span></li>
+</ul>
+
+<p><span style="font-size:16px">1、基本是一键操作的事情，点点鼠标就好了，这里我们先随便开个exe，在main/WinMain的前几句下个断点。<br />
+2、按下F9（Debugger &ndash;Switch debugger），选择Local Win32 Debugger。（高版本的是Local Windows Debugger）<br />
+3、再次按下F9（Debugger &ndash; Start Process），选择Yes<br />
+4、哈哈，断下来了，就这么简单</span></p>
+
+<ul>
+	<li><span style="font-size:18px"><strong>二、64位exe + IDA 6.95</strong></span></li>
+</ul>
+
+<p><span style="font-size:16px">1、随便开个exe，在main/WinMain的前几句下个断点。<br />
+2、包括6.95在内的低版本是不支持直接调试64位exe的，必须使用remote debugger，所以这里需要选择Remote Windows Debugger。<br />
+3、在IDA的安装目录里找到 win64_remotex64.exe ，并且在后台运行。<br />
+4、设置Process Options，HostName写为127.0.0.1。<br />
+5、按下F9（Start Process），选择Yes<br />
+6、ok，断下来了，没毛病</span></p>
+
+<ul>
+	<li><strong><span style="font-size:18px">三、64位exe + IDA 7.0</span></strong></li>
+</ul>
+
+<p><span style="font-size:16px">1、从IDA7.0开始，就可以直接运行64位exe，不用开remote debugger了，第一部分，断下来，直接F9即可。<br />
+2、无敌啊，7.0赛高！！</span></p>
+
+<ul>
+	<li><span style="font-size:22px">1.5 IDA Pro 静态反汇编引擎原理 </span></li>
+	<li>
+	<pre>
+<code class="language-cpp">static void Scanasm(int mode) {
+	int i, j, base, maxdigit;
+	long decimal, hex;
+	long double floating, divisor;
+	unsigned char s[TEXTLEN], *pcmd;
+	sdata[0] = '\0';
+	idata = 0;
+	if (asmcmd == NULL) {
+		asmerror = "NULL input line"; scan = SCAN_ERR; return;
+	};
+	while (*asmcmd == ' ' || *asmcmd == '\t')
+		asmcmd++;                          // Skip leading spaces
+	if (*asmcmd == '\0' || *asmcmd == ';') {
+		scan = SCAN_EOL; return;
+	};          // Empty line
+	if (isalpha(*asmcmd) || *asmcmd == '_' || *asmcmd == '@') {
+		sdata[0] = *asmcmd++; i = 1;           // Some keyword or identifier
+		while ((isalnum(*asmcmd) || *asmcmd == '_' || *asmcmd == '@') &amp;&amp;
+			i &lt; sizeof(sdata))
+			sdata[i++] = *asmcmd++;
+		if (i &gt;= sizeof(sdata)) {
+			asmerror = "Too long identifier"; scan = SCAN_ERR; return;
+		};
+		sdata[i] = '\0';
+		while (*asmcmd == ' ' || *asmcmd == '\t')
+			asmcmd++;                        // Skip trailing spaces
+		strcpy(s, sdata); strupr(s);
+		for (j = 0; j &lt;= 8; j++) {             // j==8 means "any register"
+			if (strcmp(s, cuszRegName[0][j]) != 0) continue;
+			idata = j; scan = SCAN_REG8;         // 8-bit register
+			return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszRegName[1][j]) != 0) continue;
+			idata = j; scan = SCAN_REG16;        // 16-bit register
+			return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszRegName[2][j]) != 0) continue;
+			idata = j; scan = SCAN_REG32;        // 32-bit register
+			return;
+		};
+		for (j = 0; j &lt; 6; j++) {
+			if (strcmp(s, cuszSegName[j]) != 0) continue;
+			idata = j; scan = SCAN_SEG;          // Segment register
+			while (*asmcmd == ' ' || *asmcmd == '\t')
+				asmcmd++;                      // Skip trailing spaces
+			return;
+		};
+		if (strcmp(s, "ST") == 0) {
+			pcmd = asmcmd; Scanasm(SA_NAME);   // FPU register
+			if (scan != SCAN_SYMB || idata != '(') {
+				asmcmd = pcmd;                   // Undo last scan
+				idata = 0; scan = SCAN_FPU; return;
+			};
+			Scanasm(SA_NAME); j = idata;
+			if ((scan != SCAN_ICONST &amp;&amp; scan != SCAN_DCONST) || idata &lt; 0 || idata&gt;7) {
+				asmerror = "FPU registers have indexes 0 to 7";
+				scan = SCAN_ERR; return;
+			};
+			Scanasm(SA_NAME);
+			if (scan != SCAN_SYMB || idata != ')') {
+				asmerror = "Closing parenthesis expected";
+				scan = SCAN_ERR; return;
+			};
+			idata = j; scan = SCAN_FPU; return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszFPUName[j]) != 0) continue;
+			idata = j; scan = SCAN_FPU;          // FPU register (alternative coding)
+			return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszMMXName[j]) != 0) continue;
+			idata = j; scan = SCAN_MMX;          // MMX register
+			return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszCRName[j]) != 0) continue;
+			idata = j; scan = SCAN_CR;           // Control register
+			return;
+		};
+		for (j = 0; j &lt;= 8; j++) {
+			if (strcmp(s, cuszDRName[j]) != 0) continue;
+			idata = j; scan = SCAN_DR;           // Debug register
+			return;
+		};
+		for (j = 0; j &lt; sizeof(cuszSizeName) / sizeof(cuszSizeName[0]); j++) {
+			if (strcmp(s, cuszSizeName[j]) != 0) continue;
+			pcmd = asmcmd; Scanasm(SA_NAME);
+			if (scan != SCAN_PTR)              // Fetch non-functional "PTR"
+				asmcmd = pcmd;
+			idata = j; scan = SCAN_OPSIZE;       // Operand (data) size in bytes
+			return;
+		};
+		if (strcmp(s, "EIP") == 0) {          // Register EIP
+			scan = SCAN_EIP; idata = 0; return;
+		};
+		if (strcmp(s, "SHORT") == 0) {        // Relative jump has 1-byte offset
+			scan = SCAN_JMPSIZE; idata = 1; return;
+		};
+		if (strcmp(s, "LONG") == 0) {         // Relative jump has 4-byte offset
+			scan = SCAN_JMPSIZE; idata = 2; return;
+		};
+		if (strcmp(s, "NEAR") == 0) {         // Jump within same code segment
+			scan = SCAN_JMPSIZE; idata = 4; return;
+		};
+		if (strcmp(s, "FAR") == 0) {          // Jump to different code segment
+			scan = SCAN_JMPSIZE; idata = 8; return;
+		};
+		if (strcmp(s, "LOCAL") == 0 &amp;&amp; *asmcmd == '.') {
+			asmcmd++;
+			while (*asmcmd == ' ' || *asmcmd == '\t')
+				asmcmd++;                      // Skip trailing spaces
+			if (!isdigit(*asmcmd)) {
+				asmerror = "Integer number expected";
+				scan = SCAN_ERR; return;
+			};
+			while (isdigit(*asmcmd))         // LOCAL index is decimal number!
+				idata = idata * 10 + (*asmcmd++) - '0';
+			scan = SCAN_LOCAL; return;
+		};
+		if (strcmp(s, "ARG") == 0 &amp;&amp; *asmcmd == '.') {
+			asmcmd++;
+			while (*asmcmd == ' ' || *asmcmd == '\t')
+				asmcmd++;                      // Skip trailing spaces
+			if (!isdigit(*asmcmd)) {
+				asmerror = "Integer number expected";
+				scan = SCAN_ERR; return;
+			};
+			while (isdigit(*asmcmd))         // ARG index is decimal number!
+				idata = idata * 10 + (*asmcmd++) - '0';
+			scan = SCAN_ARG; return;
+		};
+		if (strcmp(s, "REP") == 0) {
+			scan = SCAN_REP; return;
+		};        // REP prefix
+		if (strcmp(s, "REPE") == 0 || strcmp(s, "REPZ") == 0) {
+			scan = SCAN_REPE; return;
+		};       // REPE prefix
+		if (strcmp(s, "REPNE") == 0 || strcmp(s, "REPNZ") == 0) {
+			scan = SCAN_REPNE; return;
+		};      // REPNE prefix
+		if (strcmp(s, "LOCK") == 0) {
+			scan = SCAN_LOCK; return;
+		};       // LOCK prefix
+		if (strcmp(s, "PTR") == 0) {
+			scan = SCAN_PTR; return;
+		};        // PTR in MASM addressing statements
+		if (strcmp(s, "CONST") == 0 || strcmp(s, "OFFSET") == 0) {
+			scan = SCAN_OFS; return;
+		};        // Present but undefined offset/constant
+		if (strcmp(s, "SIGNED") == 0) {
+			scan = SCAN_SIGNED; return;
+		};     // Keyword "SIGNED" (in expressions)
+		if (strcmp(s, "UNSIGNED") == 0) {
+			scan = SCAN_UNSIGNED; return;
+		};   // Keyword "UNSIGNED" (in expressions)
+		if (strcmp(s, "CHAR") == 0) {
+			scan = SCAN_CHAR; return;
+		};       // Keyword "CHAR" (in expressions)
+		if (strcmp(s, "FLOAT") == 0) {
+			scan = SCAN_FLOAT; return;
+		};      // Keyword "FLOAT" (in expressions)
+		if (strcmp(s, "DOUBLE") == 0) {
+			scan = SCAN_DOUBLE; return;
+		};     // Keyword "DOUBLE" (in expressions)
+		if (strcmp(s, "FLOAT10") == 0) {
+			scan = SCAN_FLOAT10; return;
+		};    // Keyword "FLOAT10" (in expressions)
+		if (strcmp(s, "STRING") == 0) {
+			scan = SCAN_STRING; return;
+		};     // Keyword "STRING" (in expressions)
+		if (strcmp(s, "UNICODE") == 0) {
+			scan = SCAN_UNICODE; return;
+		};    // Keyword "UNICODE" (in expressions)
+		if (strcmp(s, "MSG") == 0) {
+			scan = SCAN_MSG; return;
+		};        // Pseudovariable MSG (in expressions)
+		if (mode &amp; SA_NAME) {
+			idata = i; scan = SCAN_NAME;         // Don't try to decode symbolic label
+			return;
+		}
+		asmerror = "Unknown identifier";
+		scan = SCAN_ERR; return;
+	}
+	else if (isdigit(*asmcmd)) {         // Constant
+		base = 0; maxdigit = 0; decimal = hex = 0L; floating = 0.0;
+		if (asmcmd[0] == '0' &amp;&amp; toupper(asmcmd[1]) == 'X') {
+			base = 16; asmcmd += 2;
+		};           // Force hexadecimal number
+		while (1) {
+			if (isdigit(*asmcmd)) {
+				decimal = decimal * 10 + (*asmcmd) - '0';
+				floating = floating * 10.0 + (*asmcmd) - '0';
+				hex = hex * 16 + (*asmcmd) - '0';
+				if (maxdigit == 0) maxdigit = 9;
+				asmcmd++;
+			}
+			else if (isxdigit(*asmcmd)) {
+				hex = hex * 16 + toupper(*asmcmd++) - 'A' + 10;
+				maxdigit = 15;
+			}
+			else break;
+		};
+		if (maxdigit == 0) {
+			asmerror = "Hexadecimal digits after 0x... expected";
+			scan = SCAN_ERR; return;
+		};
+		if (toupper(*asmcmd) == 'H') {       // Force hexadecimal number
+			if (base == 16) {
+				asmerror = "Please don't mix 0xXXXX and XXXXh forms";
+				scan = SCAN_ERR; return;
+			};
+			asmcmd++;
+			idata = hex; scan = SCAN_ICONST;
+			while (*asmcmd == ' ' || *asmcmd == '\t') asmcmd++;
+			return;
+		};
+		if (*asmcmd == '.') {                // Force decimal number
+			if (base == 16 || maxdigit &gt; 9) {
+				asmerror = "Not a decimal number"; scan = SCAN_ERR; return;
+			};
+			asmcmd++;
+			if (isdigit(*asmcmd) || toupper(*asmcmd) == 'E') {
+				divisor = 1.0;
+				while (isdigit(*asmcmd)) {     // Floating-point number
+					divisor /= 10.0;
+					floating += divisor * (*asmcmd - '0');
+					asmcmd++;
+				};
+				if (toupper(*asmcmd) == 'E') {
+					asmcmd++;
+					if (*asmcmd == '-') { base = -1; asmcmd++; }
+					else base = 1;
+					if (!isdigit(*asmcmd)) {
+						asmerror = "Invalid exponent"; scan = SCAN_ERR; return;
+					};
+					decimal = 0;
+					while (isdigit(*asmcmd)) {
+						if (decimal &lt; 65536L) decimal = decimal * 10 + (*asmcmd++) - '0';
+					};
+					//floating*=pow10l(decimal*base); };
+					floating *= log10(decimal*base);
+				};
+				fdata = floating;
+				scan = SCAN_FCONST; return;
+			}
+			else {
+				idata = decimal; scan = SCAN_DCONST;
+				while (*asmcmd == ' ' || *asmcmd == '\t') asmcmd++;
+				return;
+			};
+		};
+		idata = hex; scan = SCAN_ICONST;       // Default is hexadecimal
+		while (*asmcmd == ' ' || *asmcmd == '\t') asmcmd++;
+		return;
+	}
+	else if (*asmcmd == '\'') {            // Character constant
+		asmcmd++;
+		if (*asmcmd == '\0' || (*asmcmd == '\\' &amp;&amp; asmcmd[1] == '\0')) {
+			asmerror = "Unterminated character constant"; scan = SCAN_ERR; return;
+		};
+		if (*asmcmd == '\'') {
+			asmerror = "Empty character constant"; scan = SCAN_ERR; return;
+		};
+		if (*asmcmd == '\\') asmcmd++;
+		idata = *asmcmd++;
+		if (*asmcmd != '\'') {
+			asmerror = "Unterminated character constant"; scan = SCAN_ERR; return;
+		};
+		asmcmd++;
+		while (*asmcmd == ' ' || *asmcmd == '\t') asmcmd++;
+		scan = SCAN_ICONST; return;
+	}
+	else {                               // Any other character or combination
+		idata = sdata[0] = *asmcmd++; sdata[1] = sdata[2] = '\0';
+		if (idata == '|' &amp;&amp; *asmcmd == '|') {
+			idata = '||'; prio = 10;             // '||'
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '&amp;' &amp;&amp; *asmcmd == '&amp;') {
+			idata = '&amp;&amp;'; prio = 9;              // '&amp;&amp;'
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '=' &amp;&amp; *asmcmd == '=') {
+			idata = '=='; prio = 5;              // '=='
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '!' &amp;&amp; *asmcmd == '=') {
+			idata = '!='; prio = 5;              // '!='
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '&lt;' &amp;&amp; *asmcmd == '=') {
+			idata = '&lt;='; prio = 4;              // '&lt;='
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '&gt;' &amp;&amp; *asmcmd == '=') {
+			idata = '&gt;='; prio = 4;              // '&gt;='
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '&lt;' &amp;&amp; *asmcmd == '&lt;') {
+			idata = '&lt;&lt;'; prio = 3;              // '&lt;&lt;'
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '&gt;' &amp;&amp; *asmcmd == '&gt;') {
+			idata = '&gt;&gt;'; prio = 3;              // '&gt;&gt;'
+			sdata[1] = *asmcmd++;
+		}
+		else if (idata == '|') prio = 8;       // '|'
+		else if (idata == '^') prio = 7;       // '^'
+		else if (idata == '&amp;') prio = 6;       // '&amp;'
+		else if (idata == '&lt;') {
+			if (*asmcmd == '&amp;') {              // Import pseudolabel (for internal use)
+				if ((mode &amp; SA_IMPORT) == 0) {
+					asmerror = "Syntax error"; scan = SCAN_ERR; return;
+				};
+				asmcmd++; i = 0;
+				while (*asmcmd != '\0' &amp;&amp; *asmcmd != '&gt;') {
+					sdata[i++] = *asmcmd++;
+					if (i &gt;= sizeof(sdata)) {
+						asmerror = "Too long import name"; scan = SCAN_ERR; return;
+					};
+				};
+				if (*asmcmd != '&gt;') {
+					asmerror = "Unterminated import name"; scan = SCAN_ERR; return;
+				};
+				asmcmd++; sdata[i] = '\0';
+				scan = SCAN_IMPORT; return;
+			}
+			else prio = 4;
+		}                   // '&lt;'
+		else if (idata == '&gt;') prio = 4;       // '&gt;'
+		else if (idata == '+') prio = 2;       // '+'
+		else if (idata == '-') prio = 2;       // '-'
+		else if (idata == '*') prio = 1;       // '*'
+		else if (idata == '/') prio = 1;       // '/'
+		else if (idata == '%') prio = 1;       // '%'
+		else if (idata == ']') {
+			pcmd = asmcmd; Scanasm(SA_NAME);
+			if (scan != SCAN_SYMB || idata != '[') {
+				idata = ']'; asmcmd = pcmd; prio = 0;
+			}
+			else {
+				idata = '+'; prio = 2;             // Translate '][' to '+'
+			};
+		}
+		else prio = 0;                       // Any other character
+		scan = SCAN_SYMB;
+		return;
+	};
+};</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+	<li>&nbsp;</li>
+	<li><span style="font-size:22px">1.5 IDA Pro 移植伪代码到C++环境 </span></li>
+	<li>
+	<pre>
+<code>0040755A  |&gt; \8B86 FC030000 mov     eax,dword ptr ds:[esi+0x3FC]
+00407560  |.  3BC3          cmp     eax,ebx
+00407562  |.  74 0D         je      short 00407571
+00407564  |.  50            push    eax                              ; /hObject
+00407565  |.  FF15 74204100 call    dword ptr ds:[&lt;&amp;KERNEL32.CloseHa&gt;; \CloseHandle
+0040756B  |.  899E FC030000 mov     dword ptr ds:[esi+0x3FC],ebx
+00407571  |&gt;  8B8E F8030000 mov     ecx,dword ptr ds:[esi+0x3F8]
+00407577  |.  6A 40         push    0x40                             ; /flProtect = 40 (64.)
+00407579  |.  68 00100000   push    0x1000                           ; |flAllocationType = 1000 (4096.)
+0040757E  |.  57            push    edi                              ; |dwSize
+0040757F  |.  53            push    ebx                              ; |lpAddress
+00407580  |.  51            push    ecx                              ; |hProcess
+00407581  |.  895D FC       mov     [local.1],ebx                    ; |
+00407584  |.  FF15 84204100 call    dword ptr ds:[&lt;&amp;KERNEL32.Virtual&gt;; \VirtualAllocEx
+0040758A  |.  3BC3          cmp     eax,ebx
+0040758C  |.  8986 EC030000 mov     dword ptr ds:[esi+0x3EC],eax
+00407592  |.  75 09         jnz     short 0040759D
+00407594  |.  53            push    ebx
+00407595  |.  53            push    ebx
+00407596  |.  68 E4AA4100   push    0041AAE4                         ;  ASCII "在目标进程申请代码空间失败！"
+0040759B  |.^ EB A7         jmp     short 00407544
+0040759D  |&gt;  8BCE          mov     ecx,esi
+0040759F  |.  E8 4CFDFFFF   call    004072F0
+004075A4  |.  3AC3          cmp     al,bl
+004075A6  |.  75 2C         jnz     short 004075D4
+004075A8  |.  8B96 EC030000 mov     edx,dword ptr ds:[esi+0x3EC]
+004075AE  |.  8B86 F8030000 mov     eax,dword ptr ds:[esi+0x3F8]
+004075B4  |.  68 00800000   push    0x8000                           ; /dwFreeType = 8000 (32768.)
+004075B9  |.  53            push    ebx                              ; |dwSize
+004075BA  |.  52            push    edx                              ; |lpAddress
+004075BB  |.  50            push    eax                              ; |hProcess
+004075BC  |.  FF15 80204100 call    dword ptr ds:[&lt;&amp;KERNEL32.Virtual&gt;; \VirtualFreeEx
+004075C2  |.  53            push    ebx
+004075C3  |.  53            push    ebx
+004075C4  |.  899E EC030000 mov     dword ptr ds:[esi+0x3EC],ebx
+004075CA  |.  68 C8AA4100   push    0041AAC8                         ;  ASCII "在目标进程写入代码失败！"
+004075CF  |.^ E9 70FFFFFF   jmp     00407544
+004075D4  |&gt;  8B8E EC030000 mov     ecx,dword ptr ds:[esi+0x3EC]
+004075DA  |.  8B96 F8030000 mov     edx,dword ptr ds:[esi+0x3F8]
+004075E0  |.  53            push    ebx                              ; /lpThreadId
+004075E1  |.  53            push    ebx                              ; |dwCreationFlags
+004075E2  |.  53            push    ebx                              ; |lpParameter
+004075E3  |.  51            push    ecx                              ; |lpStartAddress
+004075E4  |.  53            push    ebx                              ; |dwStackSize
+004075E5  |.  53            push    ebx                              ; |lpThreadAttributes
+004075E6  |.  52            push    edx                              ; |hProcess
+004075E7  |.  FF15 50204100 call    dword ptr ds:[&lt;&amp;KERNEL32.CreateR&gt;; \CreateRemoteThread
+004075ED  |.  3BC3          cmp     eax,ebx
+004075EF  |.  8986 FC030000 mov     dword ptr ds:[esi+0x3FC],eax
+004075F5  |.  75 2C         jnz     short 00407623
+004075F7  |.  8B86 EC030000 mov     eax,dword ptr ds:[esi+0x3EC]
+004075FD  |.  8B8E F8030000 mov     ecx,dword ptr ds:[esi+0x3F8]
+00407603  |.  68 00800000   push    0x8000                           ; /dwFreeType = 8000 (32768.)
+00407608  |.  53            push    ebx                              ; |dwSize
+00407609  |.  50            push    eax                              ; |lpAddress
+0040760A  |.  51            push    ecx                              ; |hProcess
+0040760B  |.  FF15 80204100 call    dword ptr ds:[&lt;&amp;KERNEL32.Virtual&gt;; \VirtualFreeEx
+00407611  |.  53            push    ebx
+00407612  |.  53            push    ebx
+00407613  |.  899E EC030000 mov     dword ptr ds:[esi+0x3EC],ebx
+00407619  |.  68 ACAA4100   push    0041AAAC                         ;  ASCII "在目标进程创建线程失败！"
+0040761E  |.^ E9 21FFFFFF   jmp     00407544
+00407623  |&gt;  8B96 EC030000 mov     edx,dword ptr ds:[esi+0x3EC]
+00407629  |.  8D86 E0000000 lea     eax,dword ptr ds:[esi+0xE0]
+0040762F  |.  52            push    edx
+00407630  |.  68 A8AA4100   push    0041AAA8                         ;  ASCII "%p"
+00407635  |.  50            push    eax
+00407636  |.  C745 FC FFFFF&gt;mov     [local.1],-0x1
+0040763D  |.  E8 04930000   call    &lt;jmp.&amp;MFC42.#2818&gt;
+00407642  |.  83C4 0C       add     esp,0xC
+00407645  |.  8BCE          mov     ecx,esi
+00407647  |.  53            push    ebx
+00407648  |.  E8 3B930000   call    &lt;jmp.&amp;MFC42.#6334&gt;
+0040764D  |.  8B4D F4       mov     ecx,[local.3]
+00407650  |.  5F            pop     edi
+00407651  |.  5E            pop     esi
+00407652  |.  64:890D 00000&gt;mov     dword ptr fs:[0],ecx
+00407659  |.  5B            pop     ebx
+0040765A  |.  8BE5          mov     esp,ebp
+0040765C  |.  5D            pop     ebp
+0040765D  \.  C3            retn
+
+</code></pre>
+
+	<pre>
+<code class="language-cpp">char __stdcall sub_40CFB0(HANDLE TokenHandle)
+{
+  HANDLE v1; // edi@1
+  int v2; // ebx@2
+  HANDLE v3; // eax@2
+  HANDLE v4; // esi@2
+  DWORD cbNeeded; // [sp+10h] [bp-8h]@2
+  HMODULE hModule; // [sp+14h] [bp-4h]@5
+
+  v1 = TokenHandle;
+  if ( !TokenHandle )
+    return 0;
+  v2 = (int)((char *)TokenHandle + 264);
+  *((_BYTE *)TokenHandle + 264) = 0;
+  cbNeeded = 0;
+  v3 = GetCurrentProcess();
+  OpenProcessToken(v3, 0x20u, &amp;TokenHandle);
+  sub_40DA50(TokenHandle, Name);
+  CloseHandle(TokenHandle);
+  v4 = OpenProcess(0x1F0FFFu, 0, *(_DWORD *)v1);
+  if ( !v4 )
+  {
+    v4 = OpenProcess(0x100430u, 1, *(_DWORD *)v1);
+    if ( !v4 )
+    {
+      CloseHandle(0);
+      return 0;
+    }
+  }
+  if ( !EnumProcessModules(v4, &amp;hModule, 4u, &amp;cbNeeded) || !cbNeeded )
+  {
+    CloseHandle(v4);
+    return 0;
+  }
+  GetModuleFileNameExA(v4, hModule, (LPSTR)v1 + 264, 0x104u);
+  if ( *((_BYTE *)v1 + 265) != 58 )
+    sub_40D0B0((LPCSTR)v1 + 4, v2);
+  CloseHandle(v4);
+  return 1;
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+	<li><span style="font-size:22px">1.5 IDA Pro 远程调试基础</span></li>
+</ul>

@@ -1,0 +1,351 @@
+<ul>
+	<li style="text-align:justify"><span style="font-size:22px">&nbsp;续篇&lt;&lt;Radmin&gt;&gt;CALL的用法</span></li>
+	<li style="text-align:justify">
+	<pre>
+<code class="language-cpp">核心调用CALL的C++代码
+void helpHook::OnBnClickedButton1()
+{
+
+	char dwOpenIP[MAX_PATH+1]={0};
+
+	CString strIP;
+	GetDlgItem(IDC_EDIT1)-&gt;GetWindowText(strIP);
+
+	if (strIP.GetLength()!=0)
+	{
+		lstrcpyA(dwOpenIP,strIP.GetString());
+
+		CButton* radio_1=(CButton*)GetDlgItem(IDC_RADIO1);
+		if (radio_1-&gt;GetCheck())
+		{
+			this-&gt;LoadIP(0x9C49,"\\radmin.rpb",dwOpenIP);
+		}
+
+		CButton* radio_2=(CButton*)GetDlgItem(IDC_RADIO2);
+		if (radio_2-&gt;GetCheck())
+		{
+			this-&gt;LoadIP(0x9C4B,"\\radmin.rpb",dwOpenIP);
+		}
+
+		CButton* radio_3=(CButton*)GetDlgItem(IDC_RADIO3);
+		if (radio_3-&gt;GetCheck())
+		{
+			this-&gt;LoadIP(0x9C4C,"\\radmin.rpb",dwOpenIP);
+		}
+	}
+	else
+	{
+		this-&gt;MessageBox("请输入要连接的IP","提示");
+		return;
+	}
+
+	//Sleep(1000);
+	char dwOpenUser[MAX_PATH+1]={0};
+
+	CString strUser;
+	GetDlgItem(IDC_EDIT2)-&gt;GetWindowText(strUser);
+
+	if (!strUser.GetLength())
+	{
+		this-&gt;MessageBox("请输入ID","提示");
+		return;
+	}
+
+	char dwOpenPassWord[MAX_PATH+1]={0};
+
+	CString strPassWord;
+
+	GetDlgItem(IDC_EDIT3)-&gt;GetWindowText(strPassWord);
+
+	if (!strPassWord.GetLength())
+	{
+		this-&gt;MessageBox("请输入PassWord","提示");
+		return;
+	}
+
+	lstrcpyA(dwOpenUser,strUser.GetString());
+	lstrcpyA(dwOpenPassWord,strPassWord.GetString());
+
+
+	memset(this-&gt;gIP_Buffer,0,MAX_PATH+1);
+	memset(this-&gt;gUser_Buffer,0,MAX_PATH+1);
+	memset(this-&gt;gPass_Buffer,0,MAX_PATH+1);
+	lstrcpyA(this-&gt;gIP_Buffer,dwOpenIP);
+
+	lstrcpyA(this-&gt;gUser_Buffer,dwOpenUser);
+
+	lstrcpyA(this-&gt;gPass_Buffer,dwOpenPassWord);
+
+	CallConnectThread = AfxBeginThread(OnCallConnect, this);
+	
+	
+	return;
+}
+
+
+BOOL  helpHook::LoadIP(DWORD szID,char * szFilePath,char * szConnectIPAddress)
+{
+	char dwDir[MAX_PATH+1] ={0}; 
+	char data[MAX_PATH*4]={0};
+	GetCurrentDirectoryA( MAX_PATH+1,dwDir);
+	lstrcatA(dwDir,szFilePath);
+
+	if (lstrlenA(szConnectIPAddress)==0 || szID==0)
+	{
+		return FALSE;
+	}
+	//this-&gt;MessageBox(dwDir,NULL);
+
+	HANDLE hFile=CreateFileA(
+		dwDir,
+		GENERIC_READ|GENERIC_WRITE,
+		FILE_SHARE_READ|FILE_SHARE_WRITE,
+		NULL,     
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,   
+		0); 
+	if (hFile==INVALID_HANDLE_VALUE)
+	{
+		return FALSE;
+	}
+	DWORD size_low,size_high;
+	size_low= GetFileSize(hFile,&amp;size_high); 
+
+	if (size_low==0)
+	{
+		CloseHandle(hFile);
+		return FALSE;
+	}
+	HANDLE hMapFile=CreateFileMappingA(  
+		hFile,     
+		NULL,   
+		PAGE_READWRITE,
+		size_high,    
+		size_low,
+		NULL);   
+	if(hMapFile==INVALID_HANDLE_VALUE)   
+	{   
+		CloseHandle(hMapFile);
+		CloseHandle(hFile);
+		return FALSE;   
+	}  
+	void* pvFile=MapViewOfFile(
+		hMapFile, 
+		FILE_MAP_READ|FILE_MAP_WRITE, 
+		0,
+		0,
+		0);  
+
+	if (!pvFile)
+	{
+
+		if (pvFile!=NULL)
+		{
+			UnmapViewOfFile(pvFile);
+		}
+
+		if (pvFile!=NULL)
+		{
+			UnmapViewOfFile(pvFile);
+		}
+		if (hFile!=0)
+		{
+			CloseHandle(hFile);
+		}
+
+		return FALSE;
+	}
+	LPVOID pvBuffer=VirtualAlloc(NULL,size_low,MEM_COMMIT,PAGE_READWRITE);
+
+	if (pvBuffer!=NULL)
+	{
+		memcpy((char *)pvBuffer,(char *)pvFile,size_low);
+	}
+
+	memset((char *)pvBuffer+0x13C0,0,0x190);
+	wchar_t dwIP[MAX_PATH+1]={0};
+	int len=MultiByteToWideChar(CP_ACP, 0, szConnectIPAddress, -1, NULL,0);
+	MultiByteToWideChar(CP_ACP, 0, szConnectIPAddress, -1, dwIP, len);
+	wcscpy((wchar_t *)((char *)pvBuffer+0x13C1),dwIP);
+	wcscpy((wchar_t *)((char *)pvBuffer+0x1489),dwIP);
+	//调用call
+	DWORD this_offset=(DWORD)pvBuffer+0x99;
+
+	__try
+	{
+		__asm
+		{
+			pushad
+			mov esi,0
+			mov eax,szID
+			mov edi,this_offset
+			push eax
+			push edi
+			mov  ecx,esi
+			mov  eax,OpenCallAddr
+			call eax
+			popad
+		}
+	}
+	__except(1)
+	{
+
+	}
+
+	VirtualFree(pvBuffer,size_low,MEM_RELEASE);
+	if (pvFile!=NULL)
+	{
+		UnmapViewOfFile(pvFile);
+	}
+
+	if (pvFile!=NULL)
+	{
+		UnmapViewOfFile(pvFile);
+	}
+	if (hFile!=0)
+	{
+		CloseHandle(hFile);
+	}
+	return TRUE;
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+	<li style="text-align:justify">
+	<pre>
+<code class="language-cpp">radmin 功能函数分析
+
+
+使用PELoader动态加载方式，代码解密后运行在内存，OEP关键代码
+
+03 55 94 89 55 A4 8B 45 A4 FF E0
+
+一：打开要连接的虚拟机打金平台
+
+
+(1:特征码)
+
+
+8B B4 24 EC 7B 00 00 50 57 8D 95 58 34 00 00 8B CE
+
+(2:功能）
+
+打开对话框CALL
+
+01438544    8BB424 EC7B0000 mov     esi,dword ptr ss:[esp+0x7BEC]
+0143854B    50              push    eax
+0143854C    57              push    edi
+0143854D    8D95 58340000   lea     edx,dword ptr ss:[ebp+0x3458]
+01438553    8BCE            mov     ecx,esi
+01438555    E8 56690000     call    0143EEB0
+
+
+调用例子：
+
+pushad
+mov esi,0x00BB0DE4
+mov eax,0x9C49
+mov edi,0x0093BB6C
+push eax
+push edi
+mov  ecx,esi
+mov  eax,0x0143EEB0
+call eax
+popad
+
+
+(3:参数分析)
+
+
+eax = 00009C49 功能号
+
+ecx=基址[uxtheme.dll+0x50C5C]
+
+esi=C:\Users\fku\AppData\Roaming\Radmin\radmin.rpb 文件指针 对应代码
+
+特征码：8B 6C 24 6C 8B 44 24 5C 89 84 24 9E 36 00 00 39 5D 08 88 9C 24 9D 36 00 00
+
+014157A6    8B6C24 6C       mov     ebp,dword ptr ss:[esp+0x6C]
+014157AA    8B4424 5C       mov     eax,dword ptr ss:[esp+0x5C]
+014157AE    898424 9E360000 mov     dword ptr ss:[esp+0x369E],eax
+014157B5    395D 08         cmp     dword ptr ss:[ebp+0x8],ebx
+014157B8    889C24 9D360000 mov     byte ptr ss:[esp+0x369D],bl
+014157BF    75 11           jnz     short 014157D2
+014157C1    8D8C24 B01E0000 lea     ecx,dword ptr ss:[esp+0x1EB0]
+014157C8    51              push    ecx
+014157C9    8BCD            mov     ecx,ebp
+014157CB    E8 C03D0000     call    01419590                //调用完读取radmin.rpb后返回文件buffer指针在EAX中存放。
+014157D0    EB 46           jmp     short 01415818
+014157D2    68 00180000     push    0x1800
+014157D7    E8 4FC70A00     call    014C1F2B
+014157DC    83C4 04         add     esp,0x4
+014157DF    3BC3            cmp     eax,ebx
+014157E1    74 64           je      short 01415847
+014157E3    8D9424 B01E0000 lea     edx,dword ptr ss:[esp+0x1EB0]
+
+hook的位置：
+
+
+0141581C    8D5424 54       lea     edx,dword ptr ss:[esp+0x54]
+01415820    52              push    edx
+
+
+hook后获取radmin.rpb buffer指针用来调CALL用。
+
+
+二：验证账号密码
+
+(1:)获取窗口句柄
+
+0934F2F0   014940F9  /CALL 到 SetWindowTextW 来自 Radmin.014940F3
+0934F2F4   0063136C  |hWnd = 0063136C ('Radmin安全性',class='#32770',parent=0017142E)
+0934F2F8   0083A660  \Text = "Radmin 安全性: 192.168.80.135"
+
+hook SetWindowTextW 
+</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+	<li style="text-align:justify"><span style="font-size:22px">硬件断点原理</span></li>
+</ul>
+
+<ol>
+	<li style="text-align:justify"><span style="font-size:16px">Intel 80306以上的CPU给我们提供了调试寄存器用于软件调试，硬件断点是通过设置调试寄存器实现的。</span></li>
+	<li style="text-align:justify"><span style="font-size:16px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638773141000/d38c7b0d21b64455aaf1feb5ed3d7937.png" style="height:643px; width:557px" /></span></li>
+</ol>
+
+<ul>
+	<li style="text-align:justify"><span style="font-size:22px">软件断点原理</span></li>
+</ul>
+
+<ol>
+	<li style="text-align:justify"><span style="font-size:16px">int 3<br />
+	设置断点命令对应的汇编指令为INT3，对应的机器指令的也就是0xCC。CPU运行代码的过程中若遇到汇编指令INT3，则会触发EXCEPTION_BREAKPOINT异常</span></li>
+</ol>
+
+<ul>
+	<li style="text-align:justify"><span style="font-size:22px">调试DR0-DR3寄存器原理</span></li>
+</ul>
+
+<ol>
+	<li style="text-align:justify"><span style="font-size:16px">调试寄存器&nbsp;DR0-DR3<br />
+	&nbsp;&nbsp;&nbsp;这四个寄存器是用来设置&nbsp;断点地址的。断点的比对在物理地址转换前（异常产生时，还没有将线性地址转换成物理地址）。由于只有0-3四个保存地址的寄存器，所以，硬件断点，在物理上最多只能有4个。<br />
+	调试寄存器DR4-DR5&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;这两个调试寄存器有CR4的DE标记控制。如果DE置位，那么对这两个寄存器的访问会导致#UD异常。如果DE置0，那么他们就被化名为DR6-DR7（你一定会问原来的DR6-DR7怎么办？这个&hellip;&hellip;&nbsp;我也不知道。如果你搞明白了，一定记得告诉我）<br />
+	调试寄存器DR7(控制寄存器)<br />
+	&nbsp;&nbsp;&nbsp;(先介绍DR7对DR6的理解有好处。)<br />
+	<br />
+	DR7是调试控制寄存器。控制方式嘛！继续看：<br />
+	1.&nbsp;&nbsp;L0-L3（由第0，2，4，6位控制）:对应DR0-DR3，设置断点作用范围，如果被置位，那么将只对当前任务有效。每次异常后，Lx都被清零。<br />
+	2.&nbsp;&nbsp;G0-G3（由第1，3，5，7位控制）：对应DR0-DR3,如果置位，那么所有的任务都有效。每次异常后不会被清零。以确保对所有任务有效。但是，不知道为什么，我在测试时：<br />
+	设置Gn后，不能返回调试异常给调试器（如果你知道为什么，记得告诉我）<br />
+	3.&nbsp;&nbsp;LE,GE（由第8，9位控制）:这个在P6以下系列CPU上不被支持，在升级版的系列里面：如果被置位，那么cpu将会追踪精确的数据断点。LE是局部的，GE是全局的。（到底什么算精确的，我也不清楚，但是，我知道如果设置了这两个，cpu的速度会降低。我在测试中，都没有置位。）<br />
+	4.&nbsp;&nbsp;GD(由第13位控制):如果置位，追踪下一条指令是否会访问调试寄存器。如果是，产生异常。在下面的DR6里面，你会知道他还和另外一个标志位有点关系。<br />
+	5.&nbsp;&nbsp;R/W0-R/W3：（由第16，17，20，21，24，25，28，29位控制）：这个东西的处理有两种情况。</span><br />
+	&nbsp;</li>
+</ol>
+
+<ul>
+	<li style="text-align:justify"><span style="font-size:22px">通过调试code inject工具了解远程线程作用</span></li>
+	<li style="text-align:justify">&nbsp;</li>
+</ul>

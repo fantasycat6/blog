@@ -1,0 +1,126 @@
+<p>&nbsp;</p>
+
+<p><strong>源代码: https://github.com/enoorez/dbg3</strong></p>
+
+<p><span style="font-size:18px">调试器实现的依赖.<br />
+1.CPU支持调试功能<br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">1.1CPU中,有标志寄存器EFLAGS的IF,TF标志位用于开启调试功能,如果一个进程是以调试状态开启,且其线程环境(CONTEXT)中的EFLSGS的TF标志位是1,那么这个进程执行一条指令后,将会产生一个异常,异常被处理后,TF自动被重置为0</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">1.2CPU有DRx(DebugRegister)系列的寄存器可用于断点功能.</span></span></span></span></p>
+
+<p><span style="font-size:18px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638495569000/a65b1b14d4de4194962882b7e3ca9aa3.png" style="height:583px; width:476px" /></span></p>
+
+<p><span style="font-size:18px"><span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DR0~DR3这四个寄存器是断点地址存储器,用于保存断点的地址</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DR6是调试状态寄存器用于指明DR0~DR3寄存器中哪一个产生了调试异常</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DR6寄存器使用比特位B0~B3来指明DR0~DR3中哪个产生了调试异常</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DR7是断点属性控制器</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DR7寄存器分别保存着DR0~DR3的断点地址对应的断点的属性,属性有如下几种:</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">L0~L3:这个比特位等于1,则断点为本地断点.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">G0~G3:这个比特位等于1,则断点为全局断点.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">R/W0-R/W3:</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">00：执行断点</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">01：数据写入断点</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">10：I/0读写断点</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">11：读写断点()读取指令不算)</span></span></span><br />
+2.操作系统提供的功能<br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">Windows有一个调试子系统,所有的异常(包括CPU产生的异常)都会中断到调试子系统中,进程产生异常后,调试子系统会捕捉到这个异常,如果这个进程是以被调试状态创建,那么,调试子系统会将这个异常派发到产生异常的进程的父进程.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">如果其父进程的代码用有函数WaitForDebugEvent(),那么,函数将会从等待状态中被唤醒,返回到其父进程的调用地点.并将异常信息保存到DEBUG_EVENT结构体中.</span></span></span><br />
+<br />
+调试器实现的原理:<br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">程序在运行起来后,其执行指令的速度是光速的.由于人类无法从光速中看清真相,程序出错也是光速的,常会在人无法预知的时候发生了无法预知的错误,让程序变慢,或者停下来是一种能够查明程序出错,或者程序运行机制的重要技能.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">程序的运行,是通过CPU对指令流的处理,如果CPU能够听人指挥,一直在指令流的指定地点处执行,那么,程序的流程不会</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">接着往下走,程序就自然而然的停下来了.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">前面说的异常,其实就是CPU告诉操作系统,大佬,我看到了一条让我停下来的指令(0xcc,遇到了DRx寄存器中保存的地址,</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">除0等),现在该怎么办.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">操作系统遇到了这个情况,赶紧回想,自己没有发布这样的指令,于是就让它的马仔调试子系统去解决这个问题,调试子系统会查看进程是否被人调试了,一看,真是被调试了,于是找到了调试这个进程的人的电话(PrentProcessID),打了个电话给那个人.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">如果那个人装了电话(WaitForDebugEvent),那么就能从这个电话中得到信息,调试子系统会跟那个人约定,你先去解决吧,我就在这等着,于是那个人就可以针对调试子系统给的信息做出对应的处理.最后就答复调试子系统有没有处理成功.</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">调试子系统就会拍拍屁股回去,让被调试的进程继续执行或是一直执行那条指令.</span></span></span><br />
+<br />
+调试器在刚才说的作品中扮演的角色就是被调试进程的父进程.<br />
+下面就是调试器要完成的流程:</span></p>
+
+<p><span style="font-size:18px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638495569000/db741d5bfeb2463ab082189506c28966.png" style="height:608px; width:1189px" /></span><br />
+&nbsp;</p>
+
+<p><span style="font-size:18px">1.以调试创建一个进程或附加到一个进程<br />
+<br />
+CreateProcess<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">(/*创建调试线程*/</span></span></span><br />
+pszFilePath<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">,//可执行模块路径</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">NULL,//命令行</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">NULL,//安全描述符</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">NULL,//线程属性是否可继承</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">FALSE,//否从调用进程处继承了句柄</span></span></span><br />
+DEBUG_ONLY_THIS_PROCESS<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">,//启动方式,这里是以只调试的方式创建一个还没有运行的进程</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">NULL,//新进程的环境块</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">NULL,//新进程的当前工作路径（当前目录）</span></span></span><br />
+&amp;stcStartupInfo<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">,//指定进程的主窗口特性</span></span></span><br />
+&amp;stcProcInfo<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">//接收新进程的识别信息</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">);</span></span></span><br />
+2.创建完进程后,需要安装个电话,静静的等待调试子系统找上门来:</span></p>
+
+<pre>
+<code class="language-cpp">typedefstruct_DEBUG_EVENT{
+    DWORDdwDebugEventCode;//发生异常的是什么事
+    DWORDdwProcessId;//触发异常的进程ID(如果被调试进程有多个进程,这个ID有可能是其子进程的)
+    DWORDdwThreadId;//触发异常的线程ID(如果被调试进程有多个线程,这个ID有可能是其中的一个线程的
+    union{
+        EXCEPTION_DEBUG_INFOException;//异常类型信息
+        CREATE_THREAD_DEBUG_INFOCreateThread;//创建线程时得到的信息结构体(有可能会创建多个线程)
+        CREATE_PROCESS_DEBUG_INFOCreateProcessInfo;//创建进程时得到的信息结构体,有可能会得到多个
+        EXIT_THREAD_DEBUG_INFOExitThread;//线程退出的信息结构体
+        EXIT_PROCESS_DEBUG_INFOExitProcess;//进程退出的信息结构体
+        LOAD_DLL_DEBUG_INFOLoadDll;//加载模块的信息结构体
+        UNLOAD_DLL_DEBUG_INFOUnloadDll;//卸载模块的信息结构体
+        OUTPUT_DEBUG_STRING_INFODebugString;//输出调试字串的信息结构体
+        RIP_INFORipInfo;//系统调试错误时的信息结构体
+    }u;//这是一个联合体,dwDebugEventCode决定联合体中哪个字段是有用的.
+}DEBUG_EVENT,*LPDEBUG_EVENT;</code></pre>
+
+<p><span style="font-size:18px"><span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">DEBUG_EVENTstcDeEvent={0};//这是保存调试子系统发来的信息的结构体</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">WaitForDebugEvent(&amp;stcDeEvent,//保存异常信息的结构体</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">INFINIT//等待时间</span></span></span><br />
+<span style="color:#000000"><span style="font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Tahoma,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,Simsun,sans-serif"><span style="background-color:#fefefe">);</span></span></span><br />
+2.1关于解读DEBUG_EVENT结构体的一些方法和注释</span></p>
+
+<p><span style="font-size:18px">3.通过DEBUG_EVENT结构体来解读异常信息</span></p>
+
+<p><br />
+<span style="font-size:18px">3.1调试子系统打电话过来时,带各位带来的信息并非仅仅包含着异常信息.调试子系统给的结构体有大量的信息,它把这些信息打包成了上面的所述的结构体,其中,第一个字段DWORDdwDebugEventCode;会告诉大家,此次发来的信息是什么信息(调试子系统可能会给你打很多个电话,所以为了能够接到调试子系统的第二个电话,在这里我偷偷建议你,用一个while循环将电话包起来).<br />
+这就是调试子系统所能给你的全部的信息:</span></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code class="language-cpp">CREATE_PROCESS_DEBUG_EVENT创建进程之后发送此类调试事件，这是调试器收到的第一个调试事件。
+CREATE_THREAD_DEBUG_EVENT创建一个线程之后发送此类调试事件。
+EXCEPTION_DEBUG_EVENT发生异常时发送此类调试事件。
+EXIT_PROCESS_DEBUG_EVENT进程结束后发送此类调试事件。
+EXIT_THREAD_DEBUG_EVENT一个线程结束后发送此类调试事件。
+LOAD_DLL_DEBUG_EVENT装载一个DLL模块之后发送此类调试事件。
+OUTPUT_DEBUG_STRING_EVENT被调试进程调用OutputDebugString之类的函数时发送此类调试事件。
+RIP_EVENT发生系统调试错误时发送此类调试事件。
+UNLOAD_DLL_DEBUG_EVENT卸载一个DLL模块之后发送此类调试事件。</code></pre>
+
+<p><span style="font-size:18px">3.2如果你仅仅想处理异常事件,那么我会这样建议你:<img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638495569000/522e717fe243435a85bf7848f0efb88e.jpg" style="height:600px; width:524px" /></span></p>
+
+<p><span style="font-size:18px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638495569000/51eda71a20a1434a8aab4116ef68909b.png" style="height:415px; width:702px" /></span></p>
+
+<pre>
+<code class="language-cpp">if(stcDeEvent.dwDebugEventCode==EXCEPTION_DEBUG_EVENT)
+{
+//做点事情
+}</code></pre>
+
+<p>&nbsp;</p>
+
+<pre>
+<code class="language-cpp">ContinueDebugEvent(
+
+                    stcDeEvent.dwProcessId,//指明是哪个被调试进程发的消息
+
+                    stcDeEvent.dwThreadId,//指明是哪个被调试进程下的线程发的消息
+
+                    DBG_CONTINUE
+
+                );</code></pre>
+
+<p>&nbsp;</p>

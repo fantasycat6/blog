@@ -1,0 +1,19 @@
+<h1>Switch语句</h1>
+
+<p>先前在<a href="https://www.52pojie.cn/thread-1382367-1-1.html">逆向基础笔记十四 汇编嵌套if else</a>中讲了分支结构的if else形式，除此之外还有一种分支结构：switch</p>
+
+<p>此次就来以反汇编的角度研究switch语句，并与if else进行比较</p>
+
+<h2>Switch语句的使用</h2>
+
+<p>有关Switch语句在<strong>vc++6.0中</strong>生成的反汇编可分为4种情况，这4种情况的区分在于<strong>case的不同</strong></p>
+
+<p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1638242144000/49bb3d4163814d3c88c7490bd9203948.png" style="height:1337px; width:1572px" /></p>
+
+<p>通过上面的分析，发现此时（<strong>switch 中的case数量&le;3时</strong>）的反汇编代码和if else并无本质上的区别，都是要<strong>依次比较判断条件</strong></p>
+
+<p>此时的流程图为：</p>
+
+<p><img alt="image-20210309012413004" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210309012413004.png" /></p>
+
+<p>&nbsp;</p>

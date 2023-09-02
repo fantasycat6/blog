@@ -1,0 +1,165 @@
+<p><span style="font-size:16px">例：</span></p>
+
+<ul>
+	<li><span style="font-size:16px">当数据宽度为4时，即数据只能存储4位2进制位0000~1111</span></li>
+</ul>
+
+<p><strong><span style="font-size:16px">无符号数：</span></strong></p>
+
+<ol>
+	<li><span style="font-size:16px">数据0123456789101112131415十六进制0123456789ABCDEF二进制0000000100100011010001010110011110001001101010111100110111101111</span></li>
+</ol>
+
+<p><strong><span style="font-size:16px">有符号数：</span></strong></p>
+
+<p><span style="font-size:16px">正数：</span></p>
+
+<ol>
+	<li><span style="font-size:16px">数据01234567十六进制01234567二进制00001001000110100010101100111</span></li>
+</ol>
+
+<p><span style="font-size:16px">负数：</span></p>
+
+<ol>
+	<li><span style="font-size:16px">数据-1-2-3-4-5-6-7-8十六进制FEDCBA98二进制11111110110111001011101010011000</span></li>
+	<li><span style="font-size:16px">可以发现当数据为1011，把数据看作无符号数时，数据表示为B</span></li>
+	<li><span style="font-size:16px">把数据看作有符号数时，数据表示为-5</span></li>
+	<li><span style="font-size:16px">无符号数的表示范围为0～2^4-1即0～15\\ 有符号数的表示范围为-2^3～2^3-1即-8～7</span></li>
+</ol>
+
+<h2><span style="font-size:16px"><strong>常见的数据类型（重要）</strong></span></h2>
+
+<ul>
+	<li>BYTE&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;字节&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 8BIT</li>
+	<li>WORD&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;字&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;16BIT 2字节</li>
+	<li>DWORD&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 双字&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 32BIT 4字节</li>
+</ul>
+
+<p><strong><span style="font-size:16px">常见的运算符类型（重要）</span></strong></p>
+
+<ul>
+	<li>
+	<h2>或运算（or |）</h2>
+	</li>
+	<li>只要有一个为1则结果为1</li>
+	<li>
+	<h2>与运算（and &amp;）</h2>
+	</li>
+	<li>两个都是1结果才为1</li>
+	<li>
+	<h2>异或运算（xor ^）</h2>
+	</li>
+	<li>相同为0 不同为1</li>
+	<li>
+	<h2>非运算(not !)</h2>
+	</li>
+	<li>取反 1是0 0是1</li>
+</ul>
+
+<h2>CPU如何计算2+3?</h2>
+
+<p>X:0010</p>
+
+<p>Y:0011</p>
+
+<p>先异或</p>
+
+<p><img alt="image-20210227225741221" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225741221.png" /></p>
+
+<p>R:0001</p>
+
+<p>异或完以后要判断是否运算结束</p>
+
+<p>将两个数进行与运算 然后左移一位</p>
+
+<p><img alt="image-20210227225805371" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225805371.png" /></p>
+
+<p>0010&lt;&lt;1 ==0100</p>
+
+<p>如果结果全为0,结果则为我们所要的结果</p>
+
+<p>否则，把上面异或得到的值赋值到X</p>
+
+<p>把左移后的结果赋值到Y</p>
+
+<p>X：0001</p>
+
+<p>Y：0100</p>
+
+<p>重复操作</p>
+
+<p>先异或</p>
+
+<p><img alt="image-20210227225832210" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225832210.png" /></p>
+
+<p>R:0101</p>
+
+<p>再将两个数进行与运算 然后左移一位</p>
+
+<p><img alt="image-20210227225849434" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225849434.png" /></p>
+
+<p>左移完结果全是0，结果则为我们所要的</p>
+
+<p>最终结果为0101=5</p>
+
+<h2>CPU如何计算2-3?</h2>
+
+<p>X：0010</p>
+
+<p>Y：1101</p>
+
+<p>先异或</p>
+
+<p><img alt="image-20210227225905554" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225905554.png" /></p>
+
+<p>R：1111</p>
+
+<p>将两个数进行与运算 然后左移一位</p>
+
+<p><img alt="image-20210227225917490" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225917490.png" /></p>
+
+<p>0000&lt;&lt;1=0000</p>
+
+<p>如果结果全为0,结果则为我们所要的结果</p>
+
+<p>最终结果为1111 = -1</p>
+
+<h2>如何取某个值的第N位的数值</h2>
+
+<p>与操作</p>
+
+<p>如我们想要查看23h这个十六进制数的第3位则可以进行如下运算:</p>
+
+<p>先将23h转化为二进制：0010 0011</p>
+
+<p><img alt="image-20210227225942716" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225942716.png" /></p>
+
+<h2>最简单的加密算法</h2>
+
+<p>通过异或加密数据 再次异或后则解密数据</p>
+
+<p>要加密的数据：2021：0010 0000 0010 0001</p>
+
+<p>密钥：54：0101 0100</p>
+
+<p><img alt="image-20210227225957586" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227225957586.png" /></p>
+
+<p>高位：0111 0100 = 74</p>
+
+<p><img alt="image-20210227230009730" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227230009730.png" /></p>
+
+<p>低位：0111 0101 = 75</p>
+
+<p>原本的2021加密成了7475</p>
+
+<p>然后再次进行异或操作进行解密:</p>
+
+<p><img alt="image-20210227230024513" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227230024513.png" /></p>
+
+<p>高位：0010 0000 = 20</p>
+
+<p><img alt="image-20210227230037298" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227230037298.png" /></p>
+
+<p>低位：0010 0100 = 21</p>
+
+<p>解密回了原来的数值2021</p>

@@ -1,0 +1,41 @@
+<p><span style="font-size:16px">软件断点</span></p>
+
+<p><span style="font-size:16px">即 int 3调试器利用 EXCEPTION_BREAKPOINT异常实现断点功能</span></p>
+
+<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210124120917493.png" /><br />
+<span style="font-size:16px">int 3<br />
+设置断点命令对应的汇编指令为INT3，对应的机器指令的也就是0xCC。CPU运行代码的过程中若遇到汇编指令INT3，则会触发EXCEPTION_BREAKPOINT异常。在OllyDbg调试器某个地址设置断点后，确定该地址处的指令是否真会变为INT3（0xCC）？</span></p>
+
+<p><span style="font-size:16px">OD</span></p>
+
+<p><span style="font-size:16px">接下来我们查看以下数据窗口</span></p>
+
+<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210124121029121.png" /></p>
+
+<p><span style="font-size:16px">查看到设置断点的地方，该地址处的指令并未变成INT3（汇编指令），也并未&quot;6A&ldquo;变成&rdquo;CC&quot;（机器指令），为什么跟我们想的不一样呢？</span></p>
+
+<p><span style="font-size:16px">解释：<br />
+其实，这是Ollydbg耍的一个小花招，由于Ollydbg中按F2设置的断点是用户用来调试的临时断点（User Temporary Break Point），所以不需要在调试画面中显示。在代码与内存中显示出来的话，大大降低了代码的可读性，给代码调试带来不便。换言之，实际进程内存中0x1003E21的&ldquo;6A&rdquo;已经换成&ldquo;CC&rdquo;，但为了调试方便，所以呢，OD就没有显示出来。我们只需要把这个程序dump出来，然后放进Hex_Editor查看一下这个位置的数据即可。</span></p>
+
+<p><span style="font-size:16px">偏移问题：<br />
+此程序的Imagebase为100000，所以VA1003E21对应的RVA 是3E21（RVA=VA-Imagebase）。由于dump程序是直接由这个程序进程内存转储而来的，所以RVA就是RAW（文件偏移量）</span></p>
+
+<h2>Hex_Editor</h2>
+
+<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210124121942299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTTk4yMDE5,size_16,color_FFFFFF,t_70" /><br />
+<img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210124121952531.png" /><br />
+偏移为<code>3E21</code>处的&ldquo;<code>6A</code>&rdquo;已经换成&ldquo;CC&rdquo;</p>
+
+<p><br />
+<span style="font-size:16px">偏移为3E21处的&ldquo;6A&rdquo;已经换成&ldquo;CC&rdquo;</span></p>
+
+<p><strong><span style="font-size:16px">补充<br />
+问题一：，改成int 3，那不就破坏了原来的指令的完整性吗？<br />
+后来，我又仔细想了想，改成int 3，那不就破坏了原来的指令的完整性吗？而且不改回来，那后面指令解析那就全变了，指令对齐那些，直接影响一大片，也就是以后设置断点还得找nop地方才能设置？可事实却根本不是这样。。</span></strong></p>
+
+<p><strong><span style="font-size:16px">问了一下大佬，这个问题解释是这样的：它会先把下断点的位置的前一句代码改成int 3 然后 等到运行到这里时，再把它改回来</span></strong></p>
+
+<p><strong><span style="font-size:16px">问题二：什么时机改回来？<br />
+然后我又想：啥时候改回来？而且改回来这个时机 既能 引发断点异常，又能 不改变原来的指令解析？碰到int 3 ，引发异常了，说明把int 3执行完了，然后它有改回来？那它再改回来已经没意义了吧？？？？它已经执行完那个点了，然后再改回来那个地方的指令，确定没影响？？？？</span></strong></p>
+
+<p><strong><span style="font-size:16px">这个问题解释是这样的：先，调试器把断点处的第一个字节改成0XCC，当接收到继续运行的消息时，调试器会先把这个int 3断点修复成原来的字节，然后会执行eip-1这个操作，把int 3改掉的代码继续执行，好家伙，有eip-1的话，那么就很正常了</span></strong></p>

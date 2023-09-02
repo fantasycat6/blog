@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+    <li>
+    <p><span style="font-size:20px">免杀世界的基础（一）</span></p>
+    </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px"><strong>1.免杀基本概念：</strong></span></p>
+
+<ol>
+    <li><span style="font-size:16px"><strong>免杀</strong>就是反病毒技术，，它指的是一种能使病毒木马免于被<a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/wiki/%25E6%259D%2580%25E6%25AF%2592%25E8%25BD%25AF%25E4%25BB%25B6" rel="nofollow noreferrer" target="_blank">杀毒软件</a>查杀的技术。由于免杀技术的涉猎面非常广，其中包含反<a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/wiki/%25E6%25B1%2587%25E7%25BC%2596" rel="nofollow noreferrer" target="_blank">汇编</a>、<a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/wiki/%25E9%2580%2586%25E5%2590%2591%25E5%25B7%25A5%25E7%25A8%258B" rel="nofollow noreferrer" target="_blank">逆向工程</a>、<a href="https://link.zhihu.com/?target=https%3A//zh.wikipedia.org/w/index.php%3Ftitle%3D%25E7%25B3%25BB%25E7%25BB%259F%25E6%25BC%258F%25E6%25B4%259E%26action%3Dedit%26redlink%3D1" rel="nofollow noreferrer" target="_blank">系统漏洞</a>等黑客技术，所以难度很高，一般人不会或没能力接触这技术的深层内容。其内容基本上都是修改病毒、木马的内容改变特征码，从而躲避了杀毒软件的查杀。</span></li>
+</ol>
+
+<p><span style="font-size:16px"><strong>2.查杀方式及原理</strong></span></p>
+
+<ol>
+    <li><span style="font-size:16px">病毒查杀方式：行为和云查杀、静态查杀。</span></li>
+    <li><span style="font-size:16px">静态查杀：一般根据特征码识别到，然后对文件进行特征匹配。</span></li>
+    <li><span style="font-size:16px">云查杀：查毒的原理是对文件内容及行为的检测，要实现这个需要唯一确定文件吧，md5？当大文件时，效率较低，随便改个字节都变了，所以就有了提特征（针对所有文件，根据指定位提取唯一信息，速度快）。</span></li>
+    <li><span style="font-size:16px">行为查杀(动态查杀)，主要是对其产生的行为进行检测。</span></li>
+    <li><span style="font-size:16px">可构建行为库进行动态查杀</span></li>
+    <li><span style="font-size:16px">可构建日志库对日志库进行动态查杀</span></li>
+    <li><span style="font-size:16px">统计学检测&mdash;&gt;构建特征学习模型&mdash;&gt;进行动态查获取就好了</span></li>
+</ol>
+
+<ul>
+    <li>
+    <p><span style="font-size:20px">免杀世界的基础汇编（二）</span></p>
+    </li>
+</ul>
+
+<ol>
+    <li>
+    <p><span style="font-size:16px">一、免杀必备的汇编知识</span></p>
+
+    <p><span style="font-size:16px">　push 压栈，栈是一种数据结构，记住四个字：先进后出。压栈就是把数据放如栈中，从栈顶放如，出栈的时候也是从栈顶取出，所以会有先进后出的特点！先进后出我们可以这样理解，例如：一个乒乓球筒，我们放入乒乓球，然后取出乒乓球，取出的都是就后放进的球。就如我们放入球的顺序是球1、2、3、4，取出的顺序是球4、3、2、1。pop 出栈，与push相对应。</span></p>
+    </li>
+    <li>
+    <p><span style="font-size:16px">&nbsp; &nbsp; mov a，b 把b的值送给a，把它看作编程中的赋值语句就是b赋值给a，这时a的值就是b了。</span></p>
+
+    <p><span style="font-size:16px">　　nop 无作用，就是什么也没做。</span></p>
+
+    <p><span style="font-size:16px">　　retn 从堆栈取得返回地址并跳到该地址执行。</span></p>
+
+    <p><span style="font-size:16px">　　下面是一些算术运算指令：</span></p>
+
+    <p><span style="font-size:16px">　　ADD 加法</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; sub 减法</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; inc 加1 9Vs</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; dec 减1</span></p>
+
+    <p><span style="font-size:16px">　　最后是跳转指令：</span></p>
+
+    <p><span style="font-size:16px">　　jmp 无条件跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; je 或jz 若相等则跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jne或jnz 若不相等则跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jb 若小于则跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jl 若小于则跳0V）</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; ja 若大于则跳-X7f</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jg 若大于则跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jle 若小于等于则跳</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; jge 若大于等于则跳</span></p>
+
+    <p><span style="font-size:16px">　　这些就是我们需要掌握的，怎么样不多吧，一些指令可能看不明白，看了后面的就会清楚了。对了，忘了讲寄存器了，寄存器是中央处理器内的其中组成部份。寄存器是有限存贮容量的高速存贮部件，它们可用来暂存指令、数据和位址。我们需要了解的是8个通用寄存器：EAX，EBX，ECX，EDX，ESI，EDI，EBP，ESP</span></p>
+    </li>
+</ol>
+
+<ul>
+    <li>
+    <p><span style="font-size:20px">免杀世界的基础汇编（三）</span></p>
+    </li>
+</ul>
+
+<ol>
+    <li>
+    <p><span style="font-size:16px">二、特征码和花指令的修改</span></p>
+
+    <p><span style="font-size:16px">　</span></p>
+
+    <p><span style="font-size:16px">　　特征码我就不多说了，大家都知道的，现在杀毒软件查杀都用特征码查杀，改了木马的特征码，杀毒软件就查不出我们的木马，这样就达到免杀的效果。而花指令是程序中的无用代码，程序多它没影响，少了它也能正常运行。加花指令后，杀毒软件对木马静态反汇编使，木马的代码就不会正常显示出来，加大杀毒软件的查杀难度。花指令的原理是堆栈平衡。前面介绍push说了，堆栈平衡可以这样理解，有进有出，不管花指令怎么写，我们要达到的目的是加花后，堆栈与未加之前一样。</span></p>
+
+    <p><span style="font-size:16px">　</span></p>
+
+    <p><span style="font-size:16px">　　网上的花指令因为是公布出来的，所以免杀周期不长，一般公布出来不久就会被杀毒软件查杀，但是我们只要简简单单的修改一两句就可以达到免杀了。下面我们来看看5种修改方法。（也适用于特征码修改）</span></p>
+
+    <p><span style="font-size:16px">　</span></p>
+
+    <p><span style="font-size:16px">　　我们先看看木马彩衣（金色鱼锦衣）花指令</span></p>
+
+    <p><span style="font-size:16px">　</span></p>
+
+    <p><span style="font-size:16px">　　1、push ebp</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 2、mov ebp，esp</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 3、add esp，-0C</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 4、add esp，0C</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 5、mov eax，原入口</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 6、push eax</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 7、retn</span></p>
+
+    <p><span style="font-size:16px">　</span></p>
+
+    <p><span style="font-size:16px">　　1、2、在大部分程序开头可以经常看到。push ebp是将寄存器ebp压入堆栈，mov ebp，esp是将寄存器esp的值送给寄存器ebp.3、4、使用了add指令，add esp，-0C是寄存器esp加上-0C，add esp，0C是寄存器esp加上0C，3、4、加起来就是什么也没做，达到堆栈平衡。5、6、7、完成了跳转到入口点的功能，我们一句句来看看mov eax，原入口，将入口点送入寄存器eax，push eax将寄存器eax压入堆栈，retn我们知道是从堆栈取得返回地址并跳到该地址执行。这样就回到入口点了。</span></p>
+
+    <p><span style="font-size:16px">　　我们看看实例，以木马彩衣免杀为例，先侦壳，用peid载入，显示Microsoft Visual Basic 5.0 / 6.0，（如图1）很好，免去了脱壳的麻烦，复制木马彩衣后再粘贴，得到复件 木马彩衣。exe，我们用木马彩衣对复件 木马彩衣。exe加花，加金色鱼锦衣，（如图2）然后用Ollydbg.exe载入，我们就可以看到看到金色鱼锦衣的花指令了。（如图3）用卡巴扫描，被卡巴认出来了。（如图4）这是因为金色鱼锦衣公布比较久，用的人多了，对杀毒软件就无效了。</span></p>
+
+    <p><span style="font-size:16px">　　1、替换法</span></p>
+
+    <p><span style="font-size:16px">　　我们用替换法来修改金色鱼锦衣，修改结果如下：</span></p>
+
+    <p><span style="font-size:16px">　　1、push ebp</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 2、mov ebp，esp</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 3、add esp，</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 4、add esp，</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 5、mov eax，原入口</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; 6、push eax</span></p>
+
+    <p><span style="font-size:16px">7、retn</span></p>
+
+    <p><span style="font-size:16px">　　将原来3、4、句add esp，-0C和add esp，0C改成add esp，1和add esp，-1这两句也能达到堆栈平衡，（如图5）右键选中add esp，-0C，点击汇编，将add esp，-0C改成add esp，1，将add esp，0C改成add esp，-1.选中修改部分，右键单击&rarr;复制到可执行文件&rarr;选择部分，弹出窗口，右键保存文件。这里我保存成&ldquo;替换法。exe&rdquo;用卡巴查杀，免杀了。</span></p>
+    </li>
+</ol>
+
+<ul>
+    <li>
+    <p><span style="font-size:20px">免杀中特征码的原理（一）</span></p>
+    </li>
+    <li>
+    <p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2446/1649214251047/8eaa82538d70418bb9a69d363685cb27.png" style="height:339px; width:763px" /></p>
+    </li>
+    <li>
+    <pre>
+<code class="language-cpp">壳人口特征码：
+00442170 &gt; $  60            pushad
+00442171   .  BE 00704300   mov     esi,00437000
+00442176   .  8DBE 00A0FCFF lea     edi,dword ptr ds:[esi+0xFFFCA000&gt;
+0044217C   .  57            push    edi
+0044217D   .  83CD FF       or      ebp,0xFFFFFFFF
+00442180   .  EB 10         jmp     short 00442192
+00442182      90            nop
+00442183      90            nop
+00442184   &gt;  90            nop
+00442185   .  90            nop
+00442186   .  90            nop
+00442187   .  90            nop
+00442188   &gt;  8A06          mov     al,byte ptr ds:[esi]
+0044218A   .  46            inc     esi
+0044218B   .  8807          mov     byte ptr ds:[edi],al
+0044218D   .  47            inc     edi
+0044218E   &gt;  01DB          add     ebx,ebx
+00442190   .  75 07         jnz     short 00442199
+00442192   &gt;  8B1E          mov     ebx,dword ptr ds:[esi]
+00442194   .  83EE FC       sub     esi,-0x4
+00442197   .  11DB          adc     ebx,ebx
+00442199   &gt;^ 72 ED         jb      short 00442188
+0044219B   .  B8 01000000   mov     eax,0x1
+004421A0   &gt;  01DB          add     ebx,ebx
+
+</code></pre>
+
+    <pre>
+<code>病毒程序的特征码与上述我们讲的有相同的地方也有不同的地方。相同点在于我们同样需要在病毒的二进制代码中提取一部分作为病毒特征。但是我们的病毒程序是不能够采用上述这种方式，即从程序入口进行提取的，因为这样一来病毒程序和普通的程序的检测结果就没有区别了。因此计算机病毒的特征码需要能够把病毒程序与一般的程序区分开来，即能够唯一标识一个或者一类多态病毒，要能够成为计算机病毒程序的“指纹”。如果只是随意从病毒内选取一段二进制代码串作为该病毒的特征码，很可能会在正常的程序中也匹配到该特征码，从而出现误报的情况。所以在我看来，选取恰当的特征代码串绝对是一个很具技巧性的工作，这需要经验的积累以及对目标病毒的深刻理解。当然对于不同的杀毒软件厂商而言，都会有自己的一套提取特征码的方式，可能是自动获取，也可能是手动分析。
+
+       一般来说，病毒特征码需要满足以下几个要求：
+
+       1、不能从数据区提取，因为数据区的内容很容易改变，一旦病毒程序变更版本，改变了数据内容，特征码就会失效。而其它的区块则相对来说保险一些。
+
+       2、在保持特征码的唯一性的前提下，应当尽量使得特征码短小精悍，从而减少检测过程中的时间与空间的复杂度，提高检测效率。
+
+       3、经过详细的逆向分析之后选取出来的特征码，才足以将该病毒与其它病毒或正常程序相区别。
+
+       4、病毒程序的特征码一定不能匹配到普通程序，比如选取病毒入口点的二进制代码，就必然出现误报的情况。
+
+       5、特征码的长度应当控制在64个字节以内。
+</code></pre>
+
+    <p>&nbsp;</p>
+    </li>
+</ul>
+
+<ol>
+    <li>
+    <p><span style="font-size:20px">免杀中特征码的原理（二）</span><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2446/1649214251047/ce741815f2764d36847de04a945997eb.png" style="height:124px; width:847px" /></p>
+    </li>
+    <li>
+    <p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2446/1649214251047/9bede2af89054fe8bdd3be83bf7b4a85.png" style="height:254px; width:570px" /></p>
+    </li>
+    <li>
+    <pre>
+<code>加壳前输入表：
+
+名称位于 Inject
+地址       区段       类型    (  名称                                    注释
+00442170   UPX1       输出         &lt;ModuleEntryPoint&gt;
+0046539C   .rsrc      输入    (    KERNEL32.LoadLibraryA
+004653A0   .rsrc      输入    (    KERNEL32.GetProcAddress
+004653A4   .rsrc      输入    (    KERNEL32.VirtualProtect
+004653A8   .rsrc      输入    (    KERNEL32.VirtualAlloc
+004653AC   .rsrc      输入    (    KERNEL32.VirtualFree
+004653B0   .rsrc      输入    (    KERNEL32.ExitProcess
+004653B8   .rsrc      输入    (    ADVAPI32.OpenProcessToken
+004653C0   .rsrc      输入    (    COMCTL32.ImageList_Remove
+004653C8   .rsrc      输入    (    GDI32.SetROP2
+004653D0   .rsrc      输入         MFC42.#1576
+004653D8   .rsrc      输入         MSVCP60.std::_Lockit::_Lockit
+004653E0   .rsrc      输入    (    MSVCRT.exit
+004653E8   .rsrc      输入         PSAPI.EnumProcesses
+004653F0   .rsrc      输入         SHELL32.SHGetFileInfoA
+004653F8   .rsrc      输入    (    USER32.GetDC
+</code></pre>
+
+    <p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2446/1649214251047/821eae9592bf496f816a007517bb0f95.png" style="height:283px; width:824px" /></p>
+    </li>
+    <li>
+    <pre>
+<code class="language-cpp">敏感API序列：
+0040CFCF    50              push    eax
+0040CFD0    6A 20           push    0x20
+0040CFD2    C603 00         mov     byte ptr ds:[ebx],0x0
+0040CFD5    C74424 18 00000&gt;mov     dword ptr ss:[esp+0x18],0x0
+0040CFDD    FF15 60204100   call    dword ptr ds:[0x412060]          ; kernel32.GetCurrentProcess
+0040CFE3    50              push    eax
+0040CFE4    FF15 08204100   call    dword ptr ds:[0x412008]          ; advapi32.OpenProcessToken
+0040CFEA    8B4C24 1C       mov     ecx,dword ptr ss:[esp+0x1C]
+0040CFEE    68 38AD4100     push    0041AD38                         ; ASCII "SeDebugPrivilege"
+0040CFF3    51              push    ecx
+0040CFF4    8BCE            mov     ecx,esi
+0040CFF6    E8 550A0000     call    0040DA50
+0040CFFB    8B5424 1C       mov     edx,dword ptr ss:[esp+0x1C]
+0040CFFF    52              push    edx
+0040D000    FF15 74204100   call    dword ptr ds:[0x412074]          ; kernel32.CloseHandle
+0040D006    8B07            mov     eax,dword ptr ds:[edi]
+0040D008    8B2D 78204100   mov     ebp,dword ptr ds:[0x412078]      ; kernel32.OpenProcess
+0040D00E    50              push    eax
+0040D00F    6A 00           push    0x0
+0040D011    68 FF0F1F00     push    0x1F0FFF
+0040D016    FFD5            call    ebp
+0040D018    8BF0            mov     esi,eax
+
+</code></pre>
+
+    <p><span style="font-size:16px">特征码选取的基本方法<br />
+    &nbsp; &nbsp; &nbsp; &nbsp;病毒的特征码可能是病毒的感染标记，也可能是若干计算机指令组成的一段计算机程序。一般使用以下几种方法来提取病毒的特征码</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp;1、计算校验和</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp;这种方法的特点是简单快速，也是我们之前的专杀工具所采用的方式。但是采用这种方法，一种特征码只能匹配一个病毒，即便病毒的变动很小，也需要重新提取特征码，这造成的后果是会使得特征码库过于庞大，一般用于临时提取特征码。所以这种计算校验和的方式不是我们讨论的重点。</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp;2、提取特征字符串</span></p>
+
+    <p><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp;病毒文件中总会存在一些可供识别的字符串，很多时候，这些字符串是某个病毒所特有的，因此这种方式适用于所有病毒的特征码的提取。采用这种方式甚至还能识别某一大类病毒，但是缺点是需要耗费比较多的扫描时间。以我们之前讨论过的&ldquo;熊猫烧香&rdquo;病毒为例，经过我们之前的逆向分析可以知道，病毒最开始会使用&ldquo;xboy&rdquo;以及&ldquo;whboy&rdquo;这两个字符串来进行解密的操作。比如我们尝试一下，在病毒程序的二进制代码中搜索&ldquo;whboy&rdquo;：</span></p>
+    </li>
+    <li>
+    <p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/2446/1649214251047/c5991b56f5f141e2853a0ead461125a4.png" style="height:129px; width:718px" /><br />
+    &nbsp;</p>
+    </li>
+</ol>
+
+<ul>
+    <li>
+    <p><span style="font-size:20px">免杀中的经典工具集（三）</span></p>
+    </li>
+    <li>
+    <pre>
+<code>1.CCL(特征码定位器，由于杀软的升级，现已过时)
+2.MYCCL(特征码定位器，由程序员Tanknight在CCL的基础上改进)
+3.OllyDbg (特征码的修改，可用于动态反汇编。注意：用它修改特征码时，要用OC转换成内存地址)
+4.C32ASM（特征码的修改，也可用于静态反汇编）
+5.OC(用于计算从文件偏移地址到内存地址的小工具)
+6.UltaEdit-32(十六进制编辑器,用于特征码的手工准确定位或修改)</code></pre>
+
+    <p>&nbsp;</p>
+    </li>
+</ul>
+
+</body>
+</html>

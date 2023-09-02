@@ -1,0 +1,284 @@
+<p><span style="font-size:22px">1.2 从反汇编侧方位看C++虚函数表</span></p>
+
+<p>&nbsp;</p>
+
+<ul>
+	<li><strong>虚函数地址表（虚表）</strong>
+
+	<ol>
+		<li><span style="font-size:16px">定义：当类中定义有虚函数时，编译器会把该类中所有虚函数的首地址保存在一张地址表中，即虚函数地址表。</span></li>
+		<li><span style="font-size:16px">虚表信息在编译后被链接到执行文件中，因此所获得的虚表地址是一个固定的地址。</span></li>
+		<li><span style="font-size:16px">虚表中虚函数的地址排列顺序依据虚函数在类中的声明顺序而定。</span></li>
+	</ol>
+	</li>
+</ul>
+
+<ul>
+	<li><strong>虚表指针</strong>
+
+	<ul>
+		<li><span style="font-size:16px">同时编译器还会在类的每个对象添加一个隐藏数据成员，称为虚表指针，保存着虚表的首地址，用于记录和查找虚函数。</span></li>
+		<li><span style="font-size:16px">虚表指针的初始化是通过编译器在构造函数中插入代码实现的。由于必须初始化虚表指针，编译器会提供默认的构造函数。</span></li>
+	</ul>
+	</li>
+	<li><strong>虚函数调用过程</strong>
+	<ul>
+		<li><span style="font-size:16px">虚表间接寻址访问：<br />
+		使用对象的指针或引用调用虚函数。根据对象的首地址，取出相应的虚表指针，在虚表查找对应的虚函数的首地址，并调用执行。</span></li>
+		<li><span style="font-size:16px">直接调用访问：<br />
+		使用对象调用虚函数，和调用普通成员函数一样。</span></li>
+		<li>
+		<p><span style="font-size:16px">虚函数的识别：</span></p>
+		</li>
+		<li><span style="font-size:16px">类中隐式定义一个数据成员</span></li>
+		<li><span style="font-size:16px">数据成员在首地址处，占4字节</span></li>
+		<li><span style="font-size:16px">构造函数初始化该数据成员为某个数组的首地址</span></li>
+		<li><span style="font-size:16px">地址属于数据区，相对固定的地址</span></li>
+		<li><span style="font-size:16px">数组的成员是函数指针</span></li>
+		<li><span style="font-size:16px">函数被调用方式是thiscall</span></li>
+		<li>
+		<p><span style="font-size:16px">构造函数与析构函数都会将虚表指针设置为当前对象所属类中的虚表地址</span>。</p>
+		</li>
+		<li>构造函数中是完成虚表指针的初始化，此时虚表指针并没有指向虚表函数。</li>
+		<li>执行析构函数时，其对象的虚表指针已经指向某个虚表首地址。虚函数是在还原虚表指针，让其指向自身的虚表首地址，防止在析构函数中调用虚函数时取到非自身虚表</li>
+		<li>
+		<pre>
+<code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class base_class
+{
+private:
+    int m_base;
+public:
+    virtual void v_func1()
+    {
+        cout &lt;&lt; "This is base_class's v_func1()" &lt;&lt; endl;
+    }
+    virtual void v_func2()
+    {
+        cout &lt;&lt; "This is base_class's v_func2()" &lt;&lt; endl;
+    }
+    virtual void v_func3()
+    {
+        cout &lt;&lt; "This is base_class's v_func3()" &lt;&lt; endl;
+    }
+};</code></pre>
+
+		<p>&nbsp;</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+
+<p><span style="font-size:22px">1.2&nbsp; C++中类与继承在汇编中的关系 </span></p>
+
+<pre>
+<code class="language-cpp">
+class employee
+{
+public:
+	employee() { printf("employee()!\n");}
+	~employee() { printf("~employee()!\n");}
+};
+ 
+class manager : public employee
+{
+public:
+	manager() { printf("manager()!\n");}
+	~manager() {  printf("~maneger()!\n");
+}
+</code></pre>
+
+<p><span style="font-size:22px">1.2 从反汇编角度看this指针 </span></p>
+
+<pre>
+<code class="language-cpp">#include "stdafx.h"
+ 
+struct MyStruct
+{
+    int x ;
+    int y ;
+};
+ 
+//函数在结构体外部
+void Max(MyStruct* str)
+{
+    if (str-&gt;x &gt; str-&gt;y)
+        printf("%d",str-&gt;x);
+    else
+        printf("%d",str-&gt;y);
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+    MyStruct haha ;
+    haha.x = 1 ;
+    haha.y = 2 ;
+    Max(&amp;haha);
+    printf("%d\n",sizeof(haha));
+    return 0;
+
+}</code></pre>
+
+<pre>
+<code class="language-cpp">#include "stdafx.h"
+ 
+struct MyStruct
+{
+	int x ;
+	int y ;
+	//函数在结构体内部
+	int Max(MyStruct* str)
+	{
+		return str-&gt;x &gt; str-&gt;y ? str-&gt;x :str-&gt;y ;
+	}
+};
+ 
+int _tmain(int argc, _TCHAR* argv[])
+{
+	MyStruct haha ;
+	haha.x = 1 ;
+	haha.y = 2 ;
+        haha.Max(&amp;haha);
+        printf("%d\n",haha.Max(&amp;haha));
+	printf("%d\n",sizeof(haha));
+	return 0;
+}</code></pre>
+
+<pre>
+<code class="language-cpp">
+class MYCLASS  
+{  
+    int a;  
+public:  
+    MYCLASS()  
+    {  
+  
+    }  
+    ~MYCLASS()  
+    {  
+  
+    }  
+public:  
+    void print()  
+    {  
+        cout&lt;&lt;"this : "&lt;&lt;this&lt;&lt;endl;  
+        cout&lt;&lt;"finish"&lt;&lt;a&lt;&lt;endl;  
+    }  
+    int qian(int a, int b)  
+    {  
+        return a + b;  
+    }  
+};  
+  
+int _tmain(int argc, _TCHAR* argv[])  
+{  
+    MYCLASS *myClass = NULL;  
+    myClass = new MYCLASS();  
+    myClass-&gt;print();
+    return 0;  
+}</code></pre>
+
+<p><span style="font-size:22px">1.2 反汇编中构造函数和析构函数的识别 </span></p>
+
+<pre>
+<code class="language-cpp">class MyTest
+{
+public:
+    MyTest();
+    ~MyTest();
+public:
+    DWORD m_dwTest;
+};
+ MyTest::MyTest()
+ {
+     printf("1111\r\n");　　　　　　　　//构造的时候先打印
+     
+ }
+ MyTest::~MyTest()
+ {
+    printf("2222\r\n");　　　　　　　　//析构的时候打印
+ }
+
+
+int main(int argc, char* argv[])
+{
+    MyTest Test;　　　　　　　　　　　　　　//创建局部对象
+    getchar();
+    return 0;
+}</code></pre>
+
+<ol>
+	<li><span style="font-size:16px">C++中的类,构造的时候先祖先类,然后父类,最后朋友类,然后在构造自己.&nbsp; 析构的时候 先自己 后朋友 接着父类 然后是祖先类,(明白一下顺序)</span></li>
+	<li><span style="font-size:16px">这个是main函数内部,在创建对象的时候,会先调用构造,然后退出的时候会调用析构(上面是我改名字过后的)</span></li>
+	<li><span style="font-size:16px">现在我们认识构造有几个必要条件</span></li>
+	<li><span style="font-size:16px">1.ecx,this传参因为C++下的对象都是 thisCall,和FastCall类似,thisCall会通过寄存器传参.而fastCall最后两个参数会通过寄存器传参.</span></li>
+	<li><span style="font-size:16px">.鉴定是ecx传参的前提下是函数外面给值,函数内部使用</span></li>
+	<li><span style="font-size:16px">函数内部会将ecx给存储起来,这个内存空间称之为&nbsp; this,也就是语法为什么可以这样写: this.xxxx = 1&nbsp; this.MyTest();</span></li>
+	<li><span style="font-size:16px">高亮ecx传参的时候的内存地址,会有多处使用.&nbsp;</span></li>
+	<li><span style="font-size:16px">2.构造会在创建对象的时候先调用</span></li>
+	<li><span style="font-size:16px">3.构造函数的返回值则是this指针.</span></li>
+</ol>
+
+<pre>
+<code class="language-cpp">class MyTest
+{
+public:
+    MyTest();
+    ~MyTest();
+    void SetTest(DWORD dwTest);
+    DWORD GetTest();
+public:
+    DWORD m_dwTest;
+};
+ MyTest::MyTest()
+ {
+     printf("1111\r\n");
+     
+ }
+ MyTest::~MyTest()
+ {
+    printf("2222\r\n");
+ }
+
+
+void MyTest::SetTest(DWORD dwTest)
+{
+    this-&gt;m_dwTest = dwTest;   
+}
+DWORD MyTest::GetTest()
+{
+    return this-&gt;m_dwTest;
+}
+int main(int argc, char* argv[])
+{
+    MyTest Test;
+    Test.SetTest(1);　　　　　　
+    int Number = Test.GetTest();　　　　　　//添加了Set,Get方法,并调用
+    getchar();
+    return 0;
+}</code></pre>
+
+<p><span style="font-size:16px"><strong>总结:</strong></span></p>
+
+<p><strong>　　<span style="font-size:14px">1.stdcall 会将this指针当做参数push进去.</span></strong></p>
+
+<p><span style="font-size:14px"><strong>　　2. push进去的this指针,会在call上面第一个push,也就是说this指针是第一个参数</strong></span></p>
+
+<p><span style="font-size:14px"><strong>　　3.平栈还是按照stdcall的形式平栈</strong></span></p>
+
+<p><span style="font-size:22px">1.2&nbsp;逆向Radmin登录CALL实现打开对话框</span></p>
+
+<p><span style="font-size:16px">Radmin (Remote Administrator)是一款屡获殊荣的<a href="https://baike.baidu.com/item/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6" target="_blank">远程控制</a>软件，它将远程控制、外包服务组件、以及<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%9B%91%E6%8E%A7/1133155" target="_blank">网络监控</a>结合到一个系统里，提供最快速、强健而安全的工具包。</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">它有以下特点：</span></p>
+
+<p><span style="font-size:16px">1．运行速度快。</span></p>
+
+<p><span style="font-size:16px">2．Radmin支持被控端以服务的方式运行、支持多个连接和IP 过滤(即允许特定的IP控制远程机器)、个性化的档互传、远程关机、支持高分辨率模式、基于Windows NT的安全支持及密码保护以及提供日志文件支持等。</span></p>
+
+<p><span style="font-size:16px">3．在安全性方面，Radmin支持Windows NT/2000用户级安全特性，您可以将<a href="https://baike.baidu.com/item/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6" target="_blank">远程控制</a>的权限授予特定的用户或者用户组，Radmin将以加密的模式工作，所有的数据(包括屏幕影像、鼠标和键盘的移动)都使用128位强<a href="https://baike.baidu.com/item/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95" target="_blank">加密算法</a>加密; 服务器端会将所有操作写进日志文件，以便于事后查询，服务器端有IP<a href="https://baike.baidu.com/item/%E8%BF%87%E6%BB%A4%E8%A1%A8" target="_blank">过滤表</a>，对IP过滤表以外的控制请求将不予回应。</span></p>
+
+<p><span style="font-size:16px">4．Radmin 支持<a href="https://baike.baidu.com/item/TCP%2FIP%E5%8D%8F%E8%AE%AE/212915" target="_blank">TCP/IP协议</a>，应用十分广泛。</span></p>

@@ -1,0 +1,119 @@
+<h2><strong>0x0 环境</strong></h2>
+
+<ol>
+	<li>x64dbg</li>
+	<li>serial.exe</li>
+	<li>Windows 10</li>
+</ol>
+
+<h2><strong>0x1 主要内容</strong></h2>
+
+<p>​ 本文通过分析一个非明码比较的<a href="https://www.zhihu.com/search?q=%E5%BA%8F%E5%88%97%E5%8F%B7%E4%BF%9D%E6%8A%A4&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">序列号保护</a>程序，展示x64dbg的常见用法以及逆向的基本思路，在实战中讲解x64dbg的一些用法：</p>
+
+<ol>
+	<li><a href="https://www.zhihu.com/search?q=%E5%AD%97%E7%AC%A6%E4%B8%B2&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">字符串</a>搜索</li>
+	<li>反汇编界面基本操作</li>
+	<li>软件断点</li>
+	<li>函数断点</li>
+	<li>常见窗口介绍</li>
+</ol>
+
+<h2><strong>0x2 分析</strong></h2>
+
+<ol>
+	<li>分析程序功能<br />
+	这程序就长这样：</li>
+</ol>
+
+<p><img src="https://pic4.zhimg.com/80/v2-d734a1a66cde287d0cdb099697e3cd37_720w.jpg" style="width:264px" /></p>
+
+<p><br />
+在help里面可以找到一个注册功能，注册界面如下：</p>
+
+<p><img src="https://pic4.zhimg.com/80/v2-194bdc7d6b383c6257d7e264a5d413a3_720w.jpg" style="width:401px" /></p>
+
+<p><br />
+输入正确的用户名和密码即可注册成功，当然，如果输入错误，会弹出一个messagebox显示错误信息</p>
+
+<ol>
+	<li>查壳</li>
+</ol>
+
+<p><img src="https://pic1.zhimg.com/80/v2-d7ea7f86aa3a112b5549c66889d198b4_720w.jpg" style="width:487px" /></p>
+
+<p><br />
+可以看出，<a href="https://www.zhihu.com/search?q=%E7%9B%AE%E6%A0%87%E7%A8%8B%E5%BA%8F&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">目标程序</a>是使用汇编写的，貌似没壳。</p>
+
+<ol>
+	<li>分析目标程序<br />
+	将目标程序用x64dbg(实际上是x32dbg)打开，看看x64dbg的界面，这里常用的窗口都使用红字标注出来了</li>
+</ol>
+
+<p><img src="https://pic2.zhimg.com/80/v2-6de232b1dd2ea1a44dc1526fe17667a5_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+字符串搜索功能，我们可以通过x64dbg的字符串搜索功能来查看内存中加载的字符串，具体操作步骤为：<strong>CPU(反汇编)窗口-&gt;鼠标右键-&gt;搜索-&gt;选择模块(根据个人需求选择，一般选择当前模块，前提是得先执行到主模块)-&gt;字符串</strong></p>
+
+<p><img src="https://pic2.zhimg.com/80/v2-e514641e4d823a2875aeafb1980cbac5_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+我们单步到主模块(<strong>单步调试快捷键和od一样，F7单步步入，F8单步步过</strong>)，字符串搜索得到如下结果，可以看到很明显的字符串：</p>
+
+<p><img src="https://pic1.zhimg.com/80/v2-53306a64b9e912694e64082d94c6f5a8_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+双击该字符串即可跳到反汇编窗口中相应位置。</p>
+
+<p><img src="https://pic4.zhimg.com/80/v2-e2259e25f6b5c1803e0543e552ba9e0f_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+下软件断点，运行程序，观察是何处调用了该代码(<strong>鼠标点击相应行，按下F2即可快速使用软件断点</strong>)，下软件断点后，地址处会变为红色，<a href="https://www.zhihu.com/search?q=%E6%96%AD%E7%82%B9%E7%AA%97%E5%8F%A3&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">断点窗口</a>能看到相应信息。</p>
+
+<p><img src="https://pic1.zhimg.com/80/v2-3f43f4c6b458c42f9094bead1b3ab7e8_720w.jpg" style="width:1200px" /></p>
+
+<p>&nbsp;</p>
+
+<p><img src="https://pic3.zhimg.com/80/v2-79ca95fbeaf3e41d0fc43d5acaedeece_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+让程序运行起来(<strong>快捷键F9</strong>)，输入注册信息，点击确认，等待命中软件断点<br />
+可以看到，程序的EIP指向了我们的软件断点，此时信息框信息为失败。</p>
+
+<p><img src="https://pic1.zhimg.com/80/v2-44b94d7baeaadacb6c7c1252d1a19534_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+单步步过，一直走到返回ret，即可查看上层代码<br />
+可以看到，源程序是使用了2个处理函数，分别对用户名和密码进行了运算，用户名运结果放到了eax中，密码运算结果放在ebx中，比较二者运算结果是否相同，决定调用注册成功函数还是注册失败函数。(由于此时只是介绍工具使用，故不展示算法分析部分，大致流程为<strong>eax = F1(用户名)，ebx = F2(注册码)，cmp eax,ebx</strong>)</p>
+
+<p><img src="https://pic4.zhimg.com/80/v2-043980d2e9433ba660e3b35a728caf87_720w.jpg" style="width:1200px" /></p>
+
+<p><br />
+这时候，我们使用x64dbg的代码修改功能，将对应的注册失败验证跳过，即可完成破解：将0x401243处的je 0x40124C改为jmp 0x40124C(<strong>双击代码行即可修改</strong>)</p>
+
+<p><img src="https://pic2.zhimg.com/80/v2-e0c0024c21741355e0c98d80c9e0f845_720w.jpg" style="width:1168px" /></p>
+
+<p><br />
+保存到文件(<strong>反汇编窗口右键-&gt;补丁-&gt;修补文件</strong>)</p>
+
+<p><img src="https://pic3.zhimg.com/80/v2-f402dd2a4955daef0748e27135f7e8de_720w.jpg" style="width:943px" /></p>
+
+<p><br />
+现在，验证我们的破解成果吧</p>
+
+<p><img src="https://pic1.zhimg.com/80/v2-058ef6c9c846c59dfd585e54af32ae10_720w.jpg" style="width:453px" /></p>
+
+<p><br />
+可以看到，已经破解成功了，当然，完美的破解应当是写出注册机，这里只是展示工具使用，主要不是展示逆向，所以暂时不写注册流程。</p>
+
+<h2><strong>0x3 知识点总结</strong></h2>
+
+<ol>
+	<li>相应界面的查看：CPU(反汇编)窗口、<a href="https://www.zhihu.com/search?q=%E5%AF%84%E5%AD%98%E5%99%A8%E7%AA%97%E5%8F%A3&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">寄存器窗口</a>、内存窗口、栈窗口</li>
+	<li>常用<a href="https://www.zhihu.com/search?q=%E5%BF%AB%E6%8D%B7%E9%94%AE&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A157299963%7D" target="_blank">快捷键</a>：F2下软件断点、F7单步步入、F8单步步过、F9运行程序</li>
+	<li>常用功能：
+	<ol>
+		<li>字符串搜索：CPU(反汇编)窗口-&gt;鼠标右键-&gt;搜索-&gt;选择模块(根据个人需求选择，一般选择当前模块，前提是得先执行到主模块)-&gt;字符串</li>
+		<li>保存修改到文件：反汇编窗口右键-&gt;补丁-&gt;修补文件</li>
+	</ol>
+	</li>
+</ol>

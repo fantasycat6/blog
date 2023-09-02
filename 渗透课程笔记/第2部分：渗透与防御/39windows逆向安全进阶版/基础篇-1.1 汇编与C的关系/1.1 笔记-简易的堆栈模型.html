@@ -1,0 +1,13 @@
+<h2 style="text-align:center"><strong>1.1 简易的堆栈模型</strong></h2>
+
+<p><img alt="image-20210227170510647" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227170510647.png" /></p>
+
+<ul>
+	<li><span style="font-size:26px">BASE,TOP是2个32位的通用寄存器，里面存储的是内存单元编号(内存地址).</span></li>
+	<li><span style="font-size:26px">BASE里面存储了一个地址，记录的起始地址.</span></li>
+	<li><span style="font-size:26px">TOP里面也存储了一个地址，记录的是结束的地址.</span></li>
+	<li><span style="font-size:26px">存入数据的时候，TOP的值减4(为方便演示，每次存取都是4个字节)</span></li>
+	<li><span style="font-size:26px">释放数据的时候，TOP的值加4(为方便演示，每次存取都是4个字节)</span></li>
+	<li><span style="font-size:26px">如果要读取中间的某个数据的时候可以通过TOP&nbsp;&nbsp;或者 BASE 加上偏移的方式去读取</span></li>
+	<li><span style="font-size:26px">这种内存的读写方式有个学名：<strong>堆栈</strong></span></li>
+</ul>

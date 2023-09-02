@@ -1,0 +1,73 @@
+<h2>界面介绍</h2>
+
+<p><img alt="在这里插入图片描述" src="https://www.pianshen.com/images/156/2a2ee6a61f25b22375de64baeaa4df3c.png" /><br />
+<span style="font-size:18px">A区域:view菜单功能项的快捷按钮</span></p>
+
+<p><span style="font-size:18px">B+C+D+E+F: CPU窗口 （OD打开一个可执行文件后，会立刻加载，自动分析后并列出汇编代码，默认打开CPU窗口）</span></p>
+
+<p><span style="font-size:18px">B区域:反汇编面板窗口<br />
+（分为4列从左至右依次是Address,Hex dump,Disassembly,Comment）</span></p>
+
+<ul>
+	<li><span style="font-size:18px">Address(地址):显示被双击行的相对地址，再次双击返回便准地址模式；</span></li>
+	<li><span style="font-size:18px">Hex dump(十六进制机器码):设置或取消无条件断点，对应的快捷键是F2；</span></li>
+	<li><span style="font-size:18px">Disassembly(反汇编代码):调用汇编器，可直接修改汇编代码，对应快捷键是空格。</span></li>
+	<li><span style="font-size:18px">Comment(注释):允许增加或编辑注释，对应的快捷键是&quot;;&quot;;</span></li>
+	<li><span style="font-size:18px">从键盘上选取多行，可按Shift和上下光标键（PgUp/PgDn）,可以使用右键快捷菜单，可以按Ctrl键并按上下光标，可逐行滚动汇编窗口。（数据与代码混合时异常有用）</span></li>
+</ul>
+
+<p><span style="font-size:18px">C区域:信息面板窗口</span></p>
+
+<ul>
+	<li><span style="font-size:18px">在进行动态追踪时，信息面板窗口将显示与指令相关的各寄存器的值，API函数调用提示和跳转提示等信息。</span></li>
+</ul>
+
+<p><span style="font-size:18px">D区域:数据面板窗口</span></p>
+
+<ul>
+	<li><span style="font-size:18px">以十六进制和字符方式显示文件在内存中的数据，要显示制定内存地址的数据，可单击右键快捷菜单中的&ldquo;Go to expression&rdquo;命令或者按Ctrl+G快捷键，打开地址窗口输入地址。</span></li>
+</ul>
+
+<p><span style="font-size:18px">E区域:寄存器面板窗口</span></p>
+
+<ul>
+	<li><span style="font-size:18px">显示CPU各寄存器的值，支持浮点,MMX,3DNow!寄存器。可以右键或窗口标题切换显示寄存器的方式。</span></li>
+</ul>
+
+<p><span style="font-size:18px">F区域:栈面板窗口</span></p>
+
+<ul>
+	<li><span style="font-size:18px">显示栈的内容，即ESP指向地址的内容。将数据放入栈的称为入栈(push)，从栈中取出数据的操作称为出栈(pop)。API函数和子程序都利用它传递参数和变量。</span></li>
+</ul>
+
+<h2><span style="font-size:18px">OD的配置</span></h2>
+
+<p><span style="font-size:18px">OD的设置项在Options(选项)菜单里，包括(Appearance)界面选项和(Debugging options)调试选项</span></p>
+
+<p><span style="font-size:18px">1.界面设置<br />
+<img alt="在这里插入图片描述" src="https://www.pianshen.com/images/892/eb4735704472380ed7fc03974593e47c.png" /></span></p>
+
+<ul>
+	<li><span style="font-size:18px">Options-&gt;Appearance-&gt;Directories(目录)设置Udd和插件文件的路径(为了避免不必要的麻烦，请使用绝对路径)。</span></li>
+	<li><span style="font-size:18px">Udd：OD的工程文件，用于保存当前调试的一些状态(断点，注释)，方便下次调试时继续使用。</span></li>
+	<li><span style="font-size:18px">插件：用于扩展功能，路径设置正确后，将插件复制到plugin目录里。相应的选项就会出现在OD的主菜单plugin里显示出来。</span></li>
+</ul>
+
+<p><span style="font-size:18px">2.调试设置</span></p>
+
+<ul>
+	<li><span style="font-size:18px">一般保持默认即可。其中Exceptions(异常)选项用于设置让OD忽略或不忽略某些异常。</span></li>
+</ul>
+
+<p><span style="font-size:18px">3.加载符号文件<br />
+<img alt="在这里插入图片描述" src="https://www.pianshen.com/images/775/dc2ab41ca6fcce9495cc42dd81db6ed7.png" /></span></p>
+
+<ul>
+	<li><span style="font-size:18px">使用符号库(Lib)可以让OD以函数名的形式显示DLL中的函数。MFC42.DLL是用序号形式输出函数的，OD中只能以序号形式显示，如果让其加载MFC42.dll调试符号，将以函数名的形式显示相关的输出函数。Debug-&gt;Select import libraries,打开导入库窗口进行加载。</span></li>
+</ul>
+
+<p><span style="font-size:18px">4.关联到右键快捷菜单</span></p>
+
+<ul>
+	<li><span style="font-size:18px">可以将OD关联到Windows资源管理器的右键菜单里面。关联后调试时只需要在EXE或者DLL文件上单击右键，就会出现用OD打开的菜单项。实现关联步骤：Options-&gt;Add to explorer-&gt;Add OD to menu in Windows Explorer。</span><img alt="在这里插入图片描述" src="https://www.pianshen.com/images/989/645f743b4bee1ec00d9f089cab94e75d.png" /></li>
+</ul>

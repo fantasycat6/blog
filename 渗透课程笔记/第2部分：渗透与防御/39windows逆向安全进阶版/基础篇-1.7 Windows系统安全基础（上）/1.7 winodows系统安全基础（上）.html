@@ -1,0 +1,753 @@
+<ul>
+	<li><span style="font-size:22px">windwos进程相关原理</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p>进程句柄表</p>
+	</li>
+	<li>
+	<p><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639360195000/563d88364cb24f768722413a352523a4.png" style="height:402px; width:738px" /></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">Winlogon&nbsp; &nbsp; 是一个登录/退出进程。winlogon在用户按下CTRL+ALT+DEL时激活，并显示安全对话框。该进程提供了登录所需的类型控制和输入口令所需的对话框。当你输入用户名和口令时，Winlogon将其发送给一个叫做LSASS的子进程。如果你执行对服务器或工作站的本地登录，LSASS进程将在安全数据库（亦即SAM）中查对有关用户名和口令。Winlogon有两个子进程，即服务控制器和LSASS。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">Explorer进程&nbsp; 在Windows系列的操作系统中，运行时都会启动一个名为Explorer.exe的进程。这个进程主要负责显示系统桌面上的图标以及任务栏。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">csrss.exe进程 这个进程是用户模式Win32子系统的一部分，CSRSS代表客户/服务器运行子系统而且是一个基本的子系统必须一直运行。CSRSS负责控制Windows图形相关子系统，创建或者删除线程和一些16位的虚拟MS-DOS环境。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">System Idle 这个进程不可以从任务管理器中关掉，是作为单线程运行在每个处理器上，并在系统不处理其他线程的时候分派处理器的时间。所以，在任务管理器中，看到的&ldquo;System Idle Process&rdquo;的CPU资源占用恰恰是CPU资源空闲时间。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">smss.exe 这个进程是不可以从任务管理器中关掉的，是一个会话管理子系统，负责启动用户会话。这个进程是通过系统进程初始化，并且对许多活动，包括正在运行的Winlogon，Win32（Csrss.exe）线程和设定的系统变量作出反映。在它启动这些进程后，它等待Winlogon或者Csrss结束。如果这些过程是正常的，系统就关掉了。如果发生了什么不可预料的事情，smss.exe就会让系统停止响应（就是挂起）。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">lsass.exe 这个进程是不可以从任务管理器中关掉的。管理&nbsp;IP&nbsp;安全策略以及启动&nbsp;ISAKMP/Oakley&nbsp;(IKE)&nbsp;和&nbsp;IP&nbsp;安全驱动程序。&nbsp;这是一个本地的安全授权服务，它会为使用winlogon服务的授权用户生成一个进程。这个进程是通过使用授权的包，例如默认的msgina.dll来执行。如果授权是成功的，lsass就会产生用户的进入令牌，令牌被用于启动初始的shell，其他由用户初始化的进程也会继承这个令牌（系统服务）。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">services.exe 大多数的系统核心模式进程是作为系统进程在运行。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">缓冲（spooler）服务是管理缓冲池中的打印和传真作业，将文件加载到内存中以便迟后打印（系统服务）。</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">System Idle Process 这个进程在系统不 处理其它线程的时 候分派处理器的时间。&nbsp;</span></p>
+	</li>
+	<li>
+	<p>&nbsp;</p>
+
+	<h3>&nbsp;<strong>进程对象</strong></h3>
+
+	<p><span style="font-size:16px">对于进程来说，首先要说的数据结构是EPROCESS（执行体进程块），它在执行体内表示一个进程对象。 我们可以通过内核调试器看看这个数据结构在WRK中的样子。</span></p>
+	</li>
+	<li>
+	<pre>
+<code class="language-cpp">kd&gt; ?? sizeof(EPROCESS)
+
+unsigned int 0x278
+
+kd&gt; dt EPROCESS
+
+nt!EPROCESS
+
++0x000 Pcb : _KPROCESS
+
++0x078 ProcessLock : _EX_PUSH_LOCK
+
++0x080 CreateTime : _LARGE_INTEGER
+
++0x088 ExitTime : _LARGE_INTEGER
+
++0x090 RundownProtect : _EX_RUNDOWN_REF
+
++0x094 UniqueProcessId : Ptr32 Void
+
++0x098 ActiveProcessLinks : _LIST_ENTRY
+
++0x0a0 QuotaUsage : [3] Uint4B
+
++0x0ac QuotaPeak : [3] Uint4B
+
++0x0b8 CommitCharge : Uint4B
+
++0x0bc PeakVirtualSize : Uint4B
+
++0x0c0 VirtualSize : Uint4B
+
++0x0c4 SessionProcessLinks : _LIST_ENTRY
+
++0x0cc DebugPort : Ptr32 Void
+
++0x0d0 ExceptionPort : Ptr32 Void
+
++0x0d4 ObjectTable : Ptr32 _HANDLE_TABLE
+
++0x0d8 Token : _EX_FAST_REF
+
++0x0dc WorkingSetPage : Uint4B
+
++0x0e0 AddressCreationLock : _KGUARDED_MUTEX
+
++0x100 HyperSpaceLock : Uint4B
+
++0x104 ForkInProgress : Ptr32 _ETHREAD
+
++0x108 HardwareTrigger : Uint4B
+
++0x10c PhysicalVadRoot : Ptr32 _MM_AVL_TABLE
+
++0x110 CloneRoot : Ptr32 Void
+
++0x114 NumberOfPrivatePages : Uint4B
+
++0x118 NumberOfLockedPages : Uint4B
+
++0x11c Win32Process : Ptr32 Void
+
++0x120 Job : Ptr32 _EJOB
+
++0x124 SectionObject : Ptr32 Void
+
++0x128 SectionBaseAddress : Ptr32 Void
+
++0x12c QuotaBlock : Ptr32 _EPROCESS_QUOTA_BLOCK
+
++0x130 WorkingSetWatch : Ptr32 _PAGEFAULT_HISTORY
+
++0x134 Win32WindowStation : Ptr32 Void
+
++0x138 InheritedFromUniqueProcessId : Ptr32 Void
+
++0x13c LdtInformation : Ptr32 Void
+
++0x140 VadFreeHint : Ptr32 Void
+
++0x144 VdmObjects : Ptr32 Void
+
++0x148 DeviceMap : Ptr32 Void
+
++0x14c Spare0 : [3] Ptr32 Void
+
++0x158 PageDirectoryPte : _HARDWARE_PTE_X86
+
++0x158 Filler : Uint8B
+
++0x160 Session : Ptr32 Void
+
++0x164 ImageFileName : [16] UChar
+
++0x174 JobLinks : _LIST_ENTRY
+
++0x17c LockedPagesList : Ptr32 Void
+
++0x180 ThreadListHead : _LIST_ENTRY
+
++0x188 SecurityPort : Ptr32 Void
+
++0x18c PaeTop : Ptr32 Void
+
++0x190 ActiveThreads : Uint4B
+
++0x194 GrantedAccess : Uint4B
+
++0x198 DefaultHardErrorProcessing : Uint4B
+
++0x19c LastThreadExitStatus : Int4B
+
++0x1a0 Peb : Ptr32 _PEB
+
++0x1a4 PrefetchTrace : _EX_FAST_REF
+
++0x1a8 ReadOperationCount : _LARGE_INTEGER
+
++0x1b0 WriteOperationCount : _LARGE_INTEGER
+
++0x1b8 OtherOperationCount : _LARGE_INTEGER
+
++0x1c0 ReadTransferCount : _LARGE_INTEGER
+
++0x1c8 WriteTransferCount : _LARGE_INTEGER
+
++0x1d0 OtherTransferCount : _LARGE_INTEGER
+
++0x1d8 CommitChargeLimit : Uint4B
+
++0x1dc CommitChargePeak : Uint4B
+
++0x1e0 AweInfo : Ptr32 Void
+
++0x1e4 SeAuditProcessCreationInfo : _SE_AUDIT_PROCESS_CREATION_INFO
+
++0x1e8 Vm : _MMSUPPORT
+
++0x230 MmProcessLinks : _LIST_ENTRY
+
++0x238 ModifiedPageCount : Uint4B
+
++0x23c JobStatus : Uint4B
+
++0x240 Flags : Uint4B
+
++0x240 CreateReported : Pos 0, 1 Bit
+
++0x240 NoDebugInherit : Pos 1, 1 Bit
+
++0x240 ProcessExiting : Pos 2, 1 Bit
+
++0x240 ProcessDelete : Pos 3, 1 Bit
+
++0x240 Wow64SplitPages : Pos 4, 1 Bit
+
++0x240 VmDeleted : Pos 5, 1 Bit
+
++0x240 OutswapEnabled : Pos 6, 1 Bit
+
++0x240 Outswapped : Pos 7, 1 Bit
+
++0x240 ForkFailed : Pos 8, 1 Bit
+
++0x240 Wow64VaSpace4Gb : Pos 9, 1 Bit
+
++0x240 AddressSpaceInitialized : Pos 10, 2 Bits
+
++0x240 SetTimerResolution : Pos 12, 1 Bit
+
++0x240 BreakOnTermination : Pos 13, 1 Bit
+
++0x240 SessionCreationUnderway : Pos 14, 1 Bit
+
++0x240 WriteWatch : Pos 15, 1 Bit
+
++0x240 ProcessInSession : Pos 16, 1 Bit
+
++0x240 OverrideAddressSpace : Pos 17, 1 Bit
+
++0x240 HasAddressSpace : Pos 18, 1 Bit
+
++0x240 LaunchPrefetched : Pos 19, 1 Bit
+
++0x240 InjectInpageErrors : Pos 20, 1 Bit
+
++0x240 VmTopDown : Pos 21, 1 Bit
+
++0x240 ImageNotifyDone : Pos 22, 1 Bit
+
++0x240 PdeUpdateNeeded : Pos 23, 1 Bit
+
++0x240 VdmAllowed : Pos 24, 1 Bit
+
++0x240 SmapAllowed : Pos 25, 1 Bit
+
++0x240 CreateFailed : Pos 26, 1 Bit
+
++0x240 DefaultIoPriority : Pos 27, 3 Bits
+
++0x240 Spare1 : Pos 30, 1 Bit
+
++0x240 Spare2 : Pos 31, 1 Bit
+
++0x244 ExitStatus : Int4B
+
++0x248 NextPageColor : Uint2B
+
++0x24a SubSystemMinorVersion : UChar
+
++0x24b SubSystemMajorVersion : UChar
+
++0x24a SubSystemVersion : Uint2B
+
++0x24c PriorityClass : UChar
+
++0x250 VadRoot : _MM_AVL_TABLE
+
++0x270 Cookie : Uint4B</code></pre>
+
+	<pre>
+<code class="language-cpp">/*
+思路，先通过EPROCESS找到PsActiveProcessLinks，然后遍历所有进程，进程名在ImageFileName
+*/
+#include &lt;ntddk.h&gt;
+
+
+NTSTATUS TraverseProcess()
+{
+	UCHAR *eprocess = (UCHAR *)PsGetCurrentProcess();//获取了EPROCESS的指针 PsActiveProcessLinks在offset0x088处
+	LIST_ENTRY *pFirstEntry = (LIST_ENTRY *)((UCHAR *)eprocess + 0x88);//获取PsActiveProcessLinks的指针
+	LIST_ENTRY *activeList = pFirstEntry;
+	UCHAR ImageFileName[16];
+	memset(ImageFileName, 0, sizeof(ImageFileName));
+
+	DbgPrint("address of EPROCESS : %X", eprocess);
+
+	do {
+		memcpy(ImageFileName, (UCHAR *)eprocess + 0x174, sizeof(ImageFileName));
+		DbgPrint("%s, %x, %x", ImageFileName,activeList-&gt;Flink,activeList-&gt;Blink);
+		activeList = activeList-&gt;Flink;//寻址到下一个链表的表头
+		eprocess = (UCHAR *)activeList - 0x88;
+	} while (pFirstEntry-&gt;Flink != activeList-&gt;Flink);
+
+
+
+	return STATUS_SUCCESS;
+}
+
+
+void Unload(PDRIVER_OBJECT pDriverObject)
+{
+	UNREFERENCED_PARAMETER(pDriverObject);
+	DbgPrint("unloading...");
+}
+
+NTSTATUS DriverEntry(PDRIVER_OBJECT pDriverObj, PUNICODE_STRING registryPath)
+{
+	UNREFERENCED_PARAMETER(pDriverObj);
+	UNREFERENCED_PARAMETER(registryPath);
+	UNICODE_STRING success = RTL_CONSTANT_STRING(L"success");
+	UNICODE_STRING fail = RTL_CONSTANT_STRING(L"failed");
+	if (TraverseProcess()) {
+		DbgPrint("%wZ", &amp;success);
+	}
+	pDriverObj-&gt;DriverUnload = Unload;
+	DbgPrint("%wZ", &amp;fail);
+	return STATUS_SUCCESS;
+}
+
+
+
+</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">windows线程基础</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">线程的创建其实和进程类似，也是建立起来线程的执行环境，比如分配线程所需要的<a href="https://www.zhihu.com/search?q=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A21328442%7D" target="_blank">数据结构</a>和调用栈，完成这些数据结构的初始化操作。虽然这些操作比较于进程是很轻量级的，但是频繁创建和销毁也会是不可忽视的消耗。所以当需要频繁创建和销毁线程的时候，可以考虑线程池式的方式来解决消耗过大的问题。</span></p>
+
+	<p><span style="font-size:16px">进程中的多个线程执行的时候，是乱序的，即在某个时刻执行哪个线程，是不确定的，所以<a href="https://www.zhihu.com/search?q=%E5%A4%9A%E7%BA%BF%E7%A8%8B&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A21328442%7D" target="_blank">多线程</a>的问题会比较难以调试。对于线程来说，是有用户态和内核态的区别，当进行线程切换的时候，如果线程是用户态，是需要切换为内核态的，这种切换也是需要耗费资源，不过目前随着硬件的发展，这部分切换的成本正在减少，所以，这部分的开销是可以接受的，大部分情况下，我们可以忽略线程的切换。</span></p>
+	</li>
+	<li>
+	<p>&nbsp;</p>
+
+	<p><span style="font-size:16px">一个多线程程序有多个执行点，在多处理器的机器上，不同的线程会真的存在；而在单处理器的机器上，系统采用一种分时技术来将每个线程切割成较短的时间间隔，一个线程执行时便暂停其它线程，给每个线程一些处理时间，这些时间是非常短的，在用户看来就像是程序支持多线程操作。</span></p>
+
+	<p><span style="font-size:16px">因为有了多线程，所以我们可以一边听音乐，一边编辑文档，或是一边聊微信。</span></p>
+
+	<p><span style="font-size:16px">若一个程序不支持多线程，当用户执行一个操作，若有别的操作还在运行，程序便会出现无响应，程序不应该允许这种情况发生。</span></p>
+
+	<p><span style="font-size:16px">但是线程一旦共享资源就会出现同步问题，因为任何线程都会被其它线程中断，所以使用线程并不难，重点是是如何同步对象来安全的共享资源。</span></p>
+	</li>
+	<li>
+	<pre>
+<code class="language-cpp">#include &lt;windows.h&gt;
+#include &lt;iostream&gt;
+#include &lt;cassert&gt;
+#include &lt;process.h&gt;
+
+//线程函数
+unsigned WINAPI ThreadFunc(LPVOID arg);
+
+int main()
+{
+    HANDLE hThread;      // 线程句柄
+    unsigned uThreadID;  // 线程ID
+    int iParam = 5;            // 线程参数
+
+    hThread = (HANDLE)_beginthreadex(nullptr, 0, ThreadFunc, (void*)iParam, 0, &amp;amp;uThreadID);
+    assert(hThread != 0);
+
+    Sleep(3000);  // 等待3秒
+    std::cout &lt;&lt; "end of main" &lt;&lt; std::endl;
+
+    std::cin.get();
+    return 0;
+}
+
+unsigned WINAPI ThreadFunc(LPVOID arg)
+{
+    int n = (int)arg;
+    for (int i = 0; i &amp;lt; n; ++i)
+    {
+        Sleep(1000);
+        std::cout &lt;&lt; i &lt;&lt; " running thread" &lt;&lt; std::endl;
+    }
+    return 0;
+}
+</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:22px">windows内核相关技术揭秘</span></li>
+</ul>
+
+<p style="text-align:justify"><span style="font-size:10.5pt"><span style="font-family:Calibri">&nbsp;&nbsp;</span></span></p>
+
+<ol>
+	<li><span style="font-size:16px">对象是一种特殊的数据结构，用于定于受保护的实体。为了让系统高效稳定的运行，在Windows内核中空间中保存了多种不同的对象。例如：在用户层使用CreateProcess创建进程以后，Windows系统就会在内核中创建一个进程对象用来保存进程的信息（进程名，PID等等），有了这些信息Windows就可以方便的对进程进行管理。这些内核对象是保存在内核空间中的，用户层的程序是无法通过地址直接访问这些对象。想要访问这些内核对象，就需要使用Windows提供的句柄。在用户层如果想做什么样的操作，就可以通过句柄进行操作，因为在内核层会通过该句柄找到相应的内核对象完成操作。通过这样的设计，用户层的代码就无法直接内核层的数据，对重要的数据的一些关键操作就会由内核来完成，增强了系统的健壮性。</span></li>
+	<li><span style="font-size:16px">对象管理器是执行体的组件，主要管理执行体对象。但是，执行体对象也可能封装了一个或多个内核对象。因此，Windows对象管理器的作用可以认为是对内核空间中多种多样的不同内核对象进行控制。</span></li>
+	<li>
+	<p><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639360195000/432ea42769ff4225b6a3eb7a4b83692f.jpg" style="height:705px; width:838px" /></p>
+	</li>
+</ol>
+
+<p style="text-align:justify"><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639360195000/066fde7ef1c64611a5a800b2582c5863.png" style="height:576px; width:900px" /></p>
+
+<ol>
+	<li style="text-align: justify;"><span style="font-size:16px">从逆向和源码角度配合看内核中主动防御HIPS驱动的原理</span></li>
+	<li style="text-align: justify;">
+	<pre>
+<code class="language-cpp">#include &lt;ntddk.h&gt;
+#include "Common.h"
+#include "RProtect.h"
+#include "Hook.h"
+#include "SysCallFlt.h"
+#include "EventHandler.h"
+#include "WhiteBlackList.h"
+
+BOOLEAN g_bReady = FALSE;
+
+NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING RegistryPath)
+{
+	UNICODE_STRING usDevName, usSymLinkName;
+	PDEVICE_OBJECT pDevObj;
+	NTSTATUS status;
+
+	KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Hello Matrix!\r\n"));
+
+#ifdef RP_DBG
+	DriverObject-&gt;DriverUnload = DriverExit; 
+#else
+	DriverObject-&gt;DriverUnload = NULL;
+#endif
+
+	RtlInitUnicodeString(&amp;usDevName, L"\\Device\\"DRV_NAME);
+	status = IoCreateDevice(DriverObject, 0, &amp;usDevName, FILE_DEVICE_UNKNOWN, 
+							FILE_DEVICE_SECURE_OPEN, TRUE, &amp;pDevObj);
+
+	if (!NT_SUCCESS(status)) {
+		return status;
+	}
+
+	RtlInitUnicodeString(&amp;usSymLinkName, L"\\DosDevices\\"DRV_NAME);
+	status = IoCreateSymbolicLink(&amp;usSymLinkName, &amp;usDevName);
+	if (!NT_SUCCESS(status)) {
+		IoDeleteDevice(pDevObj);
+		return status;
+	}
+
+	DriverObject-&gt;MajorFunction[IRP_MJ_CREATE] = MyCreate;
+	DriverObject-&gt;MajorFunction[IRP_MJ_CLOSE] = MyCloseCleanup;
+	DriverObject-&gt;MajorFunction[IRP_MJ_CLEANUP] = MyCloseCleanup;
+	DriverObject-&gt;MajorFunction[IRP_MJ_DEVICE_CONTROL] = MyDeviceControl;
+    
+	if (!StartWork()) {
+		IoDeleteSymbolicLink(&amp;usSymLinkName);
+		IoDeleteDevice(pDevObj);
+		return STATUS_UNSUCCESSFUL;
+	}
+	
+	g_bReady = TRUE;
+
+	return STATUS_SUCCESS;
+}
+
+
+VOID DriverExit(IN PDRIVER_OBJECT DriverObject) {
+	
+	UNICODE_STRING usSymLinkName;
+	ULONG ulNewVirtualAddr;
+	PAGED_CODE();
+
+	KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Bye Matrix!\r\n"));
+
+	RtlInitUnicodeString(&amp;usSymLinkName, L"\\DosDevices\\"DRV_NAME);
+	IoDeleteSymbolicLink(&amp;usSymLinkName);
+
+	IoDeleteDevice(DriverObject-&gt;DeviceObject);
+
+	// unhook
+	UnHook();
+
+	CancelAllEvents();
+
+	KeSetPriorityThread(KeGetCurrentThread(), LOW_REALTIME_PRIORITY);
+	
+	while (!IsAllHookObjectNotInUse()) 
+	{
+		LARGE_INTEGER interval;
+		interval.QuadPart = -2LL * 1000LL * 1000LL * 10LL;
+		KeDelayExecutionThread(KernelMode, FALSE, &amp;interval);
+	}
+
+	ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+	
+	EraseWhiteBlackHashTable();
+	
+} 
+
+
+// IRP_MJ_CREATE
+NTSTATUS MyCreate(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp) 
+{
+	PAGED_CODE();
+	Irp-&gt;IoStatus.Information = 0;
+	Irp-&gt;IoStatus.Status = STATUS_UNSUCCESSFUL;
+	
+	if (g_bReady &amp;&amp; IsCurrentProcRProcess()) {
+		PEPROCESS pCurEproc = PsGetCurrentProcess();
+		if (pCurEproc) {
+			PUNICODE_STRING pusCurProcName = GetProcNameByEproc(pCurEproc);
+			if (pusCurProcName) {
+				AddToWhiteBlackHashTable(pusCurProcName, CRIME_MAJOR_ALL, NODE_TYPE_WHITE); 
+				ExFreePool(pusCurProcName);
+				
+				CancelAllEvents();
+
+				g_pProtected = pCurEproc;
+
+				KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "MyCreate\r\n"));
+				Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+				
+			}
+		}
+	}	
+
+	IoCompleteRequest (Irp,IO_NO_INCREMENT);
+	return Irp-&gt;IoStatus.Status;
+}
+
+// IRP_MJ_CLOSE、IRP_MJ_CLEANUP
+NTSTATUS MyCloseCleanup(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp) 
+{
+	PAGED_CODE();
+	Irp-&gt;IoStatus.Information = 0;
+	g_pProtected = NULL;
+	KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "MyCloseCleanup\r\n"));
+	Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+	IoCompleteRequest (Irp,IO_NO_INCREMENT);
+
+	CancelAllEvents();
+
+	return Irp-&gt;IoStatus.Status;
+}
+
+
+// IRP_MJ_DEVICE_CONTROL
+NTSTATUS MyDeviceControl(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
+{
+	PIO_STACK_LOCATION irpsp = IoGetCurrentIrpStackLocation(Irp);
+	ULONG code = irpsp-&gt;Parameters.DeviceIoControl.IoControlCode;
+	ULONG inlen = irpsp-&gt;Parameters.DeviceIoControl.InputBufferLength;
+	ULONG outlen = irpsp-&gt;Parameters.DeviceIoControl.OutputBufferLength;
+	
+	PAGED_CODE();
+	
+	Irp-&gt;IoStatus.Information = 0;
+	Irp-&gt;IoStatus.Status = STATUS_INVALID_PARAMETER;
+
+	switch (code) {
+		case IOCTL_GET_EVENT:
+			if (outlen == sizeof(USEREVENTDATA)) {
+				PEVENTDATA pEvtData;
+				LARGE_INTEGER interval;
+
+				interval.QuadPart = -3LL * 1000LL * 1000LL * 10LL;	// 
+				pEvtData = PopEvent(&amp;interval);
+				 	
+				if (pEvtData) {
+					BuildUserEventData(pEvtData, (PUSEREVENTDATA)Irp-&gt;AssociatedIrp.SystemBuffer);
+					Irp-&gt;IoStatus.Information = sizeof(USEREVENTDATA);
+					Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+				}
+			}
+			break;
+		case IOCTL_GIVE_JUDGMENT:
+			if (inlen == sizeof(JUDGMENTDATA)) {
+				PJUDGMENTDATA pJudgData = (PJUDGMENTDATA)Irp-&gt;AssociatedIrp.SystemBuffer;
+				PEVENTDATA pEvtData = (PEVENTDATA)pJudgData-&gt;ulEvtData;
+				__try {
+					MyProbeForRead(pEvtData, sizeof(EVENTDATA), 1, MEM_TYPE_KERNELMODE);
+					pEvtData-&gt;ulJudgment = pJudgData-&gt;ulJudgment;
+					KeSetEvent(&amp;pEvtData-&gt;evt, IO_NO_INCREMENT, FALSE);
+					Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+				}__except (EXCEPTION_EXECUTE_HANDLER) 
+				{
+					KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "MyDeviceControl failed!\r\n"));
+				}
+			}
+			break;
+
+		case IOCTL_GET_MAJOR_PROTECTED_INFO:
+			if (inlen == sizeof(USER_MAJOR_PROTECTED_INFO) &amp;&amp; outlen == sizeof(USER_MAJOR_PROTECTED_INFO)) {
+				PUSER_MAJOR_PROTECTED_INFO pUsrMjProInfo = (PUSER_MAJOR_PROTECTED_INFO)Irp-&gt;AssociatedIrp.SystemBuffer;
+				__try {
+					MyProbeForRead(pUsrMjProInfo, sizeof(USER_MAJOR_PROTECTED_INFO), 1, MEM_TYPE_KERNELMODE);
+					pUsrMjProInfo-&gt;ulIsProtected = (ULONG)IsMajorProtected(pUsrMjProInfo-&gt;ulCrimeType);
+					Irp-&gt;IoStatus.Information = sizeof(USER_MAJOR_PROTECTED_INFO);
+					Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+				}__except (EXCEPTION_EXECUTE_HANDLER) 
+				{
+					KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "MyDeviceControl failed!\r\n"));
+				}
+			}
+			break;
+
+		case IOCTL_SET_MAJOR_PROTECTED:
+			if (inlen == sizeof(USER_MAJOR_PROTECTED_INFO)) {
+				PUSER_MAJOR_PROTECTED_INFO pUsrMjProInfo = (PUSER_MAJOR_PROTECTED_INFO)Irp-&gt;AssociatedIrp.SystemBuffer;
+				__try {
+					MyProbeForRead(pUsrMjProInfo, sizeof(USER_MAJOR_PROTECTED_INFO), 1, MEM_TYPE_KERNELMODE);
+					SetMajorProtectedType(pUsrMjProInfo-&gt;ulCrimeType, (BOOLEAN)pUsrMjProInfo-&gt;ulIsProtected);
+					pUsrMjProInfo-&gt;ulIsProtected = (ULONG)IsMajorProtected(pUsrMjProInfo-&gt;ulCrimeType);
+					Irp-&gt;IoStatus.Status = STATUS_SUCCESS;
+				}__except (EXCEPTION_EXECUTE_HANDLER) 
+				{
+					KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "MyDeviceControl failed!\r\n"));
+				}
+			}
+			break;
+	}
+
+
+	IoCompleteRequest (Irp, IO_NO_INCREMENT);
+	return Irp-&gt;IoStatus.Status;
+}
+
+
+BOOLEAN StartWork()
+{
+	PAGED_CODE();
+	// not working in safe mode!	
+	if (*InitSafeBootMode)
+		return FALSE;
+
+	g_ulOsVersion = GetOsVersion();
+	if (g_ulOsVersion != OS_VERSION_ERROR)		// only tested on win7
+	{
+		ULONG ulKiFastCallEntry_Detour;
+		if (!InitEventHandler())
+			return FALSE;
+
+		if (!InitWhiteBlackHashTable()) {
+			ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+			return FALSE;
+		}
+		
+		if (!InitCommonVars()) {
+			ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+			return FALSE;
+		}
+
+		if (!InitShadowServiceId()) {
+			ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+			return FALSE;
+		}
+
+		if (!InitFakeSysCallTable()) {
+			ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+			return FALSE;
+		}
+
+		if ( g_ulOsVersion &gt;= OS_VERSION_VISTA ) {
+			ulKiFastCallEntry_Detour = (ULONG)KiFastCallEntry_Detour_AfterVista;
+		} else {
+			ulKiFastCallEntry_Detour = (ULONG)KiFastCallEntry_Detour_BeforeVista;
+		}
+
+		if (FALSE == Hook(g_ulHookPoint, ulKiFastCallEntry_Detour)) {
+			ExDeleteNPagedLookasideList(&amp;g_EventDataPageList);
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+
+
+_declspec (naked) VOID KiFastCallEntry_Detour_BeforeVista()
+{
+	__asm {
+		pushfd;			// 4 bytes
+		pushad;			// EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI. 32 bytes
+
+		push    edi;	// syscall_table addr
+		push    ebx;	// syscall addr
+		push    eax;	// syscall id
+		call    KiFastCallEntry_Filter;
+		mov     [esp + 10h], eax;	// [esp + 10h] --&gt; orig ebx;
+
+		popad;
+		popfd;
+
+		// exec missing ins &amp; jmp back
+		mov     edi, esp;
+		cmp     esi, g_ulMmUserProbeAddress;
+		push    g_ulJmpBackPoint;
+		retn;
+	}
+}
+
+_declspec (naked) VOID KiFastCallEntry_Detour_AfterVista()
+{
+	__asm {
+		pushfd;			// 4 bytes
+		pushad;			// EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI. 32 bytes
+
+		push    edi;	// syscall_table addr
+		push    edx;	// syscall addr
+		push    eax;	// syscall id
+		call    KiFastCallEntry_Filter;
+		mov     [esp + 14h], eax;	// [esp + 14h] --&gt; orig edx;
+
+		popad;
+		popfd;
+
+		// exec missing ins &amp; jmp back
+		mov     edi, esp;
+		cmp     esi, g_ulMmUserProbeAddress;
+		push    g_ulJmpBackPoint;
+		retn;
+	}
+}
+
+
+
+
+
+
+</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:37px; text-align:justify"><span style="font-size:10.5pt"><span style="font-family:Calibri">&nbsp;&nbsp;&nbsp;</span></span></p>
+
+<p style="margin-left:37px; text-align:justify">&nbsp;</p>

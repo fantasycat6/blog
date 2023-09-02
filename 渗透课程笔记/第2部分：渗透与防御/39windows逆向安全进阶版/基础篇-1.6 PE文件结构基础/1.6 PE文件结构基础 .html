@@ -1,0 +1,440 @@
+<ul>
+	<li><span style="font-size:22px">PE文件基本原理</span></li>
+</ul>
+
+<ol>
+	<li><span style="font-size:16px">PE即Portable Executable，是Windows OS下使用的可执行文件格式。PE文件是指32位的可执行文件，亦称为PE32。64位的可执行文件称为PE+或PE32+，是PE文件的一种扩展形式。</span><span style="font-size:18px"> </span></li>
+	<li>
+	<p><span style="font-size:16px">PE文件种类如下表：</span></p>
+
+	<p><img alt="" src="https://img-blog.csdn.net/20180604194342189" /><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639126658000/2f336517676a47c79a5c100c9eba76a2.png" style="height:95px; width:800px" /></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">PE文件加载流程：要执行PE文件，需要先将文件从磁盘以一定的规则加载到内存中，PE文件加载到内存中的情形如图所示</span></p>
+	</li>
+	<li>
+	<p><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639126658000/f7f22dc0eb414f728d5c6701b11331b8.png" style="height:1057px; width:927px" /></p>
+	</li>
+	<li>
+	<p><span style="font-size:16px">其中，从DOS头（DOS header）到节区头（Section header）是PE头部分，其下的节区合称PE体</span></p>
+	</li>
+	<li>
+	<p>&nbsp;</p>
+
+	<h1><span style="font-size:16px">VA指的是进程虚拟内存的绝对地址，RVA ( Relative Virtual Address， 相对虚拟地址）指从某个基准位置（ ImageBase ）开始的相对地址。 VA与RVA满足下面的换算关系。</span></h1>
+	</li>
+	<li>
+	<p><span style="font-size:16px">RVA+ImageBase=VA</span></p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:20px">PE文件结构分析</span></li>
+	<li><span style="font-size:20px"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639126658000/66693853b00747e1b6f135dfeed85565.jpg" style="height:515px; width:800px" /></span><span style="font-size:18px"> </span></li>
+	<li><span style="font-size:20px">导入表和导出表</span></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<ol>
+	<li>
+	<h1><span style="font-size:16px">什么是DLL</span></h1>
+	</li>
+	<li><span style="font-size:16px">16位的DOS时代不存在DLL（Dynamic Linked Library）这一概念，只有&ldquo;库&rdquo;（Library）一说。比如在C语言中使用printf()函数时，编译器会先从C库中读取相应函数的二进制代码，然后插入到应用程序。Windows OS支持多任务，若仍采用这种包含库的方式，会非常没有效率。于是Windows OS的设计者们根据需要引入了DLL这一概念。</span></li>
+	<li><span style="font-size:16px">加载DLL的方式有两种：</span></li>
+	<li><span style="font-size:16px">显示链接：程序使用DLL时加载，使用完毕后释放内存；</span></li>
+	<li><span style="font-size:16px">隐式链接：程序开始时即加载DLL，程序终止时再释放占用的内存。</span></li>
+	<li>
+	<h1><span style="font-size:16px">上面提到了DLL，在各种不同版本的Windows系统中，DLL的版本各不相同，同一函数在不同版本DLL中的位置也可能不同；另外一个原因在于DLL的重定位，DLL文件的ImageBase值一般为10000000，但当两个DLL尝试装载到同一个地址时会发生冲突，因此有一个DLL得寻找另一个地址装载，这就是所谓的DLL重定位。</span></h1>
+
+	<p>&nbsp;</p>
+
+	<p><span style="font-size:16px">因此当我们要调用某个DLL中的函数时，需要借助IAT(Import Address Table，导入地址表）作为中间桥梁。PE文件在装载时由PE装载器将导入函数的真实地址写入到IAT时，函数调用时则需要从IAT中获取函数的真实地址。</span></p>
+
+	<p>&nbsp;</p>
+
+	<p><span style="font-size:16px">IAT提供的机制与DLL的隐式链接有关。</span></p>
+	</li>
+	<li>
+	<p>&nbsp;</p>
+
+	<h1>、<span style="font-size:16px">通过 strcmp 函数理解IAT的作用</span></h1>
+
+	<p>下面我在 VS2017里编译如下代码：</p>
+	</li>
+	<li>
+	<pre>
+<code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+ 
+int main(){
+    char input[100] = { 0 };
+    scanf_s("%s", input);
+    if (!strcmp(input, "password")) {
+        printf("Right.\n");
+    }
+}</code></pre>
+
+	<h1 style="text-align:left"><span style="font-size:16px"><span style="background-color:#fefefe"><span style="font-family:宋体"><strong><strong><span style="background-color:#fefefe"><span style="font-family:仿宋"><span style="color:#333333"><strong><span style="font-family:仿宋">导出表</span></strong></span></span></span></strong></strong></span></span></span></h1>
+
+	<p style="text-align:left"><span style="font-size:16px"><span style="background-color:#fefefe"><span style="font-family:Calibri"><span style="background-color:#fefefe"><span style="font-family:仿宋"><span style="color:#333333"><span style="font-family:仿宋">&nbsp;</span>&nbsp;<span style="font-family:仿宋">&nbsp;导出表是PE文件为其他应用程序提供自身的一些变量、函数以及类，将其导出给第三方程序使用的一张清单，里面包含了可以导出的元素。</span></span></span></span></span></span></span></p>
+	</li>
+	<li>
+	<p style="text-align:left"><span style="font-size:12pt"><span style="background-color:#fefefe"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="background-color:#fefefe"><span style="font-family:仿宋"><span style="color:#333333"><span style="font-family:仿宋">从逻辑上来说，导出表由名称表、函数表与序号表组成。函数表和序号表必不可少，名称表则是可选的。序号表与名称表的作用是索引，找到真正需要的函数表，函数表中保存着被导出的函数的地址信息。</span></span></span></span></span></span></span></span></p>
+
+	<p><span style="font-size:10.5pt"><span style="font-family:Calibri"><strong><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><strong><span style="font-family:仿宋">导出地址表</span>(EAT）</strong></span></span></span></strong></span></span></p>
+
+	<p><span style="font-size:10.5pt"><span style="font-family:Calibri"><strong><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><strong><span style="font-family:仿宋">序号</span></strong></span></span></span></strong></span></span></p>
+
+	<p><span style="font-size:10.5pt"><span style="font-family:Calibri"><strong><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><strong><span style="font-family:仿宋">导出名称表（</span>ENT）</strong></span></span></span></strong></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x00010000(某函数地址)</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x0001</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">FunName_A</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x00025000(某函数地址)</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x0002</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">FunName_B</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x00050000(某函数地址)</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">0x0003</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:14.0000pt"><span style="font-family:仿宋"><span style="color:#000000"><span style="font-family:仿宋">FunName_C</span></span></span></span></span></span></p>
+
+	<p style="text-align:left"><img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639126658000/ee4467a6411748929ea0b60ecf4fb80f.jpg" style="height:331px; width:931px" /></p>
+	</li>
+</ol>
+
+<ul>
+	<li><span style="font-size:18px">基址重定位节原理</span></li>
+</ul>
+
+<ol>
+	<li>
+	<p><span style="font-size:16px">当向程序的虚拟内存加载PE文件时，文件会被加载到ImageBase所指向的地址。</span></p>
+
+	<p><span style="font-size:16px">ImageBase就是前面讲到的PE拓展头中的一个成员：</span></p>
+	<img alt="" src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/2446/1639126658000/4a50bbb66c1b49fb9714c7693b9b1e20.jpg" style="height:386px; width:800px" /></li>
+</ol>
+
+<ul>
+	<li><span style="font-size:18px">从逆向角度看PELoader加载器</span></li>
+</ul>
+
+<blockquote>
+<ol>
+	<li><span style="font-size:16px">读取磁盘文件到内存</span></li>
+	<li><span style="font-size:16px">根据PE结构获取镜像大小，在自己的程序中申请可读可写可执行的内存。</span></li>
+	<li><span style="font-size:16px">将申请的空间全部填为0</span></li>
+	<li><span style="font-size:16px">修复函数重定位</span></li>
+	<li><span style="font-size:16px">根据PE结构的导入表，加载所需的dll，并获取导入函数的地址并写入导入表中</span></li>
+	<li><span style="font-size:16px">修改PE文件的加载基址</span></li>
+	<li><span style="font-size:16px">跳转到PE的入口点处执行</span></li>
+	<li>
+	<pre>
+<code class="language-cpp">#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+
+
+bool CallEntry(char* chBaseAddress)
+{
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)chBaseAddress;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(chBaseAddress + pDos-&gt;e_lfanew);
+	char* ExeEntry = (char*)(chBaseAddress + pNt-&gt;OptionalHeader.AddressOfEntryPoint);
+	// 跳转到入口点处执行
+	__asm
+	{
+		mov eax, ExeEntry
+		jmp eax
+	}
+
+	return TRUE;
+}
+
+bool SetImageBase(char* chBaseAddress)
+{
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)chBaseAddress;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(chBaseAddress + pDos-&gt;e_lfanew);
+	pNt-&gt;OptionalHeader.ImageBase = (ULONG32)chBaseAddress;
+
+	return TRUE;
+}
+
+bool ImportTable(char* chBaseAddress)
+{
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)chBaseAddress;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(chBaseAddress + pDos-&gt;e_lfanew);
+	PIMAGE_IMPORT_DESCRIPTOR pImportTable = (PIMAGE_IMPORT_DESCRIPTOR)((DWORD)pDos +
+		pNt-&gt;OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress);
+
+	// 循环遍历DLL导入表中的DLL及获取导入表中的函数地址
+	char *lpDllName = NULL;
+	HMODULE hDll = NULL;
+	PIMAGE_THUNK_DATA lpImportNameArray = NULL;
+	PIMAGE_IMPORT_BY_NAME lpImportByName = NULL;
+	PIMAGE_THUNK_DATA lpImportFuncAddrArray = NULL;
+	FARPROC lpFuncAddress = NULL;
+	DWORD i = 0;
+
+	while (TRUE)
+	{
+		if (0 == pImportTable-&gt;OriginalFirstThunk)
+		{
+			break;
+		}
+
+		// 获取导入表中DLL的名称并加载DLL
+		lpDllName = (char *)((DWORD)pDos + pImportTable-&gt;Name);
+		hDll = GetModuleHandleA(lpDllName);
+		if (NULL == hDll)
+		{
+			hDll = LoadLibraryA(lpDllName);
+			if (NULL == hDll)
+			{
+				pImportTable++;
+				continue;
+			}
+		}
+
+		i = 0;
+		// 获取OriginalFirstThunk以及对应的导入函数名称表首地址
+		lpImportNameArray = (PIMAGE_THUNK_DATA)((DWORD)pDos + pImportTable-&gt;OriginalFirstThunk);
+		// 获取FirstThunk以及对应的导入函数地址表首地址
+		lpImportFuncAddrArray = (PIMAGE_THUNK_DATA)((DWORD)pDos + pImportTable-&gt;FirstThunk);
+		while (TRUE)
+		{
+			if (0 == lpImportNameArray[i].u1.AddressOfData)
+			{
+				break;
+			}
+
+			// 获取IMAGE_IMPORT_BY_NAME结构
+			lpImportByName = (PIMAGE_IMPORT_BY_NAME)((DWORD)pDos + lpImportNameArray[i].u1.AddressOfData);
+
+			// 判断导出函数是序号导出还是函数名称导出
+			if (0x80000000 &amp; lpImportNameArray[i].u1.Ordinal)
+			{
+				// 序号导出
+				// 当IMAGE_THUNK_DATA值的最高位为1时，表示函数以序号方式输入，这时，低位被看做是一个函数序号
+				lpFuncAddress = GetProcAddress(hDll, (LPCSTR)(lpImportNameArray[i].u1.Ordinal &amp; 0x0000FFFF));
+			}
+			else
+			{
+				// 名称导出
+				lpFuncAddress = GetProcAddress(hDll, (LPCSTR)lpImportByName-&gt;Name);
+			}
+			// 注意此处的函数地址表的赋值，要对照PE格式进行装载，不要理解错了！！！
+			lpImportFuncAddrArray[i].u1.Function = (DWORD)lpFuncAddress;
+			i++;
+		}
+
+		pImportTable++;
+	}
+
+	return TRUE;
+
+
+}
+
+bool RelocationTable(char* chBaseAddress)
+{
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)chBaseAddress;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(chBaseAddress + pDos-&gt;e_lfanew);
+	PIMAGE_BASE_RELOCATION pLoc = (PIMAGE_BASE_RELOCATION)(chBaseAddress + pNt-&gt;OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC].VirtualAddress);
+
+	//判断是否有重定位表
+	if ((char*)pLoc == (char*)pDos)
+	{
+		return TRUE;
+	}
+
+	while ((pLoc-&gt;VirtualAddress + pLoc-&gt;SizeOfBlock) != 0) //开始扫描重定位表
+	{
+		WORD *pLocData = (WORD *)((PBYTE)pLoc + sizeof(IMAGE_BASE_RELOCATION));
+		//计算需要修正的重定位项（地址）的数目
+		int nNumberOfReloc = (pLoc-&gt;SizeOfBlock - sizeof(IMAGE_BASE_RELOCATION)) / sizeof(WORD);
+
+		for (int i = 0; i &lt; nNumberOfReloc; i++)
+		{
+			if ((DWORD)(pLocData[i] &amp; 0x0000F000) == 0x00003000) //这是一个需要修正的地址
+			{
+				DWORD* pAddress = (DWORD *)((PBYTE)pDos + pLoc-&gt;VirtualAddress + (pLocData[i] &amp; 0x0FFF));
+				DWORD dwDelta = (DWORD)pDos - pNt-&gt;OptionalHeader.ImageBase;
+				*pAddress += dwDelta;
+			}
+		}
+
+		//转移到下一个节进行处理
+		pLoc = (PIMAGE_BASE_RELOCATION)((PBYTE)pLoc + pLoc-&gt;SizeOfBlock);
+	}
+
+	return TRUE;
+}
+
+bool MapFile(char* pFileBuff, char* chBaseAddress)
+{
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)pFileBuff;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(pFileBuff + pDos-&gt;e_lfanew);
+	PIMAGE_SECTION_HEADER pSection = IMAGE_FIRST_SECTION(pNt);
+	//所有头 + 结表头的大小
+	DWORD dwSizeOfHeaders = pNt-&gt;OptionalHeader.SizeOfHeaders;
+	//获取区段数量
+	int nNumerOfSections = pNt-&gt;FileHeader.NumberOfSections;
+
+	// 将前一部分都拷贝过去
+	RtlCopyMemory(chBaseAddress, pFileBuff, dwSizeOfHeaders);
+
+	char* chSrcMem = NULL;
+	char* chDestMem = NULL;
+	DWORD dwSizeOfRawData = 0;
+	for (int i = 0; i &lt; nNumerOfSections; i++)
+	{
+		if ((0 == pSection-&gt;VirtualAddress) ||
+			(0 == pSection-&gt;SizeOfRawData))
+		{
+			pSection++;
+			continue;
+		}
+
+		chSrcMem = (char*)((DWORD)pFileBuff + pSection-&gt;PointerToRawData);
+		chDestMem = (char*)((DWORD)chBaseAddress + pSection-&gt;VirtualAddress);
+		dwSizeOfRawData = pSection-&gt;SizeOfRawData;
+		RtlCopyMemory(chDestMem, chSrcMem, dwSizeOfRawData);
+
+		pSection++;
+	}
+
+	return TRUE;
+}
+
+DWORD GetSizeOfImage(char* pFileBuff)
+{
+	DWORD dwSizeOfImage = 0;
+	PIMAGE_DOS_HEADER pDos = (PIMAGE_DOS_HEADER)pFileBuff;
+	PIMAGE_NT_HEADERS pNt = (PIMAGE_NT_HEADERS)(pFileBuff + pDos-&gt;e_lfanew);
+	dwSizeOfImage = pNt-&gt;OptionalHeader.SizeOfImage;
+
+	return dwSizeOfImage;
+}
+
+char* RunExe(char* pFileBuff, DWORD dwSize)
+{
+	char* chBaseAddress = NULL;
+
+	//获取镜像大小
+	DWORD dwSizeOfImage = GetSizeOfImage(pFileBuff);
+
+	//在进程中开辟一块内存空间
+	chBaseAddress = (char*)VirtualAlloc(NULL,
+		dwSizeOfImage,
+		MEM_COMMIT | MEM_RESERVE,
+		PAGE_EXECUTE_READWRITE);
+	if (NULL == chBaseAddress)
+	{
+		printf("申请进程空间失败\n");
+		return NULL;
+	}
+
+	//将申请的进程空间全部填0
+	RtlZeroMemory(chBaseAddress, dwSizeOfImage);
+
+	//将内存中的exe数据映射到进程内存中
+	if (FALSE == MapFile(pFileBuff, chBaseAddress))
+	{
+		printf("内存映射失败\n");
+		return NULL;
+	}
+
+	//修复重定位
+	if (FALSE == RelocationTable(chBaseAddress))
+	{
+		printf("重定位修复失败\n");
+		return NULL;
+	}
+
+	//填写导入表
+	if (FALSE == ImportTable(chBaseAddress))
+	{
+		printf("填写导入表失败\n");
+		return NULL;
+	}
+
+	//将页属性都设置为可读可写可执行
+	DWORD dwOldProtect = 0;
+	if (FALSE == VirtualProtect(chBaseAddress, dwSizeOfImage, PAGE_EXECUTE_READWRITE, &amp;dwOldProtect))
+	{
+		printf("设置页属性失败\n");
+		return NULL;
+	}
+
+	//修改默认加载基址
+	if (FALSE == SetImageBase(chBaseAddress))
+	{
+		printf("设置默认加载基址失败\n");
+		return NULL;
+	}
+
+	//跳转到入口点执行
+	if (FALSE == CallEntry(chBaseAddress))
+	{
+		printf("跳转到入口点失败\n");
+		return NULL;
+	}
+
+	return chBaseAddress;
+
+}
+
+
+int main()
+{
+	char szFileName[] = "test1.exe";
+
+	//打开文件,设置属性可读可写
+	HANDLE hFile = CreateFileA(szFileName,
+		GENERIC_READ | GENERIC_WRITE,
+		FILE_SHARE_READ | FILE_SHARE_WRITE,
+		NULL,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_ARCHIVE,
+		NULL);
+
+	if (INVALID_HANDLE_VALUE == hFile)
+	{
+		printf("文件打开失败\n");
+		return 1;
+	}
+
+	//获取文件大小
+	DWORD dwFileSize = GetFileSize(hFile, NULL);
+
+	//申请空间将exe读取到内存中
+	char *pData = new char[dwFileSize];
+	if (NULL == pData)
+	{
+		printf("空间申请失败\n");
+		return 2;
+	}
+
+	DWORD dwRet = 0;
+	ReadFile(hFile, pData, dwFileSize, &amp;dwRet, NULL);
+	CloseHandle(hFile);
+
+
+	//将内存中exe加载到程序中
+	char* chBaseAddress = RunExe(pData, dwFileSize);
+
+
+	system("pause");
+	return 0;
+}</code></pre>
+
+	<p>&nbsp;</p>
+	</li>
+</ol>
+</blockquote>

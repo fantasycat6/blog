@@ -1,0 +1,75 @@
+<h2 style="text-align:center"><strong>1.1 堆栈操作原理</strong></h2>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:14px"><strong>入栈和出栈操作也有对应的指令：</strong></span></p>
+
+<ul>
+	<li>PUSH 和 POP</li>
+	<li>push xxx将 xxx的数据压入堆栈</li>
+	<li>pop xxx将栈顶的数据存储到xxx中</li>
+</ul>
+
+<h3><span style="font-size:14px"><strong>堆栈相关汇编指令：</strong></span></h3>
+
+<p><span style="font-size:14px">符号含义r寄存器m内存imm立即数r88位通用寄存器m88位内存imm88位立即数</span></p>
+
+<h4><span style="font-size:14px">PUSH指令</span></h4>
+
+<p><span style="font-size:14px">PUSH r32</span></p>
+
+<p><span style="font-size:14px">PUSH r16</span></p>
+
+<p><span style="font-size:14px">PUSH m16</span></p>
+
+<p><span style="font-size:14px">PUSH m32</span></p>
+
+<p><span style="font-size:14px">PUSH&nbsp;&nbsp;imm8/imm16/imm32</span></p>
+
+<h5><span style="font-size:14px">所有的push都是将esp-4?</span></h5>
+
+<p><span style="font-size:14px">压入的数据的<strong>数据宽度：</strong></span></p>
+
+<p><span style="font-size:14px">当push的是立即数将esp-4</span></p>
+
+<p><span style="font-size:14px">当push r32如push eax时将esp-4</span></p>
+
+<p><span style="font-size:14px">当push dword ptr ds:[12FFDA]即压入双字内存地址中的数据时将esp-4</span></p>
+
+<p><span style="font-size:14px">当push word ptr ds:[12FFDA]即压入字内存地址中的数据时将esp-2</span></p>
+
+<p><span style="font-size:14px">当push ax，即r16 ，16位通用寄存器时，esp-2</span></p>
+
+<p><span style="font-size:14px">push&nbsp;<strong>不允许压入数据宽度为8</strong>的数据 如ah al 和byte ptr ds:[内存编号]</span></p>
+
+<h4><span style="font-size:14px">POP指令</span></h4>
+
+<p><span style="font-size:14px">POP r32</span></p>
+
+<p><span style="font-size:14px">POP r16</span></p>
+
+<p><span style="font-size:14px">POP m16</span></p>
+
+<p><span style="font-size:14px">POP m32</span></p>
+
+<h4><span style="font-size:14px">PUSHAD和POPAD指令</span></h4>
+
+<p><span style="font-size:14px">将所有的32位通用寄存器压入堆栈，方便后面随意使用寄存器，用于保护现场</span></p>
+
+<p><span style="font-size:14px">与POPAD对应</span></p>
+
+<h4><span style="font-size:14px">PUSHFD和POPFD指令</span></h4>
+
+<p><span style="font-size:14px">然后将32位标志寄存器EFLAGS压入堆栈</span></p>
+
+<p><span style="font-size:14px">与POPAD对应</span></p>
+
+<h4><span style="font-size:14px">其它相关指令</span></h4>
+
+<p><span style="font-size:14px">pusha:将所有的16位通用寄存器压入堆栈</span></p>
+
+<p><span style="font-size:14px">popa:将所有的16位通用寄存器取出堆栈</span></p>
+
+<p><span style="font-size:14px">pushf::将的16位标志寄存器EFLAGS压入堆栈</span></p>
+
+<p><span style="font-size:14px">popf:将16位标志寄存器EFLAGS取出堆栈</span></p>

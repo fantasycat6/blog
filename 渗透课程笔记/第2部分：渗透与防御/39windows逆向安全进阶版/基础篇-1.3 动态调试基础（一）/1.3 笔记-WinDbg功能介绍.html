@@ -1,0 +1,147 @@
+<h2><a href="https://www.cnblogs.com/zrhai/p/3881431.html" id="cb_post_title_url">Windbg 的使用和常用命令</a></h2>
+
+<p><em>Windbg</em>是Microsoft在windows平台下，强大的用户态和内核态调试工具。我们经常用它来分析DUMP文件，来解决线上服务器的疑难问题，比如CPU升高，内存溢出，响应时间慢等问题。</p>
+
+<p>下面介绍下Windbg 的使用和常用命令</p>
+
+<p><strong>从MSDN下载</strong>&nbsp;&nbsp;<strong>Debugging Tools for Windows</strong></p>
+
+<p>下载地址：http://www.microsoft.com/en-us/download/details.aspx?id=8279 &nbsp;里面包函了Windows 的软件开发工具包，注意选择系统的版本。</p>
+
+<p>如果你只想下载Debugging Tools for Windows, 在安装过程中, 选择&nbsp;<strong>Debugging Tools for Windows</strong>&nbsp;勾选框，清除其他勾选框。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>配置Windbg</strong></p>
+
+<p>打开运行Windbg &nbsp;&nbsp;Windows Kits\8.1\Debuggers\x64\windbg.exe</p>
+
+<p>从工具栏选择File&gt;Symbol File path</p>
+
+<p><img alt="" src="https://images0.cnblogs.com/blog/213928/201409/021448387977727.jpg" /></p>
+
+<p>设置Symbol File &nbsp;(.pdb 文件)路径&nbsp;<strong>SRV*c:\mysymbol* http://msdl.microsoft.com/download/symbols &nbsp;</strong>调试的时候会从微软网站上下载符号，并存放在c:\mysymbol目录中</p>
+
+<p>如果有其它符路径用分号隔开，如 &nbsp;<strong>;c:\pdb</strong></p>
+
+<p><strong>抓取DUMP文件</strong></p>
+
+<p>如何抓取将在另一篇文章中说明。</p>
+
+<p>从工具栏选择File&gt;Open Crash Dump 打开抓取的.DUMP 文件</p>
+
+<p><img alt="" src="https://images0.cnblogs.com/blog/213928/201409/021704512035677.jpg" /></p>
+
+<p>加载DUMP后，调试屏幕会出现当前DUMP 的一些信息</p>
+
+<p><strong>加载调试扩展SOS</strong></p>
+
+<p>用Windbg 调试托管程序，需要加载SOS 调试扩展 (SOS.dll) 。</p>
+
+<p>在windbg.exe的同级目录已经自带了SOS.dll 。但如果这个版本和服务器运行的Framework版本不一致，可以从系统目录C:\Windows\Microsoft.NET中找到匹配的SOS版本。</p>
+
+<p>我用的64 位 Framework4.0 ，所以从下面目录中找到</p>
+
+<p>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\SOS.dll</p>
+
+<p>在windbg.exe的同级目录还有一个Psscor4目录，里面包函了另一个扩展psscor4.dll。psscor 是对SOS 的升级，加载psscor4也是一样的。</p>
+
+<p>加载命令如下：</p>
+
+<p><strong>.load 目录名/psscor4.dll</strong><br />
+<strong>.load 目录名/SOS.dll</strong></p>
+
+<p><strong>!help 查看命令列表</strong></p>
+
+<p><strong><img alt="" src="https://images0.cnblogs.com/blog/213928/201409/021736153282034.jpg" /></strong></p>
+
+<p><strong>如何分析</strong></p>
+
+<p>人个观点：分析线上问题的第一步，是先从监控软件中（比如zabbix，性能计数器）和系统日志获取信息。观察CPU使用率，CPU LOAD，内存，网络连接数，线程数，响应时间等各种性能指数。</p>
+
+<p>线上的各种性能指数的变化，都有其内在的联系。比如，内存上涨过快同时也会导致CPU 升高。CPU升高，导致服务器性能下降，响应时间慢，网络连接数上升。</p>
+
+<p>通过观察各种指标，然后再定位具体问题。明确了问题方向后，再通过Windbg 分析Dump验证和查找问题的根源。</p>
+
+<p><strong>常用命令</strong></p>
+
+<p>命令很多，把从网上了解到的和用过的一些命令做一次整理，MSDN 对SOS调试命令的说明：&nbsp;<a href="http://msdn.microsoft.com/zh-cn/library/bb190764.aspx">http://msdn.microsoft.com/zh-cn/library/bb190764.aspx</a></p>
+
+<p><em><strong>基础命令：</strong></em><br />
+.load Psscor4/amd64/amd64/psscor4.dll 加载psscor4<br />
+.load SOS/SOS.dll<br />
+.sympath 设置符号路径<br />
+.cls 清屏<br />
+version 查看版本信息<br />
+lm 列出加载模块<br />
+!help 显示命令帮助<br />
+!help EEHeap 显示EEHeap命令帮助<br />
+!EEVersion 显示公共语言运行时版本</p>
+
+<p><strong><em>内存状态：</em></strong></p>
+
+<p>!EEHeap -GC 显示托管堆统计信息<br />
+!EEHeap -loader 显示加载程序数据结构统计信息<br />
+!DumpHeap -stat 显示垃托管堆各类型统计信息<br />
+!DumpHeap -type Free -stat 显示所有碎片类型统计信息<br />
+!DumpHeap -type System.String -min 150 -max 200 显示所有System.String类型 -min -max 字节统计信息<br />
+!DumpHeap -min 85000 -stat 显示大对象统计信息<br />
+!DumpHeap -mt 选项仅列出与指定的 MethodTable 结构对应的那些对象<br />
+!DumpHeap -mt 00000000022245b0 -min 85000 查看MT 00000000022245b0中大对象<br />
+!DumpHeap -stat 023e1000 033db630 按地址统计<br />
+!DumpArray 显示数组对象<br />
+!DumpObj (!do) 显示有关指定地址处的对象的信息<br />
+!ObjSize 显示指定对象的大小<br />
+!DumpStackObjects (!dso) 显示在当前线程内找到的所有托管对象<br />
+!GCRoot 显示有关对指定地址处的对象的引用（或根）的信息。<br />
+!CLRUsage 显示托管堆统计信息(GC堆大小，提交内存，虚拟内存)，psscor4的扩展命令<br />
+!DumpMT 显示有关指定地址处的方法表的信息。<br />
+!DumpMT -MD 显示有关指定地址处的方法表所有方法的列表。<br />
+!address -summary 显示最大可用区域<br />
+!vmstat 最大可用区域是 MAXIMUM 列中的最大值</p>
+
+<p><strong><em>线程调用：</em></strong></p>
+
+<p>!ThreadPool 显示有关托管线程池的信息，包括队列中工作请求的数目、完成端口线程的数目和计时器的数目<br />
+!Threads 显示进程中的所有托管线程<br />
+!Threads -live 选项显示与活动线程关联的线程<br />
+!Threads -pecial 选项显示由 CLR 创建的所有特殊线程<br />
+!ThreadState 显示线程的状态。 value 参数为 Threads 报告输出中的 State 字段的值。<br />
+~54s 转到54线程<br />
+!CLRStack 提供当前托管代码的堆栈跟踪。<br />
+!CLRStack -p 选项显示托管函数的参数。<br />
+!CLRStack -l 选项显示有关帧中的局部变量的信息。<br />
+!DumpStack 显示堆栈跟踪 包括非托管。<br />
+!DumpStack -EE 命令仅显示托管函数。<br />
+!EEStack 对一个进程中的所有线程运行 DumpStack 命令。<br />
+k 显示当前线程的call stack<br />
+kb 显示当前线程的call stack<br />
+~*kb 显示所有线程的call stack 可以 寻找线程中触发GC的函数（mscorwks!SVR::GCHeap::GarbageCollectGeneration）<br />
+!ASPXPages 显示当前处理的HttpContext，psscor4的扩展命令<br />
+!SyncBlk 显示同步块</p>
+
+<p><em><strong>其它：</strong></em><br />
+!runaway 显示线程cpu时间<br />
+vertarget 查看系统运行时间<br />
+!PrintException (!pe) 显示在当前线程上引发的最后一个异常<br />
+!address 命令显示某一地址上的页信息<br />
+!SaveModule 将加载到内存中指定地址的图像写入指定文件,lm 列出的<br />
+!SaveModule 081f0000 d:\\commandobject.dll<br />
+!FinalizeQueue 显示所有已进行终结注册的对象。<br />
+!GCHandles 显示有关进程中的垃圾回收器句柄的统计信息。</p>
+
+<p>S 可以搜索内存 在内存中搜索sina.com: s &ndash;u 0012ff40 L?8000000 &ldquo;sina.com&rdquo;<br />
+r 显示寄存器的信息<br />
+d 显示内存地址上的值 使用d命令显示esp寄存器指向的内存，默认为byte: d esp<br />
+用dd命令直接指定054efc14地址，第二个d表示用DWORD格式: dd 054efc14</p>
+
+<p><em><strong>域，程序集,类</strong></em><br />
+!DumpDomain 枚举在指定的 AppDomain 对象地址内加载的每个 Assembly 对象。若在调用 DumpDomain 命令时不提供任何参数，则将列出过程中的所有 AppDomain 对象<br />
+!DumpAssembly 显示有关程序集的信息。DumpAssembly 命令将列出多个模块（如果存在）。<br />
+!DumpModule &nbsp;显示有关指定地址处的模块的信息。 可以使用 DumpDomain 或 DumpAssembly 命令检索模块的地址<br />
+!DumpModule [-mt] 选项显示模块中定义的类型和模块所引用的类型<br />
+!FindAppDomain 确定指定地址处的对象的应用程序域</p>
+
+<p>!IP2MD &lt;Code address&gt; 显示已 JIT 编译的代码中指定地址处的 MethodDesc 结构。<br />
+!DumpMD &lt;MethodDesc address&gt;<br />
+!U &lt;MethodDesc address&gt; | &lt;Code address&gt; 显示由方法的 MethodDesc 结构指针或方法体内的代码地址指定的托管方法的反汇编（带有批注）</p>

@@ -1,0 +1,403 @@
+<h1>EFLAGS寄存器</h1>
+
+<p><img alt="image-20210227214452385" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210227214452385.png" /></p>
+
+<h2>进位标志CF(Carry Flag)</h2>
+
+<p>如果运算结果的<strong>最高位</strong>产生了一个进位或借位，那么，其值为1，否则其值为0</p>
+
+<p>例子：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,0xFF
+
+ADD AL,1</code></pre>
+
+<h3>0x80+0x40</h3>
+
+<p>加黑的为<strong>最高位</strong></p>
+
+<p>0x80:<strong>0</strong>&nbsp;1000 0000</p>
+
+<p>0x40:<strong>0</strong>&nbsp;0100 0000</p>
+
+<p><img alt="image-20210228144357633" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210228144357633.png" /></p>
+
+<p>结果为1100 0000 最高位并没有发生变化，于是CF位为0</p>
+
+<h3>0x80-0x40</h3>
+
+<p><img alt="image-20210228144309961" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210228144309961.png" /></p>
+
+<p>注意这里借位的位是<strong>1</strong>000 0000中的加黑部分</p>
+
+<p>而非<strong>0</strong>&nbsp;1000 0000这里的最高位</p>
+
+<p>结果为0100 0000 最高位并没有发生变化，于是CF位为0</p>
+
+<h3>0x80-0x81</h3>
+
+<p>0x80:1000 0000</p>
+
+<p>0x81:1000 0001</p>
+
+<p><img alt="image-20210228144551161" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210228144551161.png" /></p>
+
+<p>结果为1111 1111= -1，最高位被借位，于是CF位为1</p>
+
+<h2>奇偶标志PF(Parity&nbsp;&nbsp;Flag)</h2>
+
+<p>奇偶标志PF用于反映运算结果中<strong>最低有效字节</strong>中&ldquo;1&rdquo;的个数的奇偶性</p>
+
+<p>如果&ldquo;1&rdquo;的个数为偶数，则PF的值为1，否则其值为0。</p>
+
+<p>指令指令执行后AL的结果PFMOV AL,300111ADD AL,301101ADD AL,210000</p>
+
+<p>例：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AX,803
+ADD AX,1</code></pre>
+
+<p>0x803: 0000 1000 0000 0011</p>
+
+<p>执行结果</p>
+
+<p>0x804: 0000 1000 0000 0100&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;总共2个1 ,PF应为1，但实际运行结果PF为0</p>
+
+<p>因为PF是根据最低有效字节来看，即8<strong>04</strong>后面04的这部分</p>
+
+<p>04： 0000 0100 总共1个1，所以PF为0</p>
+
+<h2>辅助进位标志AF(Auxiliary&nbsp;&nbsp;Carry Flag)</h2>
+
+<p>在发生下列情况时，辅助进位标志AF的值被置为1，否则其值为0：</p>
+
+<ul>
+	<li>在字操作时，发生低字节向高字节进位或借位时</li>
+	<li>在字节操作时，发生低4位向高4位进位或借位时</li>
+</ul>
+
+<p>AF与<strong>数据宽度</strong>相关</p>
+
+<p>32位时 FFFF&nbsp;<strong>F</strong>&nbsp;FFF</p>
+
+<p>16位时 FF&nbsp;<strong>F</strong>&nbsp;F</p>
+
+<p>8位时 F&nbsp;<strong>F</strong></p>
+
+<p>加黑的字体为AF标志位判断的位置，如果该位置要向前进位则AF为1，否则为0，和CF相似，不过判断的位置不同&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</p>
+
+<p>32位例：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV EAX,55EEFFFF
+
+ADD EAX,2</code></pre>
+
+<p>16位例：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AX,5EFE
+
+ADD AX,2</code></pre>
+
+<p>8位例：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,4E
+
+ADD AL,2</code></pre>
+
+<h2>零标志ZF(Zero&nbsp;&nbsp;Flag)</h2>
+
+<p>零标志ZF用来反映运算结果是否为0</p>
+
+<p>如果运算结果为0，则其值为1，否则其值为0</p>
+
+<p>作用：在判断<strong>运算结果</strong>是否为0时，可使用此标志位</p>
+
+<p>例子：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>XOR EAX,EAX</code></pre>
+
+<p>通过xor将eax清零，会改变zf标志位为1</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV EAX,0</code></pre>
+
+<p>通过MOV将EAX赋值为0，非<strong>运算</strong>，不改变zf标志位</p>
+
+<h2>符号标志SF(Sign&nbsp;&nbsp;Flag)</h2>
+
+<p>符号标志SF用来反映运算结果的符号位，它与运算结果的最高位相同</p>
+
+<p>例子：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,7F
+ADD AL,2</code></pre>
+
+<h2>溢出标志OF(Overflow&nbsp;&nbsp;Flag)</h2>
+
+<p>溢出标志OF用于反映有符号数加减运算所得结果是否溢出</p>
+
+<p><strong>注意与CF区分</strong>！！！</p>
+
+<p>最高位进位与溢出的区别：</p>
+
+<p>进位标志表示<strong>无符号数</strong>运算结果是否超出范围.</p>
+
+<p>溢出标志表示<strong>有符号数</strong>运算结果是否超出范围.</p>
+
+<p>溢出主要是给<strong>有符号运算</strong>使用的，在有符号的运算中，有如下的规律：</p>
+
+<ul>
+	<li>正 + 正 = 正&nbsp;&nbsp;如果结果是负数，则说明有溢出</li>
+	<li>负 + 负 = 负&nbsp;&nbsp;如果结果是正数，则说明有溢出</li>
+	<li>正 + 负 永远都不会有溢出</li>
+</ul>
+
+<h3>无符号、有符号都不溢出例</h3>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,8
+ADD AL,8</code></pre>
+
+<p>AL的数据宽度为8，即</p>
+
+<p>无符号数范围为0～FF即0～255</p>
+
+<p>8+8=16在0~255内 不溢出</p>
+
+<p>有符号数的范围为</p>
+
+<p>正数：0～7F&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;即0～127</p>
+
+<p>负数：80～FF&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;即 -128～0</p>
+
+<p>8+8=16 在0~127内 两正数相加结果仍为正数，不溢出</p>
+
+<h3>无符号溢出、有符号不溢出例</h3>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,0FF
+ADD AL,2</code></pre>
+
+<p>无符号数时</p>
+
+<p>FF+2=255+2=257&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;在0~255外，溢出</p>
+
+<p>有符号数时</p>
+
+<p>FF+2=-1+2=1</p>
+
+<p>正 + 负 永远都不会有溢出</p>
+
+<h3>无符号不溢出、有符号溢出例</h3>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,7F
+ADD AL,2</code></pre>
+
+<p>无符号数时</p>
+
+<p>7F+2=127+2=129&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;在0～255内 不溢出</p>
+
+<p>有符号数时</p>
+
+<p>7F+2=0x81在80～FF (负数范围)内，两正数相加结果为负数，溢出</p>
+
+<h3>无符号、有符号都溢出</h3>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,0FE
+ADD AL,80</code></pre>
+
+<p>无符号数时</p>
+
+<p>FE+2=254+2=256=0x100&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;在0～255外 溢出</p>
+
+<p>有符号数时</p>
+
+<p>FE+2=0x100在0~FF外，溢出</p>
+
+<h3>CPU如何计算OF位</h3>
+
+<p>首先引入两个概念：</p>
+
+<ul>
+	<li>符号位有进位</li>
+	<li>最高有效数值位向符号位产生的进位</li>
+</ul>
+
+<p>对于一个有符号数：如0x80和0xC0</p>
+
+<p>符号位有进位</p>
+
+<p>0x80:<strong>1</strong>&nbsp;000 0000</p>
+
+<p>0xC0:<strong>1&nbsp;</strong>100 0000</p>
+
+<p>最高有效数值位向符号位产生的进位</p>
+
+<p>0x80:1&nbsp;<strong>0</strong>&nbsp;00 0000</p>
+
+<p>0xC0:1&nbsp;<strong>1</strong>&nbsp;00 0000</p>
+
+<p>接下来看一组汇编指令</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,80
+ADD AL,0C0</code></pre>
+
+<p>就是运算0x80+0xc0</p>
+
+<p>0x80:<strong>1</strong>&nbsp;&nbsp;<strong>0</strong>&nbsp;&nbsp;00 0000</p>
+
+<p>0xC0:<strong>1&nbsp;</strong><strong>1</strong>&nbsp;&nbsp;00 0000</p>
+
+<p>符号位1+1有产生进位，于是符号位有进位为1</p>
+
+<p>最高有效数值位向符号位产生的进位0+1没有产生进位，于是最高有效数值位向符号位产生的进位为0</p>
+
+<p><strong>OF = 符号位有进位 xor 最高有效数值位向符号位产生的进位</strong></p>
+
+<p>OF = 1 xor 0 = 1 所以此时OF=1</p>
+
+<h2>方向标志DF(Direction Flag)</h2>
+
+<p>DF：方向标志位</p>
+
+<p>DF=1时串操作为减地址方式 DF=0为增地址方式</p>
+
+<p>下面的MOVS指令有说明DF的具体应用</p>
+
+<h2>相关汇编指令</h2>
+
+<p>符号含义r寄存器m内存imm立即数r88位通用寄存器m88位内存imm88位立即数</p>
+
+<h3>ADC指令：带进位加法</h3>
+
+<p>格式：ADC R/M,R/M/IMM&nbsp;&nbsp;两边不能同时为内存&nbsp; &nbsp;<strong>数据宽度</strong>要一样</p>
+
+<p>例：</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,1
+MOV CL,2
+手动修改CF为1
+ADC AL,CL</code></pre>
+
+<p>计算结果为4，原本1+2=3，但是现在变成了4，注意与ADD的区别就在于<strong>进位</strong></p>
+
+<h3>SBB指令：带借位减法</h3>
+
+<p>格式：SBB R/M,R/M/IMM&nbsp; &nbsp;两边不能同时为内存&nbsp;<strong>数据宽度</strong>要一样</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,4
+MOV CL,2
+手动修改CF为1
+SBB AL,CL</code></pre>
+
+<p>计算结果为1，原本4-2=2，但是现在变成了1，注意与SUB的区别就在于<strong>进位</strong></p>
+
+<h3>XCHG指令：交换数据</h3>
+
+<p>格式：XCHG R/M,R/M&nbsp;&nbsp;两边不能同时为内存&nbsp; &nbsp;<strong>数据宽度</strong>要一样</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>XCHG AL,CL
+XCHG DWORD PTR DS:[12FFC4],EAX
+XCHG BYTE PTR DS:[12FFC4],AL</code></pre>
+
+<p>例:</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV AL,1
+MOV CL,2
+XCHG AL,CL</code></pre>
+
+<p>执行前：AL=1 CL=2</p>
+
+<p>执行后：AL=2 CL=1</p>
+
+<h3>MOVS指令：移动数据 内存-内存</h3>
+
+<p>BYTE/WORD/DWORD</p>
+
+<p>MOVS指令常用于复制字符串</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;简写为：MOVSB
+MOVS WORD PTR ES:[EDI],WORD PTR DS:[ESI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;简写为：MOVSW
+MOVS DWORD PTR ES:[EDI],DWORD PTR DS:[ESI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;简写为：MOVSD</code></pre>
+
+<p>例:</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV EDI,12FFD8
+MOV ESI,12FFD0
+MOVS DWORD PTR ES:[EDI],DWORD PTR DS:[ESI]</code></pre>
+
+<p>执行后，EDI内存里的值被修改为ESI内存里的值，且EDI和ESI各加4</p>
+
+<p>为什么各加4？</p>
+
+<p>和DOWRD数据宽度相关，如果为WORD 则各加2</p>
+
+<p>为什么执行完是加而不是减?</p>
+
+<p>由DF（Direction Flag）方向标志位决定，当DF位为1时为减，当DF位为0时，则为加</p>
+
+<h3>STOS指令</h3>
+
+<p>将Al/AX/EAX的值存储到[EDI]指定的内存单元，和<strong>数据宽度</strong>相关</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>STOS BYTE PTR ES:[EDI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 将AL存储到[EDI]
+STOS WORD PTR ES:[EDI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 将AX存储到[EDI]
+STOS DWORD PTR ES:[EDI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 将EAX存储到[EDI]</code></pre>
+
+<p>注意这里使用的是ES： 之前写的都是DS：</p>
+
+<p>当后面为[EDI]时要使用ES： 这和后面要学的<strong>段寄存器</strong>有关，先记住</p>
+
+<p>存储完数据后EDI地址的变化方向也受DF标志控制，1减0增</p>
+
+<h3>REP指令</h3>
+
+<p>按计数寄存器 (ECX)&nbsp;&nbsp;中指定的次数重复执行指令</p>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>MOV ECX,10
+REP MOVS DWORD PTR ES:[EDI],DWORD PTR DS:[ESI]&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;也可以写成REP MOVSD</code></pre>
+
+<p>这里的10为十六进制，也就是0x10=16</p>
+
+<p>代码将会重复执行16次，会不会往同一个地方覆盖？</p>
+
+<p>不会，因为每执行一次EDI和ESI都会变化4，变化方向由DF决定</p>

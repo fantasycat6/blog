@@ -1,0 +1,50 @@
+<h3>二维数组变量寻址流程图</h3>
+
+<p>将上述的分析画成流程图：</p>
+
+<p><img alt="image-20210306181804222" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/image-20210306181804222.png" /></p>
+
+<p>&nbsp;</p>
+
+<h1>位移</h1>
+
+<p>前面在寻址的过程中分别用到了乘法，当乘数为2的n次方时，可以直接使用左移来实现，无需imul指令</p>
+
+<p>汇编中有常用的两种位移指令：shl和shr</p>
+
+<p>使用方法并没有太大的区别，这里就拿shl指令作为例子</p>
+
+<h2>shl指令</h2>
+
+<p>SHL是一个汇编指令，作用是<strong>逻辑左移</strong>指令，将目的操作数顺序左移1位或CL寄存器中指定的位数。左移一位时，操作数的最高位移入进位标志位CF，最低位补零。</p>
+
+<p>运算例子：</p>
+
+<p><img alt="Shl.png" src="https://610-pic-bed.oss-cn-shenzhen.aliyuncs.com/Shl.png" /></p>
+
+<p>乘法对应例子：</p>
+
+<pre>
+
+&nbsp;</pre>
+
+<h1>乘法</h1>
+
+<h2>imul指令</h2>
+
+<p>imul指令使用起来和div指令有些类似</p>
+
+<p>IMUL（有符号数乘法）指令执行有符号整数乘法</p>
+
+<p>x86 指令集支持三种格式的 IMUL 指令：单操作数、双操作数和三操作数。单操作数格式中，乘数和被乘数大小相同，而乘积的大小是它们的两倍</p>
+
+<p>这里限于篇幅，仅介绍上面使用到的三操作数，其余部分可以参考：<a href="http://c.biancheng.net/view/3603.html" rel="nofollow noopener">汇编语言IMUL指令：有符号数乘法</a></p>
+
+<h3>例子</h3>
+
+<pre>
+<em> 复制代码</em><em> 隐藏代码
+</em><code>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;int i=1;
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;i=i*5;
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;i=i*6;
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;i=i*7;</code></pre>
