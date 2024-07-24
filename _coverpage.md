@@ -3,7 +3,7 @@
 ![logo](logo.png)
 
 
-# FantasyCat <small>3.5</small>
+# FantasyCat <small>6</small>
 
 > 白芨幻猫的博客。
 
