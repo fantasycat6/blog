@@ -5,7 +5,7 @@
 
 # FantasyCat <small>6</small>
 
-> 白芨幻猫的博客。
+> 泡泡的博客。
 
 
 [GitHub](https://github.com/fantasycat6/blog)
