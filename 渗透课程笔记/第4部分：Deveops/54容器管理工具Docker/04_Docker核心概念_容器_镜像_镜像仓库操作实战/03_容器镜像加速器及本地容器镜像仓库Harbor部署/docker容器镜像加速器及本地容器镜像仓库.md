@@ -8,11 +8,11 @@
 
 ## 1.1 获取阿里云容器镜像加速地址
 
-![image-20220125221631548](https://img.gyxnb.top/img/image-20220125221631548.png)
+![image-20220125221631548](https://image.201068.xyz/assets/image-20220125221631548.png)
 
 
 
-![image-20220125221748100](https://img.gyxnb.top/img/image-20220125221748100.png)
+![image-20220125221748100](https://image.201068.xyz/assets/image-20220125221748100.png)
 
 
 
@@ -72,21 +72,21 @@
 
 
 
-![image-20220125224745376](https://img.gyxnb.top/img/image-20220125224745376.png)
+![image-20220125224745376](https://image.201068.xyz/assets/image-20220125224745376.png)
 
 
 
-![image-20220125224838850](https://img.gyxnb.top/img/image-20220125224838850.png)
+![image-20220125224838850](https://image.201068.xyz/assets/image-20220125224838850.png)
 
 
 
-![image-20220125225243088](https://img.gyxnb.top/img/image-20220125225243088.png)
+![image-20220125225243088](https://image.201068.xyz/assets/image-20220125225243088.png)
 
 
 
 
 
-![image-20220125225448956](https://img.gyxnb.top/img/image-20220125225448956.png)
+![image-20220125225448956](https://image.201068.xyz/assets/image-20220125225448956.png)
 
 
 
@@ -100,11 +100,11 @@
 
 
 
-![image-20220125225753719](https://img.gyxnb.top/img/image-20220125225753719.png)
+![image-20220125225753719](https://image.201068.xyz/assets/image-20220125225753719.png)
 
 
 
-![image-20220125225914283](https://img.gyxnb.top/img/image-20220125225914283.png)
+![image-20220125225914283](https://image.201068.xyz/assets/image-20220125225914283.png)
 
 
 
@@ -114,17 +114,17 @@
 
 
 
-![image-20220125230046456](https://img.gyxnb.top/img/image-20220125230046456.png)
+![image-20220125230046456](https://image.201068.xyz/assets/image-20220125230046456.png)
 
 
 
 
 
-![image-20220125230216488](https://img.gyxnb.top/img/image-20220125230216488.png)
+![image-20220125230216488](https://image.201068.xyz/assets/image-20220125230216488.png)
 
 
 
-![image-20220125230307699](https://img.gyxnb.top/img/image-20220125230307699.png)
+![image-20220125230307699](https://image.201068.xyz/assets/image-20220125230307699.png)
 
 
 
@@ -199,7 +199,7 @@ v1: digest: sha256:a1801b843b1bfaf77c501e7a6d3f709401a1e0c83863037fa3aab063a7fdb
 
 
 
-![image-20220125231912826](https://img.gyxnb.top/img/image-20220125231912826.png)
+![image-20220125231912826](https://image.201068.xyz/assets/image-20220125231912826.png)
 
 
 
@@ -279,29 +279,29 @@ OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019
 
 
 
-![image-20220125232445910](https://img.gyxnb.top/img/image-20220125232445910.png)
+![image-20220125232445910](https://image.201068.xyz/assets/image-20220125232445910.png)
 
-![image-20220125232519365](https://img.gyxnb.top/img/image-20220125232519365.png)
-
-
-
-
-
-![image-20220125233602760](https://img.gyxnb.top/img/image-20220125233602760.png)
+![image-20220125232519365](https://image.201068.xyz/assets/image-20220125232519365.png)
 
 
 
 
 
-
-
-![image-20220125233652604](https://img.gyxnb.top/img/image-20220125233652604.png)
-
+![image-20220125233602760](https://image.201068.xyz/assets/image-20220125233602760.png)
 
 
 
 
-![image-20220125233739356](https://img.gyxnb.top/img/image-20220125233739356.png)
+
+
+
+![image-20220125233652604](https://image.201068.xyz/assets/image-20220125233652604.png)
+
+
+
+
+
+![image-20220125233739356](https://image.201068.xyz/assets/image-20220125233739356.png)
 
 
 
@@ -560,17 +560,17 @@ dcb4b57c7542   goharbor/harbor-log:v2.4.1           "/bin/sh -c /usr/loc…"   A
 
 
 
-![image-20220126000804490](https://img.gyxnb.top/img/image-20220126000804490.png)
+![image-20220126000804490](https://image.201068.xyz/assets/image-20220126000804490.png)
 
 
 
-![image-20220126000825616](https://img.gyxnb.top/img/image-20220126000825616.png)
+![image-20220126000825616](https://image.201068.xyz/assets/image-20220126000825616.png)
 
 
 
 
 
-![image-20220126000840905](https://img.gyxnb.top/img/image-20220126000840905.png)
+![image-20220126000840905](https://image.201068.xyz/assets/image-20220126000840905.png)
 
 
 
@@ -589,15 +589,15 @@ dcb4b57c7542   goharbor/harbor-log:v2.4.1           "/bin/sh -c /usr/loc…"   A
 
 
 
-![image-20220126001253192](https://img.gyxnb.top/img/image-20220126001253192.png)
+![image-20220126001253192](https://image.201068.xyz/assets/image-20220126001253192.png)
 
 
 
-![image-20220126001447862](https://img.gyxnb.top/img/image-20220126001447862.png)
+![image-20220126001447862](https://image.201068.xyz/assets/image-20220126001447862.png)
 
 
 
-![image-20220126001510880](https://img.gyxnb.top/img/image-20220126001510880.png)
+![image-20220126001510880](https://image.201068.xyz/assets/image-20220126001510880.png)
 
 
 
@@ -692,7 +692,7 @@ Login Succeeded 登陆成功
 
 
 
-![image-20220126002747864](https://img.gyxnb.top/img/image-20220126002747864.png)
+![image-20220126002747864](https://image.201068.xyz/assets/image-20220126002747864.png)
 
 
 

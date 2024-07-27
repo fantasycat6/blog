@@ -52,7 +52,7 @@
 
 以上分类并不严谨，不必太过于执着于此
 
-![image-20221225154312338](https://img.gyxnb.top/img/image-20221225154312338.png)
+![image-20221225154312338](https://image.201068.xyz/assets/image-20221225154312338.png)
 
 ​                               
 
@@ -72,7 +72,7 @@
 
 假设连接发起方是A，连接接受方是B，即B在某个端口（Port）上监听A发出的连接请求。如下图所示，左边是A，右边是B。
 
- ![image-20221225154328421](https://img.gyxnb.top/img/image-20221225154328421.png)
+ ![image-20221225154328421](https://image.201068.xyz/assets/image-20221225154328421.png)
 
 A首先发送SYN（Synchronization）消息给B，要求B做好接收数据的准备；
 
@@ -107,7 +107,7 @@ TCP是“双工”(Duplex)连接，同时支持双向通信，也就是双方同
 
 假设B通过某TCP端口提供服务，B在收到A的SYN消息时，积极的反馈了SYN-ACK消息，使连接进入半开状态，因为B不确定自己发给A的SYN-ACK消息或A反馈的ACK消息是否会丢在半路，所以会给每个待完成的半开连接都设一个Timer，如果**超过时间**还没有收到A的ACK消息，则**重新发送**一次SYN-ACK消息给A，直到重试**超过一定次数**时才会放弃。
 
- ![image-20221225154341136](https://img.gyxnb.top/img/image-20221225154341136.png)
+ ![image-20221225154341136](https://image.201068.xyz/assets/image-20221225154341136.png)
 
 做好人是要付出代价的，B为帮助A能顺利连接，需要分配内核资源维护半开连接，那么当B面临海量的大忽悠A时，如上图所示，SYN Flood攻击就形成了。
 
@@ -199,9 +199,9 @@ python syn-flodd.py 192.168.70.12 3389 20
 
 **攻击效果抓包截图：**
 
-  ![image-20221225154502352](https://img.gyxnb.top/img/image-20221225154502352.png)
+  ![image-20221225154502352](https://image.201068.xyz/assets/image-20221225154502352.png)
 
-![image-20221225154508773](https://img.gyxnb.top/img/image-20221225154508773.png)
+![image-20221225154508773](https://image.201068.xyz/assets/image-20221225154508773.png)
 
 ###  socktress
 
@@ -242,7 +242,7 @@ iptables -A OUTPUT -p tcp --tcp-flags RST RST -d 192.168.70.12 -j DROP
 
 #### 攻击效果抓包截图
 
- ![image-20221225154539039](https://img.gyxnb.top/img/image-20221225154539039.png)
+ ![image-20221225154539039](https://image.201068.xyz/assets/image-20221225154539039.png)
 
 #### 防护措施
 
@@ -367,7 +367,7 @@ iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --se
 
 开启PHP网站服务：
 
- ![image-20221225154832858](https://img.gyxnb.top/img/image-20221225154832858.png)
+ ![image-20221225154832858](https://image.201068.xyz/assets/image-20221225154832858.png)
 
 利用代码向网站发起攻击：
 
@@ -446,7 +446,7 @@ torshammer.py –t 192.168.32.84 -p 8080 -r 1000
 
  
 
- ![image-20221226135947848](https://img.gyxnb.top/img/image-20221226135947848.png)
+ ![image-20221226135947848](https://image.201068.xyz/assets/image-20221226135947848.png)
 
  
 

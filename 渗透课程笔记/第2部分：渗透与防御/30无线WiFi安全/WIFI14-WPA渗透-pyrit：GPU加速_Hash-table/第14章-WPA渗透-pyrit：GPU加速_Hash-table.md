@@ -27,7 +27,7 @@ deb http://mirrors.ustc.edu.cn/debian-security buster/updates main contrib non-f
 
 `apt-get install pyrit`
 
-![image.png](https://img.gyxnb.top/img/4919430750de4c8290143fbca1cb8e75.png)
+![image.png](https://image.201068.xyz/assets/4919430750de4c8290143fbca1cb8e75.png)
 
 ## 3.安装scapy到指定目录步骤
 
@@ -49,7 +49,7 @@ python2 setup.py build
 
 `python2 setup.py install`
 
-![image.png](https://img.gyxnb.top/img/2327d8c42b754d94aca354023bb40144.png)
+![image.png](https://image.201068.xyz/assets/2327d8c42b754d94aca354023bb40144.png)
 
 ## 4.渗透wifi
 
@@ -63,7 +63,7 @@ analyze：分析数据包捕获文件
 pyrit -r wpa-1-01.cap analyze
 ```
 
-![image.png](https://img.gyxnb.top/img/20c48a2d1b754004a62b09bd410b92e9.png)
+![image.png](https://image.201068.xyz/assets/20c48a2d1b754004a62b09bd410b92e9.png)
 
 2.密码字典渗透WiFi
 
@@ -76,7 +76,7 @@ attack_passthrough：用文件中的密码攻击握手
 pyrit -r wpa-1-01.cap -i /root/wifi/pwd.txt -b d8:24:bd:79:18:0b attack_passthrough
 ```
 
-![image.png](https://img.gyxnb.top/img/b3e8a66de47e4b42b7aefa54b1bd8b81.png)
+![image.png](https://image.201068.xyz/assets/b3e8a66de47e4b42b7aefa54b1bd8b81.png)
 
 3.hash-table加速渗透wifi
 
@@ -87,4 +87,4 @@ attack_cowpatty：攻击一个来自cowpatty文件的PMK握手
 pyrit -r wpa-1-01.cap -i /root/wifi/pwdhash -b d8:24:bd:79:18:0b attack_cowpatty
 ```
 
-![image.png](https://img.gyxnb.top/img/7ac4842f07af45edb5f292983a01215a.png)
+![image.png](https://image.201068.xyz/assets/7ac4842f07af45edb5f292983a01215a.png)

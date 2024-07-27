@@ -39,7 +39,7 @@ http://192.168.70.3:2501/
 
 #### 5.打开图形窗口，第一次使用时，将会进入用户信息设置界面，如下图：
 
-![image-20211104112357836](https://img.gyxnb.top/img/image-20211104112357836.png)
+![image-20211104112357836](https://image.201068.xyz/assets/image-20211104112357836.png)
 
 ```
 User name:guoyx
@@ -49,7 +49,7 @@ Confirm:guoyx
 
 #### 6.填写相关用户信息，第一行用户名，第二行密码，第三行重复密码，设置完成，点击save（保存）。弹出如下界面
 
-![image-20211104112428884](https://img.gyxnb.top/img/image-20211104112428884.png)
+![image-20211104112428884](https://image.201068.xyz/assets/image-20211104112428884.png)
 
 QBSS：
 

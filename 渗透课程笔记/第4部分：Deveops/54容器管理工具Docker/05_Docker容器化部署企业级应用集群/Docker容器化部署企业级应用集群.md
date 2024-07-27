@@ -11,7 +11,7 @@
 
 ## 1.2 使用Docker容器化部署企业级应用参考资料
 
-![image-20220211145757283](https://img.gyxnb.top/img/image-20220211145757283.png)
+![image-20220211145757283](https://image.201068.xyz/assets/image-20220211145757283.png)
 
 
 
@@ -21,19 +21,19 @@
 
 ## 2.1 获取参考资料
 
-![image-20220211145839441](https://img.gyxnb.top/img/image-20220211145839441.png)
+![image-20220211145839441](https://image.201068.xyz/assets/image-20220211145839441.png)
 
 
 
 
 
-![image-20220211145905117](https://img.gyxnb.top/img/image-20220211145905117.png)
+![image-20220211145905117](https://image.201068.xyz/assets/image-20220211145905117.png)
 
 
 
 
 
-![image-20220211145956450](https://img.gyxnb.top/img/image-20220211145956450.png)
+![image-20220211145956450](https://image.201068.xyz/assets/image-20220211145956450.png)
 
 
 
@@ -134,7 +134,7 @@ nginx-server  nginx-server-port
 
 
 
-![image-20220211151131609](https://img.gyxnb.top/img/image-20220211151131609.png)
+![image-20220211151131609](https://image.201068.xyz/assets/image-20220211151131609.png)
 
 
 
@@ -203,19 +203,19 @@ root                25005               24972               0                   
 
 ## 3.1 获取参考资料
 
-![image-20220211154602595](https://img.gyxnb.top/img/image-20220211154602595.png)
+![image-20220211154602595](https://image.201068.xyz/assets/image-20220211154602595.png)
 
 
 
 
 
-![image-20220211154639682](https://img.gyxnb.top/img/image-20220211154639682.png)
+![image-20220211154639682](https://image.201068.xyz/assets/image-20220211154639682.png)
 
 
 
 
 
-![image-20220211154747062](https://img.gyxnb.top/img/image-20220211154747062.png)
+![image-20220211154747062](https://image.201068.xyz/assets/image-20220211154747062.png)
 
 
 
@@ -266,7 +266,7 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED             STATUS 
 
 
 
-![image-20220211160925125](https://img.gyxnb.top/img/image-20220211160925125.png)
+![image-20220211160925125](https://image.201068.xyz/assets/image-20220211160925125.png)
 
 
 
@@ -306,23 +306,23 @@ f456e705d48f   tomcat:9.0   "catalina.sh run"   3 seconds ago   Up 2 seconds   0
 
 **在宿主机访问**
 
-![image-20220211162127222](https://img.gyxnb.top/img/image-20220211162127222.png)
+![image-20220211162127222](https://image.201068.xyz/assets/image-20220211162127222.png)
 
 # 四、使用Docker容器实现MySQL部署
 
 ## 4.1 单节点MySQL部署
 
-![image-20220211162728055](https://img.gyxnb.top/img/image-20220211162728055.png)
+![image-20220211162728055](https://image.201068.xyz/assets/image-20220211162728055.png)
 
 
 
-![image-20220211162817731](https://img.gyxnb.top/img/image-20220211162817731.png)
+![image-20220211162817731](https://image.201068.xyz/assets/image-20220211162817731.png)
 
 
 
 
 
-![image-20220211162911952](https://img.gyxnb.top/img/image-20220211162911952.png)
+![image-20220211162911952](https://image.201068.xyz/assets/image-20220211162911952.png)
 
 
 
@@ -733,11 +733,11 @@ MySQL [(none)]> show databases;
 
 ## 5.1 获取参考资料
 
-![image-20220212111348491](https://img.gyxnb.top/img/image-20220212111348491.png)
+![image-20220212111348491](https://image.201068.xyz/assets/image-20220212111348491.png)
 
 
 
-![image-20220212111511130](https://img.gyxnb.top/img/image-20220212111511130.png)
+![image-20220212111511130](https://image.201068.xyz/assets/image-20220212111511130.png)
 
 
 
@@ -795,49 +795,49 @@ SYS用户密码为:oracle
 
 
 
-![image-20220212115409934](https://img.gyxnb.top/img/image-20220212115409934.png)
+![image-20220212115409934](https://image.201068.xyz/assets/image-20220212115409934.png)
 
 
 
 
 
-![image-20220212115556498](https://img.gyxnb.top/img/image-20220212115556498.png)
+![image-20220212115556498](https://image.201068.xyz/assets/image-20220212115556498.png)
 
 
 
 
 
-![image-20220212115858640](https://img.gyxnb.top/img/image-20220212115858640.png)
+![image-20220212115858640](https://image.201068.xyz/assets/image-20220212115858640.png)
 
 
 
 
 
-![image-20220212115929175](https://img.gyxnb.top/img/image-20220212115929175.png)
+![image-20220212115929175](https://image.201068.xyz/assets/image-20220212115929175.png)
 
 
 
-![image-20220212120017387](https://img.gyxnb.top/img/image-20220212120017387.png)
+![image-20220212120017387](https://image.201068.xyz/assets/image-20220212120017387.png)
 
 
 
-![image-20220212120525692](https://img.gyxnb.top/img/image-20220212120525692.png)
+![image-20220212120525692](https://image.201068.xyz/assets/image-20220212120525692.png)
 
 
 
-![image-20220212120808803](https://img.gyxnb.top/img/image-20220212120808803.png)
+![image-20220212120808803](https://image.201068.xyz/assets/image-20220212120808803.png)
 
 
 
-![image-20220212120839513](https://img.gyxnb.top/img/image-20220212120839513.png)
+![image-20220212120839513](https://image.201068.xyz/assets/image-20220212120839513.png)
 
 
 
-![image-20220212120910215](https://img.gyxnb.top/img/image-20220212120910215.png)
+![image-20220212120910215](https://image.201068.xyz/assets/image-20220212120910215.png)
 
 
 
-![image-20220212120952721](https://img.gyxnb.top/img/image-20220212120952721.png)
+![image-20220212120952721](https://image.201068.xyz/assets/image-20220212120952721.png)
 
 
 
@@ -853,23 +853,23 @@ SYS用户密码为:oracle
 
 ### 6.1.1 ES部署参考资料
 
-![image-20220212211742909](https://img.gyxnb.top/img/image-20220212211742909.png)
+![image-20220212211742909](https://image.201068.xyz/assets/image-20220212211742909.png)
 
 
 
 
 
-![image-20220212211840530](https://img.gyxnb.top/img/image-20220212211840530.png)
+![image-20220212211840530](https://image.201068.xyz/assets/image-20220212211840530.png)
 
 
 
-![image-20220212211857732](https://img.gyxnb.top/img/image-20220212211857732.png)
+![image-20220212211857732](https://image.201068.xyz/assets/image-20220212211857732.png)
 
 
 
 
 
-![image-20220212211950202](https://img.gyxnb.top/img/image-20220212211950202.png)
+![image-20220212211950202](https://image.201068.xyz/assets/image-20220212211950202.png)
 
 
 
@@ -877,19 +877,19 @@ SYS用户密码为:oracle
 
 ### 6.1.2 Kibana部署参考资料
 
-![image-20220212212223735](https://img.gyxnb.top/img/image-20220212212223735.png)
+![image-20220212212223735](https://image.201068.xyz/assets/image-20220212212223735.png)
 
 
 
-![image-20220212212245791](https://img.gyxnb.top/img/image-20220212212245791.png)
+![image-20220212212245791](https://image.201068.xyz/assets/image-20220212212245791.png)
 
-![image-20220212212305429](https://img.gyxnb.top/img/image-20220212212305429.png)
-
-
+![image-20220212212305429](https://image.201068.xyz/assets/image-20220212212305429.png)
 
 
 
-![image-20220212212341841](https://img.gyxnb.top/img/image-20220212212341841.png)
+
+
+![image-20220212212341841](https://image.201068.xyz/assets/image-20220212212341841.png)
 
 
 
@@ -944,7 +944,7 @@ e1c306e6e5a3   elasticsearch:7.17.0   "/bin/tini -- /usr/l…"   22 seconds ago 
 
 
 
-![image-20220212224446838](https://img.gyxnb.top/img/image-20220212224446838.png)
+![image-20220212224446838](https://image.201068.xyz/assets/image-20220212224446838.png)
 
 
 
@@ -973,7 +973,7 @@ fb60e73f9cd5   kibana:7.17.0          "/bin/tini -- /usr/l…"   2 minutes ago  
 
 
 
-![image-20220212224524598](https://img.gyxnb.top/img/image-20220212224524598.png)
+![image-20220212224524598](https://image.201068.xyz/assets/image-20220212224524598.png)
 
 
 
@@ -987,15 +987,15 @@ fb60e73f9cd5   kibana:7.17.0          "/bin/tini -- /usr/l…"   2 minutes ago  
 
 ## 7.1 获取参考资料
 
-![image-20220212225251173](https://img.gyxnb.top/img/image-20220212225251173.png)
+![image-20220212225251173](https://image.201068.xyz/assets/image-20220212225251173.png)
 
 
 
-![image-20220212225313006](https://img.gyxnb.top/img/image-20220212225313006.png)
+![image-20220212225313006](https://image.201068.xyz/assets/image-20220212225313006.png)
 
 
 
-![image-20220212225336437](https://img.gyxnb.top/img/image-20220212225336437.png)
+![image-20220212225336437](https://image.201068.xyz/assets/image-20220212225336437.png)
 
 
 
@@ -1003,7 +1003,7 @@ fb60e73f9cd5   kibana:7.17.0          "/bin/tini -- /usr/l…"   2 minutes ago  
 
 
 
-![image-20220212225412367](https://img.gyxnb.top/img/image-20220212225412367.png)
+![image-20220212225412367](https://image.201068.xyz/assets/image-20220212225412367.png)
 
 
 
@@ -1203,25 +1203,25 @@ S: 3a8dd5343c0b8f5580bc44f6b3bb5b4371d4dde5 192.168.255.157:8006
 
 ## 8.1 获取参考资料
 
-![image-20220213123228483](https://img.gyxnb.top/img/image-20220213123228483.png)
+![image-20220213123228483](https://image.201068.xyz/assets/image-20220213123228483.png)
 
 
 
 
 
-![image-20220213123307806](https://img.gyxnb.top/img/image-20220213123307806.png)
+![image-20220213123307806](https://image.201068.xyz/assets/image-20220213123307806.png)
 
 
 
 
 
-![image-20220213123355531](https://img.gyxnb.top/img/image-20220213123355531.png)
+![image-20220213123355531](https://image.201068.xyz/assets/image-20220213123355531.png)
 
 
 
 
 
-![image-20220213123503083](https://img.gyxnb.top/img/image-20220213123503083.png)
+![image-20220213123503083](https://image.201068.xyz/assets/image-20220213123503083.png)
 
 
 
@@ -1258,17 +1258,17 @@ CONTAINER ID   IMAGE                 COMMAND                  CREATED          S
 
 
 
-![image-20220213124157710](https://img.gyxnb.top/img/image-20220213124157710.png)
+![image-20220213124157710](https://image.201068.xyz/assets/image-20220213124157710.png)
 
 
 
 
 
-![image-20220213124232819](https://img.gyxnb.top/img/image-20220213124232819.png)
+![image-20220213124232819](https://image.201068.xyz/assets/image-20220213124232819.png)
 
 
 
-![image-20220213124302137](https://img.gyxnb.top/img/image-20220213124302137.png)
+![image-20220213124302137](https://image.201068.xyz/assets/image-20220213124302137.png)
 
 
 

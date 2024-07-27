@@ -8,11 +8,11 @@
 
 1 提权方法（Windows）查看当前获得用户的权限   meterpreter 中输入： getuid
 
-![1644493116225](https://img.gyxnb.top/img/1644493116225.png)
+![1644493116225](https://image.201068.xyz/assets/1644493116225.png)
 
 方法一、 meterpreter中输入：`getsystem`
 
-![1644493125642](https://img.gyxnb.top/img/1644493125642.png)
+![1644493125642](https://image.201068.xyz/assets/1644493125642.png)
 
 方法二、使用msf模块提权
 
@@ -48,7 +48,7 @@
 
 7 获取权限完成后 输入`getuid` 即可看到  已经获取到SYSTEM 最高权限了
 
-![1644493163472](https://img.gyxnb.top/img/1644493163472.png)
+![1644493163472](https://image.201068.xyz/assets/1644493163472.png)
 
 看到这个证明已经将权限提升成功
 

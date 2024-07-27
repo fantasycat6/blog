@@ -38,7 +38,7 @@ payload:
 
 ## 反射型
 
-![反射型](https://img.gyxnb.top/img/反射型xss.png)
+![反射型](https://image.201068.xyz/assets/反射型xss.png)
 
 包括DOM型 
 
@@ -46,7 +46,7 @@ payload:
 
 ## 存储型 
 
-![image-20221119181504318](https://img.gyxnb.top/img/image-20221119181504318.png)
+![image-20221119181504318](https://image.201068.xyz/assets/image-20221119181504318.png)
 
 利用点:文章、留言板、公告板、评论…… 
 

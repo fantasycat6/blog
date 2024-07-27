@@ -30,7 +30,7 @@ JAVA9开始,JDK开始以时间为驱动进行更新,以半年为周期,到时即
 
 
 
-![1630658353281](https://img.gyxnb.top/img004/1630658353281.png)
+![1630658353281](https://image.201068.xyz/assets/1630658353281.png)
 
 新的长期支持版每三年发布一次,根据后续的发布计划,下一个长期支持的版本JAVA17将于2021年发布
 
@@ -38,19 +38,19 @@ JAVA9开始,JDK开始以时间为驱动进行更新,以半年为周期,到时即
 
 > 下载JDK,可以通过 https://www.injdk.cn/ 去下载各种不同版本的JDK, 因为JDK是向下兼容的,所以我们使用一个较新的JDK,就可以去测试和学习从9-最新所有版本的新特征了,我们这里以安装openjdk16为例,下载安装JDK16的压缩包
 
-![1629961731077](https://img.gyxnb.top/img004/1629961731077.png)
+![1629961731077](https://image.201068.xyz/assets/1629961731077.png)
 
 > 下载后可以解压到我们磁盘的任意位置,我这里的位置是 c:/program files/java
 
-![1629961777964](https://img.gyxnb.top/img004/1629961777964.png)
+![1629961777964](https://image.201068.xyz/assets/1629961777964.png)
 
 > 在使用idea创建项目时,可以选择该JDK
 
-![1629961866979](https://img.gyxnb.top/img004/1629961866979.png)
+![1629961866979](https://image.201068.xyz/assets/1629961866979.png)
 
 > 添加JDK
 
-![1629961904463](https://img.gyxnb.top/img004/1629961904463.png)
+![1629961904463](https://image.201068.xyz/assets/1629961904463.png)
 
 > 当然,也可以在项目创建完毕之后,更换JDK为16
 
@@ -103,7 +103,7 @@ JAVA9开始,JDK开始以时间为驱动进行更新,以半年为周期,到时即
 
 
 
-![1629877485595](https://img.gyxnb.top/img004/1629877485595.png)
+![1629877485595](https://image.201068.xyz/assets/1629877485595.png)
 
 > bin 包含命令行开发和调试工具 如javac jar  javadoc 
 >
@@ -117,7 +117,7 @@ JAVA9开始,JDK开始以时间为驱动进行更新,以半年为周期,到时即
 
 
 
-![1629877501349](https://img.gyxnb.top/img004/1629877501349.png)
+![1629877501349](https://image.201068.xyz/assets/1629877501349.png)
 
 > bin 包含所有指令,在windows平台上,他继续包含系统的运行时动态链接
 >
@@ -149,15 +149,15 @@ JAVA9开始,JDK开始以时间为驱动进行更新,以半年为周期,到时即
 
 
 
-![1629966490626](https://img.gyxnb.top/img004/1629966490626.png)
+![1629966490626](https://image.201068.xyz/assets/1629966490626.png)
 
 > 这里匿名内部类中的<>号里必须要和前面的声明保持一致,不能空着不写,这样重写的方法就根据匿名内部类的泛型
 
-![1629966550374](https://img.gyxnb.top/img004/1629966550374.png)
+![1629966550374](https://image.201068.xyz/assets/1629966550374.png)
 
 > 但是这种写法在JAVA9 中就允许了
 
-![1629966634077](https://img.gyxnb.top/img004/1629966634077.png)
+![1629966634077](https://image.201068.xyz/assets/1629966634077.png)
 
 > 而且在JAVA9中,匿名内部类的语法不仅仅可以用于接口和抽象类,普通类也可以通过匿名内部类写法,在某个实例上完成对某个方法的重写
 
@@ -329,7 +329,7 @@ String stu_name="旋涡刘能";
 >
 > 感觉: 接口中的代码越来越靠近抽象类,但是仍然是支持多继承的
 
-![1629968793799](https://img.gyxnb.top/img004/1629968793799.png)
+![1629968793799](https://image.201068.xyz/assets/1629968793799.png)
 
 ``` java
 /**
@@ -379,7 +379,7 @@ interface  Inter3{
 >
 > String类内部维护的是一个final修饰的私有char数组,说明String的底层是通过char数组存储字符串的
 
-![1630032137816](https://img.gyxnb.top/img004/1630032137816.png)
+![1630032137816](https://image.201068.xyz/assets/1630032137816.png)
 
 >JAVA9 中String的源码
 >
@@ -387,7 +387,7 @@ interface  Inter3{
 
 
 
-![1630032189562](https://img.gyxnb.top/img004/1630032189562.png)
+![1630032189562](https://image.201068.xyz/assets/1630032189562.png)
 
 
 
@@ -521,7 +521,7 @@ interface  Inter3{
 
 
 
-![1630035230203](https://img.gyxnb.top/img004/1630035230203.png)
+![1630035230203](https://image.201068.xyz/assets/1630035230203.png)
 
 > 上面是List接口的of方法, 同样的,Set接口和Map接口下也新增了of方法,也是返回一个只读集合
 
@@ -552,39 +552,39 @@ interface  Inter3{
 
 在JDK9 先准备一个项目,普通java项目即可,然后再项目下准备两个模块,名字为jdk9module1和jdk9module2,如下图
 
-![1629959034495](https://img.gyxnb.top/img004/1629959034495.png)
+![1629959034495](https://image.201068.xyz/assets/1629959034495.png)
 
 > jdk9module1中添加一些类
 
-![1629959219122](https://img.gyxnb.top/img004/1629959219122.png)
+![1629959219122](https://image.201068.xyz/assets/1629959219122.png)
 
 > 如何在jdk9module2中使用这个类? 或者说是使用模块1中的类,第一步,在两个模块的src下创建各自的module-info.java
 
-![1629959400483](https://img.gyxnb.top/img004/1629959400483.png)
+![1629959400483](https://image.201068.xyz/assets/1629959400483.png)
 
 
 
 > 创建完毕后,结构如下
 
-![1629959441838](https://img.gyxnb.top/img004/1629959441838.png)
+![1629959441838](https://image.201068.xyz/assets/1629959441838.png)
 
 > 在jdk9module1的module-info.java文件中,设置哪些包可以向外暴露
 
-![1629959666167](https://img.gyxnb.top/img004/1629959666167.png)
+![1629959666167](https://image.201068.xyz/assets/1629959666167.png)
 
 > 在jdk9module2的module-info.java中引入模块1
 
-![1629959723837](https://img.gyxnb.top/img004/1629959723837.png)
+![1629959723837](https://image.201068.xyz/assets/1629959723837.png)
 
 > 但是发现报错了,原因是,我们要把模块1添加为模块2的运行环境,具体操作如下
 >
 > project structure > modules > jdk9module2 >dependencies  >>+module lib > jdk9module1 > apply >>ok
 
-![引入模块依赖](https://img.gyxnb.top/img004/%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E4%BE%9D%E8%B5%96.gif)
+![引入模块依赖](https://image.201068.xyz/assets/%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E4%BE%9D%E8%B5%96.gif)
 
 > 这个是时候,我们在模块2中就可以使用模块1 中的类了
 
-![使用模块一中的代码](https://img.gyxnb.top/img004/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E4%B8%80%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81.gif)
+![使用模块一中的代码](https://image.201068.xyz/assets/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E4%B8%80%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81.gif)
 
 
 
@@ -594,13 +594,13 @@ interface  Inter3{
 
 > 要想实现REPL，需要一个命令：JShell命令（linux中是shell命令，java中的shell命令）
 
-![1629877864498](https://img.gyxnb.top/img004/1629877864498.png)
+![1629877864498](https://image.201068.xyz/assets/1629877864498.png)
 
 
 
 > 将环境变量配置为java9，就可以在控制命令台使用jshell命令了：如果电脑上安装了其他版本的JDK,环境变量也是其他版本,大家可以在dos上通过cd 切换到指定版本的bin目录下,就可以使用该版本的jshell了
 
-![1629962311415](https://img.gyxnb.top/img004/1629962311415.png)
+![1629962311415](https://image.201068.xyz/assets/1629962311415.png)
 
 
 
@@ -608,47 +608,47 @@ interface  Inter3{
 
 
 
-![1629877895300](https://img.gyxnb.top/img004/1629877895300.png)
+![1629877895300](https://image.201068.xyz/assets/1629877895300.png)
 
 
 
 > 案例：变量定义
 
-![1629877926195](https://img.gyxnb.top/img004/1629877926195.png)
+![1629877926195](https://image.201068.xyz/assets/1629877926195.png)
 
 > 案例：方法定义和调用：
 
-![1629877952559](https://img.gyxnb.top/img004/1629877952559.png)
+![1629877952559](https://image.201068.xyz/assets/1629877952559.png)
 
-![1629877968367](https://img.gyxnb.top/img004/1629877968367.png)
+![1629877968367](https://image.201068.xyz/assets/1629877968367.png)
 
 > 导包：
 
-![1629877991221](https://img.gyxnb.top/img004/1629877991221.png)
+![1629877991221](https://image.201068.xyz/assets/1629877991221.png)
 
 > 其实jshell中有默认的导入一些包（除了java.lang之外，以下包也可以直接用），可以直接使用不用导包，查看有哪些：
 
-![1629878023330](https://img.gyxnb.top/img004/1629878023330.png)
+![1629878023330](https://image.201068.xyz/assets/1629878023330.png)
 
 > 常用命令：
 
-![1629878047871](https://img.gyxnb.top/img004/1629878047871.png)
+![1629878047871](https://image.201068.xyz/assets/1629878047871.png)
 
-![1629878065195](https://img.gyxnb.top/img004/1629878065195.png)
+![1629878065195](https://image.201068.xyz/assets/1629878065195.png)
 
 > 可以将某些常用命令持久化在硬盘上：
 
-![1629878182887](https://img.gyxnb.top/img004/1629878182887.png)
+![1629878182887](https://image.201068.xyz/assets/1629878182887.png)
 
-![1629878211555](https://img.gyxnb.top/img004/1629878211555.png)
+![1629878211555](https://image.201068.xyz/assets/1629878211555.png)
 
 > jshell不用编译时异常处理：
 
-![1629878234271](https://img.gyxnb.top/img004/1629878234271.png)
+![1629878234271](https://image.201068.xyz/assets/1629878234271.png)
 
 > 退出jshell
 
-![1629878258920](https://img.gyxnb.top/img004/1629878258920.png)
+![1629878258920](https://image.201068.xyz/assets/1629878258920.png)
 
 
 
@@ -664,7 +664,7 @@ interface  Inter3{
 >
 > JAVA10 的12个JEP (JDK Enhancement Proposal特性加强协议) ,可参阅官方文档 http://openjdk.java.net/projects/jdk/10/
 
-![1630388526815](https://img.gyxnb.top/img004/1630388526815.png)
+![1630388526815](https://image.201068.xyz/assets/1630388526815.png)
 
 
 
@@ -867,7 +867,7 @@ try{
 
 > 2018年9月26日,Oracle官方发布JAVA11.这是JAVA大版本周期变化后的第一个长期支持版本,非常值得关注.最新发布的JAVA11将带来ZGC HttpClient等重要特性,一共17个需要我们关注的JEP,参考文档http://openjdk.java.net/projects/jdk/11/
 
-![1630397289057](https://img.gyxnb.top/img004/1630397289057.png)
+![1630397289057](https://image.201068.xyz/assets/1630397289057.png)
 
 > 181:基于嵌套的访问控制  
 >
@@ -1010,7 +1010,7 @@ Consumer<String> con =(@Deprecated var t) -> System.out.println(t.toLowerCase())
 
 > HTTP,用于传输网页的协议,在1997年就被采用1.1的版本中,到2015年,HTTP2才成为标准. HTTP1.1和HTTP2的主要区别就是如何在客户端和服务器之间构建和传输数据, HTTP1.1依赖请求/响应周期. HTTP2允许服务器push数据:它可以发送比客户端请求更多的数据.这使得他可以优先处理并发送对于首先加载网页至关重要的数据.
 
-![1630723140272](https://img.gyxnb.top/img004/1630723140272.png)
+![1630723140272](https://image.201068.xyz/assets/1630723140272.png)
 
 
 
@@ -1106,11 +1106,11 @@ public class Student{
 
 如果当前文件中,没有使用其他文件中的类,可以直接运行成功
 
-![1630725285981](https://img.gyxnb.top/img004/1630725285981.png)
+![1630725285981](https://image.201068.xyz/assets/1630725285981.png)
 
 如果当前文件中使用类其他文件中的类,那么会出现异常
 
-![1630725332399](https://img.gyxnb.top/img004/1630725332399.png)
+![1630725332399](https://image.201068.xyz/assets/1630725332399.png)
 
 
 
@@ -1190,7 +1190,7 @@ Features
 http://openjdk.java.net/projects/jdk/12/
 ```
 
-![1630745315617](https://img.gyxnb.top/img004/1630745315617.png)
+![1630745315617](https://image.201068.xyz/assets/1630745315617.png)
 
 ``` java 
 189:Shenandoah:A Low-Pause-Time Garbage Collector(Experimental)
@@ -1556,14 +1556,14 @@ Shenandoah 垃圾回收器是 Red Hat 在 2014 年宣布进行的一项垃圾收
 用于执行垃圾回收操作，井且在执行垃圾回收时，程序中的工作线程将会被暂停，当垃圾收集工作完成后
 才会恢复之前被暂停的工作线程，这就是串行回收。
 
-![1630743436323](https://img.gyxnb.top/img004/1630743436323.png)
+![1630743436323](https://image.201068.xyz/assets/1630743436323.png)
 
 2 并行垃圾回收器
 
 和串行回收相反，并行收集可以运用多个CPU 同时执行垃圾回收，因此提升了应用的吞吐量，不过并行回
 收仍然与串行回收一样，采用独占式，使用了“ Stop-the-world ”机制和复制算法
 
-![1630743474804](https://img.gyxnb.top/img004/1630743474804.png)
+![1630743474804](https://image.201068.xyz/assets/1630743474804.png)
 
 >  按照工作模式分类
 
@@ -1578,7 +1578,7 @@ Shenandoah 垃圾回收器是 Red Hat 在 2014 年宣布进行的一项垃圾收
 独占式垃圾回收器（ Stop the world)一旦运行，就停止应用程序中的其他所有线程，直到垃圾回收过程完
 全结束。
 
-![1630743967253](https://img.gyxnb.top/img004/1630743967253.png)
+![1630743967253](https://image.201068.xyz/assets/1630743967253.png)
 
 
 
@@ -1619,11 +1619,11 @@ Forwarding Pointer 技术使得 GC 在移动对象时，对象引用仍然可以
 
 G1 内存设计
 
-![1630986143084](https://img.gyxnb.top/img004/1630986143084.png)
+![1630986143084](https://image.201068.xyz/assets/1630986143084.png)
 
 Shenandoah GC 工作周期如下所示：
 
-![1630744256988](https://img.gyxnb.top/img004/1630744256988.png)
+![1630744256988](https://image.201068.xyz/assets/1630744256988.png)
 
 ``` java
 1. Init Mark 启动并发标记阶段
@@ -1653,7 +1653,7 @@ Shenandoah GC 工作周期如下所示：
 
 各种 GC 工作负载对比：
 
-![1630744443082](https://img.gyxnb.top/img004/1630744443082.png)
+![1630744443082](https://image.201068.xyz/assets/1630744443082.png)
 
 GC 暂停相比于 CMS 等选择有数量级程度的提高，对于 GC 暂停非常敏感的场景，价值还是很明显的，能够在 SLA
 层面有显著提高。当然，这种对于低延迟的保证，也是以消耗 CPU 等计算资源为代价的，实际吞吐量表现也不是非
@@ -1773,7 +1773,7 @@ Java 12 中引入 JVM 常量 API，用来更容易地对关键类文件 (key cla
 
 具体来说就是java.base模块新增了java.lang.constant包。包中定义了一系列基于值的符号引用（JVMS 5.1）类型，它们能够描述每种可加载常量。
 
-![1630987332315](https://img.gyxnb.top/img004/1630987332315.png)
+![1630987332315](https://image.201068.xyz/assets/1630987332315.png)
 
 
 
@@ -1791,7 +1791,7 @@ https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-5.html
 describeConstable方法；String、Integer、Long、Float、Double均实现了这两个接口，而EnumDesc实现了
 ConstantDesc接口
 
-![1630741892162](https://img.gyxnb.top/img004/1630741892162.png)
+![1630741892162](https://image.201068.xyz/assets/1630741892162.png)
 
 符号引用以纯 nominal 形式描述可加载常量，与类加载或可访问性上下文区分开。有些类可以作为自己的符号引用
 （例如 String）。而对于可链接常量，另外定义了一系列符号引用类型，具体包括： ClassDesc (Class 的可加载常量
@@ -2624,7 +2624,7 @@ ZGC新增归还unused heap memory给操作系统的特性。
 的堆内存，它都能保证在 10 毫秒内释放 JVM ，不让它停顿在那。但是，当时的设计是它不能把内存归还给操作系
 统。对于比较关心内存占用的应用来说，肯定希望进程不要占用过多的内存空间了，所以这次增加了这个特性。
 
-![1631003992014](https://img.gyxnb.top/img004/1631003992014.png)
+![1631003992014](https://image.201068.xyz/assets/1631003992014.png)
 
 在Java 13中，JEP 351再次对ZGC做了增强，将没有使用的堆内存归还给操作系统。ZGC当前不能把内存归还给操作
 系统，即使是那些很久都没有使用的内存，也只进不出。这种行为并不是对任何应用和环境都是友好的，尤其是那些
@@ -2735,11 +2735,11 @@ https://openjdk.java.net/projects/jdk/14/
 
 JAVA14 一共发行了16个JEP(JDK Enhancement Proposals,JDK 增强提案)
 
-![1631073757234](https://img.gyxnb.top/img004/1631073757234.png)
+![1631073757234](https://image.201068.xyz/assets/1631073757234.png)
 
-![1631073770033](https://img.gyxnb.top/img004/1631073770033.png)
+![1631073770033](https://image.201068.xyz/assets/1631073770033.png)
 
-![1631074436015](https://img.gyxnb.top/img004/1631074436015.png)
+![1631074436015](https://image.201068.xyz/assets/1631074436015.png)
 
 >  语言特性7项目  
 
@@ -3113,7 +3113,7 @@ true
 
 ```
 
-![1631091181735](file://E:/msbEdu/%E5%BD%95%E5%88%B6%E8%A7%86%E9%A2%91/%E7%B2%BE%E5%93%81%E5%B0%8F%E8%AF%BE/JDK%E6%96%B0%E7%89%B9%E5%BE%81/JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E5%BE%81/https://img.gyxnb.top/img004/1631091181735.png?lastModify=1631082891)
+![1631091181735](file://E:/msbEdu/%E5%BD%95%E5%88%B6%E8%A7%86%E9%A2%91/%E7%B2%BE%E5%93%81%E5%B0%8F%E8%AF%BE/JDK%E6%96%B0%E7%89%B9%E5%BE%81/JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E5%BE%81/https://image.201068.xyz/assets/1631091181735.png?lastModify=1631082891)
 
 
 
@@ -3191,7 +3191,7 @@ NUMA
 
 NUMA就是非统一内存访问架构（英语：non-uniform memory access，简称NUMA），是一种为多处理器的电脑设计的内存架构，内存访问时间取决于内存相对于处理器的位置。在NUMA下，处理器访问它自己的本地内存的速度比非本地内存（内存位于另一个处理器，或者是处理器之间共享的内存）快一些。如下图所示，Node0中的CPU如果访问Node0中的内存，那就是访问本地内存，如果它访问了Node1中的内存，那就是远程访问，性能较差：
 
-![1631094038083](https://img.gyxnb.top/img004/1631094038083.png)
+![1631094038083](https://image.201068.xyz/assets/1631094038083.png)
 
 
 
@@ -3219,7 +3219,7 @@ JEP 345专门用于实现G1垃圾收集器的NUMA支持，仅用于内存管理�
 
 由于维护和兼容性测试的成本,在JDK8时将Serial+CMS,ParNew+Serial Old这两个组合声明为废弃(JEP173),并在JDK9中完全取消了这些组合的支持(JEP214)
 
-![1631588534143](https://img.gyxnb.top/img004/1631588534143.png)
+![1631588534143](https://image.201068.xyz/assets/1631588534143.png)
 
 ParallelScavenge+SerialOld GC 的GC组合要被标记为Deprecate了
 
@@ -3229,7 +3229,7 @@ ParallelScavenge+SerialOld GC 的GC组合要被标记为Deprecate了
 
 废弃了Parallelyoung generationGC 与SerialOldGC组合  (-XX:+UseParallelGC  与 -XX:-UseParallelOldGC 配合开启),现在使用-XX:+UseParallelGC -XX:-UseParallelOldGC或者使用  -XX:-UseParallelOldGC会出现如下警告
 
-![1631589225439](https://img.gyxnb.top/img004/1631589225439.png)
+![1631589225439](https://image.201068.xyz/assets/1631589225439.png)
 
 
 
@@ -3290,13 +3290,13 @@ ZGC 收集器是一款基于Region内存布局的,暂时不设分代的,使用�
 
 关于ZGC的一些测试数据
 
-![1631591809475](https://img.gyxnb.top/img004/1631591809475.png)
+![1631591809475](https://image.201068.xyz/assets/1631591809475.png)
 
 
 
 
 
-![1631592040352](https://img.gyxnb.top/img004/1631592040352.png)
+![1631592040352](https://image.201068.xyz/assets/1631592040352.png)
 
 
 
@@ -3333,7 +3333,7 @@ class Cat {
 
 上面的代码在调用eat方法时就会出现空指针异常
 
-![1631086461797](https://img.gyxnb.top/img004/1631086461797.png)
+![1631086461797](https://image.201068.xyz/assets/1631086461797.png)
 
 这种提示其实并不是很详细,我们可以在运行代码的时候,加上一段配置,用以展示比较友好的控制成提示信息
 
@@ -3343,7 +3343,7 @@ class Cat {
 
 输出的信息如下所示
 
-![1631087081162](https://img.gyxnb.top/img004/1631087081162.png)
+![1631087081162](https://image.201068.xyz/assets/1631087081162.png)
 
 > 其他适用情况
 
@@ -3409,11 +3409,11 @@ class B{
 
 如果没有友好提示
 
-![1631087823799](https://img.gyxnb.top/img004/1631087823799.png)
+![1631087823799](https://image.201068.xyz/assets/1631087823799.png)
 
 如果有友好提示
 
-![1631087848805](https://img.gyxnb.top/img004/1631087848805.png)
+![1631087848805](https://image.201068.xyz/assets/1631087848805.png)
 
 这时就可以发现,是j的问题,那么其实就是b对象的问题
 
@@ -3758,9 +3758,9 @@ public class ExtendedMapMode{
 
 
 
-![1631670467582](https://img.gyxnb.top/img004/1631670467582.png)
+![1631670467582](https://image.201068.xyz/assets/1631670467582.png)
 
-![1631670520496](https://img.gyxnb.top/img004/1631670520496.png)
+![1631670520496](https://image.201068.xyz/assets/1631670520496.png)
 
 一个孵化器阶段,三个预览,两个废弃和两个移除
 
@@ -3770,7 +3770,7 @@ public class ExtendedMapMode{
 
 JAVA15参与企业
 
-![1631676405146](https://img.gyxnb.top/img004/1631676405146.png)
+![1631676405146](https://image.201068.xyz/assets/1631676405146.png)
 
 
 
@@ -3802,7 +3802,7 @@ JDK14:instanceof模式识别 Records 弃用ParallelScavenge+Serial GC组合 删�
 
 各个本版JEP数量
 
-![1631675941015](https://img.gyxnb.top/img004/1631675941015.png)
+![1631675941015](https://image.201068.xyz/assets/1631675941015.png)
 
 idea 下载地址
 
@@ -4170,7 +4170,7 @@ Nashorn 是JDK提出的脚本执行引擎,该功能时2014年3月发布的JDK8�
 
 JDK15 移除了Nashorn JAVAScript Engine 以及jjs命令工具,具体就是jdk.scripting.nashorn及jdk.scripting.nashorn.shell这两个模块移除了
 
-![1631797518607](https://img.gyxnb.top/img004/1631797518607.png)
+![1631797518607](https://image.201068.xyz/assets/1631797518607.png)
 
 Graal VM在hotSpot VM基础上,增强而形成的跨语言全栈虚拟机,可以作为"任何语言"的运行平台使用. 
 
@@ -4186,11 +4186,11 @@ Graal VM在hotSpot VM基础上,增强而形成的跨语言全栈虚拟机,可以
 
 https://openjdk.java.net/projects/jdk/16/
 
-![1631799306032](https://img.gyxnb.top/img004/1631799306032.png)
+![1631799306032](https://image.201068.xyz/assets/1631799306032.png)
 
 
 
-![1631801073728](https://img.gyxnb.top/img004/1631801073728.png)
+![1631801073728](https://image.201068.xyz/assets/1631801073728.png)
 
 
 
@@ -4843,7 +4843,7 @@ try (MemorySegment segment = MemorySegment.allocateNative(100)) {
 
  **Oracle 宣布，从 JDK 17 开始，后面的 JDK 都全部免费提供！！！** 
 
-![1631802196015](https://img.gyxnb.top/img004/1631802196015.png)
+![1631802196015](https://image.201068.xyz/assets/1631802196015.png)
 
 
 
@@ -4853,13 +4853,13 @@ try (MemorySegment segment = MemorySegment.allocateNative(100)) {
 
 
 
-![1631802323345](https://img.gyxnb.top/img004/1631802323345.png)
+![1631802323345](https://image.201068.xyz/assets/1631802323345.png)
 
 JDK 17 是自 2018 年 JDK 11 后的第二个长期支持版本，支持到 2029 年 9 月，支持时间长达 8 年，这下可以不用死守 JDK 8 了，JDK 17+ 也可以是一种新的选择了。下一个第三个长期支持版本是 JDK 21，时间为 2023 年 9 月，这次长期支持版本发布计划改了，不再是原来的 3 年一次，而是改成了 2 年一次！非长期支持版本还是半年发一次不变，下一个非长期支持版本计划在 2022/03 发布
 
 
 
-![1631802422250](https://img.gyxnb.top/img004/1631802422250.png)
+![1631802422250](https://image.201068.xyz/assets/1631802422250.png)
 
 
 
@@ -4867,7 +4867,7 @@ OpenJDK文档
 
 > https://openjdk.java.net/projects/jdk/17/
 
-![1631802460848](https://img.gyxnb.top/img004/1631802460848.png)
+![1631802460848](https://image.201068.xyz/assets/1631802460848.png)
 
  JDK 17 这个版本提供了 14 个增强功能，另外在性能、稳定性和安全性上面也得到了大量的提升，以及还有一些孵化和预览特性，有了这些新变化，Java 会进一步提高开发人员的生产力。 
 

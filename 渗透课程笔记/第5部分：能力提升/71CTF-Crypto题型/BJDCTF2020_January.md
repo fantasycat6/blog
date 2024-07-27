@@ -184,7 +184,7 @@
 
 ## 0x02 Easy
 
-![easy1](https://img.gyxnb.top/img003/easy1.png)
+![easy1](https://image.201068.xyz/assets/easy1.png)
 
 拖进IDA查看伪代码，发现主函数内没有任何与flag有关的函数，F12搜索字符串也找不到太多有用的信息。但是在函数窗口可以发现一个叫ques的未被调用的函数。
 
@@ -193,7 +193,7 @@
 
 ***当然你也可以在发现了这个后门函数后直接动态调试+修改eip跳转到ques函数的起始地址，一路F8或者下断+F9就可以直接得到flag。
 
-![easy2](https://img.gyxnb.top/img003/easy2.png)
+![easy2](https://image.201068.xyz/assets/easy2.png)
 
 BJD{HACKIT4FUN}
 
@@ -201,17 +201,17 @@ BJD{HACKIT4FUN}
 
 在BJD hamburger\BJD hamburger competition_Data\Managed文件夹中找到Assembly-CSharp.dll拖进Dnspy中，找到 ButtonSpawnFruit这个类。
 
-![hum1](https://img.gyxnb.top/img003/hum1.png)
+![hum1](https://image.201068.xyz/assets/hum1.png)
 
 可以看到，需要我们按照正确的顺序堆出汉堡才能得到正确的flag。并且在汉堡顶的判断中限制了spawncount必须为5，又因为spawncount从0开始，所以汉堡的层数只能是6.
 除去汉堡底和汉堡顶，还剩4种材料，因此这道题就转化成了从7种材料中选4种的问题。
 
-![hum2](https://img.gyxnb.top/img003/hum2.png)
+![hum2](https://image.201068.xyz/assets/hum2.png)
 
-得出结果所有可能情况：![hum3](https://img.gyxnb.top/img003/hum3.png) ，以及result的值为‘1001’
+得出结果所有可能情况：![hum3](https://image.201068.xyz/assets/hum3.png) ，以及result的值为‘1001’
 把result进行MD5加密后，取前20位。
 
-![hum4](https://img.gyxnb.top/img003/hum4.png)
+![hum4](https://image.201068.xyz/assets/hum4.png)
 
 Flag：BJD{B8C37E33DEFDE51CF91E}
 PS:这里也可以用itertools模块中的permutations方法求解。
@@ -364,7 +364,7 @@ print(long_to_bytes(m))
 
 题目描述直接给出，模的相关攻击，再看一下给出的附件，发现两次的N是相同的，所以可以确定是共模攻击
 
-![共模攻击](https://img.gyxnb.top/img003/modtogether.jpg)
+![共模攻击](https://image.201068.xyz/assets/modtogether.jpg)
 
 Exp:
 
@@ -528,7 +528,7 @@ print(flag)
 伏羲六十四卦：
 题目中给出了几段描述，大致可以猜测一下可能会有多层加密
 首先一开始提到六十四卦，百度一下，可以看到其实是利用六位二进制对文字进行替换，根据其二进制矩阵先构造码表，然后根据码表将密文转成二进制：
-![fuxi1](https://img.gyxnb.top/img003/fuxi1.png)
+![fuxi1](https://image.201068.xyz/assets/fuxi1.png)
 
 ```
 enc='升随临损巽睽颐萃小过讼艮颐小过震蛊屯未济中孚艮困恒晋升损蛊萃蛊未济巽解艮贲未济观豫损蛊晋噬嗑晋旅解大畜困未济随蒙升解睽未济井困未济旅萃未济震蒙未济师涣归妹大有'
@@ -546,10 +546,10 @@ def decrypt():
 
 
 第二层：下一步就是将二进制转换成ASCII：
-![fuxi2](https://img.gyxnb.top/img003/fuxi2.png)
+![fuxi2](https://image.201068.xyz/assets/fuxi2.png)
 
 第三层：发现是base64，再解密：
-![fuxi3](https://img.gyxnb.top/img003/fuxi3.png)
+![fuxi3](https://image.201068.xyz/assets/fuxi3.png)
  发现是一段奇怪的密文，此时附件中的py文件中有提示是加密的源码，分析发现是第四和第五层的加密方式，第四层这里我们可以发现，这里是采用一个偏移量为5并且依次后移一位的加密，这里只要将减换成加即可
 
 ```
@@ -575,7 +575,7 @@ for i in (1,9,21,15,3,7,23,19,11,5,17,25):
 ```
 
 最终得到flag：
-![fuxi4](.https://img.gyxnb.top/img003/fuxi4.png)
+![fuxi4](.https://image.201068.xyz/assets/fuxi4.png)
 加上格式即可：BJD{bjdcongratulationsongettingtheflag}
 
 

@@ -144,7 +144,7 @@ docker inspect 为查看容器结构信息命令
 
 
 
-![image-20220121172037253](https://img.gyxnb.top/img/image-20220121172037253.png)
+![image-20220121172037253](https://image.201068.xyz/assets/image-20220121172037253.png)
 
 
 
@@ -303,15 +303,15 @@ Commands: 未分组命令
 
 
 
-![image-20220121173519802](https://img.gyxnb.top/img/image-20220121173519802.png)
+![image-20220121173519802](https://image.201068.xyz/assets/image-20220121173519802.png)
 
 
 
-![image-20220121173613294](https://img.gyxnb.top/img/image-20220121173613294.png)
+![image-20220121173613294](https://image.201068.xyz/assets/image-20220121173613294.png)
 
 
 
-![image-20220121173705508](https://img.gyxnb.top/img/image-20220121173705508.png)
+![image-20220121173705508](https://image.201068.xyz/assets/image-20220121173705508.png)
 
 
 

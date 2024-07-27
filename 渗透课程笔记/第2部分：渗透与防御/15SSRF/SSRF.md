@@ -83,7 +83,7 @@ SSRF Server-Side Request Forgery
 
 服务器端请求伪造：是一种由攻击者构造形成由**服务端**发起请求的一个安全漏洞。
 
-![image-20221125133759679](https://img.gyxnb.top/img/image-20221125133759679.png)
+![image-20221125133759679](https://image.201068.xyz/assets/image-20221125133759679.png)
 
 ## 危害（利用方式） 
 
@@ -97,31 +97,31 @@ SSRF Server-Side Request Forgery
 
 ## 社会化分享功能
 
-![image-20221125140125984](https://img.gyxnb.top/img/image-20221125140125984.png)
+![image-20221125140125984](https://image.201068.xyz/assets/image-20221125140125984.png)
 
-![image-20221125140133352](https://img.gyxnb.top/img/image-20221125140133352.png)
+![image-20221125140133352](https://image.201068.xyz/assets/image-20221125140133352.png)
 
 分享时，解析当前网页的标题等等
 
 ## 转码服务
 
-![image-20221125140410419](https://img.gyxnb.top/img/image-20221125140410419.png)
+![image-20221125140410419](https://image.201068.xyz/assets/image-20221125140410419.png)
 
 ## 在线翻译
 
-![image-20221125140453736](https://img.gyxnb.top/img/image-20221125140453736.png)
+![image-20221125140453736](https://image.201068.xyz/assets/image-20221125140453736.png)
 
 ## 图片加载、下载功能
 
-![image-20221125140537017](https://img.gyxnb.top/img/image-20221125140537017.png)
+![image-20221125140537017](https://image.201068.xyz/assets/image-20221125140537017.png)
 
 ## 图片、文章收藏功能
 
-![image-20221125140559729](https://img.gyxnb.top/img/image-20221125140559729.png)
+![image-20221125140559729](https://image.201068.xyz/assets/image-20221125140559729.png)
 
 ## 网站采集、网站抓取
 
-![image-20221125140646947](https://img.gyxnb.top/img/image-20221125140646947.png)
+![image-20221125140646947](https://image.201068.xyz/assets/image-20221125140646947.png)
 
 ## 实际案例
 

@@ -18,133 +18,133 @@ AMD 设计的 流开放计算库  openCL
 
 ### 2.选择next
 
-![image-20211216111056125](https://img.gyxnb.top/img/image-20211216111056125.png)
+![image-20211216111056125](https://image.201068.xyz/assets/image-20211216111056125.png)
 
 ### 3.选择Accept
 
-![image-20211216111115928](https://img.gyxnb.top/img/image-20211216111115928.png)
+![image-20211216111115928](https://image.201068.xyz/assets/image-20211216111115928.png)
 
 ### 4.点击next
 
-![image-20211216111130335](https://img.gyxnb.top/img/image-20211216111130335.png)
+![image-20211216111130335](https://image.201068.xyz/assets/image-20211216111130335.png)
 
 ### 5.点击next
 
-![image-20211216111145769](https://img.gyxnb.top/img/image-20211216111145769.png)
+![image-20211216111145769](https://image.201068.xyz/assets/image-20211216111145769.png)
 
 ### 6.选择安装位置 点击next
 
-![image-20211216111200166](https://img.gyxnb.top/img/image-20211216111200166.png)
+![image-20211216111200166](https://image.201068.xyz/assets/image-20211216111200166.png)
 
 ### 7.点击Install
 
-![image-20211216111214296](https://img.gyxnb.top/img/image-20211216111214296.png)
+![image-20211216111214296](https://image.201068.xyz/assets/image-20211216111214296.png)
 
 ### 8.点击 【是】
 
-![image-20211216111226958](https://img.gyxnb.top/img/image-20211216111226958.png)
+![image-20211216111226958](https://image.201068.xyz/assets/image-20211216111226958.png)
 
 ### 9.点击Finsh
 
-![image-20211216111240457](https://img.gyxnb.top/img/image-20211216111240457.png)
+![image-20211216111240457](https://image.201068.xyz/assets/image-20211216111240457.png)
 
 ### 10.点击 【是】
 
-![image-20211216111254216](https://img.gyxnb.top/img/image-20211216111254216.png)
+![image-20211216111254216](https://image.201068.xyz/assets/image-20211216111254216.png)
 
 ### 11.点击 【ok】
 
-![image-20211216111307482](https://img.gyxnb.top/img/image-20211216111307482.png)
+![image-20211216111307482](https://image.201068.xyz/assets/image-20211216111307482.png)
 
 ### 12.点击Help
 
-![image-20211216111320848](https://img.gyxnb.top/img/image-20211216111320848.png)
+![image-20211216111320848](https://image.201068.xyz/assets/image-20211216111320848.png)
 
 ### 13.点击 激活码
 
-![image-20211216111337073](https://img.gyxnb.top/img/image-20211216111337073.png)
+![image-20211216111337073](https://image.201068.xyz/assets/image-20211216111337073.png)
 
 ### 14.输入激活码，点击OK
 
-![image-20211216111355007](https://img.gyxnb.top/img/image-20211216111355007.png)
+![image-20211216111355007](https://image.201068.xyz/assets/image-20211216111355007.png)
 
-![image-20211216111402103](https://img.gyxnb.top/img/image-20211216111402103.png)
+![image-20211216111402103](https://image.201068.xyz/assets/image-20211216111402103.png)
 
 ### 15.点击确定
 
-![image-20211216111418424](https://img.gyxnb.top/img/image-20211216111418424.png)
+![image-20211216111418424](https://image.201068.xyz/assets/image-20211216111418424.png)
 
 ### 16.点击 Options 选择Language  选择chinese
 
-![image-20211216111439413](https://img.gyxnb.top/img/image-20211216111439413.png)
+![image-20211216111439413](https://image.201068.xyz/assets/image-20211216111439413.png)
 
 ## 3.渗透wifi步骤
 
 ### 1.将握手包文件和密码拷贝到自己喜欢的目录
 
-![image-20211216111518457](https://img.gyxnb.top/img/image-20211216111518457.png)
+![image-20211216111518457](https://image.201068.xyz/assets/image-20211216111518457.png)
 
 ### 2.点击【选项】--【CPU选项】
 
-![image-20211216111532855](https://img.gyxnb.top/img/image-20211216111532855.png)
+![image-20211216111532855](https://image.201068.xyz/assets/image-20211216111532855.png)
 
 ### 3.点击【自动检测】，在点击【OK】
 
-![image-20211216111546269](https://img.gyxnb.top/img/image-20211216111546269.png)
+![image-20211216111546269](https://image.201068.xyz/assets/image-20211216111546269.png)
 
 ### 4.点击【选项】--【GPU选项】
 
-![image-20211216111602758](https://img.gyxnb.top/img/image-20211216111602758.png)
+![image-20211216111602758](https://image.201068.xyz/assets/image-20211216111602758.png)
 
 ### 5.选择显卡，点击【OK】
 
-![image-20211216111615926](https://img.gyxnb.top/img/image-20211216111615926.png)
+![image-20211216111615926](https://image.201068.xyz/assets/image-20211216111615926.png)
 
 ### 6.点击【导入数据】，选择【TCPDUMP文件】
 
-![image-20211216111631484](https://img.gyxnb.top/img/image-20211216111631484.png)
+![image-20211216111631484](https://image.201068.xyz/assets/image-20211216111631484.png)
 
 ### 7.选则握手包文件，点击【打开】
 
-![image-20211216111645315](https://img.gyxnb.top/img/image-20211216111645315.png)
+![image-20211216111645315](https://image.201068.xyz/assets/image-20211216111645315.png)
 
 ### 8.选则握手，点击【ok】
 
-![image-20211216111702095](https://img.gyxnb.top/img/image-20211216111702095.png)
+![image-20211216111702095](https://image.201068.xyz/assets/image-20211216111702095.png)
 
-![image-20211216111710910](https://img.gyxnb.top/img/image-20211216111710910.png)
+![image-20211216111710910](https://image.201068.xyz/assets/image-20211216111710910.png)
 
 ### 9.点击破解选项
 
-![image-20211216111725518](https://img.gyxnb.top/img/image-20211216111725518.png)
+![image-20211216111725518](https://image.201068.xyz/assets/image-20211216111725518.png)
 
 ### 10.选则【字典破解】，点击【添加】
 
-![image-20211216111738896](https://img.gyxnb.top/img/image-20211216111738896.png)
+![image-20211216111738896](https://image.201068.xyz/assets/image-20211216111738896.png)
 
 ### 11.选择【pwd.txt】密码字典，点击【打开】
 
-![image-20211216111752050](https://img.gyxnb.top/img/image-20211216111752050.png)
+![image-20211216111752050](https://image.201068.xyz/assets/image-20211216111752050.png)
 
 ### 12.点击【应用】，点击【确定】
 
-![image-20211216111823594](https://img.gyxnb.top/img/image-20211216111823594.png)
+![image-20211216111823594](https://image.201068.xyz/assets/image-20211216111823594.png)
 
 ### 13.点击【开始破解】-选择【字典破解】
 
-![image-20211216111843021](https://img.gyxnb.top/img/image-20211216111843021.png)
+![image-20211216111843021](https://image.201068.xyz/assets/image-20211216111843021.png)
 
 ### 14.点击保存
 
-![image-20211216111856491](https://img.gyxnb.top/img/image-20211216111856491.png)
+![image-20211216111856491](https://image.201068.xyz/assets/image-20211216111856491.png)
 
 ### 15.等待破解结果
 
-![image-20211216111911462](https://img.gyxnb.top/img/image-20211216111911462.png)
+![image-20211216111911462](https://image.201068.xyz/assets/image-20211216111911462.png)
 
 ### 16.点击【确定】，记录wifi密码
 
-![image-20211216111924364](https://img.gyxnb.top/img/image-20211216111924364.png)
+![image-20211216111924364](https://image.201068.xyz/assets/image-20211216111924364.png)
 
 
 

@@ -14,13 +14,13 @@
 
 一个共享相同结构和行为的对象的集合
 
-![image-20221126155421686](https://img.gyxnb.top/img/image-20221126155421686.png)
+![image-20221126155421686](https://image.201068.xyz/assets/image-20221126155421686.png)
 
 ## 对象Object
 
 类的实例
 
-![image-20221126155454378](https://img.gyxnb.top/img/image-20221126155454378.png)
+![image-20221126155454378](https://image.201068.xyz/assets/image-20221126155454378.png)
 
 # Magic函数
 
@@ -63,7 +63,7 @@ __debugInfo()
 
 ## 序列化和反序列化
 
-![image-20221126160218582](https://img.gyxnb.top/img/image-20221126160218582.png)
+![image-20221126160218582](https://image.201068.xyz/assets/image-20221126160218582.png)
 
 ## 类型序列化
 
@@ -406,7 +406,7 @@ echo base64_encode(serialize($exp));
 
 得到pyload
 
-![image-20221126203439904](https://img.gyxnb.top/img/image-20221126203439904.png)
+![image-20221126203439904](https://image.201068.xyz/assets/image-20221126203439904.png)
 
 访问：
 
@@ -414,9 +414,9 @@ http://192.168.31.193:8095/install.php?finish=%20HTTP/1.1
 
 使用hackbar插件
 
-![image-20221126204151988](https://img.gyxnb.top/img/image-20221126204151988.png)
+![image-20221126204151988](https://image.201068.xyz/assets/image-20221126204151988.png)
 
-![image-20221126204513999](https://img.gyxnb.top/img/image-20221126204513999.png)
+![image-20221126204513999](https://image.201068.xyz/assets/image-20221126204513999.png)
 
 ### type-poc.py
 
@@ -467,15 +467,15 @@ Shell path : http://192.168.31.193:8095/install.php?finish=shell.php
 
 http://192.168.31.193:8095/shell.php
 
-![image-20221126205327772](https://img.gyxnb.top/img/image-20221126205327772.png)
+![image-20221126205327772](https://image.201068.xyz/assets/image-20221126205327772.png)
 
-![image-20221126205616002](https://img.gyxnb.top/img/image-20221126205616002.png)
+![image-20221126205616002](https://image.201068.xyz/assets/image-20221126205616002.png)
 
 连接成功
 
 这个漏洞主要源自typecho安装程序install.php里有`unserialize`反序列化漏洞...
 
-![屏幕截图 2022-11-26 210739](https://img.gyxnb.top/img/屏幕截图 2022-11-26 210739.png)
+![屏幕截图 2022-11-26 210739](https://image.201068.xyz/assets/屏幕截图 2022-11-26 210739.png)
 
 # 反序列化漏洞修复和防御
 

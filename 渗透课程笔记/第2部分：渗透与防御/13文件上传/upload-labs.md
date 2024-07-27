@@ -41,11 +41,11 @@ if (($_FILES['upload_file']['type'] == 'image/jpeg') || ($_FILES['upload_file'][
 
 burpsuite抓包，修改要上传文件的**Content-Type**类型为这里指定的文件类型。
 
-![image-20221122163416253](https://img.gyxnb.top/img/image-20221122163416253.png)
+![image-20221122163416253](https://image.201068.xyz/assets/image-20221122163416253.png)
 
 将content-type修改为image/png，
 
-![image-20221122163451618](https://img.gyxnb.top/img/image-20221122163451618.png)
+![image-20221122163451618](https://image.201068.xyz/assets/image-20221122163451618.png)
 
 文件上传成功。
 
@@ -66,25 +66,25 @@ if (file_exists(UPLOAD_PATH)) {
 
 例如，传的文件是php，那么它的等价扩展名为php3，php4等等
 
-![image-20221122164841666](https://img.gyxnb.top/img/image-20221122164841666.png)
+![image-20221122164841666](https://image.201068.xyz/assets/image-20221122164841666.png)
 
 同样将content-type修改为image/png，
 
-![image-20221122164910783](https://img.gyxnb.top/img/image-20221122164910783.png)
+![image-20221122164910783](https://image.201068.xyz/assets/image-20221122164910783.png)
 
 上传成功。将图片在新标签也打开，发现**图片被重命名**了。
 
-![image-20221122205041349](https://img.gyxnb.top/img/image-20221122205041349.png)
+![image-20221122205041349](https://image.201068.xyz/assets/image-20221122205041349.png)
 
 将图片右键在新标签页打开
 
-![image-20221122205456474](https://img.gyxnb.top/img/image-20221122205456474.png)
+![image-20221122205456474](https://image.201068.xyz/assets/image-20221122205456474.png)
 
 http://192.168.31.193:7298/upload/202211222050584341.php3
 
 使用蚁剑连接
 
-![image-20221122211217281](https://img.gyxnb.top/img/image-20221122211217281.png)
+![image-20221122211217281](https://image.201068.xyz/assets/image-20221122211217281.png)
 
 连接成功
 
@@ -109,7 +109,7 @@ SetHandler application/x-httpd-php
 
 **再上传一个一句话木马**，文件名为 1.jpg，依旧访问 1.jpg，但其会以 php 形式显示
 
-![image-20221122211439276](https://img.gyxnb.top/img/image-20221122211439276.png)
+![image-20221122211439276](https://image.201068.xyz/assets/image-20221122211439276.png)
 
 连接成功
 
@@ -175,13 +175,13 @@ http://192.168.31.193:7298/upload/202211222050584341.php3
 
 因为windows不能在扩展名添空格，会被删除；只能bripsuite抓包在后缀名后添加空格：**1.php** （使用php5.3.29版本复现的）
 
-![image-20221122215554928](https://img.gyxnb.top/img/image-20221122215554928.png)
+![image-20221122215554928](https://image.201068.xyz/assets/image-20221122215554928.png)
 
 上传成功,连接**202211230600234539.php **
 
-![image-20221122220048550](https://img.gyxnb.top/img/image-20221122220048550.png)
+![image-20221122220048550](https://image.201068.xyz/assets/image-20221122220048550.png)
 
-![image-20221122220205776](https://img.gyxnb.top/img/image-20221122220205776.png)
+![image-20221122220205776](https://image.201068.xyz/assets/image-20221122220205776.png)
 
 文件上传成功，后缀名后的空格消失，成功上传了php文件。
 
@@ -200,13 +200,13 @@ $file_ext = trim($file_ext); //首尾去空
 
 抓包在php后缀名后加一个点绕过：**1.php.**
 
-![image-20221123101058484](https://img.gyxnb.top/img/image-20221123101058484.png)
+![image-20221123101058484](https://image.201068.xyz/assets/image-20221123101058484.png)
 
-![image-20221123101957020](https://img.gyxnb.top/img/image-20221123101957020.png)
+![image-20221123101957020](https://image.201068.xyz/assets/image-20221123101957020.png)
 
 上传成功，网页空白，被当作代码执行了。
 
-![image-20221123102159777](https://img.gyxnb.top/img/image-20221123102159777.png)
+![image-20221123102159777](https://image.201068.xyz/assets/image-20221123102159777.png)
 
 上传成功的文件，后面的点也被自动删除。
 
@@ -225,15 +225,15 @@ $file_ext = trim($file_ext); //首尾去空
 
 `1.php::$DATA`
 
-![image-20221123103656056](https://img.gyxnb.top/img/image-20221123103656056.png)
+![image-20221123103656056](https://image.201068.xyz/assets/image-20221123103656056.png)
 
-![image-20221123104003841](https://img.gyxnb.top/img/image-20221123104003841.png)
+![image-20221123104003841](https://image.201068.xyz/assets/image-20221123104003841.png)
 
 上传成功后，发现无法访问，可能后缀后的字符串在上传成功后被删除了；
 
 删除后面的`::$DATA`，再次访问，
 
-![image-20221123104204581](https://img.gyxnb.top/img/image-20221123104204581.png)
+![image-20221123104204581](https://image.201068.xyz/assets/image-20221123104204581.png)
 
 成功访问，也被当做代码被执行。
 
@@ -253,7 +253,7 @@ $file_ext = trim($file_ext); //首尾去空
 
 `1.php. .`
 
-![image-20221123105324928](https://img.gyxnb.top/img/image-20221123105324928.png)
+![image-20221123105324928](https://image.201068.xyz/assets/image-20221123105324928.png)
 
 # pass11
 
@@ -265,9 +265,9 @@ $file_name = str_ireplace($deny_ext,"", $file_name);
 
 尝试**双写**后缀名`1.pphphp`
 
-![image-20221123110603709](https://img.gyxnb.top/img/image-20221123110603709.png)
+![image-20221123110603709](https://image.201068.xyz/assets/image-20221123110603709.png)
 
-![image-20221123110637203](https://img.gyxnb.top/img/image-20221123110637203.png)
+![image-20221123110637203](https://image.201068.xyz/assets/image-20221123110637203.png)
 
 上传成功
 
@@ -281,17 +281,17 @@ $file_name = str_ireplace($deny_ext,"", $file_name);
 
 抓包查看是什么样子的
 
-![image-20221123140759549](https://img.gyxnb.top/img/image-20221123140759549.png)
+![image-20221123140759549](https://image.201068.xyz/assets/image-20221123140759549.png)
 
 保存在upload目录下，使用**文件名截断**%00，控制读取的路径。
 
 **get型00截断**：`1.php%00`
 
-![image-20221123141407395](https://img.gyxnb.top/img/image-20221123141407395.png)
+![image-20221123141407395](https://image.201068.xyz/assets/image-20221123141407395.png)
 
 图片改为1.jpg
 
-![image-20221123141432715](https://img.gyxnb.top/img/image-20221123141432715.png)
+![image-20221123141432715](https://image.201068.xyz/assets/image-20221123141432715.png)
 
 # pass13
 
@@ -301,13 +301,13 @@ $file_name = str_ireplace($deny_ext,"", $file_name);
 
 **post型00截断**，需要在 **16 进制中修改**，因为 POST 不会像 GET 那 样对%00 进行自动解码。
 
-![image-20221123144043894](https://img.gyxnb.top/img/image-20221123144043894.png)
+![image-20221123144043894](https://image.201068.xyz/assets/image-20221123144043894.png)
 
-![image-20221123144302559](https://img.gyxnb.top/img/image-20221123144302559.png)
+![image-20221123144302559](https://image.201068.xyz/assets/image-20221123144302559.png)
 
 # pass14
 
-![image-20221123152221141](https://img.gyxnb.top/img/image-20221123152221141.png)
+![image-20221123152221141](https://image.201068.xyz/assets/image-20221123152221141.png)
 
 ```javascript
 function getReailFileType($filename){
@@ -324,11 +324,11 @@ function getReailFileType($filename){
 - 1.jpg 为任意图片 
 - 1.php 为我们要插入的木马代码 
 - 2.jpg 为我们要创建的图片马 
-- ![image-20221123150533056](https://img.gyxnb.top/img/image-20221123150533056.png)
+- ![image-20221123150533056](https://image.201068.xyz/assets/image-20221123150533056.png)
 
 使用文件包含漏洞，
 
-![image-20221123152238096](https://img.gyxnb.top/img/image-20221123152238096.png)
+![image-20221123152238096](https://image.201068.xyz/assets/image-20221123152238096.png)
 
 http://192.168.31.193:8089/include.php?file=upload/5920221123150637.gif
 
@@ -415,11 +415,11 @@ if(isset($_POST['submit'])){
 
 burpsuite抓包使用intruder模块**不断发包上传**php文件。
 
-![image-20221123163555707](https://img.gyxnb.top/img/image-20221123163555707.png)
+![image-20221123163555707](https://image.201068.xyz/assets/image-20221123163555707.png)
 
 同样使用burpsuite抓包**不断访问**http://192.168.31.193:7298/upload/competition.php，触发php文件，**产生新的php文件**。
 
-![image-20221123165255899](https://img.gyxnb.top/img/image-20221123165255899.png)
+![image-20221123165255899](https://image.201068.xyz/assets/image-20221123165255899.png)
 
 连接成功
 

@@ -58,13 +58,13 @@ ctrl+c
  1                cisco-1809     1  WEP   68db    no    1
 ```
 
-![image-20211125131923614](https://img.gyxnb.top/img/image-20211125131923614.png)
+![image-20211125131923614](https://image.201068.xyz/assets/image-20211125131923614.png)
 
 ### 4.等待ivs变多后，自动尝试破解
 
-![image-20211125132227530](https://img.gyxnb.top/img/image-20211125132227530.png)
+![image-20211125132227530](https://image.201068.xyz/assets/image-20211125132227530.png)
 
-![image-20211127061713174](https://img.gyxnb.top/img/image-20211127061713174.png)
+![image-20211127061713174](https://image.201068.xyz/assets/image-20211127061713174.png)
 
 ## 4.课堂小结
 

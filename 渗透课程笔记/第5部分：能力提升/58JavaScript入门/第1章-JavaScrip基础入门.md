@@ -4,7 +4,7 @@
 
 # 一、JavaScript简介
 
-![img](https://img.gyxnb.top/img001/clip_image002.jpg)![img](https://img.gyxnb.top/img001/clip_image004.jpg)
+![img](https://image.201068.xyz/assets/clip_image002.jpg)![img](https://image.201068.xyz/assets/clip_image004.jpg)
 
 JavaScript（简称“JS”） 是一种具有[函数](https://baike.baidu.com/item/函数/301912)优先的[轻量级](https://baike.baidu.com/item/轻量级/22359343)，解释型或即时编译型的[编程语言](https://baike.baidu.com/item/编程语言/9845131)。虽然它是作为开发Web页面的[脚本语言](https://baike.baidu.com/item/脚本语言/1379708)而出名的，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型[编程](https://baike.baidu.com/item/编程/139828)、多范式的动态脚本语言，并且支持[面向对象](https://baike.baidu.com/item/面向对象/2262089)、命令式和声明式（如[函数式编程](https://baike.baidu.com/item/函数式编程/4035031)）风格。 [1] 
 
@@ -20,9 +20,9 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 概述：我们已经知道，JavaScript属于一门脚本语言。脚本语言有一个很大特征：可以给网页添加一些动态效果。
 
-![img](https://img.gyxnb.top/img001/clip_image006.jpg)   ![img](https://img.gyxnb.top/img001/clip_image008.jpg)
+![img](https://image.201068.xyz/assets/clip_image006.jpg)   ![img](https://image.201068.xyz/assets/clip_image008.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image010.jpg)
+![img](https://image.201068.xyz/assets/clip_image010.jpg)
 
  
 
@@ -42,7 +42,7 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 问题：JavaScript是由哪几部分组成的呀？
 
-![img](https://img.gyxnb.top/img001/clip_image012.jpg)
+![img](https://image.201068.xyz/assets/clip_image012.jpg)
 
 答：JavaScript是由三部分组成。ECMAScript、DOM、BOM。
 
@@ -111,11 +111,11 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 ## 2.1alert-警告框
 
-![img](https://img.gyxnb.top/img001/clip_image014.jpg)
+![img](https://image.201068.xyz/assets/clip_image014.jpg)
 
 概述：alert是JS当中内置函数，它主要的作用是，就是在浏览器正上方弹出一个警告框。
 
-![img](https://img.gyxnb.top/img001/clip_image016.jpg)
+![img](https://image.201068.xyz/assets/clip_image016.jpg)
 
 ```
 <script type="text/javascript">
@@ -147,11 +147,11 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 ## 2.2prompt-提示框
 
-![img](https://img.gyxnb.top/img001/clip_image018.jpg)
+![img](https://image.201068.xyz/assets/clip_image018.jpg)
 
 概述：prompt也是JS当中内置函数，它主要的作用是，可以在浏览器的正上方，弹出一个提示框。
 
-![img](https://img.gyxnb.top/img001/clip_image020.jpg)
+![img](https://image.201068.xyz/assets/clip_image020.jpg)
 
 ```
 <script type="text/javascript">
@@ -178,7 +178,7 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 ## 2.3控制台使用*
 
-![img](https://img.gyxnb.top/img001/clip_image022.jpg)![img](https://img.gyxnb.top/img001/clip_image024.jpg)
+![img](https://image.201068.xyz/assets/clip_image022.jpg)![img](https://image.201068.xyz/assets/clip_image024.jpg)
 
 概述：在JS当中，我们可以通过console对象的log方法在控制台中输出一些内容。
 
@@ -188,11 +188,11 @@ JavaScript在1995年由[Netscape](https://baike.baidu.com/item/Netscape)公司�
 
 console.log(参数)；
 
-![img](https://img.gyxnb.top/img001/clip_image026.jpg)
+![img](https://image.201068.xyz/assets/clip_image026.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image028.jpg)
+![img](https://image.201068.xyz/assets/clip_image028.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image030.jpg)
+![img](https://image.201068.xyz/assets/clip_image030.jpg)
 
 ```
 <script type="text/javascript">
@@ -256,7 +256,7 @@ JS的数据类型一共有六种：五个基本数据类型、一个引用类型
 
 概述：在JS当中整数字面量，即为十进制的数字。逢10进一。整数的数字区分正负之分。
 
-![img](https://img.gyxnb.top/img001/clip_image032.jpg)
+![img](https://image.201068.xyz/assets/clip_image032.jpg)
 
 ```
 <script type="text/javascript">
@@ -284,7 +284,7 @@ JS的数据类型一共有六种：五个基本数据类型、一个引用类型
 
 概述：浮点数，即为小数。数字当中带有小数点的。浮点数也有正负之分。
 
-![img](https://img.gyxnb.top/img001/clip_image034.jpg)
+![img](https://image.201068.xyz/assets/clip_image034.jpg)
 
   console.log(3.1415926);
 
@@ -328,7 +328,7 @@ JS的数据类型一共有六种：五个基本数据类型、一个引用类型
 
 概述：科学计数法，也是表示数字一种形式。代表的是某一个数字与10的N次幂的乘积。
 
-![img](https://img.gyxnb.top/img001/clip_image036.jpg)
+![img](https://image.201068.xyz/assets/clip_image036.jpg)
 
 console.log(6e2);相当于6 * 10 ^2
 
@@ -345,7 +345,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 
 #### 3.1.4.1Infinity
 
-![img](https://img.gyxnb.top/img001/clip_image038.jpg)
+![img](https://image.201068.xyz/assets/clip_image038.jpg)
 
  
 
@@ -353,7 +353,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 
 如果超出数字范围，可以利用特殊值Infinity进行表示。Infinity这个数字类型的特殊值，也有正负之分。
 
-![img](https://img.gyxnb.top/img001/clip_image040.jpg)
+![img](https://image.201068.xyz/assets/clip_image040.jpg)
 
 ```
 
@@ -389,7 +389,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 
 但是在JS当中，不会出现崩掉现象，而是给你返回一个数字类型特殊值NaN。
 
-![img](https://img.gyxnb.top/img001/clip_image042.jpg)
+![img](https://image.201068.xyz/assets/clip_image042.jpg)
 
   console.log(0/0);//NaN
 
@@ -410,7 +410,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 
 字符串：字符串是由字符组成的。而字符串中的字符，可以是汉字、英文字母、数字、任意特殊符号都可以。
 
-![img](https://img.gyxnb.top/img001/clip_image044.jpg)
+![img](https://image.201068.xyz/assets/clip_image044.jpg)
 
 ```
 <script type="text/javascript">
@@ -450,7 +450,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 
 ## 4.1变量基本使用
 
-![img](https://img.gyxnb.top/img001/clip_image046.jpg)
+![img](https://image.201068.xyz/assets/clip_image046.jpg)
 
 概述：变量（variable），它是计算机语言中一个术语。变量这个术语起源于数学。
 
@@ -507,11 +507,11 @@ console.log(3.14E2);相当于3.14 * 10^2
 - l 通过访问变量名字，可以获取到变量存储的结果。（使用）
 
 
-![img](https://img.gyxnb.top/img001/clip_image048.jpg)
+![img](https://image.201068.xyz/assets/clip_image048.jpg)
 
 ## 4.2变量使用注意事项
 
-![img](https://img.gyxnb.top/img001/clip_image050.jpg)
+![img](https://image.201068.xyz/assets/clip_image050.jpg)
 
   var hobby;
 
@@ -520,7 +520,7 @@ console.log(3.14E2);相当于3.14 * 10^2
 - l 一个变量，仅仅是声明了，但是没有赋值。默认初始值为未定义类型的特殊值undefined。
 
 
-![img](https://img.gyxnb.top/img001/clip_image052.jpg)
+![img](https://image.201068.xyz/assets/clip_image052.jpg)
 
 ```
 
@@ -577,7 +577,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 - l 上面写法是错误的，因为使用变量之前，务必需要通过关键字var进行声明。
 
 
-![img](https://img.gyxnb.top/img001/clip_image054.jpg)
+![img](https://image.201068.xyz/assets/clip_image054.jpg)
 
 ```
 
@@ -605,7 +605,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 ## 4.3其他声明方式
 
-![img](https://img.gyxnb.top/img001/clip_image056.jpg)
+![img](https://image.201068.xyz/assets/clip_image056.jpg)
 
 ```
 
@@ -675,9 +675,9 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 作用域：书写代码的范围。
 
-![img](https://img.gyxnb.top/img001/clip_image058.jpg)   
+![img](https://image.201068.xyz/assets/clip_image058.jpg)   
 
-![img](https://img.gyxnb.top/img001/clip_image060.jpg)            
+![img](https://image.201068.xyz/assets/clip_image060.jpg)            
 
 ```
 
@@ -721,7 +721,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 概述：在JS当中，我们可以利用关键字typeof，它主要的作用是可以检测任意类型的字面量或者变量存储的数据为什么类型的数值。
 
-![img](https://img.gyxnb.top/img001/clip_image062.jpg)
+![img](https://image.201068.xyz/assets/clip_image062.jpg)
 
 ```
 
@@ -790,7 +790,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 2. l 如果语句当中出现了字符串，这个加号（+），就不是数学的加法了。是所谓连字符。可以将数据从左到右变为字符串。
 
 
-![img](https://img.gyxnb.top/img001/clip_image064.jpg)
+![img](https://image.201068.xyz/assets/clip_image064.jpg)
 
 ```
 
@@ -822,7 +822,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 - l 语句当中出现了字符串，这个加号（连字符）。将数据从左到右拼接为一个整体字符串。
 
 
-![img](https://img.gyxnb.top/img001/clip_image066.jpg)
+![img](https://image.201068.xyz/assets/clip_image066.jpg)
 
 ```
 
@@ -844,7 +844,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 - l 因为num1是字符串类型数据，当前这个加号连字符（将数据从左到右转换为字符串）
 
 
-![img](https://img.gyxnb.top/img001/clip_image068.jpg)
+![img](https://image.201068.xyz/assets/clip_image068.jpg)
 
 ```
 
@@ -872,9 +872,9 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 ## 6.2字符串转换为数字
 
-![img](https://img.gyxnb.top/img001/clip_image070.jpg)![img](https://img.gyxnb.top/img001/clip_image072.jpg)
+![img](https://image.201068.xyz/assets/clip_image070.jpg)![img](https://image.201068.xyz/assets/clip_image072.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image074.jpg)
+![img](https://image.201068.xyz/assets/clip_image074.jpg)
 
 概述：在JS当中，我们可以通过内置函数parseInt和parseFloat将字符串转换为数字。 
 
@@ -883,7 +883,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 2. \2.    内置函数parseFloat，可以将字符串中的数字形式的字符转换为数字。（精确到小数部分）。
 
 
-![img](https://img.gyxnb.top/img001/clip_image076.jpg)
+![img](https://image.201068.xyz/assets/clip_image076.jpg)
 
 ```
 
@@ -911,7 +911,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 - l 在进行转换的时候，从左到右进行转换，如果是数字形式字符，转换为数字。遇见了非数字形式字符，后面数据就不在进行转换。
 
 
-![img](https://img.gyxnb.top/img001/clip_image078.jpg)
+![img](https://image.201068.xyz/assets/clip_image078.jpg)
 
  console.log(parseFloat("3.14"));
 
@@ -928,7 +928,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 我们可以获取到用户输入进来的数据，利用这些用户输入进来的数据，进行编程。
 
-![img](https://img.gyxnb.top/img001/clip_image080.jpg)
+![img](https://image.201068.xyz/assets/clip_image080.jpg)
 
 ```
 
@@ -960,7 +960,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 口诀：先算乘除、后算加减。如果有小括号先算小括号里面的。
 
-![img](https://img.gyxnb.top/img001/clip_image082.jpg)
+![img](https://image.201068.xyz/assets/clip_image082.jpg)
 
 ```
 
@@ -991,13 +991,13 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 # 九、数学对象
 
-![img](https://img.gyxnb.top/img001/clip_image084.jpg)
+![img](https://image.201068.xyz/assets/clip_image084.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image086.jpg)
+![img](https://image.201068.xyz/assets/clip_image086.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image088.jpg)
+![img](https://image.201068.xyz/assets/clip_image088.jpg)
 
-![img](https://img.gyxnb.top/img001/clip_image090.jpg)
+![img](https://image.201068.xyz/assets/clip_image090.jpg)
 
 概述：在JS语言当中，给我们提供了一个内置的数学对象（Math），这个对象拥有很多的属性和方法提供给我们使用。
 
@@ -1005,7 +1005,7 @@ l 一个变量在声明一次以后，可以进行多次赋值。后者赋值的
 
 属性和方法：今天任务是知道怎么使用即可。
 
-![img](https://img.gyxnb.top/img001/clip_image092.jpg)
+![img](https://image.201068.xyz/assets/clip_image092.jpg)
 
 ```
 

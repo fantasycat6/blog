@@ -441,7 +441,7 @@ burpsuip抓包查看参数怎么来的
 
 猜测t_ref是referer地址来源
 
-![image-20221120190357176](https://img.gyxnb.top/img/image-20221120190357176.png)
+![image-20221120190357176](https://image.201068.xyz/assets/image-20221120190357176.png)
 
 `click"type="button" onclick="alert(/xss/)`
 
@@ -485,7 +485,7 @@ echo "<h2 align=center>没有找到和".htmlspecialchars($str)."相关的结果.
 
 发现t_ua这个参数就是useragent
 
-![image-20221120191102558](https://img.gyxnb.top/img/image-20221120191102558.png)
+![image-20221120191102558](https://image.201068.xyz/assets/image-20221120191102558.png)
 
 `click"type="button" onclick="alert(/xss/)`
 
@@ -528,11 +528,11 @@ echo "<h2 align=center>没有找到和".htmlspecialchars($str)."相关的结果.
 
 4个隐藏参数，猜测t_cook是cookie
 
-![image-20221120192620976](https://img.gyxnb.top/img/image-20221120192620976.png)
+![image-20221120192620976](https://image.201068.xyz/assets/image-20221120192620976.png)
 
 改cookie中的user
 
-![image-20221120192546998](https://img.gyxnb.top/img/image-20221120192546998.png)
+![image-20221120192546998](https://image.201068.xyz/assets/image-20221120192546998.png)
 
 `user=click"type="button" onclick="alert(/xss/)`
 
@@ -570,7 +570,7 @@ http://192.168.31.193:8080/level14.php
 
 然后在当前文件夹下面放一张名为404.jpg的数码图片
 
-![image-20221120205022092](https://img.gyxnb.top/img/image-20221120205022092.png)
+![image-20221120205022092](https://image.201068.xyz/assets/image-20221120205022092.png)
 
 `'"<script>alert(2)</script>`
 
@@ -582,7 +582,7 @@ https://chromecj.com/Handler/Download/56
 
 接着访问一下 http://192.168.31.193:8080/404.jpg
 
-![image-20221120205738703](https://img.gyxnb.top/img/image-20221120205738703.png)
+![image-20221120205738703](https://image.201068.xyz/assets/image-20221120205738703.png)
 
 ## level15
 

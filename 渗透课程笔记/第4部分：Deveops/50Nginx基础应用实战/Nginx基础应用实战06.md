@@ -14,7 +14,7 @@ https://oneinstack.com
 
 ### 安装完成后
 
-![image-20210521191847266](https://img.gyxnb.top/img/image-20210521190719162.png)
+![image-20210521191847266](https://image.201068.xyz/assets/image-20210521190719162.png)
 
 
 
@@ -149,7 +149,7 @@ http://openresty.org/cn/download.html
 
 如遇启动失败，先检查一下是否之前装过nginx 端口有没有冲突
 
-![image-20210611184024696](https://img.gyxnb.top/img/image-20210611184024696.png)
+![image-20210611184024696](https://image.201068.xyz/assets/image-20210611184024696.png)
 
 ##### 查看已安装模块和版本号
 

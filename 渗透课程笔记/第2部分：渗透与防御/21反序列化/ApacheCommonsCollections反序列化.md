@@ -37,7 +37,7 @@ Map
 
 Set
 
-![image-20221127162108970](https://img.gyxnb.top/img/image-20221127162108970.png)
+![image-20221127162108970](https://image.201068.xyz/assets/image-20221127162108970.png)
 
 ## Commons Collection
 
@@ -122,7 +122,7 @@ Person —— new Person("无涯")
 
 ## 调用链路
 
-![image-20221127163102008](https://img.gyxnb.top/img/image-20221127163102008.png)
+![image-20221127163102008](https://image.201068.xyz/assets/image-20221127163102008.png)
 
 ## poc构造思路
 

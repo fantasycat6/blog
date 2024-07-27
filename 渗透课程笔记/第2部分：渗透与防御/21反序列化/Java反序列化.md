@@ -26,7 +26,7 @@
 
 ## Java序列化和反序列化
 
-![image-20221127095350744](https://img.gyxnb.top/img/image-20221127095350744.png)
+![image-20221127095350744](https://image.201068.xyz/assets/image-20221127095350744.png)
 
 ## 序列化主要使用场景
 
@@ -37,7 +37,7 @@
 
 ## JSON格式
 
-![image-20221127095441986](https://img.gyxnb.top/img/image-20221127095441986.png)
+![image-20221127095441986](https://image.201068.xyz/assets/image-20221127095441986.png)
 
 # Java序列化演示
 

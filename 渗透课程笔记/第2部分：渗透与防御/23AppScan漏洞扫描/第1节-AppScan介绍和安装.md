@@ -24,9 +24,9 @@ Appscan 10中文版是是全新网络安全漏洞扫描软件，软件可以直�
 
 ## 3.扫描流程
 
-![image-20211201203930801](https://img.gyxnb.top/img/image-20211201203930801.png)
+![image-20211201203930801](https://image.201068.xyz/assets/image-20211201203930801.png)
 
-![image-20211201203950394](https://img.gyxnb.top/img/image-20211201203950394.png)
+![image-20211201203950394](https://image.201068.xyz/assets/image-20211201203950394.png)
 
 ## 4.扫描方式
 
@@ -46,33 +46,33 @@ Client-Side：客户端分析(Javascript)
 
 2.双击运行Appscan_Setup_1002.exe，选择安装语言，点击确定；
 
-![image-20211201204315728](https://img.gyxnb.top/img/image-20211201204315728.png)
+![image-20211201204315728](https://image.201068.xyz/assets/image-20211201204315728.png)
 
 3.选择I accept，点击下一步；
 
-![image-20211201204336720](https://img.gyxnb.top/img/image-20211201204336720.png)
+![image-20211201204336720](https://image.201068.xyz/assets/image-20211201204336720.png)
 
 4.更改安装目录，点击安装；（注意记录下这个目录后面破解需要用到）
 
-![image-20211201204403352](https://img.gyxnb.top/img/image-20211201204403352.png)
+![image-20211201204403352](https://image.201068.xyz/assets/image-20211201204403352.png)
 
 5.等待安装直到完成；
 
-![image-20211201204422500](https://img.gyxnb.top/img/image-20211201204422500.png)
+![image-20211201204422500](https://image.201068.xyz/assets/image-20211201204422500.png)
 
 6.将破解文件 AppScanSDK.dll 和 HclLicenseProvider.dll 拷贝到安装目录D:\Program Files (x86)\HCL\AppScan Standard下替换原来的文件
 
-![image-20211201204444993](https://img.gyxnb.top/img/image-20211201204444993.png)
+![image-20211201204444993](https://image.201068.xyz/assets/image-20211201204444993.png)
 
-![image-20211201204453175](https://img.gyxnb.top/img/image-20211201204453175.png)
+![image-20211201204453175](https://image.201068.xyz/assets/image-20211201204453175.png)
 
 7.双击桌面图标运行AppScan；
 
-![image-20211201204517852](https://img.gyxnb.top/img/image-20211201204517852.png)
+![image-20211201204517852](https://image.201068.xyz/assets/image-20211201204517852.png)
 
 8.安装成功
 
-![image-20211201204548270](https://img.gyxnb.top/img/image-20211201204548270.png)
+![image-20211201204548270](https://image.201068.xyz/assets/image-20211201204548270.png)
 
-![image-20211201204557166](https://img.gyxnb.top/img/image-20211201204557166.png)
+![image-20211201204557166](https://image.201068.xyz/assets/image-20211201204557166.png)
 

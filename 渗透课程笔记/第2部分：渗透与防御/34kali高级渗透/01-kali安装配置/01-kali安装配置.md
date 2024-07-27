@@ -2,21 +2,21 @@
 
 ## 1、什么是渗透测试
 
-![img](https://img.gyxnb.top/img/clip_image008.gif)![img](https://img.gyxnb.top/img/clip_image009.jpg)
+![img](https://image.201068.xyz/assets/clip_image008.gif)![img](https://image.201068.xyz/assets/clip_image009.jpg)
 
 ### 软件
 
-![img](https://img.gyxnb.top/img/clip_image010.jpg)
+![img](https://image.201068.xyz/assets/clip_image010.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image011.jpg)![img](https://img.gyxnb.top/img/clip_image012.jpg)
+![img](https://image.201068.xyz/assets/clip_image011.jpg)![img](https://image.201068.xyz/assets/clip_image012.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image013.jpg)
+![img](https://image.201068.xyz/assets/clip_image013.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image014.jpg)
+![img](https://image.201068.xyz/assets/clip_image014.jpg)
 
 ### 软件测试
 
-![img](https://img.gyxnb.top/img/clip_image015.jpg)
+![img](https://image.201068.xyz/assets/clip_image015.jpg)
 
 ###  软件测试与渗透测试
 
@@ -44,7 +44,7 @@ l渗透测试与kali
 
 ## 2、渗透测试的对象
 
-![img](https://img.gyxnb.top/img/clip_image022.jpg)
+![img](https://image.201068.xyz/assets/clip_image022.jpg)
 
 ### 渗透测试的对象
 
@@ -106,7 +106,7 @@ l渗透测试与kali
 
 ### 漏洞扫描
 
-![img](https://img.gyxnb.top/img/clip_image029.jpg)
+![img](https://image.201068.xyz/assets/clip_image029.jpg)
 
 ###  漏洞利用
 
@@ -123,7 +123,7 @@ l渗透测试与kali
 - 原因分析
 - 修补建议
 
-![img](https://img.gyxnb.top/img/clip_image030.jpg)
+![img](https://image.201068.xyz/assets/clip_image030.jpg)
 
 ### 流程总结
 

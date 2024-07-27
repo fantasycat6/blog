@@ -119,7 +119,7 @@ Control Groups也就是谷歌实现的cgroups，其于2007年被添加至Linux�
 
 
 
-![image-20220111132707215](https://img.gyxnb.top/img/image-20220111132707215.png)
+![image-20220111132707215](https://image.201068.xyz/assets/image-20220111132707215.png)
 
 
 
@@ -421,7 +421,7 @@ PING 192.168.50.3 (192.168.50.3) 56(84) bytes of data.
 
 
 
-![image-20220112182824405](https://img.gyxnb.top/img/image-20220112182824405.png)
+![image-20220112182824405](https://image.201068.xyz/assets/image-20220112182824405.png)
 
 
 

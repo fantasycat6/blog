@@ -127,17 +127,17 @@ https://portswigger.net/burp/documentation/contents
 
 ### 界面总览
 
-![image-20221219180736217](https://img.gyxnb.top/img/image-20221219180736217.png)
+![image-20221219180736217](https://image.201068.xyz/assets/image-20221219180736217.png)
 
 ### 旧版对比
 
-![image-20221219180831190](https://img.gyxnb.top/img/image-20221219180831190.png)
+![image-20221219180831190](https://image.201068.xyz/assets/image-20221219180831190.png)
 
 ### 菜单栏
 
 #### Burp
 
-![image-20221219181021718](https://img.gyxnb.top/img/image-20221219181021718.png)
+![image-20221219181021718](https://image.201068.xyz/assets/image-20221219181021718.png)
 
 1. 搜索内容 
 2. 配置库 
@@ -148,7 +148,7 @@ https://portswigger.net/burp/documentation/contents
 
 #### Project
 
-![image-20221219181129597](https://img.gyxnb.top/img/image-20221219181129597.png)
+![image-20221219181129597](https://image.201068.xyz/assets/image-20221219181129597.png)
 
 1. 工程配置 
 2. 重命名 
@@ -158,7 +158,7 @@ https://portswigger.net/burp/documentation/contents
 
 #### Intruder
 
-![image-20221219181216302](https://img.gyxnb.top/img/image-20221219181216302.png)
+![image-20221219181216302](https://image.201068.xyz/assets/image-20221219181216302.png)
 
 1. 发起攻击 
 2. 打开工作空间 
@@ -173,7 +173,7 @@ https://portswigger.net/burp/documentation/contents
 
 #### Repeater
 
-![image-20221219181443476](https://img.gyxnb.top/img/image-20221219181443476.png)
+![image-20221219181443476](https://image.201068.xyz/assets/image-20221219181443476.png)
 
 1. 更新 Content-Length 
 2. 解压压缩的数据 
@@ -189,13 +189,13 @@ https://portswigger.net/burp/documentation/desktop/tools/repeater/options
 
 #### Window
 
-![image-20221219181619180](https://img.gyxnb.top/img/image-20221219181619180.png)
+![image-20221219181619180](https://image.201068.xyz/assets/image-20221219181619180.png)
 
 剥离窗口
 
 #### Help
 
-![image-20221219181646974](https://img.gyxnb.top/img/image-20221219181646974.png)
+![image-20221219181646974](https://image.201068.xyz/assets/image-20221219181646974.png)
 
 1. 离线文档
 2.  上手用BP做渗透测试
@@ -233,7 +233,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 
 拦截浏览器的HTTP数据包（包括请求和响应）
 
-![image-20221219182424329](https://img.gyxnb.top/img/image-20221219182424329.png)
+![image-20221219182424329](https://image.201068.xyz/assets/image-20221219182424329.png)
 
 ### Intruder渗透模块
 
@@ -253,7 +253,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 
 是否可以伪造（是否固定、是否可预测）
 
-![image-20221219182713921](https://img.gyxnb.top/img/image-20221219182713921.png)
+![image-20221219182713921](https://image.201068.xyz/assets/image-20221219182713921.png)
 
 ### Decoder 解码器模块
 
@@ -271,7 +271,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 
 ## 网络代理
 
-![image-20221219183410409](https://img.gyxnb.top/img/image-20221219183410409.png)
+![image-20221219183410409](https://image.201068.xyz/assets/image-20221219183410409.png)
 
 ## 网络代理的作用
 
@@ -294,7 +294,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 
 ## 浏览器代理设置
 
-![image-20221219183719656](https://img.gyxnb.top/img/image-20221219183719656.png)
+![image-20221219183719656](https://image.201068.xyz/assets/image-20221219183719656.png)
 
 
 
@@ -335,19 +335,19 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 4. 浏览器用机构的公钥与服务器协商会话密钥 
 5. 浏览器与服务器用会话密钥通信
 
-![image-20221219184300307](https://img.gyxnb.top/img/image-20221219184300307.png)
+![image-20221219184300307](https://image.201068.xyz/assets/image-20221219184300307.png)
 
-![image-20221219184308582](https://img.gyxnb.top/img/image-20221219184308582.png)
+![image-20221219184308582](https://image.201068.xyz/assets/image-20221219184308582.png)
 
 ### 导出证书
 
-![image-20221219184327303](https://img.gyxnb.top/img/image-20221219184327303.png)
+![image-20221219184327303](https://image.201068.xyz/assets/image-20221219184327303.png)
 
 # Burp Target模块
 
 ## Burp渗透测试流程
 
-![image-20221219184447840](https://img.gyxnb.top/img/image-20221219184447840.png)
+![image-20221219184447840](https://image.201068.xyz/assets/image-20221219184447840.png)
 
 ## Target模块的作用
 
@@ -356,7 +356,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 1. HTTP History按**时间**顺序记录 
 2. Target按**主机**或者**域名**分类记录
 
-![image-20221219184545443](https://img.gyxnb.top/img/image-20221219184545443.png)
+![image-20221219184545443](https://image.201068.xyz/assets/image-20221219184545443.png)
 
 ### Target模块的作用
 
@@ -410,7 +410,7 @@ https://portswigger.net/burp/documentation/desktop/dashboard
 
 ### 右键菜单
 
-![image-20221219191216277](https://img.gyxnb.top/img/image-20221219191216277.png)
+![image-20221219191216277](https://image.201068.xyz/assets/image-20221219191216277.png)
 
 ### Referer字段
 
@@ -449,7 +449,7 @@ AWVS、Appscan、Nessus、Openvas、Goby、 Xray、ZAP……
 
 ### 新版BP
 
-![image-20221219191758077](https://img.gyxnb.top/img/image-20221219191758077.png)
+![image-20221219191758077](https://image.201068.xyz/assets/image-20221219191758077.png)
 
 爬行 Crwal 
 
@@ -521,7 +521,7 @@ AWVS、Appscan、Nessus、Openvas、Goby、 Xray、ZAP……
 
 ### 主动扫描的类型
 
-![image-20221220083555554](https://img.gyxnb.top/img/image-20221220083555554.png)
+![image-20221220083555554](https://image.201068.xyz/assets/image-20221220083555554.png)
 
 Crawl 爬行（建立站点地图） 
 
@@ -582,7 +582,7 @@ passive crawl 会爬行
 
 ### 扫描报告
 
-![image-20221220084534787](https://img.gyxnb.top/img/image-20221220084534787.png)
+![image-20221220084534787](https://image.201068.xyz/assets/image-20221220084534787.png)
 
 右键导出
 
@@ -713,10 +713,10 @@ https://portswigger.net/burp/documentation/desktop/tools/intruder/payloads/types
 
 ### Grep Match
 
-![image-20221220091129176](https://img.gyxnb.top/img/image-20221220091129176.png)
+![image-20221220091129176](https://image.201068.xyz/assets/image-20221220091129176.png)
 
 ## Intruder获得CSRF Token
 
 ### Grep Extract
 
-![image-20221220091307639](https://img.gyxnb.top/img/image-20221220091307639.png)
+![image-20221220091307639](https://image.201068.xyz/assets/image-20221220091307639.png)

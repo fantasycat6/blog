@@ -23,7 +23,7 @@ docker version
 
 ​              
 
-![1640043246556](https://img.gyxnb.top/img/1640043246556.png)
+![1640043246556](https://image.201068.xyz/assets/1640043246556.png)
 
  **安装docker-compose**
 
@@ -34,7 +34,7 @@ curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-c
 chmod +x /usr/bin/docker-compose
 ```
 
-![1640043297604](https://img.gyxnb.top/img/1640043297604.png)
+![1640043297604](https://image.201068.xyz/assets/1640043297604.png)
 
  
 
@@ -48,7 +48,7 @@ mkdir -p $VIPER_DIR && cd $VIPER_DIR
 
 ​              
 
-![1640043341743](https://img.gyxnb.top/img/1640043341743.png)
+![1640043341743](https://image.201068.xyz/assets/1640043341743.png)
 
 **执行如下命令生成docker-compose.yml**
 
@@ -77,7 +77,7 @@ EOF
 
 ​              
 
-![1640043385926](https://img.gyxnb.top/img/1640043385926.png)
+![1640043385926](https://image.201068.xyz/assets/1640043385926.png)
 
 **设置登录密码**
 
@@ -89,7 +89,7 @@ export VIPER_PASSWORD=root
 
 ​              
 
-![1640043439186](https://img.gyxnb.top/img/1640043439186.png)
+![1640043439186](https://image.201068.xyz/assets/1640043439186.png)
 
 **写入密码到docker-compose.yml**
 
@@ -102,7 +102,7 @@ cat docker-compose.yml
 
 ​                
 
-![1640043478861](https://img.gyxnb.top/img/1640043478861.png)
+![1640043478861](https://image.201068.xyz/assets/1640043478861.png)
 
 
 
@@ -147,7 +147,7 @@ docker-compose start
 > `docker-compose up -d`
 > 顺利启动
 
-![1640043509764](https://img.gyxnb.top/img/1640043509764.png)
+![1640043509764](https://image.201068.xyz/assets/1640043509764.png)
 
 **等待15s系统启动,访问炫彩蛇 **
 
@@ -155,7 +155,7 @@ docker-compose start
 -  登录. 用户名:root 
 -  密码: root
 
-![1640043540568](https://img.gyxnb.top/img/1640043540568.png)
+![1640043540568](https://image.201068.xyz/assets/1640043540568.png)
 
 
 

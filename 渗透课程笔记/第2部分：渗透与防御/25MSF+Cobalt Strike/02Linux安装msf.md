@@ -38,7 +38,7 @@ chmod 755 msfinstall && ./msfinstall
 
 https://www.kali.org/get-kali/#kali-bare-metal  选择安装版镜像
 
-![1639993881805](https://img.gyxnb.top/img/1639993881805.png)
+![1639993881805](https://image.201068.xyz/assets/1639993881805.png)
 
 
 

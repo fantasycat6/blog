@@ -7,7 +7,7 @@
 1. 1)需要看懂运维人员编写的Shell程序。
 2. 2)偶尔会编写一些简单Shell程序来管理集群、提高开发效率。
 
-![image-20230809112643096](https://img.gyxnb.top/img002/image-20230809112643096.png)
+![image-20230809112643096](https://image.201068.xyz/assets/image-20230809112643096.png)
 
 ## 第2章Shell解析器
 

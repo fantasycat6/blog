@@ -18,7 +18,7 @@ https://github.com/J4r3tt/gerix-wifi-cracker-2
 
 ### 3.将软件复制到kali，解压
 
-![image-20211118104925897](https://img.gyxnb.top/img/image-20211118104925897.png)
+![image-20211118104925897](https://image.201068.xyz/assets/image-20211118104925897.png)
 
 
 
@@ -38,25 +38,25 @@ python gerix.py
 
 ### 2.设置无线网卡位Monitor Mode模式
 
-![image-20211118105038014](https://img.gyxnb.top/img/image-20211118105038014.png)
+![image-20211118105038014](https://image.201068.xyz/assets/image-20211118105038014.png)
 
 ### 3.重新扫描网络
 
-![image-20211118105100800](https://img.gyxnb.top/img/image-20211118105100800.png)
+![image-20211118105100800](https://image.201068.xyz/assets/image-20211118105100800.png)
 
 ### 4.选择需要破解的WIFI
 
-![image-20211118105121104](https://img.gyxnb.top/img/image-20211118105121104.png)
+![image-20211118105121104](https://image.201068.xyz/assets/image-20211118105121104.png)
 
 ### 5.选择顶部【wep】，选择具体的破解方式【General functionalities】
 
-![image-20211118105142221](https://img.gyxnb.top/img/image-20211118105142221.png)
+![image-20211118105142221](https://image.201068.xyz/assets/image-20211118105142221.png)
 
 ### 6.点击【Start Sniffing and Logging】开始抓包
 
-![image-20211118105204838](https://img.gyxnb.top/img/image-20211118105204838.png)
+![image-20211118105204838](https://image.201068.xyz/assets/image-20211118105204838.png)
 
-![image-20211118105218563](https://img.gyxnb.top/img/image-20211118105218563.png)
+![image-20211118105218563](https://image.201068.xyz/assets/image-20211118105218563.png)
 
 ### 7.连接一个客户端，使其发生ARP通讯
 
@@ -98,11 +98,11 @@ print ("退出主线程")
 
 ### 10.等待Date到达5000时，可以开始破解
 
-![image-20211118105254947](https://img.gyxnb.top/img/image-20211118105254947.png)
+![image-20211118105254947](https://image.201068.xyz/assets/image-20211118105254947.png)
 
 ### 11.选择顶部【Cracking】--点击【Aircrack-ng-Decrypt WEP password】开始破解
 
-![image-20211118122314228](https://img.gyxnb.top/img/image-20211118122314228.png)
+![image-20211118122314228](https://image.201068.xyz/assets/image-20211118122314228.png)
 
 
 

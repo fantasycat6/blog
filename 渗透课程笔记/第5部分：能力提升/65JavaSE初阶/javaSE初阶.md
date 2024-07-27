@@ -84,13 +84,13 @@ Green项目。
 
    所有就要求有这样的一种代码： 代码短小、紧凑且与平台无关。但是，Sun公司的人都有UNIX的应用背景。因此，所开发的语言以C++为基础。 是Gosling率先创造了这个语言，把这种语言称为“Oak"(这么起名的原因大概是因为他非常喜欢自己办公室外的橡树)。Sun 公司的人后来发现Oak是一种已有的计算机语言的名字，于是，将其改名为Java。 
 
-![img](https://img.gyxnb.top/img/clip_image012.jpg)      
+![img](https://image.201068.xyz/assets/clip_image012.jpg)      ![img](https://image.2010/assets/clip_image012.jpg)
 
 ​      
 
 **【3】Java的发明人** 
 
-James Gosling           ![img](https://img.gyxnb.top/img/clip_image014.jpg) 
+James Gosling           ![img](https://image.201068.xyz/assets/clip_image014.jpg) 
 
  
 
@@ -136,7 +136,7 @@ James Gosling           ![img](https://img.gyxnb.top/img/clip_image014.jpg)
 
   注意：SUN公司已经被oracle公司收购，目前每半年更新一次java的版本。但是，企业中的主流仍然以7和8为主。对于初学者，应该以企业主流应用版本为核心进行学习，没有必须在此处追求最新版本。 
 
-​     ![img](https://img.gyxnb.top/img/clip_image016.jpg)
+​     ![img](https://image.201068.xyz/assets/clip_image016.jpg)
 
  
 
@@ -464,7 +464,7 @@ JVM(Java Virtual Machine)就是一个虚拟的用于执行bytecode字节码的�
 
 --DOS是单用户、单任务的操作系统.（只能执行一个任务） 
 
-![img](https://img.gyxnb.top/img/clip_image028.gif)
+![img](https://image.201068.xyz/assets/clip_image028.gif)
 
 **【2】DOS命令** 
 
@@ -483,7 +483,7 @@ dos 也是一种[操作系统](https://www.baidu.com/s?wd=操作系统&tn=SE_PcZ
 
  控制命令台：win+r--->cmd 
 
-![img](https://img.gyxnb.top/img/clip_image030.jpg)
+![img](https://image.201068.xyz/assets/clip_image030.jpg)
 
  
 
@@ -493,13 +493,13 @@ dos 也是一种[操作系统](https://www.baidu.com/s?wd=操作系统&tn=SE_PcZ
 
 （2）显示详细信息：dir 
 
-![img](https://img.gyxnb.top/img/clip_image032.jpg)
+![img](https://image.201068.xyz/assets/clip_image032.jpg)
 
  
 
 （3）改变当前目录：cd 
 
-![img](https://img.gyxnb.top/img/clip_image034.jpg)
+![img](https://image.201068.xyz/assets/clip_image034.jpg)
 
  
 
@@ -509,9 +509,9 @@ dos 也是一种[操作系统](https://www.baidu.com/s?wd=操作系统&tn=SE_PcZ
 
 .. 代表上一层目录
 
-![img](https://img.gyxnb.top/img/clip_image036.jpg)
+![img](https://image.201068.xyz/assets/clip_image036.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image038.jpg)
+![img](https://image.201068.xyz/assets/clip_image038.jpg)
 
  
 
@@ -525,17 +525,17 @@ dos 也是一种[操作系统](https://www.baidu.com/s?wd=操作系统&tn=SE_PcZ
 
    删除目录：rd 
 
-![img](https://img.gyxnb.top/img/clip_image040.jpg)
+![img](https://image.201068.xyz/assets/clip_image040.jpg)
 
 （9）复制文件命令：copy: 
 
-![img](https://img.gyxnb.top/img/clip_image042.jpg)
+![img](https://image.201068.xyz/assets/clip_image042.jpg)
 
 （10）删除文件：del 
 
 del后面如果接的是文件夹/目录：那么删除的就是这个文件夹下的文件，而不是文件夹 
 
-![img](https://img.gyxnb.top/img/clip_image044.jpg)
+![img](https://image.201068.xyz/assets/clip_image044.jpg)
 
 ### JAVA环境准备-->JDK
 
@@ -543,35 +543,35 @@ del后面如果接的是文件夹/目录：那么删除的就是这个文件夹�
 
 [www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 
-![img](https://img.gyxnb.top/img/clip_image046.jpg)
+![img](https://image.201068.xyz/assets/clip_image046.jpg)
 
 **【2】安装JDK** 
 
-![img](https://img.gyxnb.top/img/clip_image048.jpg)
+![img](https://image.201068.xyz/assets/clip_image048.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image050.jpg)
+![img](https://image.201068.xyz/assets/clip_image050.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image052.jpg)
+![img](https://image.201068.xyz/assets/clip_image052.jpg)
 
 #### **【3】卸载JDK** 
 
 控制面板卸载即可 
 
-![img](https://img.gyxnb.top/img/clip_image054.jpg)
+![img](https://image.201068.xyz/assets/clip_image054.jpg)
 
 #### **【4】 验证JDK是否安装成功** 
 
 （1）方式1：去安装目录下看一眼： 
 
-![img](https://img.gyxnb.top/img/clip_image056.jpg)
+![img](https://image.201068.xyz/assets/clip_image056.jpg)
 
 （2）方式2：通过控制命令台查看： 
 
-![img](https://img.gyxnb.top/img/clip_image058.jpg)
+![img](https://image.201068.xyz/assets/clip_image058.jpg)
 
 （3）方式3：通过控制面板查看： 
 
-![img](https://img.gyxnb.top/img/clip_image060.jpg)
+![img](https://image.201068.xyz/assets/clip_image060.jpg)
 
  
 
@@ -593,13 +593,13 @@ JRE : Java Runtime Enviroment  ----》运行Java程序的用户使用的软件
 
 【2】安装：一直下一步 
 
-![img](https://img.gyxnb.top/img/clip_image062.jpg)
+![img](https://image.201068.xyz/assets/clip_image062.jpg)
 
 【3】打开记事本进行设置： 
 
 设置--》首选项： 
 
-![img](https://img.gyxnb.top/img/clip_image064.jpg)
+![img](https://image.201068.xyz/assets/clip_image064.jpg)
 
  
 
@@ -607,7 +607,7 @@ JRE : Java Runtime Enviroment  ----》运行Java程序的用户使用的软件
 
 设置--》语言格式设置： 
 
-![img](https://img.gyxnb.top/img/clip_image066.jpg)
+![img](https://image.201068.xyz/assets/clip_image066.jpg)
 
  
 
@@ -615,17 +615,17 @@ JRE : Java Runtime Enviroment  ----》运行Java程序的用户使用的软件
 
 （1）方式1：通过快捷方式： 
 
-![img](https://img.gyxnb.top/img/clip_image068.jpg)
+![img](https://image.201068.xyz/assets/clip_image068.jpg)
 
 （2）方式2：通过可执行文件： 
 
-![img](https://img.gyxnb.top/img/clip_image070.jpg)
+![img](https://image.201068.xyz/assets/clip_image070.jpg)
 
 （3）方式3：利用控制命令台： 
 
 win+r-->cmd:
 
-![img](https://img.gyxnb.top/img/clip_image072.jpg)
+![img](https://image.201068.xyz/assets/clip_image072.jpg)
 
  
 
@@ -635,31 +635,31 @@ win+r-->cmd:
 
 但是发现报错：
 
-![img](https://img.gyxnb.top/img/clip_image074.jpg)
+![img](https://image.201068.xyz/assets/clip_image074.jpg)
 
  
 
 需要配置系统环境变量：
 
-![img](https://img.gyxnb.top/img/clip_image076.jpg)
+![img](https://image.201068.xyz/assets/clip_image076.jpg)
 
 找系统环境变量：
 
-![img](https://img.gyxnb.top/img/clip_image078.jpg)
+![img](https://image.201068.xyz/assets/clip_image078.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image080.jpg)
+![img](https://image.201068.xyz/assets/clip_image080.jpg)
 
  
 
 将notepad++.exe所在的路径配置到path环境变量中去： 
 
-![img](https://img.gyxnb.top/img/clip_image082.jpg)
+![img](https://image.201068.xyz/assets/clip_image082.jpg)
 
 这样我就可以在任意的路径下去执行这个命令：（注意：控制命令台需要重启）
 
  
 
-![img](https://img.gyxnb.top/img/clip_image084.jpg)
+![img](https://image.201068.xyz/assets/clip_image084.jpg)
 
  
 
@@ -689,31 +689,31 @@ public class HelloWorld{
 
 **【2】进行编译：** 
 
-![img](https://img.gyxnb.top/img/clip_image086.jpg)
+![img](https://image.201068.xyz/assets/clip_image086.jpg)
 
 发现出错了，分析出错原因：
 
-![img](https://img.gyxnb.top/img/clip_image088.jpg)
+![img](https://image.201068.xyz/assets/clip_image088.jpg)
 
 解决办法：
 
 将javac.exe所在的路径 配置到 环境变量path中去，这样我就可以在任意的路径下去执行这个命令：
 
-![img](https://img.gyxnb.top/img/clip_image090.jpg)
+![img](https://image.201068.xyz/assets/clip_image090.jpg)
 
 配置好环境变量以后发现代码可以成功编译：
 
-![img](https://img.gyxnb.top/img/clip_image092.jpg)
+![img](https://image.201068.xyz/assets/clip_image092.jpg)
 
 验证：
 
-![img](https://img.gyxnb.top/img/clip_image094.jpg)
+![img](https://image.201068.xyz/assets/clip_image094.jpg)
 
  
 
 **【3】进行解释/翻译/执行:** 
 
-![img](https://img.gyxnb.top/img/clip_image096.jpg)
+![img](https://image.201068.xyz/assets/clip_image096.jpg)
 
  
 
@@ -721,7 +721,7 @@ public class HelloWorld{
 
  
 
-![img](https://img.gyxnb.top/img/clip_image098.jpg)
+![img](https://image.201068.xyz/assets/clip_image098.jpg)
 
 ### 程序中常见问题
 
@@ -729,11 +729,11 @@ public class HelloWorld{
 
 【2】要求源文件名字和类名必须一模一样： 
 
-![img](https://img.gyxnb.top/img/clip_image100.jpg)
+![img](https://image.201068.xyz/assets/clip_image100.jpg)
 
 出错：
 
-![img](https://img.gyxnb.top/img/clip_image102.jpg)
+![img](https://image.201068.xyz/assets/clip_image102.jpg)
 
  
 
@@ -787,17 +787,17 @@ public PUBLIC
 
 **【10】一个源文件中可以有多个类，只能有一个类被public修饰，源文件的名字必须跟public修饰的那个类名保持一致。** 
 
-![img](https://img.gyxnb.top/img/clip_image104.jpg)
+![img](https://image.201068.xyz/assets/clip_image104.jpg)
 
 多个类会产生独立的字节码文件：
 
-![img](https://img.gyxnb.top/img/clip_image106.jpg)
+![img](https://image.201068.xyz/assets/clip_image106.jpg)
 
  
 
 执行的时候执行各自独立的字节码文件即可：
 
-![img](https://img.gyxnb.top/img/clip_image108.jpg)
+![img](https://image.201068.xyz/assets/clip_image108.jpg)
 
  
 
@@ -805,19 +805,19 @@ public PUBLIC
 
 **【1】方式1：** 
 
-![img](https://img.gyxnb.top/img/clip_image110.jpg)
+![img](https://image.201068.xyz/assets/clip_image110.jpg)
 
  
 
 **【2】方式2：** 
 
-![img](https://img.gyxnb.top/img/clip_image112.jpg)
+![img](https://image.201068.xyz/assets/clip_image112.jpg)
 
  
 
 **【3】方式3：** 
 
-![img](https://img.gyxnb.top/img/clip_image114.jpg)
+![img](https://image.201068.xyz/assets/clip_image114.jpg)
 
  
 
@@ -825,7 +825,7 @@ public PUBLIC
 
 在notepad中右键文件 --》打开文件夹所在命令行 
 
-![img](https://img.gyxnb.top/img/clip_image116.jpg)
+![img](https://image.201068.xyz/assets/clip_image116.jpg)
 
  
 
@@ -833,7 +833,7 @@ public PUBLIC
 
 **【1】系统有一个环境变量叫：**classpath，现在我们将classpath环境变量显式的写出来： 
 
-![img](https://img.gyxnb.top/img/clip_image118.jpg)
+![img](https://image.201068.xyz/assets/clip_image118.jpg)
 
 classpath作用：只要你配置到classpath中的路径，在执行java的字节码文件的时候，就会去这个配置的路径下找 对应的字节码文件： 
 
@@ -841,7 +841,7 @@ classpath作用：只要你配置到classpath中的路径，在执行java的字�
 
 现在我不配置.\了 我配置： 
 
-![img](https://img.gyxnb.top/img/clip_image120.jpg)
+![img](https://image.201068.xyz/assets/clip_image120.jpg)
 
 自从我配置了这个环境变量以后，可以在任意的路径下去执行字节码文件：
 
@@ -859,7 +859,7 @@ classpath作用：针对java执行字节码文件而产生的环境变量，只�
 
 解决： 必须要配置一个环境变量叫：JAVA_HOME 
 
-![img](https://img.gyxnb.top/img/clip_image122.jpg)
+![img](https://image.201068.xyz/assets/clip_image122.jpg)
 
  
 
@@ -867,13 +867,13 @@ classpath作用：针对java执行字节码文件而产生的环境变量，只�
 
 然后我们的path环境变量中刚好可以借助JAVA_HOME里面的内容，通过%%做引入 %JAVA_HOME%\bin 
 
-![img](https://img.gyxnb.top/img/clip_image124.jpg)
+![img](https://image.201068.xyz/assets/clip_image124.jpg)
 
  
 
 ### API
 
-![img](https://img.gyxnb.top/img/clip_image126.jpg)
+![img](https://image.201068.xyz/assets/clip_image126.jpg)
 
 - JDK帮助文档     
 - SUN公司为JDK工具包提供了一整套文档资料,我们习惯上称之为JDK文档。 
@@ -883,13 +883,13 @@ classpath作用：针对java执行字节码文件而产生的环境变量，只�
 
 其实API没有什么神奇的，就是一个电子文档而已，帮助我们查看JAVA中涉及到的一些技能点： 
 
-![img](https://img.gyxnb.top/img/clip_image128.jpg)
+![img](https://image.201068.xyz/assets/clip_image128.jpg)
 
  
 
 ### 代码量统计工具
 
-![img](https://img.gyxnb.top/img/clip_image130.jpg)
+![img](https://image.201068.xyz/assets/clip_image130.jpg)
 
  
 
@@ -985,13 +985,13 @@ classpath作用：针对java执行字节码文件而产生的环境变量，只�
 
 一般文档注释可以配合：jdk提供的工具javadoc.exe来一起使用，通过javadoc.exe可以对文档注释进行解析，生成一套以网页文件形式体现的该程序的说明文档。（自定义类对应的API） 
 
-![img](https://img.gyxnb.top/img/clip_image132.jpg)
+![img](https://image.201068.xyz/assets/clip_image132.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image134.jpg)
+![img](https://image.201068.xyz/assets/clip_image134.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image136.jpg)
+![img](https://image.201068.xyz/assets/clip_image136.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image138.jpg)
+![img](https://image.201068.xyz/assets/clip_image138.jpg)
 
  
 
@@ -1013,7 +1013,7 @@ class---->源代码
 
 jd-gui.exe
 
-![img](https://img.gyxnb.top/img/clip_image140.jpg)
+![img](https://image.201068.xyz/assets/clip_image140.jpg)
 
  
 
@@ -1054,7 +1054,7 @@ jd-gui.exe
 
 JDK,JRE,JVM的关系: 
 
-![img](https://img.gyxnb.top/img/clip_image142.jpg)
+![img](https://image.201068.xyz/assets/clip_image142.jpg)
 
 先说JDK和JRE: 
 
@@ -1068,17 +1068,17 @@ JDK,JRE,JVM的关系:
 
 利用javac.exe进行编译: 
 
-![img](https://img.gyxnb.top/img/clip_image144.jpg)
+![img](https://image.201068.xyz/assets/clip_image144.jpg)
 
 然后我将C:\Program Files\Java\jdk1.8.0_151\lib\tools.jar改个名字,再去编译: 
 
-![img](https://img.gyxnb.top/img/clip_image146.jpg)
+![img](https://image.201068.xyz/assets/clip_image146.jpg)
 
 证明:dt.jar和tools.jar是两个java最基本的包，里面包含了从java最重要的lang包到各种高级功能如可视化的swing包，是java必不可少的。而path下面的bin里面都是java的可执行的编译器及其工具，如java，javadoc等,报错的原因就是输入的javac的命令不是去JDK中bin目录去找的javac.exe，而是去JDK中lib目录中的tools.jar中com.sun.tools.javac.Main中执行，因此javac.exe只是一个包装器（Wrapper），存在的目的是为了让开发者免于输入过长的指命。这个时候发现JDK里的工具几乎是用Java所编写，同属于Java应用程序，因此要使用JDK所附的工具来开发Java程序，所以自身需要附一套JRE才能运行。上图中与jdk同级目录下的JRE就是用来运行一般Java程序用的。
 
 两套JRE运行的时候究竟运行哪一个呢，这个时候JDK中java.exe先从自身目录中找，然后父级目录中找，如果都没有就去注册表中找
 
-![img](https://img.gyxnb.top/img/clip_image148.jpg)
+![img](https://image.201068.xyz/assets/clip_image148.jpg)
 
  
 
@@ -1090,11 +1090,11 @@ JVM -- java virtual machineJVM就是我们常说的java虚拟机，它是整个j
 
 JVM不能单独搞定class的执行，解释class的时候JVM需要调用解释所需要的类库lib。在JDK下面的的jre目录里面有两个文件夹bin和lib,在这里可以认为bin里的就是jvm，lib中则是jvm工作所需要的类库，而jvm和 lib和起来就称为jre。 
 
-![img](https://img.gyxnb.top/img/clip_image150.jpg)
+![img](https://image.201068.xyz/assets/clip_image150.jpg)
 
 JVM+Lib=JRE，如果讲的具体点就是bin目录下的jvm.dll文件， jvm.dll无法单独工作，当jvm.dll启动后，会使用explicit的方法(就是使用Win32 API之中的LoadLibrary()与GetProcAddress()来载入辅助用的动态链接库)，而这些辅助用的动态链接库(.dll)都必须位 于jvm.dll所在目录的父目录之中。因此想使用哪个JVM，只需要设置PATH，指向JRE所在目录下的jvm.dll。
 
-![img](https://img.gyxnb.top/img/clip_image152.jpg)
+![img](https://image.201068.xyz/assets/clip_image152.jpg)
 
  
 
@@ -1144,9 +1144,9 @@ JVM+Lib=JRE，如果讲的具体点就是bin目录下的jvm.dll文件， jvm.dll
 
 官网：https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
 
-![img](https://img.gyxnb.top/img/clip_image154.jpg)
+![img](https://image.201068.xyz/assets/clip_image154.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image156.jpg)
+![img](https://image.201068.xyz/assets/clip_image156.jpg)
 
  
 
@@ -1182,7 +1182,7 @@ JVM+Lib=JRE，如果讲的具体点就是bin目录下的jvm.dll文件， jvm.dll
 
 **字面常量的类型：**
 
-![img](https://img.gyxnb.top/img/clip_image158.jpg)
+![img](https://image.201068.xyz/assets/clip_image158.jpg)
 
 注意：逻辑常量就两个值，一个是true，一个是false 
 
@@ -1210,13 +1210,13 @@ int age,age2;
 
 （1）如果你只定义一个变量，没有给变量进行赋值的话，那么其实这个变量相当于没有定义： 
 
-![img](https://img.gyxnb.top/img/clip_image160.jpg)
+![img](https://image.201068.xyz/assets/clip_image160.jpg)
 
  
 
 （2）变量如果没有进行赋值的话，那么使用的时候会出错，告诉你：尚未初始化变量： 
 
-![img](https://img.gyxnb.top/img/clip_image162.jpg)
+![img](https://image.201068.xyz/assets/clip_image162.jpg)
 
  
 
@@ -1224,7 +1224,7 @@ int age,age2;
 
 【3】变量的赋值： 
 
-![img](https://img.gyxnb.top/img/clip_image164.jpg)
+![img](https://image.201068.xyz/assets/clip_image164.jpg)
 
  
 
@@ -1257,7 +1257,7 @@ int age = 10;
 
 变量不可以重复定义：
 
-![img](https://img.gyxnb.top/img/clip_image166.jpg)
+![img](https://image.201068.xyz/assets/clip_image166.jpg)
 
  
 
@@ -1302,11 +1302,11 @@ int age = 10;
 
 现在对上述代码进行“反编译过程”“反汇编过程”
 
-![img](https://img.gyxnb.top/img/clip_image168.jpg)
+![img](https://image.201068.xyz/assets/clip_image168.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image170.jpg)
+![img](https://image.201068.xyz/assets/clip_image170.jpg)
 
  
 
@@ -1314,7 +1314,7 @@ int age = 10;
 
 【5】变量的内存： 
 
-![img](https://img.gyxnb.top/img/clip_image172.jpg)
+![img](https://image.201068.xyz/assets/clip_image172.jpg)
 
  
 
@@ -1339,11 +1339,11 @@ int age = 10;
 
 内存分析：
 
-![img](https://img.gyxnb.top/img/clip_image174.jpg)
+![img](https://image.201068.xyz/assets/clip_image174.jpg)
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image176.jpg)
+![img](https://image.201068.xyz/assets/clip_image176.jpg)
 
  
 
@@ -1396,7 +1396,7 @@ Java是一种强类型语言，每个变量都必须声明其数据类型。
 
 Java的数据类型可分为两大类：基本数据类型（primitive data type）和引用数据类型（reference data type）。 
 
-![img](https://img.gyxnb.top/img/clip_image178.jpg)
+![img](https://image.201068.xyz/assets/clip_image178.jpg)
 
 PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用数据类型，本章重点：基本数据类型
 
@@ -1420,7 +1420,7 @@ PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用�
 
 计算机用二进制最多
 
-![img](https://img.gyxnb.top/img/clip_image180.jpg)
+![img](https://image.201068.xyz/assets/clip_image180.jpg)
 
 扩展：进制转换问题
 
@@ -1438,7 +1438,7 @@ PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用�
 
 十进制  13   
 
-![img](https://img.gyxnb.top/img/clip_image182.jpg)
+![img](https://image.201068.xyz/assets/clip_image182.jpg)
 
  
 
@@ -1462,7 +1462,7 @@ PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用�
 
 十进制14： 
 
-![img](https://img.gyxnb.top/img/clip_image184.jpg)
+![img](https://image.201068.xyz/assets/clip_image184.jpg)
 
  
 
@@ -1478,7 +1478,7 @@ PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用�
 
 实际上根本不用自己转换这么麻烦：我们可以直接用系统中提供给我们的计算器： 
 
-![img](https://img.gyxnb.top/img/clip_image186.jpg)
+![img](https://image.201068.xyz/assets/clip_image186.jpg)
 
  
 
@@ -1490,7 +1490,7 @@ PS:巧妙记忆：除了基本数据类型以外的所有类型都属于引用�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image188.jpg)
+![img](https://image.201068.xyz/assets/clip_image188.jpg)
 
  
 
@@ -1574,7 +1574,7 @@ float类型的数值有一个后缀F或者f ，没有后缀F/f的浮点数值默
 
 也可以在浮点数值后添加后缀D或者d， 以明确其为double类型。 
 
-![img](https://img.gyxnb.top/img/clip_image190.jpg)
+![img](https://image.201068.xyz/assets/clip_image190.jpg)
 
 PS：有效数字指的是从左开始第一个不为0的数到最后一个数 
 
@@ -1632,13 +1632,13 @@ char 类型用来表示在Unicode编码表中的字符。Unicode编码被设计�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image192.jpg)
+![img](https://image.201068.xyz/assets/clip_image192.jpg)
 
  
 
 【3】ASCII表： 
 
-![img](https://img.gyxnb.top/img/clip_image194.jpg)
+![img](https://image.201068.xyz/assets/clip_image194.jpg)
 
 【4】Unicode编码表： 
 
@@ -1734,11 +1734,11 @@ https://www.cnblogs.com/csguo/p/7401874.html
 
 【1】什么是编码？
 
-![img](https://img.gyxnb.top/img/clip_image196.jpg)
+![img](https://image.201068.xyz/assets/clip_image196.jpg)
 
 【2】通过生活案例： 
 
-![img](https://img.gyxnb.top/img/clip_image198.jpg)
+![img](https://image.201068.xyz/assets/clip_image198.jpg)
 
 【3】由权威机构形成的编码表才可以称之为：字符集 
 
@@ -1772,7 +1772,7 @@ GB2312兼容了ASCII中的字符：
 
 疑问： 
 
-![img](https://img.gyxnb.top/img/clip_image200.jpg)
+![img](https://image.201068.xyz/assets/clip_image200.jpg)
 
 首位如果是0：一个字节代码代表一个字符 
 
@@ -1793,19 +1793,19 @@ GB2312兼容了ASCII中的字符：
 
 中文： 珊   ---》Unicode  ： 29642 
 
-![img](https://img.gyxnb.top/img/clip_image202.jpg)
+![img](https://image.201068.xyz/assets/clip_image202.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image204.jpg)
+![img](https://image.201068.xyz/assets/clip_image204.jpg)
 
 底层存储： 
 
-![img](https://img.gyxnb.top/img/clip_image206.jpg)
+![img](https://image.201068.xyz/assets/clip_image206.jpg)
 
 UTF-8标准最多可以用6个字节表示：
 
-![img](https://img.gyxnb.top/img/clip_image208.jpg)
+![img](https://image.201068.xyz/assets/clip_image208.jpg)
 
  
 
@@ -1817,7 +1817,7 @@ UTF-8标准最多可以用6个字节表示：
 
 ###### 解释乱码问题
 
-![img](https://img.gyxnb.top/img/clip_image210.jpg)
+![img](https://image.201068.xyz/assets/clip_image210.jpg)
 
  
 
@@ -1863,7 +1863,7 @@ boolean类型有两个常量值，true和false，在内存中占一位（不是�
 
 【3】内存演示： 
 
-![img](https://img.gyxnb.top/img/clip_image212.jpg)
+![img](https://image.201068.xyz/assets/clip_image212.jpg)
 
 【4】代码： 
 
@@ -1953,7 +1953,7 @@ boolean类型有两个常量值，true和false，在内存中占一位（不是�
 
 ##### 练习：加深对Scanner的使用
 
-![img](https://img.gyxnb.top/img/clip_image214.jpg)
+![img](https://image.201068.xyz/assets/clip_image214.jpg)
 
 ```
 1.  import java.util.Scanner;
@@ -2190,7 +2190,7 @@ int m =5+6;   语句     Sentence
 
 运算过程：
 
-![img](https://img.gyxnb.top/img/clip_image216.jpg)
+![img](https://image.201068.xyz/assets/clip_image216.jpg)
 
  
 
@@ -2250,7 +2250,7 @@ int age = 10+3+8;
 
  
 
-![img](https://img.gyxnb.top/img/clip_image218.jpg)
+![img](https://image.201068.xyz/assets/clip_image218.jpg)
 
  
 
@@ -2291,7 +2291,7 @@ int age = 10+3+8;
 
 内存：
 
-![img](https://img.gyxnb.top/img/clip_image220.jpg)
+![img](https://image.201068.xyz/assets/clip_image220.jpg)
 
  
 
@@ -2311,7 +2311,7 @@ int age = 10+3+8;
 
 （1）请问a+=b相当于a=a+b,那么也相当于  a=b+a吗？ 
 
-![img](https://img.gyxnb.top/img/clip_image222.jpg)
+![img](https://image.201068.xyz/assets/clip_image222.jpg)
 
 （2）下面的代码哪一句出错：  4 
 
@@ -2504,7 +2504,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
  3<<2 = 12 
 
-![img](https://img.gyxnb.top/img/clip_image224.jpg)
+![img](https://image.201068.xyz/assets/clip_image224.jpg)
 
 面试题： 4乘以8最快的方式： 4<<3 
 
@@ -2514,13 +2514,13 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
 6>>2 = 1 
 
-![img](https://img.gyxnb.top/img/clip_image226.jpg)
+![img](https://image.201068.xyz/assets/clip_image226.jpg)
 
  
 
 -6>>2 = -2 
 
-![img](https://img.gyxnb.top/img/clip_image228.jpg)
+![img](https://image.201068.xyz/assets/clip_image228.jpg)
 
  
 
@@ -2528,7 +2528,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
 6>>>2  = 1 
 
-![img](https://img.gyxnb.top/img/clip_image230.jpg)
+![img](https://image.201068.xyz/assets/clip_image230.jpg)
 
  
 
@@ -2536,7 +2536,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
 6&3 = 2 
 
-![img](https://img.gyxnb.top/img/clip_image232.jpg)
+![img](https://image.201068.xyz/assets/clip_image232.jpg)
 
  
 
@@ -2544,7 +2544,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
 6|3=7
 
-![img](https://img.gyxnb.top/img/clip_image234.jpg)
+![img](https://image.201068.xyz/assets/clip_image234.jpg)
 
  
 
@@ -2554,7 +2554,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
  
 
-![img](https://img.gyxnb.top/img/clip_image236.jpg)
+![img](https://image.201068.xyz/assets/clip_image236.jpg)
 
  
 
@@ -2562,7 +2562,7 @@ PS:三目运算符可以代替后续我们要学习的if-else
 
 ~6 = -7 
 
-![img](https://img.gyxnb.top/img/clip_image238.jpg)
+![img](https://image.201068.xyz/assets/clip_image238.jpg)
 
 PS： 
 
@@ -2584,17 +2584,17 @@ byte类型的表数范围的 -128是怎么算出来的
 
 #### 运算符总结
 
-![img](https://img.gyxnb.top/img/clip_image240.jpg)
+![img](https://image.201068.xyz/assets/clip_image240.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image242.jpg)
+![img](https://image.201068.xyz/assets/clip_image242.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image244.jpg)
+![img](https://image.201068.xyz/assets/clip_image244.jpg)
 
  
 
 #### 运算符的优先级别
 
-![img](https://img.gyxnb.top/img/clip_image246.jpg)
+![img](https://image.201068.xyz/assets/clip_image246.jpg)
 
 不需要去刻意的记优先级关系
 
@@ -2650,7 +2650,7 @@ PS:实际开发中我们不会写特别复杂的表达式，你要想先算谁�
 
 【3】流程控制的流程： 
 
-![img](https://img.gyxnb.top/img/clip_image248.jpg)
+![img](https://image.201068.xyz/assets/clip_image248.jpg)
 
  
 
@@ -2670,7 +2670,7 @@ if语句对布尔表达式进行一次判定，若判定为真，则执行{}中�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image250.jpg)
+![img](https://image.201068.xyz/assets/clip_image250.jpg)
 
  
 
@@ -2736,13 +2736,13 @@ if语句对布尔表达式进行一次判定，若判定为真，则执行{}中�
 
 当布尔表达式1为真时，执行语句块1；否则，判断布尔表达式2，当布尔表达式2为真时，执行语句块2；否则，继续判断布尔表达式3······；如果1~n个布尔表达式均判定为假时，则执行语句块n+1，也就是else部分。流程图如图所示： 
 
-![img](https://img.gyxnb.top/img/clip_image252.gif)
+![img](https://image.201068.xyz/assets/clip_image252.gif)
 
  
 
 【2】数轴分析： 
 
-![img](https://img.gyxnb.top/img/clip_image254.jpg)
+![img](https://image.201068.xyz/assets/clip_image254.jpg)
 
  
 
@@ -2807,7 +2807,7 @@ if语句对布尔表达式进行一次判定，若判定为真，则执行{}中�
 
 当布尔表达式为真时，执行语句块1，否则，执行语句块2。也就是else部分。流程图如图所示：
 
-![img](https://img.gyxnb.top/img/clip_image256.jpg)
+![img](https://image.201068.xyz/assets/clip_image256.jpg)
 
 ###### 随机数
 
@@ -2817,7 +2817,7 @@ if语句对布尔表达式进行一次判定，若判定为真，则执行{}中�
 
 在java中依靠一个类：Math类帮助我们生成，这个类中有一个方法专门用来生成随机数： 
 
-![img](https://img.gyxnb.top/img/clip_image258.jpg)
+![img](https://image.201068.xyz/assets/clip_image258.jpg)
 
  
 
@@ -2855,11 +2855,11 @@ Math.random()*6 ----->[0.0,6.0)
 
 会员购物时，不同积分享受的折扣不同，规则如下： 
 
-![img](https://img.gyxnb.top/img/clip_image260.jpg)
+![img](https://image.201068.xyz/assets/clip_image260.jpg)
 
 计算会员购物时获得的折扣，效果如下：
 
-![img](https://img.gyxnb.top/img/clip_image262.jpg)
+![img](https://image.201068.xyz/assets/clip_image262.jpg)
 
  
 
@@ -3004,7 +3004,7 @@ Math.random()*6 ----->[0.0,6.0)
 
 switch语句会根据表达式的值从相匹配的case标签处开始执行，一直执行到break语句处或者是switch语句的末尾。如果表达式的值与任一case值不匹配，则进入default语句（如果存在default语句的情况）。根据表达式值的不同可以执行许多不同的操作。switch语句中case标签在JDK1.5之前必须是整数（long类型除外）或者枚举，不能是字符串，在JDK1.7之后允许使用字符串(String)。大家要注意，当布尔表达式是等值判断的情况，可以使用if-else if-else多分支结构或者switch结构，如果布尔表达式区间判断的情况，则只能使用if-else if-else多分支结构。switch多分支结构的流程图如图所示： 
 
-![img](https://img.gyxnb.top/img/clip_image264.gif)
+![img](https://image.201068.xyz/assets/clip_image264.gif)
 
  
 
@@ -3087,7 +3087,7 @@ switch语句会根据表达式的值从相匹配的case标签处开始执行，�
 
 while循环结构流程图如图所示: 
 
-![img](https://img.gyxnb.top/img/clip_image266.jpg)
+![img](https://image.201068.xyz/assets/clip_image266.jpg)
 
 【2】练习：1+2+3+4+5 
 
@@ -3178,7 +3178,7 @@ while循环结构流程图如图所示:
 
  
 
-![img](https://img.gyxnb.top/img/clip_image268.jpg)
+![img](https://image.201068.xyz/assets/clip_image268.jpg)
 
 初始化谁，就判断谁，判断谁，就迭代谁
 
@@ -3188,11 +3188,11 @@ while循环结构流程图如图所示:
 
 【3】循环的执行过程： 
 
-![img](https://img.gyxnb.top/img/clip_image270.jpg)
+![img](https://image.201068.xyz/assets/clip_image270.jpg)
 
 【4】验证循环的执行过程： 
 
-![img](https://img.gyxnb.top/img/clip_image272.jpg)
+![img](https://image.201068.xyz/assets/clip_image272.jpg)
 
 ###### 练习
 
@@ -3269,7 +3269,7 @@ while循环结构流程图如图所示:
 
 do-while循环结构会先执行循环体，然后再判断布尔表达式的值，若条件为真，执行循环体，当条件为假时结束循环。do-while循环的循环体至少执行一次。do-while循环结构流程图如图所示： 
 
-![img](https://img.gyxnb.top/img/clip_image274.jpg)
+![img](https://image.201068.xyz/assets/clip_image274.jpg)
 
  
 
@@ -3336,7 +3336,7 @@ for循环在执行条件判定后，先执行的循环体部分，再执行步�
 
 for循环结构的流程图如图所示： 
 
-![img](https://img.gyxnb.top/img/clip_image276.jpg)
+![img](https://image.201068.xyz/assets/clip_image276.jpg)
 
  
 
@@ -3477,7 +3477,7 @@ return的作用,结束当前所在方法的执行.
 
 多层循环也可以使用标签，按照自己的需求去设定即可：
 
-![img](https://img.gyxnb.top/img/clip_image278.jpg)
+![img](https://image.201068.xyz/assets/clip_image278.jpg)
 
  
 
@@ -3564,7 +3564,7 @@ return的作用,结束当前所在方法的执行.
 
  
 
-![img](https://img.gyxnb.top/img/clip_image280.jpg)
+![img](https://image.201068.xyz/assets/clip_image280.jpg)
 
 ###### return
 
@@ -3802,7 +3802,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【1】长方形：
 
-![img](https://img.gyxnb.top/img/clip_image282.jpg)
+![img](https://image.201068.xyz/assets/clip_image282.jpg)
 
 ```
  
@@ -3818,7 +3818,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【2】距离前面有一定空隙的长方形： 
 
-![img](https://img.gyxnb.top/img/clip_image284.jpg)
+![img](https://image.201068.xyz/assets/clip_image284.jpg)
 
 ```
 1.                 for(int j=1;j<=4;j++){//j:控制行数
@@ -3837,7 +3837,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【3】平行四边形： 
 
-![img](https://img.gyxnb.top/img/clip_image286.jpg)
+![img](https://image.201068.xyz/assets/clip_image286.jpg)
 
 ```
 1.  for(int j=1;j<=4;j++){//j:控制行数
@@ -3858,7 +3858,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【4】三角形： 
 
-![img](https://img.gyxnb.top/img/clip_image288.jpg)
+![img](https://image.201068.xyz/assets/clip_image288.jpg)
 
 ```
 1.  for(int j=1;j<=4;j++){//j:控制行数
@@ -3877,7 +3877,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【5】菱形： 
 
-![img](https://img.gyxnb.top/img/clip_image290.jpg)
+![img](https://image.201068.xyz/assets/clip_image290.jpg)
 
 ```
 1.  //上面三角形：
@@ -3911,7 +3911,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【6】空心菱形： 
 
-![img](https://img.gyxnb.top/img/clip_image292.jpg)
+![img](https://image.201068.xyz/assets/clip_image292.jpg)
 
 ```
 1.  //上面三角形：
@@ -3965,7 +3965,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【1】实心菱形：
 
-![img](https://img.gyxnb.top/img/clip_image294.jpg)
+![img](https://image.201068.xyz/assets/clip_image294.jpg)
 
 ```
 1.  public class TestFor14{
@@ -4005,7 +4005,7 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 【2】空心菱形： 
 
-![img](https://img.gyxnb.top/img/clip_image296.jpg)
+![img](https://image.201068.xyz/assets/clip_image296.jpg)
 
 ```
 1.  public class TestFor14{
@@ -4344,13 +4344,13 @@ return的作用：跟循环无关，就是程序中遇到return那么return所�
 
 结果：没有交换成功：
 
-![img](https://img.gyxnb.top/img/clip_image298.jpg)
+![img](https://image.201068.xyz/assets/clip_image298.jpg)
 
  
 
 原因：
 
-![img](https://img.gyxnb.top/img/clip_image300.jpg)
+![img](https://image.201068.xyz/assets/clip_image300.jpg)
 
  
 
@@ -4603,7 +4603,7 @@ PS:数组变量属于引用类型，数组也是对象，数组中的每个元�
 
 ##### 内存分析
 
-![img](https://img.gyxnb.top/img/clip_image302.jpg)
+![img](https://image.201068.xyz/assets/clip_image302.jpg)
 
  
 
@@ -4675,7 +4675,7 @@ PS:数组变量属于引用类型，数组也是对象，数组中的每个元�
 
 【2】用IDEA验证数组的确将数据进行存储了： 
 
-![img](https://img.gyxnb.top/img/clip_image304.jpg)
+![img](https://image.201068.xyz/assets/clip_image304.jpg)
 
 #### 数组的三种初始化方式
 
@@ -4727,7 +4727,7 @@ int[] arr = new int[3];  ---> 数组有默认的初始化值
 
  
 
-![img](https://img.gyxnb.top/img/clip_image306.jpg)
+![img](https://image.201068.xyz/assets/clip_image306.jpg)
 
  
 
@@ -4741,7 +4741,7 @@ int[] arr = new int[3];  ---> 数组有默认的初始化值
 
 思路图：
 
-![img](https://img.gyxnb.top/img/clip_image308.jpg)
+![img](https://image.201068.xyz/assets/clip_image308.jpg)
 
 ```
 1.  public class TestArray04{
@@ -4805,7 +4805,7 @@ int[] arr = new int[3];  ---> 数组有默认的初始化值
 
 如果是引用数据类型，那么传递的就是地址值 
 
-![img](https://img.gyxnb.top/img/clip_image310.jpg)
+![img](https://image.201068.xyz/assets/clip_image310.jpg)
 
  
 
@@ -4910,7 +4910,7 @@ int[] arr = new int[3];  ---> 数组有默认的初始化值
 
 添加逻辑：
 
-![img](https://img.gyxnb.top/img/clip_image312.jpg)
+![img](https://image.201068.xyz/assets/clip_image312.jpg)
 
  
 
@@ -5031,7 +5031,7 @@ int[] arr = new int[3];  ---> 数组有默认的初始化值
 
 逻辑：
 
-![img](https://img.gyxnb.top/img/clip_image314.jpg)
+![img](https://image.201068.xyz/assets/clip_image314.jpg)
 
 ```
 1.  import java.util.Arrays;
@@ -5174,13 +5174,13 @@ String[] args  --->形参  ---》不确定因素
 
 有特殊符号的时候可以加上“”
 
-![img](https://img.gyxnb.top/img/clip_image316.jpg)
+![img](https://image.201068.xyz/assets/clip_image316.jpg)
 
  
 
 没有特殊符号用空格隔开即可：
 
-![img](https://img.gyxnb.top/img/clip_image318.jpg)
+![img](https://image.201068.xyz/assets/clip_image318.jpg)
 
  
 
@@ -5272,17 +5272,17 @@ String[] args  --->形参  ---》不确定因素
 
 #### 数组的复制操作
 
-![img](https://img.gyxnb.top/img/clip_image320.jpg)
+![img](https://image.201068.xyz/assets/clip_image320.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image322.jpg)
+![img](https://image.201068.xyz/assets/clip_image322.jpg)
 
  
 
 原理：
 
-![img](https://img.gyxnb.top/img/clip_image324.jpg)
+![img](https://image.201068.xyz/assets/clip_image324.jpg)
 
 代码：
 
@@ -5306,13 +5306,13 @@ String[] args  --->形参  ---》不确定因素
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image326.jpg)
+![img](https://image.201068.xyz/assets/clip_image326.jpg)
 
 #### 二维数组
 
 【1】引入：本质上全部都是一维数组：
 
-![img](https://img.gyxnb.top/img/clip_image328.jpg)
+![img](https://image.201068.xyz/assets/clip_image328.jpg)
 
  
 
@@ -5339,7 +5339,7 @@ String[] args  --->形参  ---》不确定因素
 
 对应内存：
 
-![img](https://img.gyxnb.top/img/clip_image330.jpg)
+![img](https://image.201068.xyz/assets/clip_image330.jpg)
 
  
 
@@ -5510,7 +5510,7 @@ JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉�
 
 【4】官网：https://www.jetbrains.com/ 
 
-![img](https://img.gyxnb.top/img/clip_image332.jpg)
+![img](https://image.201068.xyz/assets/clip_image332.jpg)
 
  
 
@@ -5528,9 +5528,9 @@ IDEA是JetBrains公司的产品，这家公司总部位于捷克共和国的首�
 
 【2】IDEA的支持： 
 
-![img](https://img.gyxnb.top/img/clip_image334.jpg)
+![img](https://image.201068.xyz/assets/clip_image334.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image336.jpg)
+![img](https://image.201068.xyz/assets/clip_image336.jpg)
 
 【3】IDEA的优势（相对于Eclipse）
 
@@ -5552,7 +5552,7 @@ IDEA是JetBrains公司的产品，这家公司总部位于捷克共和国的首�
 
 【1】官网：https://www.jetbrains.com/idea/download/#section=windows
 
-![img](https://img.gyxnb.top/img/clip_image338.jpg)
+![img](https://image.201068.xyz/assets/clip_image338.jpg)
 
 【2】安装的准备： 
 
@@ -5590,25 +5590,25 @@ CPU i5以上
 
 【3】打开： 
 
-![img](https://img.gyxnb.top/img/clip_image340.jpg)
+![img](https://image.201068.xyz/assets/clip_image340.jpg)
 
 选择主题：
 
-![img](https://img.gyxnb.top/img/clip_image342.jpg)
+![img](https://image.201068.xyz/assets/clip_image342.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image344.jpg)
+![img](https://image.201068.xyz/assets/clip_image344.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image346.jpg)
+![img](https://image.201068.xyz/assets/clip_image346.jpg)
 
 先进入再说，免费试用：
 
  
 
-![img](https://img.gyxnb.top/img/clip_image348.jpg)
+![img](https://image.201068.xyz/assets/clip_image348.jpg)
 
 创建一个项目：
 
-![img](https://img.gyxnb.top/img/clip_image350.jpg)
+![img](https://image.201068.xyz/assets/clip_image350.jpg)
 
  
 
@@ -5616,23 +5616,23 @@ CPU i5以上
 
 选择JDK： 
 
-![img](https://img.gyxnb.top/img/clip_image352.jpg)
+![img](https://image.201068.xyz/assets/clip_image352.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image354.jpg)
+![img](https://image.201068.xyz/assets/clip_image354.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image356.jpg)
-
- 
-
-![img](https://img.gyxnb.top/img/clip_image358.jpg)
+![img](https://image.201068.xyz/assets/clip_image356.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image360.jpg)
+![img](https://image.201068.xyz/assets/clip_image358.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image362.jpg)
+ 
+
+![img](https://image.201068.xyz/assets/clip_image360.jpg)
+
+![img](https://image.201068.xyz/assets/clip_image362.jpg)
 
  
 
@@ -5640,7 +5640,7 @@ CPU i5以上
 
 点击IDEA的菜单，找到： Help---》Edit Custom VM Options 
 
-![img](https://img.gyxnb.top/img/clip_image364.jpg)
+![img](https://image.201068.xyz/assets/clip_image364.jpg)
 
  
 
@@ -5652,17 +5652,17 @@ CPU i5以上
 
 注意这个jetbrains-agent.jar的路径要是你自己的真实的路径。
 
-![img](https://img.gyxnb.top/img/clip_image366.gif)
+![img](https://image.201068.xyz/assets/clip_image366.gif)
 
 关闭IDEA 
 
 再次打开IDEA，点击菜单 ，Help---》Register: 
 
-![img](https://img.gyxnb.top/img/clip_image368.jpg)
+![img](https://image.201068.xyz/assets/clip_image368.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image370.gif)
+![img](https://image.201068.xyz/assets/clip_image370.gif)
 
  
 
@@ -5686,11 +5686,11 @@ CPU i5以上
 
 【2】配置： 
 
-![img](https://img.gyxnb.top/img/clip_image372.jpg)
+![img](https://image.201068.xyz/assets/clip_image372.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image374.jpg)
+![img](https://image.201068.xyz/assets/clip_image374.jpg)
 
  
 
@@ -5722,7 +5722,7 @@ CPU i5以上
 
 这类项目一般是这样划分的，比如: 积分模块、任务模块、活动模块等等，模块之间彼此可以相互依赖。这些Module之间都是处于同一个项目业务下的模块，彼此之间是有不可分割的业务关系的。
 
-![img](https://img.gyxnb.top/img/clip_image376.jpg)
+![img](https://image.201068.xyz/assets/clip_image376.jpg)
 
  
 
@@ -5738,15 +5738,15 @@ CPU i5以上
 
 【4】out目录的说明：里面存放的是编译后的字节码文件 
 
-![img](https://img.gyxnb.top/img/clip_image378.jpg)
+![img](https://image.201068.xyz/assets/clip_image378.jpg)
 
  
 
 【5】删除模块： 
 
-![img](https://img.gyxnb.top/img/clip_image380.jpg)
+![img](https://image.201068.xyz/assets/clip_image380.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image382.jpg)
+![img](https://image.201068.xyz/assets/clip_image382.jpg)
 
  
 
@@ -5766,23 +5766,23 @@ CPU i5以上
 
 【1】进入设置：
 
-![img](https://img.gyxnb.top/img/clip_image384.jpg)
+![img](https://image.201068.xyz/assets/clip_image384.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image386.jpg)
+![img](https://image.201068.xyz/assets/clip_image386.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image388.jpg)
+![img](https://image.201068.xyz/assets/clip_image388.jpg)
 
 【2】设置主题： 
 
-![img](https://img.gyxnb.top/img/clip_image390.jpg)
+![img](https://image.201068.xyz/assets/clip_image390.jpg)
 
 【3】编辑区的字体变大或者变小： 
 
-![img](https://img.gyxnb.top/img/clip_image392.jpg)
+![img](https://image.201068.xyz/assets/clip_image392.jpg)
 
 【4】鼠标悬浮在代码上有提示： 
 
-![img](https://img.gyxnb.top/img/clip_image394.jpg)
+![img](https://image.201068.xyz/assets/clip_image394.jpg)
 
  
 
@@ -5792,7 +5792,7 @@ CPU i5以上
 
 自动导包和优化多余的包：
 
-![img](https://img.gyxnb.top/img/clip_image396.jpg)
+![img](https://image.201068.xyz/assets/clip_image396.jpg)
 
  
 
@@ -5800,29 +5800,29 @@ CPU i5以上
 
 【6】同一个包下的类，超过指定个数的时候，导包合并为* 
 
-![img](https://img.gyxnb.top/img/clip_image398.jpg)
+![img](https://image.201068.xyz/assets/clip_image398.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image400.jpg)
+![img](https://image.201068.xyz/assets/clip_image400.jpg)
 
 【7】显示行号 ，  方法和方法间的分隔符： 
 
-![img](https://img.gyxnb.top/img/clip_image402.jpg)
+![img](https://image.201068.xyz/assets/clip_image402.jpg)
 
 【8】忽略大小写，进行提示： 
 
-![img](https://img.gyxnb.top/img/clip_image404.jpg)
+![img](https://image.201068.xyz/assets/clip_image404.jpg)
 
 【9】多个类不隐藏，多行显示： 
 
-![img](https://img.gyxnb.top/img/clip_image406.jpg)
+![img](https://image.201068.xyz/assets/clip_image406.jpg)
 
 【10】设置默认的字体，字体大小，字体行间距：(编辑区和控制台都会变化) 
 
-![img](https://img.gyxnb.top/img/clip_image408.jpg)
+![img](https://image.201068.xyz/assets/clip_image408.jpg)
 
 【11】修改代码中注释的字体颜色： 
 
-![img](https://img.gyxnb.top/img/clip_image410.jpg)
+![img](https://image.201068.xyz/assets/clip_image410.jpg)
 
  
 
@@ -5844,41 +5844,41 @@ CPU i5以上
 
 */
 
-![img](https://img.gyxnb.top/img/clip_image412.jpg)
+![img](https://image.201068.xyz/assets/clip_image412.jpg)
 
  
 
 【13】设置项目文件编码： 
 
-![img](https://img.gyxnb.top/img/clip_image414.jpg)
+![img](https://image.201068.xyz/assets/clip_image414.jpg)
 
 文件右下角可以调节编码格式：
 
-![img](https://img.gyxnb.top/img/clip_image416.jpg)
+![img](https://image.201068.xyz/assets/clip_image416.jpg)
 
 【14】自动编译： 
 
-![img](https://img.gyxnb.top/img/clip_image418.jpg)
+![img](https://image.201068.xyz/assets/clip_image418.jpg)
 
 【15】省电模式： 
 
-![img](https://img.gyxnb.top/img/clip_image420.jpg)
+![img](https://image.201068.xyz/assets/clip_image420.jpg)
 
  
 
 【16】代码显示结构： 
 
-![img](https://img.gyxnb.top/img/clip_image422.jpg)
+![img](https://image.201068.xyz/assets/clip_image422.jpg)
 
 【17】导入jar包： 
 
-![img](https://img.gyxnb.top/img/clip_image424.jpg)
+![img](https://image.201068.xyz/assets/clip_image424.jpg)
 
 【18】生成序列化版本号： 
 
-![img](https://img.gyxnb.top/img/clip_image426.jpg)
+![img](https://image.201068.xyz/assets/clip_image426.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image428.jpg)
+![img](https://image.201068.xyz/assets/clip_image428.jpg)
 
  
 
@@ -5897,7 +5897,7 @@ CPU i5以上
 
 【5】删除行：ctrl+y 
 
-![img](https://img.gyxnb.top/img/clip_image430.jpg)
+![img](https://image.201068.xyz/assets/clip_image430.jpg)
 
  
 
@@ -5919,17 +5919,17 @@ CPU i5以上
 
 【14】 代码自动补全提示: 
 
-![img](https://img.gyxnb.top/img/clip_image432.jpg)
+![img](https://image.201068.xyz/assets/clip_image432.jpg)
 
 【15】 idea代码字体大小放大和缩小的快捷键 
 
-![img](https://img.gyxnb.top/img/clip_image434.jpg)
+![img](https://image.201068.xyz/assets/clip_image434.jpg)
 
 【16】代码一层一层调用的快捷键： 
 
 点进源码：ctrl+鼠标悬浮在代码上+点进去即可： 
 
-![img](https://img.gyxnb.top/img/clip_image436.jpg)
+![img](https://image.201068.xyz/assets/clip_image436.jpg)
 
 【17】显示代码结构  : alt + 7 
 
@@ -5941,7 +5941,7 @@ CPU i5以上
 
 如果跟搜狗输入法的快捷键冲突，可以选择将搜狗的快捷键取消。
 
-![img](https://img.gyxnb.top/img/clip_image438.jpg)
+![img](https://image.201068.xyz/assets/clip_image438.jpg)
 
  
 
@@ -5971,7 +5971,7 @@ CPU i5以上
 
 （2）Postfix Completion 
 
-![img](https://img.gyxnb.top/img/clip_image440.jpg)
+![img](https://image.201068.xyz/assets/clip_image440.jpg)
 
 （二）区别：
 
@@ -5983,9 +5983,9 @@ Postfix Completion中只能用，不能修改。
 
 【2】使用方式不同 
 
-![img](https://img.gyxnb.top/img/clip_image442.jpg)
+![img](https://image.201068.xyz/assets/clip_image442.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image444.jpg)
+![img](https://image.201068.xyz/assets/clip_image444.jpg)
 
  
 
@@ -5997,19 +5997,19 @@ Postfix Completion中只能用，不能修改。
 
 【1】案例1：改main方法： psvm 
 
-![img](https://img.gyxnb.top/img/clip_image446.jpg)
+![img](https://image.201068.xyz/assets/clip_image446.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image448.jpg)
+![img](https://image.201068.xyz/assets/clip_image448.jpg)
 
  
 
 【2】案例2：修饰属性的修饰符： 
 
-![img](https://img.gyxnb.top/img/clip_image450.jpg)
+![img](https://image.201068.xyz/assets/clip_image450.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image452.jpg)
+![img](https://image.201068.xyz/assets/clip_image452.jpg)
 
  
 
@@ -6068,13 +6068,13 @@ psf :public static final
 
 【1】测试方法：
 
-![img](https://img.gyxnb.top/img/clip_image454.jpg)
+![img](https://image.201068.xyz/assets/clip_image454.jpg)
 
  
 
 【2】常用属性：($$中的内容其实就是在定义光标的位置，光标可以切换，用回车切换) 
 
-![img](https://img.gyxnb.top/img/clip_image456.jpg)
+![img](https://image.201068.xyz/assets/clip_image456.jpg)
 
  
 
@@ -6096,7 +6096,7 @@ psf :public static final
 
  
 
-![img](https://img.gyxnb.top/img/clip_image458.jpg)
+![img](https://image.201068.xyz/assets/clip_image458.jpg)
 
  
 
@@ -6114,7 +6114,7 @@ psf :public static final
 
 内存占用相对较少。
 
-![img](https://img.gyxnb.top/img/clip_image460.jpg)
+![img](https://image.201068.xyz/assets/clip_image460.jpg)
 
  
 
@@ -6122,19 +6122,19 @@ psf :public static final
 
  
 
-![img](https://img.gyxnb.top/img/clip_image462.jpg)一步一步的向下运行代码，不会走入任何方法中。 
+![img](https://image.201068.xyz/assets/clip_image462.jpg)一步一步的向下运行代码，不会走入任何方法中。 
 
-![img](https://img.gyxnb.top/img/clip_image464.jpg)一步一步的向下运行代码，不会走入系统类库的方法中，但是会走入自定义的方法中。 
+![img](https://image.201068.xyz/assets/clip_image464.jpg)一步一步的向下运行代码，不会走入系统类库的方法中，但是会走入自定义的方法中。 
 
-![img](https://img.gyxnb.top/img/clip_image466.jpg)一步一步的向下运行代码，会走入系统类库的方法中，也会走入自定义的方法中。 
+![img](https://image.201068.xyz/assets/clip_image466.jpg)一步一步的向下运行代码，会走入系统类库的方法中，也会走入自定义的方法中。 
 
-![img](https://img.gyxnb.top/img/clip_image468.jpg)跳出方法 
+![img](https://image.201068.xyz/assets/clip_image468.jpg)跳出方法 
 
-![img](https://img.gyxnb.top/img/clip_image470.jpg)结束程序 
+![img](https://image.201068.xyz/assets/clip_image470.jpg)结束程序 
 
-![img](https://img.gyxnb.top/img/clip_image472.jpg)进入到下一个断点，如果没有下一个断点了，就直接运行到程序结束。 
+![img](https://image.201068.xyz/assets/clip_image472.jpg)进入到下一个断点，如果没有下一个断点了，就直接运行到程序结束。 
 
-![img](https://img.gyxnb.top/img/clip_image474.jpg) 在当前次取消未执行的断点。 
+![img](https://image.201068.xyz/assets/clip_image474.jpg) 在当前次取消未执行的断点。 
 
  
 
@@ -6154,7 +6154,7 @@ psf :public static final
 
 在断点处右击调出条件断点。可以在满足某个条件下，实施断点。 
 
-![img](https://img.gyxnb.top/img/clip_image476.jpg)
+![img](https://image.201068.xyz/assets/clip_image476.jpg)
 
  
 
@@ -6162,7 +6162,7 @@ psf :public static final
 
 选择行，alt+f8。
 
-![img](https://img.gyxnb.top/img/clip_image478.jpg)
+![img](https://image.201068.xyz/assets/clip_image478.jpg)
 
  
 
@@ -6466,7 +6466,7 @@ void代表没有返回值；方法的作用：重用代码，封装功能，便�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image480.jpg)
+![img](https://image.201068.xyz/assets/clip_image480.jpg)
 
  
 
@@ -6552,7 +6552,7 @@ void代表没有返回值；方法的作用：重用代码，封装功能，便�
 
 运行结果：
 
-![img](https://img.gyxnb.top/img/clip_image482.jpg)
+![img](https://image.201068.xyz/assets/clip_image482.jpg)
 
  
 
@@ -6722,7 +6722,7 @@ void代表没有返回值；方法的作用：重用代码，封装功能，便�
 
 内存分析：
 
-![img](https://img.gyxnb.top/img/clip_image484.jpg)
+![img](https://image.201068.xyz/assets/clip_image484.jpg)
 
  
 
@@ -6744,7 +6744,7 @@ void代表没有返回值；方法的作用：重用代码，封装功能，便�
 13.}
 ```
 
-![img](https://img.gyxnb.top/img/clip_image486.jpg)
+![img](https://image.201068.xyz/assets/clip_image486.jpg)
 
  
 
@@ -6760,7 +6760,7 @@ void代表没有返回值；方法的作用：重用代码，封装功能，便�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image488.jpg)
+![img](https://image.201068.xyz/assets/clip_image488.jpg)
 
 
 
@@ -6779,13 +6779,13 @@ this
 
 this:
 
-![img](https://img.gyxnb.top/img/clip_image490.jpg)
+![img](https://image.201068.xyz/assets/clip_image490.jpg)
 
  
 
  
 
-![img](https://img.gyxnb.top/img/clip_image492.jpg)
+![img](https://image.201068.xyz/assets/clip_image492.jpg)
 
 从上面的效果能够看到：this指代的就是当前对象： 
 
@@ -6793,7 +6793,7 @@ this:
 
 内存：
 
-![img](https://img.gyxnb.top/img/clip_image494.jpg)
+![img](https://image.201068.xyz/assets/clip_image494.jpg)
 
  
 
@@ -6996,11 +6996,11 @@ this关键字 用法：
 
 内存分析：
 
-![img](https://img.gyxnb.top/img/clip_image496.jpg)
+![img](https://image.201068.xyz/assets/clip_image496.jpg)
 
 一般官方的推荐访问方式：可以通过类名.属性名的方式去访问： 
 
-![img](https://img.gyxnb.top/img/clip_image498.jpg)
+![img](https://image.201068.xyz/assets/clip_image498.jpg)
 
  
 
@@ -7221,9 +7221,9 @@ static修饰属性的应用场景：某些特定的数据想要在内存中共�
 
 【3】创建包：
 
-![img](https://img.gyxnb.top/img/clip_image502.jpg)
+![img](https://image.201068.xyz/assets/clip_image502.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image504.jpg)
+![img](https://image.201068.xyz/assets/clip_image504.jpg)
 
  
 
@@ -7243,7 +7243,7 @@ com.jd.login   com.jd.register
 
 （6）包声明的位置一般都在非注释性代码的第一行： 
 
-![img](https://img.gyxnb.top/img/clip_image506.jpg)
+![img](https://image.201068.xyz/assets/clip_image506.jpg)
 
 【4】导包问题： 
 
@@ -7280,7 +7280,7 @@ com.jd.login   com.jd.register
 
 （4）在java.lang包下的类，可以直接使用无需导包： 
 
-![img](https://img.gyxnb.top/img/clip_image508.jpg)
+![img](https://image.201068.xyz/assets/clip_image508.jpg)
 
 （5）IDEA中导包快捷键：alt+enter  
 
@@ -7288,18 +7288,18 @@ com.jd.login   com.jd.register
 
 （6）可以直接导入*： 
 
-![img](https://img.gyxnb.top/img/clip_image510.jpg)
+![img](https://image.201068.xyz/assets/clip_image510.jpg)
 
  
 
 【5】在Java中的导包没有包含和被包含的关系： 
 
 设置目录平级的格式（不是包含和被包含的显示）：
- ![img](https://img.gyxnb.top/img/clip_image512.jpg)
+ ![img](https://image.201068.xyz/assets/clip_image512.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image514.jpg)
+![img](https://image.201068.xyz/assets/clip_image514.jpg)
 
  
 
@@ -7346,7 +7346,7 @@ ATM ,  电线
 
 将某些东西进行隐藏，然后提供相应的方式进行获取。
 
-![img](https://img.gyxnb.top/img/clip_image516.jpg)
+![img](https://image.201068.xyz/assets/clip_image516.jpg)
 
  
 
@@ -7847,7 +7847,7 @@ ATM ,  电线
 
  
 
-![img](https://img.gyxnb.top/img/clip_image518.jpg)
+![img](https://image.201068.xyz/assets/clip_image518.jpg)
 
  
 
@@ -7863,13 +7863,13 @@ Object类是所有类的根基父类。
 
 ###### 内存分析
 
-![img](https://img.gyxnb.top/img/clip_image520.jpg)
+![img](https://image.201068.xyz/assets/clip_image520.jpg)
 
  
 
 ###### 权限修饰符
 
-![img](https://img.gyxnb.top/img/clip_image522.jpg)
+![img](https://image.201068.xyz/assets/clip_image522.jpg)
 
  
 
@@ -7877,11 +7877,11 @@ Object类是所有类的根基父类。
 
 【1】private：权限：在当前类中可以访问 
 
-![img](https://img.gyxnb.top/img/clip_image524.jpg)
+![img](https://image.201068.xyz/assets/clip_image524.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image526.jpg)
+![img](https://image.201068.xyz/assets/clip_image526.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image528.jpg)
+![img](https://image.201068.xyz/assets/clip_image528.jpg)
 
  
 
@@ -7889,23 +7889,23 @@ Object类是所有类的根基父类。
 
  
 
-![img](https://img.gyxnb.top/img/clip_image530.jpg)
+![img](https://image.201068.xyz/assets/clip_image530.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image532.jpg)
+![img](https://image.201068.xyz/assets/clip_image532.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image534.jpg)
+![img](https://image.201068.xyz/assets/clip_image534.jpg)
 
  
 
 【3】protected：权限：最大到不同包下的子类 
 
-![img](https://img.gyxnb.top/img/clip_image536.jpg)
+![img](https://image.201068.xyz/assets/clip_image536.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image538.jpg)
+![img](https://image.201068.xyz/assets/clip_image538.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image540.jpg)
+![img](https://image.201068.xyz/assets/clip_image540.jpg)
 
  
 
@@ -7975,7 +7975,7 @@ Object类是所有类的根基父类。
 9.  }
 ```
 
-![img](https://img.gyxnb.top/img/clip_image542.jpg)
+![img](https://image.201068.xyz/assets/clip_image542.jpg)
 
  
 
@@ -7992,7 +7992,7 @@ Object类是所有类的根基父类。
 
 **【4】内存：** 
 
-![img](https://img.gyxnb.top/img/clip_image544.jpg)
+![img](https://image.201068.xyz/assets/clip_image544.jpg)
 
 **【5】重载和重写的区别：** 
 
@@ -8002,7 +8002,7 @@ Object类是所有类的根基父类。
 
  
 
-![img](https://img.gyxnb.top/img/clip_image546.jpg)
+![img](https://image.201068.xyz/assets/clip_image546.jpg)
 
 ###### super
 
@@ -8012,7 +8012,7 @@ Object类是所有类的根基父类。
 
 在子类的方法中，可以通过  super.属性  super.方法 的方式，显示的去调用父类提供的属性，方法。在通常情况下，super.可以省略不写： 
 
-![img](https://img.gyxnb.top/img/clip_image548.jpg)
+![img](https://image.201068.xyz/assets/clip_image548.jpg)
 
 在特殊情况下，当子类和父类的属性重名时，你要想使用父类的属性，必须加上修饰符super.，只能通过super.属性来调用 
 
@@ -8022,7 +8022,7 @@ Object类是所有类的根基父类。
 
  
 
-![img](https://img.gyxnb.top/img/clip_image550.jpg)
+![img](https://image.201068.xyz/assets/clip_image550.jpg)
 
 **【3】super修饰构造器：** 
 
@@ -8030,7 +8030,7 @@ Object类是所有类的根基父类。
 
 （所有构造器的第一行默认情况下都有super(),但是一旦你的构造器中显示的使用super调用了父类构造器，那么这个super()就不会给你默认分配了。如果构造器中没有显示的调用父类构造器的话，那么第一行都有super(),可以省略不写） 
 
-![img](https://img.gyxnb.top/img/clip_image552.jpg)
+![img](https://image.201068.xyz/assets/clip_image552.jpg)
 
  
 
@@ -8038,17 +8038,17 @@ Object类是所有类的根基父类。
 
  
 
-![img](https://img.gyxnb.top/img/clip_image554.jpg)
+![img](https://image.201068.xyz/assets/clip_image554.jpg)
 
 在构造器中，super调用父类构造器和this调用子类构造器只能存在一个，两者不能共存：
 
 因为super修饰构造器要放在第一行，this修饰构造器也要放在第一行： 
 
-![img](https://img.gyxnb.top/img/clip_image556.jpg)
+![img](https://image.201068.xyz/assets/clip_image556.jpg)
 
 改正二选一即可：
 
-![img](https://img.gyxnb.top/img/clip_image558.jpg)
+![img](https://image.201068.xyz/assets/clip_image558.jpg)
 
  
 
@@ -8064,7 +8064,7 @@ Object类是所有类的根基父类。
 
 alt+insert
 
-![img](https://img.gyxnb.top/img/clip_image560.jpg)
+![img](https://image.201068.xyz/assets/clip_image560.jpg)
 
  
 
@@ -8072,7 +8072,7 @@ alt+insert
 
 ###### 继承条件下构造方法的执行过程
 
-![img](https://img.gyxnb.top/img/clip_image562.jpg)
+![img](https://image.201068.xyz/assets/clip_image562.jpg)
 
 ```
 1.  package com.msb.test10;
@@ -8133,7 +8133,7 @@ alt+insert
 
 如果在类的声明中未使用extends关键字指明其父类，则默认继承Object类。 
 
-![img](https://img.gyxnb.top/img/clip_image564.jpg)
+![img](https://image.201068.xyz/assets/clip_image564.jpg)
 
  
 
@@ -8141,13 +8141,13 @@ toString()方法
 
 **【1】Object类的toString()的作用：** 
 
-![img](https://img.gyxnb.top/img/clip_image566.jpg)
+![img](https://image.201068.xyz/assets/clip_image566.jpg)
 
  
 
 方法的原理：
 
-![img](https://img.gyxnb.top/img/clip_image568.jpg)
+![img](https://image.201068.xyz/assets/clip_image568.jpg)
 
  
 
@@ -8157,7 +8157,7 @@ toString()方法
 
 现在的格式不好：
 
-![img](https://img.gyxnb.top/img/clip_image570.jpg)
+![img](https://image.201068.xyz/assets/clip_image570.jpg)
 
  
 
@@ -8220,7 +8220,7 @@ toString()方法
 
 测试类：
 
-![img](https://img.gyxnb.top/img/clip_image572.jpg)
+![img](https://image.201068.xyz/assets/clip_image572.jpg)
 
  
 
@@ -8407,7 +8407,7 @@ equals作用：这个方法提供了对对象的内容是否相等 的一个比�
 
 instanceof
 
-![img](https://img.gyxnb.top/img/clip_image574.jpg)
+![img](https://image.201068.xyz/assets/clip_image574.jpg)
 
  
 
@@ -8415,11 +8415,11 @@ instanceof
 
 **【1】利用eclipse：** 
 
-![img](https://img.gyxnb.top/img/clip_image576.jpg)
+![img](https://image.201068.xyz/assets/clip_image576.jpg)
 
 **【2】利用idea：** 
 
-![img](https://img.gyxnb.top/img/clip_image578.jpg)
+![img](https://image.201068.xyz/assets/clip_image578.jpg)
 
  
 
@@ -8435,11 +8435,11 @@ instanceof
 
 **【2】体会了什么叫方法的性擦，什么叫方法的实参：** 
 
-![img](https://img.gyxnb.top/img/clip_image580.jpg)
+![img](https://image.201068.xyz/assets/clip_image580.jpg)
 
 具体传入的内容 实参： 
 
-![img](https://img.gyxnb.top/img/clip_image582.jpg)
+![img](https://image.201068.xyz/assets/clip_image582.jpg)
 
 **【3】类和类可以产生关系：** 
 
@@ -8542,7 +8542,7 @@ instanceof
 
 继承指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。在Java中继承关系通过关键字extends明确标识，在设计时一般没有争议性。在UML类图设计中，继承用一条带空心三角箭头的实线表示，从子类指向父类，或者子接口指向父接口。 
 
-![img](https://img.gyxnb.top/img/clip_image584.jpg)
+![img](https://image.201068.xyz/assets/clip_image584.jpg)
 
  
 
@@ -8552,7 +8552,7 @@ instanceof
 
 实现指的是一个class类实现interface接口（可以是多个）的功能，实现是类与接口之间最常见的关系。在Java中此类关系通过关键字implements明确标识，在设计时一般没有争议性。在UML类图设计中，实现用一条带空心三角箭头的虚线表示，从类指向实现的接口。
 
-![img](https://img.gyxnb.top/img/clip_image586.jpg)
+![img](https://image.201068.xyz/assets/clip_image586.jpg)
 
  
 
@@ -8562,7 +8562,7 @@ instanceof
 
  
 
-![img](https://img.gyxnb.top/img/clip_image588.jpg)
+![img](https://image.201068.xyz/assets/clip_image588.jpg)
 
  
 
@@ -8570,7 +8570,7 @@ instanceof
 
 关联体现的是两个类之间语义级别的一种强依赖关系，比如我和我的朋友，这种关系比依赖更强、不存在依赖关系的偶然性、关系也不是临时性的，一般是长期性的，而且双方的关系一般是平等的。关联可以是单向、双向的。表现在代码层面，为被关联类B以类的属性形式出现在关联类A中，也可能是关联类A引用了一个类型为被关联类B的全局变量。在UML类图设计中，关联关系用由关联类A指向被关联类B的带箭头实线表示，在关联的两端可以标注关联双方的角色和多重性标记。 
 
-![img](https://img.gyxnb.top/img/clip_image590.jpg)
+![img](https://image.201068.xyz/assets/clip_image590.jpg)
 
  
 
@@ -8578,7 +8578,7 @@ instanceof
 
 聚合是关联关系的一种特例，它体现的是整体与部分的关系，即has-a的关系。此时整体与部分之间是可分离的，它们可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享。比如计算机与CPU、公司与员工的关系等，比如一个航母编队包括海空母舰、驱护舰艇、舰载飞机及核动力攻击潜艇等。表现在代码层面，和关联关系是一致的，只能从语义级别来区分。在UML类图设计中，聚合关系以空心菱形加实线箭头表示。 
 
-![img](https://img.gyxnb.top/img/clip_image592.jpg)
+![img](https://image.201068.xyz/assets/clip_image592.jpg)
 
  
 
@@ -8586,7 +8586,7 @@ instanceof
 
 组合也是关联关系的一种特例，它体现的是一种contains-a的关系，这种关系比聚合更强，也称为强聚合。它同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期结束也就意味着部分的生命周期结束，比如人和人的大脑。表现在代码层面，和关联关系是一致的，只能从语义级别来区分。在UML类图设计中，组合关系以实心菱形加实线箭头表示。 
 
-![img](https://img.gyxnb.top/img/clip_image594.jpg)
+![img](https://image.201068.xyz/assets/clip_image594.jpg)
 
  
 
@@ -8776,15 +8776,15 @@ g.play(an); //
 
 ###### 内存分析
 
-![img](https://img.gyxnb.top/img/clip_image596.jpg)
+![img](https://image.201068.xyz/assets/clip_image596.jpg)
 
  
 
 ###### 向下转型，向上转型
 
-![img](https://img.gyxnb.top/img/clip_image598.jpg)
+![img](https://image.201068.xyz/assets/clip_image598.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image600.jpg)
+![img](https://image.201068.xyz/assets/clip_image600.jpg)
 
  
 
@@ -8812,13 +8812,13 @@ g.play(an); //
 
 对应内存：
 
-![img](https://img.gyxnb.top/img/clip_image602.jpg)
+![img](https://image.201068.xyz/assets/clip_image602.jpg)
 
  
 
 思考之前的equals方法： 
 
-![img](https://img.gyxnb.top/img/clip_image604.jpg)
+![img](https://image.201068.xyz/assets/clip_image604.jpg)
 
  
 
@@ -8917,7 +8917,7 @@ g.play(an); //
 
 final修饰方法，那么这个方法不可以被该类的子类重写： 
 
-![img](https://img.gyxnb.top/img/clip_image606.jpg)
+![img](https://image.201068.xyz/assets/clip_image606.jpg)
 
  
 
@@ -8927,13 +8927,13 @@ final修饰类，代表没有子类，该类不可以被继承：
 
 一旦一个类被final修饰，那么里面的方法也没有必要用final修饰了（final可以省略不写） 
 
-![img](https://img.gyxnb.top/img/clip_image608.jpg)
+![img](https://image.201068.xyz/assets/clip_image608.jpg)
 
 **【4】案例：JDK提供的Math类：**看源码发现： 
 
 （1）使用Math类的时候无需导包，直接使用即可： 
 
-![img](https://img.gyxnb.top/img/clip_image610.jpg)
+![img](https://image.201068.xyz/assets/clip_image610.jpg)
 
  
 
@@ -8941,7 +8941,7 @@ final修饰类，代表没有子类，该类不可以被继承：
 
 （2）Math类没有子类，不能被其他类继承了 
 
-![img](https://img.gyxnb.top/img/clip_image612.jpg)
+![img](https://image.201068.xyz/assets/clip_image612.jpg)
 
  
 
@@ -8955,7 +8955,7 @@ final修饰类，代表没有子类，该类不可以被继承：
 
 Math m = new Math(); 
 
-![img](https://img.gyxnb.top/img/clip_image614.jpg)
+![img](https://image.201068.xyz/assets/clip_image614.jpg)
 
  
 
@@ -9186,9 +9186,9 @@ Math m = new Math();
 
 **【6】接口和抽象类的区别：** 
 
-![img](https://img.gyxnb.top/img/clip_image616.jpg)
+![img](https://image.201068.xyz/assets/clip_image616.jpg)
 
-#####   ![img](https://img.gyxnb.top/img/clip_image618.jpg) JDK1.8以后的接口新增内容
+#####   ![img](https://image.201068.xyz/assets/clip_image618.jpg) JDK1.8以后的接口新增内容
 
 **在JDK1.8之前，接口中只有两部分内容：**
  （1）常量：固定修饰符：public static final
@@ -9458,13 +9458,13 @@ Math m = new Math();
 
 ##### 项目需求
 
-![img](https://img.gyxnb.top/img/clip_image620.jpg)
+![img](https://image.201068.xyz/assets/clip_image620.jpg)
 
  
 
 ##### 项目结构分析
 
-![img](https://img.gyxnb.top/img/clip_image622.jpg)
+![img](https://image.201068.xyz/assets/clip_image622.jpg)
 
  
 
@@ -9720,17 +9720,17 @@ Math m = new Math();
 
 运行结果：
 
-![img](https://img.gyxnb.top/img/clip_image624.jpg)
+![img](https://image.201068.xyz/assets/clip_image624.jpg)
 
 测试过程发现问题：
 
 录入的数据应为int类型，但是录入非int类型数据的时候，出异常： 
 
-![img](https://img.gyxnb.top/img/clip_image626.jpg)
+![img](https://image.201068.xyz/assets/clip_image626.jpg)
 
 除数为0的时候： 
 
-![img](https://img.gyxnb.top/img/clip_image628.jpg)
+![img](https://image.201068.xyz/assets/clip_image628.jpg)
 
 异常：Exception：在程序的运行过程中，发生了不正常的现象，阻止了程序的运行，我们称之为发生异常。 
 
@@ -9795,7 +9795,7 @@ Math m = new Math();
 
 【2】异常出现了以后怎么看： 
 
-![img](https://img.gyxnb.top/img/clip_image630.jpg)
+![img](https://image.201068.xyz/assets/clip_image630.jpg)
 
 【3】捕获异常： try-catch 
 
@@ -9987,7 +9987,7 @@ Math m = new Math();
 
 【4】在JDK1.7以后，异常新处理方式：可以并列用|符号连接： 
 
-![img](https://img.gyxnb.top/img/clip_image632.jpg)
+![img](https://image.201068.xyz/assets/clip_image632.jpg)
 
  
 
@@ -10029,7 +10029,7 @@ Math m = new Math();
 
 【1】层次结构：
 
-![img](https://img.gyxnb.top/img/clip_image634.jpg)
+![img](https://image.201068.xyz/assets/clip_image634.jpg)
 
 注意：程序中语法错误，逻辑错误  都不属于上面的Error，Exception
 
@@ -10299,7 +10299,7 @@ throws:在方法的声明处，告诉方法的调用者，这个方法中可能�
 
 #### 重载和重写的异常
 
-![img](https://img.gyxnb.top/img/clip_image636.jpg)
+![img](https://image.201068.xyz/assets/clip_image636.jpg)
 
  
 
@@ -10319,9 +10319,9 @@ throws:在方法的声明处，告诉方法的调用者，这个方法中可能�
 
 【2】重写： 
 
-![img](https://img.gyxnb.top/img/clip_image638.jpg)
+![img](https://image.201068.xyz/assets/clip_image638.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image640.jpg)
+![img](https://image.201068.xyz/assets/clip_image640.jpg)
 
  
 
@@ -10428,35 +10428,35 @@ boolean           Boolean           Object
 
 【1】直接使用，无需导包：
 
-![img](https://img.gyxnb.top/img/clip_image642.jpg)
+![img](https://image.201068.xyz/assets/clip_image642.jpg)
 
 【2】类的继承关系： 
 
-![img](https://img.gyxnb.top/img/clip_image644.jpg)
+![img](https://image.201068.xyz/assets/clip_image644.jpg)
 
  
 
 【3】实现接口： 
 
-![img](https://img.gyxnb.top/img/clip_image646.jpg)
+![img](https://image.201068.xyz/assets/clip_image646.jpg)
 
  
 
 【4】这个类被final修饰，那么这个类不能有子类，不能被继承： 
 
-![img](https://img.gyxnb.top/img/clip_image648.jpg)
+![img](https://image.201068.xyz/assets/clip_image648.jpg)
 
  
 
 【5】包装类是对基本数据类型的封装： 对int类型封装产生了Integer 
 
-![img](https://img.gyxnb.top/img/clip_image650.jpg)
+![img](https://image.201068.xyz/assets/clip_image650.jpg)
 
  
 
 【6】类的历史： 
 
-![img](https://img.gyxnb.top/img/clip_image652.jpg)
+![img](https://image.201068.xyz/assets/clip_image652.jpg)
 
  
 
@@ -10481,7 +10481,7 @@ boolean           Boolean           Object
 
  
 
-![img](https://img.gyxnb.top/img/clip_image654.jpg)
+![img](https://image.201068.xyz/assets/clip_image654.jpg)
 
  
 
@@ -10494,7 +10494,7 @@ boolean           Boolean           Object
 
  
 
-![img](https://img.gyxnb.top/img/clip_image656.jpg)
+![img](https://image.201068.xyz/assets/clip_image656.jpg)
 
  
 
@@ -10516,11 +10516,11 @@ boolean           Boolean           Object
 
 验证：
 
-![img](https://img.gyxnb.top/img/clip_image658.jpg)
+![img](https://image.201068.xyz/assets/clip_image658.jpg)
 
 可以自定打断点测试是否走入valueOf方法中： 
 
-![img](https://img.gyxnb.top/img/clip_image660.jpg)
+![img](https://image.201068.xyz/assets/clip_image660.jpg)
 
 【10】常用方法： 
 
@@ -10528,7 +10528,7 @@ boolean           Boolean           Object
 
 valueOf方法的底层： 
 
-![img](https://img.gyxnb.top/img/clip_image662.jpg)
+![img](https://image.201068.xyz/assets/clip_image662.jpg)
 
  
 
@@ -10712,7 +10712,7 @@ valueOf方法的底层：
 
 上面的代码有局限性，字符串的格式只能是年-月-日拼接的形式，换成其它类型，就会出现异常： 
 
-![img](https://img.gyxnb.top/img/clip_image664.jpg)
+![img](https://image.201068.xyz/assets/clip_image664.jpg)
 
  
 
@@ -10760,7 +10760,7 @@ valueOf方法的底层：
 
 【3】日期格式： 
 
-![img](https://img.gyxnb.top/img/clip_image666.jpg)
+![img](https://image.201068.xyz/assets/clip_image666.jpg)
 
  
 
@@ -10817,7 +10817,7 @@ valueOf方法的底层：
 
 需求： 
 
-![img](https://img.gyxnb.top/img/clip_image668.jpg)
+![img](https://image.201068.xyz/assets/clip_image668.jpg)
 
  
 
@@ -11044,29 +11044,29 @@ JDK1.8新增日期时间API --》第三批日期时间API
 
 【1】直接使用，无需导包：
 
-![img](https://img.gyxnb.top/img/clip_image670.jpg)
+![img](https://image.201068.xyz/assets/clip_image670.jpg)
 
  
 
 【2】final修饰类，这个类不能被继承： 
 
-![img](https://img.gyxnb.top/img/clip_image672.jpg)
+![img](https://image.201068.xyz/assets/clip_image672.jpg)
 
  
 
 【3】构造器私有化，不能创建Math类的对象： 
 
-![img](https://img.gyxnb.top/img/clip_image674.jpg)
+![img](https://image.201068.xyz/assets/clip_image674.jpg)
 
 不能：
 
-![img](https://img.gyxnb.top/img/clip_image676.jpg)
+![img](https://image.201068.xyz/assets/clip_image676.jpg)
 
  
 
 【4】Math内部的所有的属性，方法都被static修饰：类名.直接调用，无需创建对象： 
 
-![img](https://img.gyxnb.top/img/clip_image678.jpg)
+![img](https://image.201068.xyz/assets/clip_image678.jpg)
 
 【5】常用方法： 
 
@@ -11158,7 +11158,7 @@ JDK1.8新增日期时间API --》第三批日期时间API
 26. 
 ```
 
-![img](https://img.gyxnb.top/img/clip_image680.jpg)
+![img](https://image.201068.xyz/assets/clip_image680.jpg)
 
  
 
@@ -11166,21 +11166,21 @@ JDK1.8新增日期时间API --》第三批日期时间API
 
 【1】直接使用，无需导包：
 
-![img](https://img.gyxnb.top/img/clip_image682.jpg)
+![img](https://image.201068.xyz/assets/clip_image682.jpg)
 
  
 
 【2】形象说一下字符串： 
 
-![img](https://img.gyxnb.top/img/clip_image684.jpg)
+![img](https://image.201068.xyz/assets/clip_image684.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image686.jpg)
+![img](https://image.201068.xyz/assets/clip_image686.jpg)
 
 【3】 
 
-![img](https://img.gyxnb.top/img/clip_image688.jpg)
+![img](https://image.201068.xyz/assets/clip_image688.jpg)
 
  
 
@@ -11192,25 +11192,25 @@ String str = “abc”;
 
 【4】字符串是不可变的：？？？？ 
 
-![img](https://img.gyxnb.top/img/clip_image690.jpg)
+![img](https://image.201068.xyz/assets/clip_image690.jpg)
 
  
 
 【5】这个String类不可以被继承，不能有子类： 
 
-![img](https://img.gyxnb.top/img/clip_image692.jpg)
+![img](https://image.201068.xyz/assets/clip_image692.jpg)
 
  
 
 【6】String底层是一个char类型的数组
 
-![img](https://img.gyxnb.top/img/clip_image694.jpg)
+![img](https://image.201068.xyz/assets/clip_image694.jpg)
 
  
 
 验证：
 
-![img](https://img.gyxnb.top/img/clip_image696.jpg)
+![img](https://image.201068.xyz/assets/clip_image696.jpg)
 
 ##### 常用方法
 
@@ -11245,7 +11245,7 @@ String str = “abc”;
 
  
 
-![img](https://img.gyxnb.top/img/clip_image698.jpg)
+![img](https://image.201068.xyz/assets/clip_image698.jpg)
 
 【5】String类实现了Comparable，里面有一个抽象方法叫compareTo，所以String中一定要对这个方法进行重写：4 
 
@@ -11257,7 +11257,7 @@ String str = “abc”;
 
  
 
-![img](https://img.gyxnb.top/img/clip_image700.jpg)
+![img](https://image.201068.xyz/assets/clip_image700.jpg)
 
 【6】常用方法： 
 
@@ -11310,7 +11310,7 @@ String str = “abc”;
 
 上面的字符串，会进行编译器优化，直接合并成为完整的字符串，我们可以反编译验证： 
 
-![img](https://img.gyxnb.top/img/clip_image702.jpg)
+![img](https://image.201068.xyz/assets/clip_image702.jpg)
 
 然后在常量池中，常量池的特点是第一次如果没有这个字符串，就放进去，如果有这个字符串，就直接从常量池中取：
 
@@ -11318,7 +11318,7 @@ String str = “abc”;
 
 内存：
 
-![img](https://img.gyxnb.top/img/clip_image704.jpg)
+![img](https://image.201068.xyz/assets/clip_image704.jpg)
 
 【2】new关键字创建对象： 
 
@@ -11328,7 +11328,7 @@ String str = “abc”;
 
 内存：开辟两个空间（1.字符串常量池中的字符串 2.堆中的开辟的空间） 
 
-![img](https://img.gyxnb.top/img/clip_image706.jpg)
+![img](https://image.201068.xyz/assets/clip_image706.jpg)
 
 【3】有变量参与的字符串拼接： 
 
@@ -11353,11 +11353,11 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 利用IDEA中的控制台： 
 
-![img](https://img.gyxnb.top/img/clip_image708.jpg)
+![img](https://image.201068.xyz/assets/clip_image708.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image710.jpg)
+![img](https://image.201068.xyz/assets/clip_image710.jpg)
 
  
 
@@ -11389,7 +11389,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 **【2】StringBuilder底层：**非常重要的两个属性： 
 
-![img](https://img.gyxnb.top/img/clip_image712.jpg)
+![img](https://image.201068.xyz/assets/clip_image712.jpg)
 
  
 
@@ -11423,7 +11423,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
  
 
-![img](https://img.gyxnb.top/img/clip_image714.jpg)
+![img](https://image.201068.xyz/assets/clip_image714.jpg)
 
  
 
@@ -11431,7 +11431,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 【1】String---》不可变 
 
-![img](https://img.gyxnb.top/img/clip_image716.jpg)
+![img](https://image.201068.xyz/assets/clip_image716.jpg)
 
  
 
@@ -11601,7 +11601,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 **【2】数据结构：**就是在计算机的缓存，内存，硬盘  如何组织管理数据的。重点在结构上，是按照什么结构来组织管理我们的数据。
 
-![img](https://img.gyxnb.top/img/clip_image718.jpg)
+![img](https://image.201068.xyz/assets/clip_image718.jpg)
 
 数据结构分为：
 
@@ -11617,7 +11617,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 线性表的逻辑结构如图所示： 
 
-![img](https://img.gyxnb.top/img/clip_image720.jpg)
+![img](https://image.201068.xyz/assets/clip_image720.jpg)
 
 线性表特点： 
 
@@ -11665,7 +11665,7 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 线性表逻辑结构，对应的真实结构如果是紧密结构---》典型就是  数组： 
 
-![img](https://img.gyxnb.top/img/clip_image722.jpg)
+![img](https://image.201068.xyz/assets/clip_image722.jpg)
 
 线性表逻辑结构，对应的真实结构如果是跳转结构---》典型就是  链表： 
 
@@ -11673,11 +11673,11 @@ a变量在编译的时候不知道a是“abc”字符串，所以不会进行编
 
 缺点：查询元素效率低
 
-![img](https://img.gyxnb.top/img/clip_image724.jpg)
+![img](https://image.201068.xyz/assets/clip_image724.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image726.jpg)
+![img](https://image.201068.xyz/assets/clip_image726.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image728.jpg)
+![img](https://image.201068.xyz/assets/clip_image728.jpg)
 
  
 
@@ -11725,23 +11725,23 @@ int[] arr,String[] s,double[] d.....
 
 ## 简要集合结构图
 
-![img](https://img.gyxnb.top/img/clip_image730.jpg)
+![img](https://image.201068.xyz/assets/clip_image730.jpg)
 
 ## 集合应用场合
 
 前端后端数据库交互： 
 
-![img](https://img.gyxnb.top/img/clip_image732.jpg)
+![img](https://image.201068.xyz/assets/clip_image732.jpg)
 
 当需要将相同结构的个体整合到一起的时候，需要集合。
 
 实际应用场合：
 
-![img](https://img.gyxnb.top/img/clip_image734.jpg)
+![img](https://image.201068.xyz/assets/clip_image734.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image736.jpg)
+![img](https://image.201068.xyz/assets/clip_image736.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image738.jpg)
+![img](https://image.201068.xyz/assets/clip_image738.jpg)
 
  
 
@@ -11825,7 +11825,7 @@ int[] arr,String[] s,double[] d.....
 
 迭代器简要原理图： 
 
-![img](https://img.gyxnb.top/img/clip_image740.jpg)
+![img](https://image.201068.xyz/assets/clip_image740.jpg)
 
  
 
@@ -11954,7 +11954,7 @@ int[] arr,String[] s,double[] d.....
 
 【1】在idea中切换JDK的方法： 
 
-![img](https://img.gyxnb.top/img/clip_image742.jpg)
+![img](https://image.201068.xyz/assets/clip_image742.jpg)
 
  
 
@@ -11964,21 +11964,21 @@ int[] arr,String[] s,double[] d.....
 
 集合创始人 承认了这个失误，但是在后续的版本中没有删除，觉得没必要： 
 
-![img](https://img.gyxnb.top/img/clip_image744.jpg)
+![img](https://image.201068.xyz/assets/clip_image744.jpg)
 
  
 
 【3】底层重要属性： 
 
-![img](https://img.gyxnb.top/img/clip_image746.jpg)
+![img](https://image.201068.xyz/assets/clip_image746.jpg)
 
 在JDK1.7中：在调用构造器的时候给底层数组elementData初始化，数组初始化长度为10： 
 
-![img](https://img.gyxnb.top/img/clip_image748.jpg)
+![img](https://image.201068.xyz/assets/clip_image748.jpg)
 
 对应内存：
 
-![img](https://img.gyxnb.top/img/clip_image750.jpg)
+![img](https://image.201068.xyz/assets/clip_image750.jpg)
 
 调用add方法： 
 
@@ -11991,39 +11991,39 @@ int[] arr,String[] s,double[] d.....
 
  
 
-当数组中的10个位置都满了的![img](https://img.gyxnb.top/img/clip_image752.jpg)时候就开始进行数组的扩容，扩容长度为 原数组的1.5倍：
+当数组中的10个位置都满了的![img](https://image.201068.xyz/assets/clip_image752.jpg)时候就开始进行数组的扩容，扩容长度为 原数组的1.5倍：
 
-![img](https://img.gyxnb.top/img/clip_image754.jpg)
+![img](https://image.201068.xyz/assets/clip_image754.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image756.jpg)
+![img](https://image.201068.xyz/assets/clip_image756.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image758.jpg)
+![img](https://image.201068.xyz/assets/clip_image758.jpg)
 
 #### ArrayList实现类（JDK1.8）
 
 【1】JDK1.8底层依旧是Object类型的数组，size:数组中有效长度： 
 
-![img](https://img.gyxnb.top/img/clip_image760.jpg)
+![img](https://image.201068.xyz/assets/clip_image760.jpg)
 
 【2】ArrayList al = new ArrayList();调用空构造器：
 
-![img](https://img.gyxnb.top/img/clip_image762.jpg)
+![img](https://image.201068.xyz/assets/clip_image762.jpg)
 
  
 
 【2】add方法： 
 
-![img](https://img.gyxnb.top/img/clip_image764.jpg)
+![img](https://image.201068.xyz/assets/clip_image764.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image766.jpg)
+![img](https://image.201068.xyz/assets/clip_image766.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image768.jpg)
+![img](https://image.201068.xyz/assets/clip_image768.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image770.jpg)
+![img](https://image.201068.xyz/assets/clip_image770.jpg)
 
  
 
@@ -12031,11 +12031,11 @@ int[] arr,String[] s,double[] d.....
 
 【1】底层Object数组，int类型属性表示数组中有效长度： 
 
-![img](https://img.gyxnb.top/img/clip_image772.jpg)
+![img](https://image.201068.xyz/assets/clip_image772.jpg)
 
 【2】Vector v=new Vector();调用构造器： 
 
-![img](https://img.gyxnb.top/img/clip_image774.jpg)
+![img](https://image.201068.xyz/assets/clip_image774.jpg)
 
  
 
@@ -12043,7 +12043,7 @@ int[] arr,String[] s,double[] d.....
 
 【3】add方法： 
 
-![img](https://img.gyxnb.top/img/clip_image776.jpg)
+![img](https://image.201068.xyz/assets/clip_image776.jpg)
 
  
 
@@ -12144,9 +12144,9 @@ Collection<E>, List<E>， ArrayList<E> 这个<E>就是类型参数，即泛型�
 
 （2）泛型实际就是 一个<>引起来的 参数类型，这个参数类型  具体在使用的时候才会确定具体的类型。 
 
-![img](https://img.gyxnb.top/img/clip_image778.jpg)
+![img](https://image.201068.xyz/assets/clip_image778.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image780.jpg)
+![img](https://image.201068.xyz/assets/clip_image780.jpg)
 
  
 
@@ -12261,7 +12261,7 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 【3】应用场合： 
 
-![img](https://img.gyxnb.top/img/clip_image782.jpg)
+![img](https://image.201068.xyz/assets/clip_image782.jpg)
 
  
 
@@ -12271,29 +12271,29 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 （1）泛型类可以定义多个参数类型 
 
-![img](https://img.gyxnb.top/img/clip_image784.jpg)
+![img](https://image.201068.xyz/assets/clip_image784.jpg)
 
 （2）泛型类的构造器的写法： 
 
-![img](https://img.gyxnb.top/img/clip_image786.jpg)
+![img](https://image.201068.xyz/assets/clip_image786.jpg)
 
 （3）不同的泛型的引用类型不可以相互赋值： 
 
-![img](https://img.gyxnb.top/img/clip_image788.jpg)
+![img](https://image.201068.xyz/assets/clip_image788.jpg)
 
  
 
 （4）泛型如果不指定，那么就会被擦除，反应对应的类型为Object类型： 
 
-![img](https://img.gyxnb.top/img/clip_image790.jpg)
+![img](https://image.201068.xyz/assets/clip_image790.jpg)
 
 （5）反省类中的静态方法不能使用类的泛型： 
 
-![img](https://img.gyxnb.top/img/clip_image792.jpg)
+![img](https://image.201068.xyz/assets/clip_image792.jpg)
 
 （6）不能直接使用E[]的创建： 
 
-![img](https://img.gyxnb.top/img/clip_image794.jpg)
+![img](https://image.201068.xyz/assets/clip_image794.jpg)
 
  
 
@@ -12342,7 +12342,7 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 ###### 泛型参数存在继承关系的情况
 
-![img](https://img.gyxnb.top/img/clip_image796.jpg)
+![img](https://image.201068.xyz/assets/clip_image796.jpg)
 
  
 
@@ -12438,7 +12438,7 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 【4】查看API中应用位置： 
 
-![img](https://img.gyxnb.top/img/clip_image798.jpg)
+![img](https://image.201068.xyz/assets/clip_image798.jpg)
 
  
 
@@ -12602,7 +12602,7 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 ##### LinkedList简要底层原理图
 
-![img](https://img.gyxnb.top/img/clip_image800.jpg)
+![img](https://image.201068.xyz/assets/clip_image800.jpg)
 
 ##### 模拟LinkedList源码
 
@@ -12694,7 +12694,7 @@ ArrayList<Integer> al = new ArrayList<>();  --<> ---钻石运算符
 
 debug验证数据添加成功： 
 
-![img](https://img.gyxnb.top/img/clip_image802.jpg)
+![img](https://image.201068.xyz/assets/clip_image802.jpg)
 
  
 
@@ -12777,11 +12777,11 @@ debug验证数据添加成功：
 
 【1】面试题：对应的关系：
 
-![img](https://img.gyxnb.top/img/clip_image804.jpg)
+![img](https://image.201068.xyz/assets/clip_image804.jpg)
 
 【2】hasNext(),next()的具体实现： 
 
-![img](https://img.gyxnb.top/img/clip_image806.jpg)
+![img](https://image.201068.xyz/assets/clip_image806.jpg)
 
  
 
@@ -12791,9 +12791,9 @@ debug验证数据添加成功：
 
 【3】增强for循环  底层也是通过迭代器实现的：
 
-![img](https://img.gyxnb.top/img/clip_image808.jpg)
+![img](https://image.201068.xyz/assets/clip_image808.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image810.jpg)
+![img](https://image.201068.xyz/assets/clip_image810.jpg)
 
 #### ListIterator迭代器
 
@@ -12833,11 +12833,11 @@ debug验证数据添加成功：
 
 发现报错：
 
-![img](https://img.gyxnb.top/img/clip_image812.jpg)
+![img](https://image.201068.xyz/assets/clip_image812.jpg)
 
 出错原因：就是迭代器和list同时对集合进行操作： 
 
-![img](https://img.gyxnb.top/img/clip_image814.jpg)
+![img](https://image.201068.xyz/assets/clip_image814.jpg)
 
  
 
@@ -12983,7 +12983,7 @@ debug验证数据添加成功：
 
 【4】HashSet原理图：（简要原理图） 
 
-![img](https://img.gyxnb.top/img/clip_image816.jpg)
+![img](https://image.201068.xyz/assets/clip_image816.jpg)
 
 【5】疑问： 
 
@@ -13009,7 +13009,7 @@ debug验证数据添加成功：
 
  
 
-![img](https://img.gyxnb.top/img/clip_image818.jpg)
+![img](https://image.201068.xyz/assets/clip_image818.jpg)
 
  
 
@@ -13327,7 +13327,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 【2】原理：底层：二叉树（数据结构中的一个逻辑结构） 
 
-![img](https://img.gyxnb.top/img/clip_image820.jpg)
+![img](https://image.201068.xyz/assets/clip_image820.jpg)
 
  
 
@@ -13576,7 +13576,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 【5】TreeSet底层的二叉树的遍历是按照升序的结果出现的，这个升序是靠中序遍历得到的：
 
-![img](https://img.gyxnb.top/img/clip_image822.jpg)
+![img](https://image.201068.xyz/assets/clip_image822.jpg)
 
  
 
@@ -13584,7 +13584,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 #### Collection部分整体结构图
 
-![img](https://img.gyxnb.top/img/clip_image824.jpg)
+![img](https://image.201068.xyz/assets/clip_image824.jpg)
 
  
 
@@ -13833,7 +13833,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 ### Map部分整体结构图
 
-![img](https://img.gyxnb.top/img/clip_image826.jpg)
+![img](https://image.201068.xyz/assets/clip_image826.jpg)
 
  
 
@@ -13871,7 +13871,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 结果展示：
 
-![img](https://img.gyxnb.top/img/clip_image828.jpg)
+![img](https://image.201068.xyz/assets/clip_image828.jpg)
 
  
 
@@ -13883,7 +13883,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 原理如下：(JDK1.7) 
 
-![img](https://img.gyxnb.top/img/clip_image830.jpg)
+![img](https://image.201068.xyz/assets/clip_image830.jpg)
 
  
 
@@ -14068,7 +14068,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 【1】主数组的长度为2的倍数， 
 
-![img](https://img.gyxnb.top/img/clip_image832.jpg)
+![img](https://image.201068.xyz/assets/clip_image832.jpg)
 
  
 
@@ -14076,7 +14076,7 @@ String类实现了Comparable接口，这个接口中有一个抽象方法compare
 
 key的位置的计算： 
 
-![img](https://img.gyxnb.top/img/clip_image834.jpg)
+![img](https://image.201068.xyz/assets/clip_image834.jpg)
 
 实际上这个算法就是：  h%length  ,但是取模的话  效率太低，所以用位运算效率会很高。
 
@@ -14084,7 +14084,7 @@ key的位置的计算：
 
 原因1： 
 
-![img](https://img.gyxnb.top/img/clip_image836.jpg)和![img](https://img.gyxnb.top/img/clip_image838.jpg)等效的前提就是  length必须是2的整数倍 
+![img](https://image.201068.xyz/assets/clip_image836.jpg)和![img](https://image.201068.xyz/assets/clip_image838.jpg)等效的前提就是  length必须是2的整数倍 
 
 原因2：如果不是2的整数倍，那么 哈西碰撞 哈西冲突的概率就高了很多 
 
@@ -14094,13 +14094,13 @@ key的位置的计算：
 
 比如是2的整数倍： 
 
-![img](https://img.gyxnb.top/img/clip_image840.jpg) : 
+![img](https://image.201068.xyz/assets/clip_image840.jpg) : 
 
-![img](https://img.gyxnb.top/img/clip_image842.jpg)
+![img](https://image.201068.xyz/assets/clip_image842.jpg)
 
 并且这个得到的索引值，一定在 0-15之间（数组是16的时候）： 
 
-![img](https://img.gyxnb.top/img/clip_image844.jpg)
+![img](https://image.201068.xyz/assets/clip_image844.jpg)
 
 当然如果你扩容后数组长度为 32，那么这个索引就在0-31之间 
 
@@ -14108,7 +14108,7 @@ key的位置的计算：
 
 比如如果不是2的整数倍： 
 
-![img](https://img.gyxnb.top/img/clip_image846.jpg)
+![img](https://image.201068.xyz/assets/clip_image846.jpg)
 
 发现：如果不是2的整数倍，那么 哈西碰撞 哈西冲突的概率就高了很多 
 
@@ -14130,11 +14130,11 @@ key的位置的计算：
 
  
 
-所以在空间和时间中，![img](https://img.gyxnb.top/img/clip_image848.jpg) 
+所以在空间和时间中，![img](https://image.201068.xyz/assets/clip_image848.jpg) 
 
 取中间值，平衡这个因素 就取值为 0.75 
 
-![img](https://img.gyxnb.top/img/clip_image850.jpg)
+![img](https://image.201068.xyz/assets/clip_image850.jpg)
 
  
 
@@ -14161,7 +14161,7 @@ key的位置的计算：
 
 【1】原理大致介绍：
 
-![img](https://img.gyxnb.top/img/clip_image852.jpg)
+![img](https://image.201068.xyz/assets/clip_image852.jpg)
 
 【2】源码：
 
@@ -14353,7 +14353,7 @@ key的位置的计算：
 
 ## 常见基础集合汇总
 
-![img](https://img.gyxnb.top/img/clip_image854.jpg)
+![img](https://image.201068.xyz/assets/clip_image854.jpg)
 
  
 
@@ -14369,7 +14369,7 @@ key的位置的计算：
 
 特点：后进先出（LIFO - last in first out）： 
 
-![img](https://img.gyxnb.top/img/clip_image856.jpg)![img](https://img.gyxnb.top/img/clip_image858.jpg)
+![img](https://image.201068.xyz/assets/clip_image856.jpg)![img](https://image.201068.xyz/assets/clip_image858.jpg)
 
 实际应用： 
 
@@ -14377,7 +14377,7 @@ key的位置的计算：
 
 （堆：利用完全二叉树的结构来维护一组数据） 
 
-![img](https://img.gyxnb.top/img/clip_image860.jpg)
+![img](https://image.201068.xyz/assets/clip_image860.jpg)
 
 （2）网络浏览器多会将用户最近访问过的网址组织为一个栈。这样，用户每访问一个新页面，其地址就会被存放至栈顶；而用户每按下一次“后退”按钮，即可沿相反的次序访问此前刚访问过的页面。
 
@@ -14498,7 +14498,7 @@ key的位置的计算：
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image862.jpg)
+![img](https://image.201068.xyz/assets/clip_image862.jpg)
 
  
 
@@ -14566,13 +14566,13 @@ key的位置的计算：
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image864.jpg)
+![img](https://image.201068.xyz/assets/clip_image864.jpg)
 
  
 
 源码解析：
 
-![img](https://img.gyxnb.top/img/clip_image866.jpg)
+![img](https://image.201068.xyz/assets/clip_image866.jpg)
 
  
 
@@ -14588,7 +14588,7 @@ ConcurrentSkipListMap替代TreeMap
 
 简单原理：
 
-![img](https://img.gyxnb.top/img/clip_image868.jpg)
+![img](https://image.201068.xyz/assets/clip_image868.jpg)
 
  
 
@@ -14625,7 +14625,7 @@ ConcunrrentHashMap :
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image870.jpg)
+![img](https://image.201068.xyz/assets/clip_image870.jpg)
 
  
 
@@ -14677,7 +14677,7 @@ Hashtable：
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image872.jpg)
+![img](https://image.201068.xyz/assets/clip_image872.jpg)
 
  
 
@@ -14721,7 +14721,7 @@ HashMap：
 
  
 
-![img](https://img.gyxnb.top/img/clip_image874.jpg)
+![img](https://image.201068.xyz/assets/clip_image874.jpg)
 
  
 
@@ -14776,7 +14776,7 @@ HashMap：
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image876.jpg)
+![img](https://image.201068.xyz/assets/clip_image876.jpg)
 
  
 
@@ -14806,7 +14806,7 @@ HashMap:线程不安全，性能高
 
 并发读的时候不需要锁定容器，因为原容器没有变化，所以可以读取原容器中的值，使用的是一种读写分离的思想。
 
-![img](https://img.gyxnb.top/img/clip_image878.jpg)
+![img](https://image.201068.xyz/assets/clip_image878.jpg)
 
 【3】这种设计的好处是什么呢？ 
 
@@ -15019,9 +15019,9 @@ COW容器有两种一种是CopyonWriteArrayList，一种是CopyOnWriteArraySet
 
  队列：特点：先进先出 （FIFO）（first in first out） 
 
-![img](https://img.gyxnb.top/img/clip_image880.jpg)
+![img](https://image.201068.xyz/assets/clip_image880.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image882.jpg)
+![img](https://image.201068.xyz/assets/clip_image882.jpg)
 
 他有两端，一端是让新元素进去，一端是让老元素出去
 
@@ -15033,17 +15033,17 @@ COW容器有两种一种是CopyonWriteArrayList，一种是CopyOnWriteArraySet
 
 （1）前端，后端都可以进出：
 
-![img](https://img.gyxnb.top/img/clip_image884.jpg)
+![img](https://image.201068.xyz/assets/clip_image884.jpg)
 
  （2）进行限制：
 
-![img](https://img.gyxnb.top/img/clip_image886.jpg)
+![img](https://image.201068.xyz/assets/clip_image886.jpg)
 
  
 
 （3）特殊情况，双端队列实现栈操作: 
 
-![img](https://img.gyxnb.top/img/clip_image888.jpg)
+![img](https://image.201068.xyz/assets/clip_image888.jpg)
 
  栈和队列的物理结构实现 可以用线性表的数组，链表都可以
 
@@ -15061,9 +15061,9 @@ COW容器有两种一种是CopyonWriteArrayList，一种是CopyOnWriteArraySet
 
 #### BlockingQueue介绍
 
-![img](https://img.gyxnb.top/img/clip_image890.jpg)
+![img](https://image.201068.xyz/assets/clip_image890.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image892.jpg)
+![img](https://image.201068.xyz/assets/clip_image892.jpg)
 
 总结：BlockingQueue继承Queue，Queue继承自Collection 
 
@@ -15075,11 +15075,11 @@ COW容器有两种一种是CopyonWriteArrayList，一种是CopyOnWriteArraySet
 
  
 
-![img](https://img.gyxnb.top/img/clip_image894.jpg)
+![img](https://image.201068.xyz/assets/clip_image894.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image896.jpg)
+![img](https://image.201068.xyz/assets/clip_image896.jpg)
 
  
 
@@ -15087,11 +15087,11 @@ COW容器有两种一种是CopyonWriteArrayList，一种是CopyOnWriteArraySet
 
 添加： 
 
-![img](https://img.gyxnb.top/img/clip_image898.jpg)
+![img](https://image.201068.xyz/assets/clip_image898.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image900.jpg)
+![img](https://image.201068.xyz/assets/clip_image900.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image902.jpg)
+![img](https://image.201068.xyz/assets/clip_image902.jpg)
 
 put是阻塞的 
 
@@ -15099,9 +15099,9 @@ put是阻塞的
 
 查询：
 
-![img](https://img.gyxnb.top/img/clip_image904.jpg)
+![img](https://image.201068.xyz/assets/clip_image904.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image906.jpg)
+![img](https://image.201068.xyz/assets/clip_image906.jpg)
 
  
 
@@ -15111,7 +15111,7 @@ take是阻塞的
 
 删除：
 
-![img](https://img.gyxnb.top/img/clip_image908.jpg)
+![img](https://image.201068.xyz/assets/clip_image908.jpg)
 
 #### BlockingQueue常见子类
 
@@ -15121,7 +15121,7 @@ take是阻塞的
 
 源码中的注释的解释说明： 
 
-![img](https://img.gyxnb.top/img/clip_image910.jpg)
+![img](https://image.201068.xyz/assets/clip_image910.jpg)
 
  
 
@@ -15292,19 +15292,19 @@ take是阻塞的
 
 takeIndex和putIndex置为0的原因： 
 
-![img](https://img.gyxnb.top/img/clip_image912.jpg)
+![img](https://image.201068.xyz/assets/clip_image912.jpg)
 
  
 
 【4】其他的添加或者获取的方法都是依托与这个入队和出队的基础方法 
 
-![img](https://img.gyxnb.top/img/clip_image914.jpg)
+![img](https://image.201068.xyz/assets/clip_image914.jpg)
 
  
 
 【5】感受一下put和take的阻塞：
 
-![img](https://img.gyxnb.top/img/clip_image916.jpg)
+![img](https://image.201068.xyz/assets/clip_image916.jpg)
 
 上面的while不可以换为if，因为如果notFull中的线程被激活的瞬间，有其他线程放入元素，那么队列就又满了
 
@@ -15316,7 +15316,7 @@ takeIndex和putIndex置为0的原因：
 
 一个可选择的有边界的队列：意思就是队列的长度可以指定，也可以不指定
 
-![img](https://img.gyxnb.top/img/clip_image918.jpg)
+![img](https://image.201068.xyz/assets/clip_image918.jpg)
 
  
 
@@ -15421,7 +15421,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 入队操作：
 
-![img](https://img.gyxnb.top/img/clip_image920.jpg)
+![img](https://image.201068.xyz/assets/clip_image920.jpg)
 
  
 
@@ -15429,7 +15429,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 出队操作：
 
-![img](https://img.gyxnb.top/img/clip_image922.jpg)
+![img](https://image.201068.xyz/assets/clip_image922.jpg)
 
  
 
@@ -15500,21 +15500,21 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image924.jpg)
+![img](https://image.201068.xyz/assets/clip_image924.jpg)
 
  
 
 ##### SynchronousQueue
 
-![img](https://img.gyxnb.top/img/clip_image926.jpg)
+![img](https://image.201068.xyz/assets/clip_image926.jpg)
 
  
 
 这个特殊的队列设计的意义：
 
-![img](https://img.gyxnb.top/img/clip_image928.jpg)
+![img](https://image.201068.xyz/assets/clip_image928.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image930.jpg)
+![img](https://image.201068.xyz/assets/clip_image930.jpg)
 
  
 
@@ -15535,7 +15535,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 直接报错：说队列满了，因为队列没有容量，理解为满也是正常的：
 
-![img](https://img.gyxnb.top/img/clip_image932.jpg)
+![img](https://image.201068.xyz/assets/clip_image932.jpg)
 
 测试2：put方法  阻塞：队列是空的，可以理解为队列满了，满的话放入元素 put 一定会阻塞： 
 
@@ -15549,7 +15549,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 7.  }
 ```
 
-![img](https://img.gyxnb.top/img/clip_image934.jpg)
+![img](https://image.201068.xyz/assets/clip_image934.jpg)
 
  
 
@@ -15604,7 +15604,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image936.jpg)
+![img](https://image.201068.xyz/assets/clip_image936.jpg)
 
  
 
@@ -15662,7 +15662,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 49.}
 ```
 
-![img](https://img.gyxnb.top/img/clip_image938.jpg)
+![img](https://image.201068.xyz/assets/clip_image938.jpg)
 
  
 
@@ -15680,7 +15680,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 当然随着数据不断的加入，底层（底层是数组Object[]）会自动扩容，直到内存全部消耗殆尽了，导致 OutOfMemoryError内存溢出 程序才会结束。 
 
-![img](https://img.gyxnb.top/img/clip_image940.jpg)
+![img](https://image.201068.xyz/assets/clip_image940.jpg)
 
  
 
@@ -15700,7 +15700,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 7.  }
 ```
 
-![img](https://img.gyxnb.top/img/clip_image942.jpg)
+![img](https://image.201068.xyz/assets/clip_image942.jpg)
 
  
 
@@ -15768,7 +15768,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image944.jpg)
+![img](https://image.201068.xyz/assets/clip_image944.jpg)
 
 发现结果并没有按照优先级顺序排列
 
@@ -15802,7 +15802,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 23. 
 ```
 
-![img](https://img.gyxnb.top/img/clip_image946.jpg)
+![img](https://image.201068.xyz/assets/clip_image946.jpg)
 
  
 
@@ -15828,7 +15828,7 @@ LinkedBlockingQueue：支持读写同时操作，并发情况下，效率高。�
 
 　　DelayQueue是一个无界的BlockingQueue，用于放置实现了Delayed接口的对象，其中的对象只能在其到期时才能从队列中取走。
 
-![img](https://img.gyxnb.top/img/clip_image948.jpg)
+![img](https://image.201068.xyz/assets/clip_image948.jpg)
 
 当生产者线程调用put之类的方法加入元素时，会触发Delayed接口中的compareTo方法进行排序，也就是说队列中元素的顺序是按到期时间排序的，而非它们进入队列的顺序。排在队列头部的元素是最早到期的，越往后到期时间赿晚。
 
@@ -15981,7 +15981,7 @@ getDelay ：看剩余时间
 
  
 
-![img](https://img.gyxnb.top/img/clip_image950.jpg)
+![img](https://image.201068.xyz/assets/clip_image950.jpg)
 
 ##### 双端队列Deque
 
@@ -16227,13 +16227,13 @@ I/O ： Input/Output的缩写，用于处理设备之间的数据的传输。
 
 【3】形象理解：IO流 当做一根 “管”： 
 
-![img](https://img.gyxnb.top/img/clip_image952.jpg)
+![img](https://image.201068.xyz/assets/clip_image952.jpg)
 
  
 
 【4】IO流的体系结构： 
 
-![img](https://img.gyxnb.top/img/clip_image954.jpg)
+![img](https://image.201068.xyz/assets/clip_image954.jpg)
 
  
 
@@ -16787,7 +16787,7 @@ I/O ： Input/Output的缩写，用于处理设备之间的数据的传输。
 
 【1】读入一个字节，写出一个字节：
 
-![img](https://img.gyxnb.top/img/clip_image956.jpg)
+![img](https://image.201068.xyz/assets/clip_image956.jpg)
 
  
 
@@ -16797,13 +16797,13 @@ I/O ： Input/Output的缩写，用于处理设备之间的数据的传输。
 
 【2】利用缓冲字节数组： 
 
-![img](https://img.gyxnb.top/img/clip_image958.jpg)
+![img](https://image.201068.xyz/assets/clip_image958.jpg)
 
  
 
 【3】利用缓冲区： 
 
-![img](https://img.gyxnb.top/img/clip_image960.jpg)想要完成上面的效果，单纯的靠FileInputStream,FileOutputStream是不可以完成的，这个时候就需要功能的加强，
+![img](https://image.201068.xyz/assets/clip_image960.jpg)想要完成上面的效果，单纯的靠FileInputStream,FileOutputStream是不可以完成的，这个时候就需要功能的加强，
 
 这个加强就需要引入新的流（在FileInputStream,FileOutputStream外面再套一层流）：BufferedInputStream ,BufferedOutputStream. ----->处理流 
 
@@ -16868,19 +16868,19 @@ I/O ： Input/Output的缩写，用于处理设备之间的数据的传输。
 
 【1】读入一个字节，写出一个字节：
 
-![img](https://img.gyxnb.top/img/clip_image962.jpg)
+![img](https://image.201068.xyz/assets/clip_image962.jpg)
 
  
 
 【2】利用缓冲字节数组： 
 
-![img](https://img.gyxnb.top/img/clip_image964.jpg)
+![img](https://image.201068.xyz/assets/clip_image964.jpg)
 
  
 
 【3】利用缓冲区： 
 
-![img](https://img.gyxnb.top/img/clip_image966.jpg)
+![img](https://image.201068.xyz/assets/clip_image966.jpg)
 
  
 
@@ -17018,7 +17018,7 @@ OutputStreamWriter  ： 字符输出流 --》字节的输出流
 
 【3】图解：
 
-![img](https://img.gyxnb.top/img/clip_image968.jpg)
+![img](https://image.201068.xyz/assets/clip_image968.jpg)
 
  
 
@@ -17202,7 +17202,7 @@ System.out :“标准”输出流。 ---》默认情况下，输出到控制台�
 
 【1】解决思路：
 
-![img](https://img.gyxnb.top/img/clip_image970.jpg)
+![img](https://image.201068.xyz/assets/clip_image970.jpg)
 
  
 
@@ -17296,7 +17296,7 @@ DataOutputStream: 将内存中的基本数据类型和字符串的变量 写出 
 
 在Demo2.txt文件中，我们看到： 
 
-![img](https://img.gyxnb.top/img/clip_image972.jpg)
+![img](https://image.201068.xyz/assets/clip_image972.jpg)
 
  
 
@@ -17337,7 +17337,7 @@ DataOutputStream: 将内存中的基本数据类型和字符串的变量 写出 
 
 结果： 
 
-![img](https://img.gyxnb.top/img/clip_image974.jpg)
+![img](https://image.201068.xyz/assets/clip_image974.jpg)
 
  
 
@@ -17389,7 +17389,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 查看文件：
 
-![img](https://img.gyxnb.top/img/clip_image976.jpg)
+![img](https://image.201068.xyz/assets/clip_image976.jpg)
 
 我们看不懂文件的内容，但是程序是可以看懂的，所以可以写一个程序读文件中内容：----》反序列化 
 
@@ -17410,7 +17410,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 控制台：
 
-![img](https://img.gyxnb.top/img/clip_image978.jpg)
+![img](https://image.201068.xyz/assets/clip_image978.jpg)
 
  
 
@@ -17474,7 +17474,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 运行的时候发现出现异常：
 
-![img](https://img.gyxnb.top/img/clip_image980.jpg)
+![img](https://image.201068.xyz/assets/clip_image980.jpg)
 
  
 
@@ -17482,7 +17482,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 你想要序列化的那个对象对应的类，必须要实现一个接口： 
 
-![img](https://img.gyxnb.top/img/clip_image982.jpg)
+![img](https://image.201068.xyz/assets/clip_image982.jpg)
 
 接口内部，什么都没有，这种接口叫 标识接口。 
 
@@ -17525,7 +17525,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 测试：发现序列化成功，Person具备了序列化的能力。 
 
-![img](https://img.gyxnb.top/img/clip_image984.jpg)
+![img](https://image.201068.xyz/assets/clip_image984.jpg)
 
 这个二进制数据我们看不懂，但是程序可以看懂，所以我们可以用程序实现 反序列化操作： 
 
@@ -17549,7 +17549,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 因为我们没有重写toString方法，所以结果为： 
 
-![img](https://img.gyxnb.top/img/clip_image986.jpg)
+![img](https://image.201068.xyz/assets/clip_image986.jpg)
 
 证明了反序列化成功：  将二进制数据 --》内存 
 
@@ -17618,29 +17618,29 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 出现异常：
 
-![img](https://img.gyxnb.top/img/clip_image988.jpg)
+![img](https://image.201068.xyz/assets/clip_image988.jpg)
 
 出现异常的原因：
 
-![img](https://img.gyxnb.top/img/clip_image990.jpg)
+![img](https://image.201068.xyz/assets/clip_image990.jpg)
 
 解决：给这个类 加入一个 序列号：serialVersionUID 
 
-![img](https://img.gyxnb.top/img/clip_image992.jpg)
+![img](https://image.201068.xyz/assets/clip_image992.jpg)
 
 【6】IDEA中配置序列化版本号： 
 
-![img](https://img.gyxnb.top/img/clip_image994.jpg)
+![img](https://image.201068.xyz/assets/clip_image994.jpg)
 
 在Person类上：alt+enter: 
 
-![img](https://img.gyxnb.top/img/clip_image996.jpg)
+![img](https://image.201068.xyz/assets/clip_image996.jpg)
 
  
 
 回车即可生成
 
-![img](https://img.gyxnb.top/img/clip_image998.jpg)
+![img](https://image.201068.xyz/assets/clip_image998.jpg)
 
  
 
@@ -17648,9 +17648,9 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 （1）被序列化的类的内部的所有属性，必须是可序列化的 （基本数据类型都是可序列化的） 
 
-![img](https://img.gyxnb.top/img/clip_image1000.jpg)
+![img](https://image.201068.xyz/assets/clip_image1000.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image1002.jpg)
+![img](https://image.201068.xyz/assets/clip_image1002.jpg)
 
 （2）static，transient修饰的属性 不可以被序列化。 
 
@@ -17695,7 +17695,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image1004.jpg)
+![img](https://image.201068.xyz/assets/clip_image1004.jpg)
 
 # 第13章_多线程
 
@@ -17715,15 +17715,15 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
  若一个进程同一时间并行执行多个线程，就是支持多线程的。
 
-![img](https://img.gyxnb.top/img/clip_image1006.jpg)
+![img](https://image.201068.xyz/assets/clip_image1006.jpg)
 
  
 
 【2】单核CPU与多核CPU的任务执行：
 
-![img](https://img.gyxnb.top/img/clip_image1008.jpg)
+![img](https://image.201068.xyz/assets/clip_image1008.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image1010.jpg)
+![img](https://image.201068.xyz/assets/clip_image1010.jpg)
 
  
 
@@ -17739,13 +17739,13 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 【1】在学习多线程一章之前，以前的代码是单线程的吗？不是，以前也是有三个线程同时执行的。
 
-![img](https://img.gyxnb.top/img/clip_image1012.jpg)
+![img](https://image.201068.xyz/assets/clip_image1012.jpg)
 
 【2】现在我想自己制造多线程---》创建线程 ？？ 
 
 线程类--》线程对象 
 
-![img](https://img.gyxnb.top/img/clip_image1014.jpg)
+![img](https://image.201068.xyz/assets/clip_image1014.jpg)
 
  
 
@@ -17811,7 +17811,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 运行结果：
 
-![img](https://img.gyxnb.top/img/clip_image1016.jpg)
+![img](https://image.201068.xyz/assets/clip_image1016.jpg)
 
  
 
@@ -17919,7 +17919,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 【1】原理：每个窗口都是一个线程对象：
 
-![img](https://img.gyxnb.top/img/clip_image1018.jpg)
+![img](https://image.201068.xyz/assets/clip_image1018.jpg)
 
  
 
@@ -18029,7 +18029,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 运行结果：
 
-![img](https://img.gyxnb.top/img/clip_image1020.jpg)
+![img](https://image.201068.xyz/assets/clip_image1020.jpg)
 
  
 
@@ -18104,7 +18104,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1022.jpg)
+![img](https://image.201068.xyz/assets/clip_image1022.jpg)
 
  
 
@@ -18120,7 +18120,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 但是这个run方法有不足： 
 
-![img](https://img.gyxnb.top/img/clip_image1024.jpg)
+![img](https://image.201068.xyz/assets/clip_image1024.jpg)
 
 （1）没有返回值 
 
@@ -18189,7 +18189,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1026.jpg)
+![img](https://image.201068.xyz/assets/clip_image1026.jpg)
 
  
 
@@ -18215,7 +18215,7 @@ ObjectOutputStream 类 ： 把内存中的Java对象转换成平台无关的二�
 
 【3】级别：1-10  默认的级别为5 
 
-![img](https://img.gyxnb.top/img/clip_image1028.jpg)
+![img](https://image.201068.xyz/assets/clip_image1028.jpg)
 
  
 
@@ -18411,7 +18411,7 @@ https://go.zbj.com/news/20146.html （段子）
 
 结果：
 
-![img](https://img.gyxnb.top/img/clip_image1030.jpg)
+![img](https://image.201068.xyz/assets/clip_image1030.jpg)
 
  
 
@@ -18447,11 +18447,11 @@ https://go.zbj.com/news/20146.html （段子）
 
 （1）出现了两个10张票或者3个10张票： 
 
-![img](https://img.gyxnb.top/img/clip_image1032.jpg)
+![img](https://image.201068.xyz/assets/clip_image1032.jpg)
 
 （2）出现0，-1，-2可能： 
 
-![img](https://img.gyxnb.top/img/clip_image1034.jpg)
+![img](https://image.201068.xyz/assets/clip_image1034.jpg)
 
  
 
@@ -18536,7 +18536,7 @@ https://go.zbj.com/news/20146.html （段子）
 
 4)在同步代码块中不能改变同步监视器对象的引用 
 
-![img](https://img.gyxnb.top/img/clip_image1036.jpg)
+![img](https://image.201068.xyz/assets/clip_image1036.jpg)
 
 5)尽量不要String和包装类Integer做同步监视器 
 
@@ -18832,13 +18832,13 @@ synchronized是Java中的关键字，这个关键字的识别是靠JVM来识别�
 
 如果仓库中放有产品，则消费者可以将产品取走消费，否则停止消费并等待，直到仓库中再次放入产品为止
 
- ![img](https://img.gyxnb.top/img/clip_image1038.jpg) 
+ ![img](https://image.201068.xyz/assets/clip_image1038.jpg) 
 
  
 
 代码结果展示：
 
-![img](https://img.gyxnb.top/img/clip_image1040.jpg)
+![img](https://image.201068.xyz/assets/clip_image1040.jpg)
 
  
 
@@ -19218,7 +19218,7 @@ synchronized是Java中的关键字，这个关键字的识别是靠JVM来识别�
 
 【1】原理：
 
-![img](https://img.gyxnb.top/img/clip_image1042.jpg)
+![img](https://image.201068.xyz/assets/clip_image1042.jpg)
 
 【2】代码： 
 
@@ -19304,7 +19304,7 @@ synchronized是Java中的关键字，这个关键字的识别是靠JVM来识别�
 
 【3】原理： 
 
-![img](https://img.gyxnb.top/img/clip_image1044.jpg)
+![img](https://image.201068.xyz/assets/clip_image1044.jpg)
 
  
 
@@ -19314,7 +19314,7 @@ synchronized是Java中的关键字，这个关键字的识别是靠JVM来识别�
 
 【4】线程生命周期完整图： 
 
-![img](https://img.gyxnb.top/img/clip_image1046.jpg)
+![img](https://image.201068.xyz/assets/clip_image1046.jpg)
 
  
 
@@ -19372,7 +19372,7 @@ void **signalAll**()
 
 更改代码： 
 
-![img](https://img.gyxnb.top/img/clip_image1048.jpg)
+![img](https://image.201068.xyz/assets/clip_image1048.jpg)
 
 ```
 1.  package com.msb.test12;
@@ -19490,13 +19490,13 @@ void **signalAll**()
 
 设备之间在网络中进行数据的传输，发送/接收数据。
 
-![img](https://img.gyxnb.top/img/clip_image1050.jpg)
+![img](https://image.201068.xyz/assets/clip_image1050.jpg)
 
  
 
 【2】通信两个重要的要素：IP+PORT 
 
-![img](https://img.gyxnb.top/img/clip_image1052.jpg)
+![img](https://image.201068.xyz/assets/clip_image1052.jpg)
 
 域名：www.baidu.com    ------>DNS服务器解析 ----> IP地址 
 
@@ -19512,29 +19512,29 @@ void **signalAll**()
 
 【3】设备之间进行传输的时候，必须遵照一定的规则 ---》通信协议： 
 
-![img](https://img.gyxnb.top/img/clip_image1054.jpg)
+![img](https://image.201068.xyz/assets/clip_image1054.jpg)
 
  
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1056.jpg)
+![img](https://image.201068.xyz/assets/clip_image1056.jpg)
 
 【4】TCP协议：可靠的 
 
 建立连接：  三次握手 
 
-![img](https://img.gyxnb.top/img/clip_image1058.jpg)
+![img](https://image.201068.xyz/assets/clip_image1058.jpg)
 
 释放连接：四次挥手 
 
-![img](https://img.gyxnb.top/img/clip_image1060.jpg)
+![img](https://image.201068.xyz/assets/clip_image1060.jpg)
 
  
 
 【5】UDP协议：不可靠的 
 
-![img](https://img.gyxnb.top/img/clip_image1062.jpg)
+![img](https://image.201068.xyz/assets/clip_image1062.jpg)
 
  
 
@@ -19590,7 +19590,7 @@ void **signalAll**()
 
 ## 网络通信原理--套接字
 
-![img](https://img.gyxnb.top/img/clip_image1064.jpg)
+![img](https://image.201068.xyz/assets/clip_image1064.jpg)
 
  
 
@@ -19603,7 +19603,7 @@ void **signalAll**()
 加密方式：DES
 ```
 
- ![123456kl;'](https://img.gyxnb.top/img005/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-03%20022555.png?imgslim)
+ ![123456kl;'](https://image.201068.xyz/assets/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-03%20022555.png?imgslim)
 
 #### 功能分解1：单向通信
 
@@ -19669,7 +19669,7 @@ void **signalAll**()
 
 侧面验证：先开客户端：出错：
 
-![img](https://img.gyxnb.top/img/clip_image1066.jpg)
+![img](https://image.201068.xyz/assets/clip_image1066.jpg)
 
 ####  
 
@@ -20136,7 +20136,7 @@ void **signalAll**()
 
 在当前代码中，客户端不用动了
 
-![img](https://img.gyxnb.top/img/clip_image1068.jpg)
+![img](https://image.201068.xyz/assets/clip_image1068.jpg)
 
  
 
@@ -20774,7 +20774,7 @@ UDP案例： 完成网站的咨询聊天
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1070.jpg)
+![img](https://image.201068.xyz/assets/clip_image1070.jpg)
 
  
 
@@ -20874,7 +20874,7 @@ UDP案例： 完成网站的咨询聊天
 
 【5】导入Junit的依赖的环境： 
 
-![img](https://img.gyxnb.top/img/clip_image1072.jpg)
+![img](https://image.201068.xyz/assets/clip_image1072.jpg)
 
 【6】代码： 
 
@@ -20959,7 +20959,7 @@ UDP案例： 完成网站的咨询聊天
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1074.jpg)
+![img](https://image.201068.xyz/assets/clip_image1074.jpg)
 
  
 
@@ -21107,7 +21107,7 @@ Annotation 可以像修饰符一样被使用，可用于修饰包，类，构造
 
 javadoc 工具软件识别以下标签： 
 
-![img](https://img.gyxnb.top/img/clip_image1076.jpg)
+![img](https://image.201068.xyz/assets/clip_image1076.jpg)
 
  
 
@@ -21171,15 +21171,15 @@ javadoc 工具软件识别以下标签：
 
 IDEA中的javadoc使用： 
 
-![img](https://img.gyxnb.top/img/clip_image1078.jpg)
+![img](https://image.201068.xyz/assets/clip_image1078.jpg)
 
 防止乱码： 
 
-![img](https://img.gyxnb.top/img/clip_image1080.jpg)
+![img](https://image.201068.xyz/assets/clip_image1080.jpg)
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1082.jpg)
+![img](https://image.201068.xyz/assets/clip_image1082.jpg)
 
  
 
@@ -21215,7 +21215,7 @@ IDEA中的javadoc使用：
 17.}
 ```
 
-![img](https://img.gyxnb.top/img/clip_image1084.jpg)
+![img](https://image.201068.xyz/assets/clip_image1084.jpg)
 
 @SuppressWarnings:抑制编译器警告 
 
@@ -21264,9 +21264,9 @@ IDEA中的javadoc使用：
 
  
 
-![img](https://img.gyxnb.top/img/clip_image1086.jpg)
+![img](https://image.201068.xyz/assets/clip_image1086.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image1088.jpg)
+![img](https://image.201068.xyz/assets/clip_image1088.jpg)
 
 发现定义的注解的声明使用的关键字：[@interface](@interface)，跟接口没有一点关系。 
 
@@ -21274,7 +21274,7 @@ IDEA中的javadoc使用：
 
 以[@SuppressWarnings](@SuppressWarnings)为例，发现内部： 
 
-![img](https://img.gyxnb.top/img/clip_image1090.jpg)
+![img](https://image.201068.xyz/assets/clip_image1090.jpg)
 
  
 
@@ -21342,11 +21342,11 @@ PS：注意：如果只有一个成员变量的话，名字尽量叫value。
 
 内部没有定义配置参数的注解--》可以叫做标记 
 
-![img](https://img.gyxnb.top/img/clip_image1092.jpg)
+![img](https://image.201068.xyz/assets/clip_image1092.jpg)
 
 内部定义配置参数的注解--》元数据 
 
-![img](https://img.gyxnb.top/img/clip_image1094.jpg)
+![img](https://image.201068.xyz/assets/clip_image1094.jpg)
 
  
 
@@ -21364,7 +21364,7 @@ PS：注意：如果只有一个成员变量的话，名字尽量叫value。
 
 举例： 
 
-![img](https://img.gyxnb.top/img/clip_image1096.jpg)
+![img](https://image.201068.xyz/assets/clip_image1096.jpg)
 
  
 
@@ -21380,25 +21380,25 @@ JDK5.0提供了四种元注解：Retention, Target, Documented, Inherited
 
 案例： 
 
-![img](https://img.gyxnb.top/img/clip_image1098.jpg)
+![img](https://image.201068.xyz/assets/clip_image1098.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image1100.jpg)
+![img](https://image.201068.xyz/assets/clip_image1100.jpg)
 
 反编译查看字节码文件：发现字节码文件中没有MyAnnotation这个注解： 
 
-![img](https://img.gyxnb.top/img/clip_image1102.jpg)
+![img](https://image.201068.xyz/assets/clip_image1102.jpg)
 
 ➢RetentionPolicy.CLASS:在class文件中有效(即class保留)，保留在.class文件中，但是当运行Java程序时，他就不会继续加载了，不会保留在内存中，JVM不会保留注解。如果注解没有加Retention元注解，那么相当于默认的注解就是这种状态。 
 
 案例： 
 
-![img](https://img.gyxnb.top/img/clip_image1104.jpg)
+![img](https://image.201068.xyz/assets/clip_image1104.jpg)
 
-![img](https://img.gyxnb.top/img/clip_image1106.jpg)
+![img](https://image.201068.xyz/assets/clip_image1106.jpg)
 
 反编译看字节码文件，字节码文件中带有MyAnnotation注解： 
 
-![img](https://img.gyxnb.top/img/clip_image1108.jpg)
+![img](https://image.201068.xyz/assets/clip_image1108.jpg)
 
 ➢RetentionPolicy.RUNTIME:在运行时有效(即运行时保留),当运行 Java程序时，JVM会保留注释，加载在内存中了，那么程序可以通过反射获取该注释。 
 
@@ -21416,7 +21416,7 @@ JDK5.0提供了四种元注解：Retention, Target, Documented, Inherited
 
 使用：
 
-![img](https://img.gyxnb.top/img/clip_image1110.jpg)
+![img](https://image.201068.xyz/assets/clip_image1110.jpg)
 
  
 
@@ -21428,11 +21428,11 @@ JDK5.0提供了四种元注解：Retention, Target, Documented, Inherited
 
 如果：Documented注解修饰了Deprecated注解， 
 
-![img](https://img.gyxnb.top/img/clip_image1112.jpg)
+![img](https://image.201068.xyz/assets/clip_image1112.jpg)
 
 那么Deprecated注解就会在javadoc提取的时候，提取到API中： 
 
-![img](https://img.gyxnb.top/img/clip_image1114.jpg)
+![img](https://image.201068.xyz/assets/clip_image1114.jpg)
 
  
 
@@ -21448,14 +21448,14 @@ JDK5.0提供了四种元注解：Retention, Target, Documented, Inherited
 
 注解：如果MyAnno注解使用了@Inherited之后，就具备了继承性，那么相当于子类Student也使用了这个MyAnno 
 
-![img](https://img.gyxnb.top/img/clip_image1116.jpg)
+![img](https://image.201068.xyz/assets/clip_image1116.jpg)
 
 父类：
- ![img](https://img.gyxnb.top/img/clip_image1118.jpg)
+ ![img](https://image.201068.xyz/assets/clip_image1118.jpg)
 
 子类： 
 
-![img](https://img.gyxnb.top/img/clip_image1120.jpg)
+![img](https://image.201068.xyz/assets/clip_image1120.jpg)
 
  
 
@@ -21555,7 +21555,7 @@ JDK5.0提供了四种元注解：Retention, Target, Documented, Inherited
 
 JDK1.5以后使用enum关键字创建枚举类： 
 
-![img](https://img.gyxnb.top/img/clip_image1122.jpg)
+![img](https://image.201068.xyz/assets/clip_image1122.jpg)
 
 变为下面的枚举类：
 
@@ -21795,7 +21795,7 @@ Thread中的枚举类：State
 
 上面发现所有的枚举对象，调用这个show方法的时候走的都是同一个方法，结果都一样： 
 
-![img](https://img.gyxnb.top/img/clip_image1124.jpg)
+![img](https://image.201068.xyz/assets/clip_image1124.jpg)
 
 但是现在我想要：不同的对象  调用的show方法也不同： 
 
@@ -21853,7 +21853,7 @@ Thread中的枚举类：State
 9.  }
 ```
 
-![img](https://img.gyxnb.top/img/clip_image1126.jpg)
+![img](https://image.201068.xyz/assets/clip_image1126.jpg)
 
  
 
@@ -22179,7 +22179,7 @@ Java的动态性让编程的时候更加灵活!
 
 Class类的理解
 
-![img](https://img.gyxnb.top/img/clip_image1128.jpg)
+![img](https://image.201068.xyz/assets/clip_image1128.jpg)
 
  
 

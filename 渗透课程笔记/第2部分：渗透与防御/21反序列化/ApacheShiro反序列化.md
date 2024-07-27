@@ -36,11 +36,11 @@ shiro-shiro-root-1.2.4\samples\web
 
 ## 登录 
 
-![image-20221127191004831](https://img.gyxnb.top/img/image-20221127191004831.png)
+![image-20221127191004831](https://image.201068.xyz/assets/image-20221127191004831.png)
 
 ## 验证
 
-![image-20221127191018157](https://img.gyxnb.top/img/image-20221127191018157.png)
+![image-20221127191018157](https://image.201068.xyz/assets/image-20221127191018157.png)
 
 # 漏洞环境搭建 
 

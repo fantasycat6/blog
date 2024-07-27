@@ -22,7 +22,7 @@ RSSI：Sta所接收到的信号强度；
 
 MAC地址：搜索到信号源设备的MAC地址；
 
-![image-20211103164030402](https://img.gyxnb.top/img/image-20211103164030402.png)
+![image-20211103164030402](https://image.201068.xyz/assets/image-20211103164030402.png)
 
 ## 2.windows破解wifi密码
 
@@ -113,7 +113,7 @@ netsh wlan show profile name="AIPC_WIFI_5G"  key=clear
 
 #### 4.找到关键内容即为WiFi密码
 
-![image-20211103165252860](https://img.gyxnb.top/img/image-20211103165252860.png)
+![image-20211103165252860](https://image.201068.xyz/assets/image-20211103165252860.png)
 
 #### 5.破解多个密码
 
@@ -143,7 +143,7 @@ netsh wlan export profile folder=D:\wifi\  key=clear
 
 #### 6.找到对应文件查看wifi密码
 
-![image-20211103170115193](https://img.gyxnb.top/img/image-20211103170115193.png)
+![image-20211103170115193](https://image.201068.xyz/assets/image-20211103170115193.png)
 
 ## 3.课程小结
 

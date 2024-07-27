@@ -17,7 +17,7 @@ Cross-Site Request Forgery
 
 # CSRF实现流程
 
-![image-20221121145522952](https://img.gyxnb.top/img/image-20221121145522952.png)
+![image-20221121145522952](https://image.201068.xyz/assets/image-20221121145522952.png)
 
 # CSRF案例分析
 
@@ -45,7 +45,7 @@ Weibo CSRF漏洞（自动关注账号）
 
 ## CSRF与XSS区别
 
-![image-20221121145550382](https://img.gyxnb.top/img/image-20221121145550382.png)
+![image-20221121145550382](https://image.201068.xyz/assets/image-20221121145550382.png)
 
 
 
@@ -90,7 +90,7 @@ Weibo CSRF漏洞（自动关注账号）
 
 ### Burp Suite
 
-![image-20221121164549560](https://img.gyxnb.top/img/image-20221121164549560.png)
+![image-20221121164549560](https://image.201068.xyz/assets/image-20221121164549560.png)
 
 ### CSRF Tester
 

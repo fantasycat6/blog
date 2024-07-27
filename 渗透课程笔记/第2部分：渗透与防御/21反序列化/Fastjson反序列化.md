@@ -80,7 +80,7 @@ com.sun.rowset.JdbcRowSetImpl
 
 这是sun官方提供的一个类库，这个类的dataSourceName支持传入一个rmi的源，当解析这个uri的时候，就会支持rmi远程调用，去指定的rmi地址中去调用方法
 
-![image-20221127194658871](https://img.gyxnb.top/img/image-20221127194658871.png)
+![image-20221127194658871](https://image.201068.xyz/assets/image-20221127194658871.png)
 
  com.sun.org.apache.xalan.internal.xsltc.trax. TemplatesImpl 
 
@@ -108,7 +108,7 @@ RMI+创建文件
 
 4. Kali 用netcat监听端口，建立反弹连接
 
-   ![image-20221127200411600](https://img.gyxnb.top/img/image-20221127200411600.png)
+   ![image-20221127200411600](https://image.201068.xyz/assets/image-20221127200411600.png)
 
 ### vulnhub启动 
 

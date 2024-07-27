@@ -6,7 +6,7 @@
 
 ![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/1762/1648296056045/0441e1bbb16a4097a848d126df6ad17a.png)
 
-![image-20221211213741692](https://img.gyxnb.top/img/image-20221211213741692.png)
+![image-20221211213741692](https://image.201068.xyz/assets/image-20221211213741692.png)
 
 ```
 外网面板地址: http://61.157.69.124:8888/3bcd8840

@@ -70,9 +70,9 @@ wlan0mon：是接口
 
 #### 6.只要有客户端一连上来,就会进行攻击
 
-![image-20211126191930629](https://img.gyxnb.top/img/image-20211126191930629.png)
+![image-20211126191930629](https://image.201068.xyz/assets/image-20211126191930629.png)
 
-![image-20211126191947433](https://img.gyxnb.top/img/image-20211126191947433.png)
+![image-20211126191947433](https://image.201068.xyz/assets/image-20211126191947433.png)
 
 #### 7.启动aircrack-ng从捕获的数据包：Hirte破解WEP密钥
 
@@ -82,9 +82,9 @@ aircrack-ng HSEK-01.cap
 
 破解密码是有要求的,第一次ivs必须要大于5000,当小于这个数的话,就会提示
 
-![image-20211126192040363](https://img.gyxnb.top/img/image-20211126192040363.png)
+![image-20211126192040363](https://image.201068.xyz/assets/image-20211126192040363.png)
 
-![image-20211126192054536](https://img.gyxnb.top/img/image-20211126192054536.png)
+![image-20211126192054536](https://image.201068.xyz/assets/image-20211126192054536.png)
 
 ## 4.渗透姿势2
 
@@ -108,7 +108,7 @@ ping -t 192.168.1.1
 
 #### 4.获得密钥
 
-![image-20211126192808198](https://img.gyxnb.top/img/image-20211126192808198.png)
+![image-20211126192808198](https://image.201068.xyz/assets/image-20211126192808198.png)
 
 ## 5.课堂小结
 

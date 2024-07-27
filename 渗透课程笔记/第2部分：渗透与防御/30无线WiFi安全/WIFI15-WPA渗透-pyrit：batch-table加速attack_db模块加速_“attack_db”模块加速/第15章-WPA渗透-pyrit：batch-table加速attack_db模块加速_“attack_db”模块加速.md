@@ -23,7 +23,7 @@ delete_essid：从数据库中删除一个ESSID
 pyrit -e cisco-1809 create_essid
 ```
 
-![image.png](https://img.gyxnb.top/img/290bdf72849448e69d448042809d99f1.png)
+![image.png](https://image.201068.xyz/assets/290bdf72849448e69d448042809d99f1.png)
 
 3.批处理数据库,速度比较慢，耐心等待
 
@@ -32,7 +32,7 @@ pyrit batch
 batch：批处理数据库
 ```
 
-![image.png](https://img.gyxnb.top/img/a3a6aeea675d496a9c14dc1a68b3cb3c.png)
+![image.png](https://image.201068.xyz/assets/a3a6aeea675d496a9c14dc1a68b3cb3c.png)
 
 4.batch-table(批处理数据库)加速渗透wifi
 
@@ -44,7 +44,7 @@ attack_batch：攻击从数据库的PMKs/密码握手
 pyrit -e cisco-1809 -r wpa-1-01.cap attack_batch
 ```
 
-![image.png](https://img.gyxnb.top/img/d7deff080cfa46d3a7b77106d1949108.png)
+![image.png](https://image.201068.xyz/assets/d7deff080cfa46d3a7b77106d1949108.png)
 
 5.attack_db 加速渗透wifi
 
@@ -56,7 +56,7 @@ attack_db：攻击与数据库中的PMK握手
 pyrit -e cisco-1809 -r wpa-1-01.cap attack_db
 ```
 
-![image.png](https://img.gyxnb.top/img/7327ae375337438abb00e7aa60142233.png)
+![image.png](https://image.201068.xyz/assets/7327ae375337438abb00e7aa60142233.png)
 
 6.batch-table和hash-table对比
 

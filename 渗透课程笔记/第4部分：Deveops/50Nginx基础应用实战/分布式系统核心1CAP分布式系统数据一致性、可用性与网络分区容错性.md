@@ -32,19 +32,19 @@ G1，G2为数据节点，同时存储了键值对 key=v:value=0
 
 :o: 上图：**向G1 写入数据** 
 
-![img](https://img.gyxnb.top/img/cap8.svg)![img](https://img.gyxnb.top/img/cap9.svg)
+![img](https://image.201068.xyz/assets/cap8.svg)![img](https://image.201068.xyz/assets/cap9.svg)
 
 :o: 上图：数据写入完成，G1->v:1，写入完成后，在向G1读取数据的时候就会得到v:1，此时是一致性
 
 
 
-![img](https://img.gyxnb.top/img/cap10.svg  )![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap11.svg)
+![img](https://image.201068.xyz/assets/cap10.svg  )![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap11.svg)
 
 :o: 上图：那么此时如果向G2发起读请求的话，因为数据没有同步，就会得到v:0,此时数据不一致
 
 
 
-![img](https://img.gyxnb.top/img/cap12.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap13.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap14.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap15.svg)
+![img](https://image.201068.xyz/assets/cap12.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap13.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap14.svg)![img](https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/assets/cap15.svg)
 
 
 
@@ -52,7 +52,7 @@ G1，G2为数据节点，同时存储了键值对 key=v:value=0
 
 
 
-![img](https://img.gyxnb.top/img/cap16.svg)![img](https://img.gyxnb.top/img/cap17.svg)![img](https://img.gyxnb.top/img/cap18.svg)![img](https://img.gyxnb.top/img/cap19.svg):o: 上图：如果流程变成这样的
+![img](https://image.201068.xyz/assets/cap16.svg)![img](https://image.201068.xyz/assets/cap17.svg)![img](https://image.201068.xyz/assets/cap18.svg)![img](https://image.201068.xyz/assets/cap19.svg):o: 上图：如果流程变成这样的
 
 - 写入G1
 - G1向G2同步数据
@@ -86,13 +86,13 @@ A/P
 
 ##### 饥渴式
 
-![1570811505077](https://img.gyxnb.top/img/1570811442275.png)
+![1570811505077](https://image.201068.xyz/assets/1570811442275.png)
 
 
 
 ##### **懒汉式**
 
-![1570811535035](https://img.gyxnb.top/img/1570811535035.png)
+![1570811535035](https://image.201068.xyz/assets/1570811535035.png)
 
 
 
@@ -152,7 +152,7 @@ CAP中的一致性
 
 **Partition tolerance** -> 分区容错性
 
-<img src="https://img.gyxnb.top/img/cap1.svg" alt="img" style="zoom:150%;" />
+<img src="https://image.201068.xyz/assets/cap1.svg" alt="img" style="zoom:150%;" />
 
 
 

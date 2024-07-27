@@ -8,7 +8,7 @@
 
 其实无线加密主要是对数据在链路层进行加密，如下图，802.11主要是对physical[ˈfɪzɪkl]和Data-link层进行了定义，而数据链路层又分成两个部分，媒介访问控制（MAC）和逻辑链路控制（LLC），无线数据的加密处理就是在MAC和LLC两个阶段中间做的事情，加密的对象就是MSDU。
 
-![image-20211111163427229](https://img.gyxnb.top/img/image-20211111163427229.png)
+![image-20211111163427229](https://image.201068.xyz/assets/image-20211111163427229.png)
 
 所以对于没有MSDP的无线帧是不用加密的，比如管理帧只携带layer [ler] 2的信息，不需要加密；控制帧只有头部和尾部，不需要加密；空帧没有数据域（但有特定的功能），也不需要加密； 总之，需要加密的帧，往往是数据帧。
 
@@ -20,13 +20,13 @@
 
 这种认证方式不需要确认STA的任何信息，它只是和AP进行一个招呼式的交互，这个过程中并没有交互身份信息，所以也可以认为是一个空加密。这样做的目的是，双方都认为应该在后面使用更安全的加密方式，在这里只是先打个招呼，STA先进来，我们慢慢坐下核对信息。所以STA发送的第一个Authentication [ɔːˌθentɪˈkeɪʃn] 报文只要表面自己使用的开放系统认证就好了，AP自然会给予successful答复，接着后面顺利完成关联。
 
-![image-20211111163604849](https://img.gyxnb.top/img/image-20211111163604849.png)
+![image-20211111163604849](https://image.201068.xyz/assets/image-20211111163604849.png)
 
 ### 2.共享秘钥认证
 
 这种认证方式使用WEP认证STA，所以这种认证的前提是STA和AP都有配置静态的WEP秘钥，因此认证的目的就是确认两者使用的秘钥是否一致。共享秘钥认证是通过4个认证帧的交互来完成的，STA首先发送一个Authentication request给AP，然后AP会给STA回复一个挑战**明文**，接着STA使用秘钥对这个明文进行加密并发送给ＡＰ，最后AP对其进行解密，如果能够解密成功并且明文一致则表示认证成功并回复。
 
-![image-20211111163651921](https://img.gyxnb.top/img/image-20211111163651921.png)
+![image-20211111163651921](https://image.201068.xyz/assets/image-20211111163651921.png)
 
 虽然看起来，共享秘钥认证比开放系统认证会更安全，其实实际上并不是这样，因为对于共享秘钥认证，攻击者可以捕获明文内容，也可以捕获加密后的密文，那就很容易被破解，而且秘钥一旦被破解，那么后面交互的所有数据包都能轻易的解密。
 
@@ -48,7 +48,7 @@ WEP是一个Layer 2的加密方法，它使用的是ARC4**流加密**。它有�
 
 802.11标准定义了两个WEP版本，分别是WEP-40和WEP-104支持64bit和128bit加密，其实**40和104都是从64与128减24**得来的，这**24位叫初始化向量Initialization Vector (IV)**，注意和ICV进行区分。
 
-![image-20211111164258351](https://img.gyxnb.top/img/image-20211111164258351.png)
+![image-20211111164258351](https://image.201068.xyz/assets/image-20211111164258351.png)
 
 40和104则是指静态秘钥的bit长度，也就是说
 
@@ -58,13 +58,13 @@ WEP-104支持输入26 hex characters or 13 ASCII characters:**26位16进制或13
 
 
 
-![image-20211111164336784](https://img.gyxnb.top/img/image-20211111164336784.png)
+![image-20211111164336784](https://image.201068.xyz/assets/image-20211111164336784.png)
 
 一般来说，WEP支持4个key，使用时从中选一个进行加密。
 
 那么WEP加密过程是怎么实现的呢？下面根据流程图来分析一下
 
-![image-20211111164636938](https://img.gyxnb.top/img/image-20211111164636938.png)
+![image-20211111164636938](https://image.201068.xyz/assets/image-20211111164636938.png)
 
 （1） IV是动态生成的24bit随机数，标准没有指定应该怎么生成，而且在数据帧中以明文的方式进行发送，它和key结合生成随机种子（seed），然后运用CR4算法生成秘钥流（keystream）。
 
@@ -76,7 +76,7 @@ WEP-104支持输入26 hex characters or 13 ASCII characters:**26位16进制或13
 
 下面是WEP加密后的一个数据帧MPDU 格式：
 
-![image-20211111164847496](https://img.gyxnb.top/img/image-20211111164847496.png)
+![image-20211111164847496](https://image.201068.xyz/assets/image-20211111164847496.png)
 
 从上图可以看出，在帧体部分包括 **IV + MSDU + ICV**：
 
@@ -88,7 +88,7 @@ MSDU和ICV是被加密的，在解密的时候，需要检验ICV是否一致
 
 和加密相反，解密也需要这几个过程：
 
-![image-20211111164823217](https://img.gyxnb.top/img/image-20211111164823217.png)
+![image-20211111164823217](https://image.201068.xyz/assets/image-20211111164823217.png)
 
 （1）IV和key结合生成随机种子（seed），然后运用ACR4算法生成秘钥流（keystream）
 
@@ -231,15 +231,15 @@ aireplay-ng -5 -b <ap mac> -h <my mac> wifi0
 
 1.选择无线配置，设置wifi信道为1
 
-![image-20211117100857932](https://img.gyxnb.top/img/image-20211117100857932.png)
+![image-20211117100857932](https://image.201068.xyz/assets/image-20211117100857932.png)
 
 2.选择无线wifi--设置安全模式
 
-![image-20211117100542595](https://img.gyxnb.top/img/image-20211117100542595.png)
+![image-20211117100542595](https://image.201068.xyz/assets/image-20211117100542595.png)
 
 3.安全模式选择wep，输入口令-点击生成密钥，点击显示密钥，点击保存
 
-![image-20211117100714891](https://img.gyxnb.top/img/image-20211117100714891.png)
+![image-20211117100714891](https://image.201068.xyz/assets/image-20211117100714891.png)
 
 
 
@@ -292,7 +292,7 @@ aireplay-ng -3 -b D8:24:BD:79:18:0B -h 18:CC:18:C5:D5:64 wlan0mon
 
 遇到这个错误时，重新连接wifi会一直报【无法连接到该wifi】，这时候，需要ctrl+C停掉arp重放攻击，然后重新在发起一个新的arp重放攻击，在连接wifi就ok了
 
-![image-20211117110615154](https://img.gyxnb.top/img/image-20211117110615154.png)
+![image-20211117110615154](https://image.201068.xyz/assets/image-20211117110615154.png)
 
 ### 8.使用Deautenticate攻击模式
 
@@ -309,7 +309,7 @@ aireplay-ng -0 5 -a D8:24:BD:79:18:0B -c 18:CC:18:C5:D5:64 wlan0mon
 
 等待Frame到5-10万时，就可以尝试破解了
 
-![image-20211116164029929](https://img.gyxnb.top/img/image-20211116164029929.png)
+![image-20211116164029929](https://image.201068.xyz/assets/image-20211116164029929.png)
 
 ### 10.破解WIFI，获取WEP密码
 
@@ -321,11 +321,11 @@ aircrack-ng /root/wifi/bk01/WEP-01.ivs
 
 
 
-![image-20211117105203267](https://img.gyxnb.top/img/image-20211117105203267.png)
+![image-20211117105203267](https://image.201068.xyz/assets/image-20211117105203267.png)
 
 ivs样本足够时，很快就能破解出来了
 
-![image-20211116165048843](https://img.gyxnb.top/img/image-20211116165048843.png)
+![image-20211116165048843](https://image.201068.xyz/assets/image-20211116165048843.png)
 
 ## 8.课程小结
 

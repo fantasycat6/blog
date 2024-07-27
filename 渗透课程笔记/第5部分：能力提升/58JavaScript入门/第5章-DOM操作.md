@@ -22,7 +22,7 @@ DOM其实就是JS语言中内置引用类型document对象，DOM对象经常用�
 
 比如：操作节点样式、属性、文本等等。
 
-![img](https://img.gyxnb.top/img001/clip_image002-16900389555941.jpg)
+![img](https://image.201068.xyz/assets/clip_image002-16900389555941.jpg)
 
 <script type="text/javascript">
 
@@ -102,7 +102,7 @@ l 注意：标签（节点）在JS当中属于引用类型数据。
 
 # 一、事件对象
 
-![img](https://img.gyxnb.top/img001/clip_image002-16900389774263.jpg)
+![img](https://image.201068.xyz/assets/clip_image002-16900389774263.jpg)
 
 概述:任意节点树上的节点（标签），都可以绑定一个或者多个事件。当用户触发事件的时候，系统会自动给事件处理函数传递实参，而这个参数即为事件对象（事件对象给我们传递很多信息）。
 
@@ -140,7 +140,7 @@ l 在不同浏览器中事件对象是有兼容问题。使用短路语句进行
 
 概述：他们两者是事件对象属性，主要可以获取鼠标位置。获取鼠标位置零零点在电脑屏幕左上角。
 
-![img](https://img.gyxnb.top/img001/clip_image004-16900389774264.jpg)
+![img](https://image.201068.xyz/assets/clip_image004-16900389774264.jpg)
 
 <script type="text/javascript">
 
@@ -166,7 +166,7 @@ l 在不同浏览器中事件对象是有兼容问题。使用短路语句进行
 
 概述：他们两者也是事件对象属性，主要作用也是获取鼠标位置。是网页主题部分左上角为零零点。
 
-![img](https://img.gyxnb.top/img001/clip_image006-16900389774265.jpg)
+![img](https://image.201068.xyz/assets/clip_image006-16900389774265.jpg)
 
 <script type="text/javascript">
 
@@ -194,7 +194,7 @@ l 在不同浏览器中事件对象是有兼容问题。使用短路语句进行
 
 概述:他们两者也是事件对象属性，主要作用是获取鼠标位置。但是他的零零点是按照可视区域左上角为零零点。
 
-![img](https://img.gyxnb.top/img001/clip_image008-16900389774266.jpg)
+![img](https://image.201068.xyz/assets/clip_image008-16900389774266.jpg)
 
 ### 1.1.4offsetX||offsetY
 
@@ -202,7 +202,7 @@ l 在不同浏览器中事件对象是有兼容问题。使用短路语句进行
 
 获取数据类似pageX||pageY。但是这个获取数据零零点，会收到子元素坐标体系影响。
 
-![img](https://img.gyxnb.top/img001/clip_image010-16900389774267.jpg)
+![img](https://image.201068.xyz/assets/clip_image010-16900389774267.jpg)
 
 <script type="text/javascript">
 
@@ -232,7 +232,7 @@ l 在不同浏览器中事件对象是有兼容问题。使用短路语句进行
 
 ## 1.2原生JS实现拖拽效果
 
-![img](https://img.gyxnb.top/img001/clip_image012-16900389774278.jpg)
+![img](https://image.201068.xyz/assets/clip_image012-16900389774278.jpg)
 
 概述:在前端领域当中拖拽是一个非常常见效果。拖拽三板斧鼠标按下=>鼠标移动=>鼠标抬起。
 

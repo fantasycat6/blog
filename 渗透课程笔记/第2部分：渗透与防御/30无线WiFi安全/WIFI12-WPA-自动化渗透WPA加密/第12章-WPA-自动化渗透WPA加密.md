@@ -19,11 +19,11 @@ wifite --dict /root/wifi/passwd.txt
 ctrl+c
 ```
 
-![image-20211215151002895](https://img.gyxnb.top/img/image-20211215151002895.png)
+![image-20211215151002895](https://image.201068.xyz/assets/image-20211215151002895.png)
 
 ## 4.选择WiFi序号开始扫描
 
-![image-20211215151021987](https://img.gyxnb.top/img/image-20211215151021987.png)
+![image-20211215151021987](https://image.201068.xyz/assets/image-20211215151021987.png)
 
 ## 5.指定密码大字典破解
 

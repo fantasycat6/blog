@@ -14,7 +14,7 @@ airolib-ng [数据库名] --import essid [一个或者多个ssid的文件]
 airolib-ng RINBOW1 --import essid wifi.txt
 ```
 
-![image-20230419144927041](https://img.gyxnb.top/img/image-20230419144927041.png)
+![image-20230419144927041](https://image.201068.xyz/assets/image-20230419144927041.png)
 
 ### 2.将字典导入数据库
 
