@@ -84,7 +84,7 @@ Green项目。
 
    所有就要求有这样的一种代码： 代码短小、紧凑且与平台无关。但是，Sun公司的人都有UNIX的应用背景。因此，所开发的语言以C++为基础。 是Gosling率先创造了这个语言，把这种语言称为“Oak"(这么起名的原因大概是因为他非常喜欢自己办公室外的橡树)。Sun 公司的人后来发现Oak是一种已有的计算机语言的名字，于是，将其改名为Java。 
 
-![img](https://image.201068.xyz/assets/clip_image012.jpg)      ![img](https://image.2010/assets/clip_image012.jpg)
+![img](https://image.201068.xyz/assets/clip_image012.jpg)     
 
 ​      
 
@@ -22683,6 +22683,4 @@ Class类的具体的实例：
 
 【1】问题1：创建Person的对象，以后用new Person()创建,还是用反射创建？ 
 
-【2】问题2：反射是否破坏了面向对象的封装性？ 
-
-###  
+【2】问题2：反射是否破坏了面向对象的封装性？  
